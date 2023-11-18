@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head class = 'header'>
+
+    <meta charset="UTF-8">
+    <title>NHL Shift Charts</title>
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  </script>
+
+  </head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <body>
+    
+    <header style="height: 100px;">
+      <h1 style="text-align:center" id = 'top5D'>Game Stats Inspired by Tatiana </h1>
+      <h2 style="text-align:center; margin-left:160px"> Future analysis of NHL forward lines and defensive pairs</h2>
+    </header>
+    
+    <div style = "background-image: url('./assets/background.jpg');" class="main">
+
+      <p>Date: <input type="text" id="datepicker" onchange = 'getInputValue();'></p>
+      
+      <div id = 'schedule'></div>  
+
+    </div>
+
+    <table>
+      <tr>
+        <td id = 'firstDNumber'></td>
+        <td id = 'firstD1'></td>
+        <td id = 'firstD2'></td>
+        <td id = 'firstD3'></td>
+        <td id = 'firstD4'></td>
+        <td id = 'firstD5'></td>
+        <td id = 'firstD6'></td>
+        <td id = 'firstD7'></td>
+      </tr>
+      <tr>
+        <td id = 'secondDNumber'></td>
+        <td id = 'secondD1'></td>
+        <td id = 'secondD2'></td>
+        <td id = 'secondD3'></td>
+        <td id = 'secondD4'></td>
+        <td id = 'secondD5'></td>
+        <td id = 'secondD6'></td>
+        <td id = 'secondD7'></td>
+      </tr>
+      <tr>
+        <td id = 'thirdDNumber'></td>
+        <td id = 'thirdD1'></td>
+        <td id = 'thirdD2'></td>
+        <td id = 'thirdD3'></td>
+        <td id = 'thirdD4'></td>
+        <td id = 'thirdD5'></td>
+        <td id = 'thirdD6'></td>
+        <td id = 'thirdD7'></td>
+      </tr>
+      <tr>
+        <td id = 'forthDNumber'></td>
+        <td id = 'forthD1'></td>
+        <td id = 'forthD2'></td>
+        <td id = 'forthD3'></td>
+        <td id = 'forthD4'></td>
+        <td id = 'forthD5'></td>
+        <td id = 'forthD6'></td>
+        <td id = 'forthD7'></td>
+      </tr>
+      <tr>
+        <td id = 'fifthDNumber'></td>
+        <td id = 'fifthD1'></td>
+        <td id = 'fifthD2'></td>
+        <td id = 'fifthD3'></td>
+        <td id = 'fifthD4'></td>
+        <td id = 'fifthD5'></td>
+        <td id = 'fifthD6'></td>
+        <td id = 'fifthD7'></td>
+      </tr>
+      <tr>
+        <td id = 'sixthDNumber'></td>
+        <td id = 'sixthD1'></td>
+        <td id = 'sixthD2'></td>
+        <td id = 'sixthD3'></td>
+        <td id = 'sixthD4'></td>
+        <td id = 'sixthD5'></td>
+        <td id = 'sixthD6'></td>
+        <td id = 'sixthD7'></td>
+      </tr>
+      <tr>
+        <td id = 'seventhDNumber'></td>
+        <td id = 'seventhD1'></td>
+        <td id = 'seventhD2'></td>
+        <td id = 'seventhD3'></td>
+        <td id = 'seventhD4'></td>
+        <td id = 'seventhD5'></td>
+        <td id = 'seventhD6'></td>
+        <td id = 'seventhD7'></td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <!--<th>Number, Shoots, Name</th> in case i need column names later-->
+      </tr>
+      <tr>
+        <td id = 'firstDNumberA'></td>
+        <td id = 'firstD1A'></td>
+        <td id = 'firstD2A'></td>
+        <td id = 'firstD3A'></td>
+        <td id = 'firstD4A'></td>
+        <td id = 'firstD5A'></td>
+        <td id = 'firstD6A'></td>
+        <td id = 'firstD7A'></td>
+      </tr>
+      <tr>
+        <td id = 'secondDNumberA'></td>
+        <td id = 'secondD1A'></td>
+        <td id = 'secondD2A'></td>
+        <td id = 'secondD3A'></td>
+        <td id = 'secondD4A'></td>
+        <td id = 'secondD5A'></td>
+        <td id = 'secondD6A'></td>
+        <td id = 'secondD7A'></td>
+      </tr>
+      <tr>
+        <td id = 'thirdDNumberA'></td>
+        <td id = 'thirdD1A'></td>
+        <td id = 'thirdD2A'></td>
+        <td id = 'thirdD3A'></td>
+        <td id = 'thirdD4A'></td>
+        <td id = 'thirdD5A'></td>
+        <td id = 'thirdD6A'></td>
+        <td id = 'thirdD7A'></td>
+      </tr>
+      <tr>
+        <td id = 'forthDNumberA'></td>
+        <td id = 'forthD1A'></td>
+        <td id = 'forthD2A'></td>
+        <td id = 'forthD3A'></td>
+        <td id = 'forthD4A'></td>
+        <td id = 'forthD5A'></td>
+        <td id = 'forthD6A'></td>
+        <td id = 'forthD7A'></td>
+      </tr>
+      <tr>
+        <td id = 'fifthDNumberA'></td>
+        <td id = 'fifthD1A'></td>
+        <td id = 'fifthD2A'></td>
+        <td id = 'fifthD3A'></td>
+        <td id = 'fifthD4A'></td>
+        <td id = 'fifthD5A'></td>
+        <td id = 'fifthD6A'></td>
+        <td id = 'fifthD7A'></td>
+      </tr>
+      <tr>
+        <td id = 'sixthDNumberA'></td>
+        <td id = 'sixthD1A'></td>
+        <td id = 'sixthD2A'></td>
+        <td id = 'sixthD3A'></td>
+        <td id = 'sixthD4A'></td>
+        <td id = 'sixthD5A'></td>
+        <td id = 'sixthD6A'></td>
+        <td id = 'sixthD7A'></td>
+      </tr>
+      <tr>
+        <td id = 'seventhDNumberA'></td>
+        <td id = 'seventhD1A'></td>
+        <td id = 'seventhD2A'></td>
+        <td id = 'seventhD3A'></td>
+        <td id = 'seventhD4A'></td>
+        <td id = 'seventhD5A'></td>
+        <td id = 'seventhD6A'></td>
+        <td id = 'seventhD7A'></td>
+      </tr>
+    </table>
+    <section id = 'forwardLines', style = 'width: 100%;'>
+      <table>
+       
+        <tr>
+          <td id = 'firstLine'></td>
+          <td id = 'firstLineTime'></td>
+          <td id = 'firstLineTime2'></td>
+        </tr>
+        <tr>
+          <td id = 'secondLine'></td>
+          <td id = 'secondLineTime'></td>
+          <td id = 'secondLineTime2'></td>
+        </tr>
+        <tr>
+          <td id = 'thirdLine'></td>
+          <td id = 'thirdLineTime'></td>
+          <td id = 'thirdLineTime2'></td>
+        </tr>
+        <tr>
+          <td id = 'fourthLine'></td>
+          <td id = 'fourthLineTime'></td>
+          <td id = 'fourthLineTime2'></td>
+        </tr>
+      </table>
+
+      <table style = 'float: right'>
+       
+        <tr>
+          <td id = 'firstLineAway'></td>
+          <td id = 'firstLineTimeAway'></td>
+          <td id = 'firstLineTime2Away'></td>
+        </tr>
+        <tr>
+          <td id = 'secondLineAway'></td>
+          <td id = 'secondLineTimeAway'></td>
+          <td id = 'secondLineTime2Away'></td>
+        </tr>
+        <tr>
+          <td id = 'thirdLineAway'></td>
+          <td id = 'thirdLineTimeAway'></td>
+          <td id = 'thirdLineTime2Away'></td>
+        </tr>
+        <tr>
+          <td id = 'fourthLineAway'></td>
+          <td id = 'fourthLineTimeAway'></td>
+          <td id = 'fourthLineTime2Away'></td>
+        </tr>
+      </table>
+    </section>
+
+  </section>
+  <div>
+    <button class = 'yearEntry' style = "background-image: url('./assets/Stars-logo.png');" onclick ="window.location.href = './assets/index_SVG.html';">Click here</button>
+  </div><br>
+
+    <script src = "./assets/script.js"></script>
+  </body>
+
+</html>

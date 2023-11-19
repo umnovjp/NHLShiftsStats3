@@ -22,8 +22,7 @@ function getInputValue() {
         gameName.innerHTML = 'Game ' + i + ': ' + data.gameWeek[0].games[i].awayTeam.abbrev + ' vs ' + data.gameWeek[0].games[i].homeTeam.abbrev;
         document.getElementById('schedule').appendChild(gameName); gameName.addEventListener('click', displayGameData);
       }
-      //  + data.gameWeek[0].games[i].teams.away.leagueRecord.wins + 'W ' + data.dates[0].games[i].teams.away.leagueRecord.losses + 'L ' + data.dates[0].games[i].teams.away.leagueRecord.ot + 
-
+      
       function displayGameData(event) {
         idx = event.currentTarget; idxString = event.currentTarget.textContent; 
         idxArray = idxString.split(':'); idxNumber = idxArray[0].split(' ');
@@ -42,6 +41,19 @@ function getInputValue() {
             // gameInfoHome.setAttribute('id', 'gameInfoHome'); document.getElementById('schedule').appendChild(gameInfoHome);
             // const gameInfoAway = document.createElement('section'); gameInfoAway.setAttribute('id', 'gameInfoAway');
             // document.getElementById('schedule').appendChild(gameInfoAway);
+            var standingsURL = 'https://cors-anywhere.herokuapp.com/https://api-web.nhle.com/v1/standings/' + formatted;
+        fetch(standingsURL, { "method": "GET", "headers": { }
+        })
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data_standings) { 
+            console.log(data_standings.standings);
+            for (i=0; i < data_standings.standings.length; i++) {//console.log(data_standings.standings[i].teamAbbrev.default, data.awayTeam.abbrev, data.homeTeam.abbrev)
+              if (data_standings.standings[i].teamAbbrev.default === data.awayTeam.abbrev) {console.log(data.awayTeam.abbrev, data_standings.standings[i].wins, data_standings.standings[i].losses, data_standings.standings[i].otLosses)}
+          else if (data_standings.standings[i].teamAbbrev.default === data.homeTeam.abbrev) {console.log(data.homeTeam.abbrev, data_standings.standings[i].wins, data_standings.standings[i].losses, data_standings.standings[i].otLosses)}
+        }
+          });
             var gameTitle = document.createElement('h2'); gameTitle.textContent = '';
             gameTitle.innerHTML = 'You are watching stats for ' + data.awayTeam.abbrev + ' at ' + data.homeTeam.abbrev + ' game';
             document.getElementById('gameInfo').appendChild(gameTitle);

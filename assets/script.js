@@ -62,34 +62,39 @@ function getInputValue() {
             var gameTitle = document.createElement('h2'); gameTitle.textContent = '';
             gameTitle.innerHTML = 'You are watching stats for ' + data.awayTeam.abbrev + standingsArray[0] + ' W ' + standingsArray[1] + ' L ' + standingsArray[2] + ' O at ' + data.homeTeam.abbrev + standingsArray[3] + ' W ' + standingsArray[4] + ' L ' + standingsArray[5] + ' O game';
             document.getElementById('gameInfo').appendChild(gameTitle);
-            const homeF = []; const awayF = []; const homeD = []; const awayD = []; const homeG = []; const awayG = []; 
+            const homeF = []; const awayF = []; const homeD = []; const awayD = []; const homeG = []; const awayG = []; const playerIdArray = [];
             console.log(data.boxscore.playerByGameStats.awayTeam.forwards, data.boxscore.playerByGameStats.awayTeam.defense, data.boxscore.playerByGameStats.awayTeam.goalies, data.boxscore.playerByGameStats.homeTeam.forwards, data.boxscore.playerByGameStats.awayTeam.defense, data.boxscore.playerByGameStats.awayTeam.goalies);
             var obj = data.boxscore.playerByGameStats.homeTeam.forwards; var keys = Object.keys(obj);
-            for (i = 0; i < keys.length; i++) { var val = obj[keys[i]]; homeF.push(val.playerId, val.sweaterNumber, val.name.default) }
+            for (i = 0; i < keys.length; i++) { var val = obj[keys[i]]; homeF.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[],[],[]]) }
             var obj = data.boxscore.playerByGameStats.homeTeam.defense; var keys = Object.keys(obj);
-            for (i = 0; i < keys.length; i++) { var val = obj[keys[i]]; homeD.push(val.playerId, val.sweaterNumber, val.name.default) }
+            for (i = 0; i < keys.length; i++) { var val = obj[keys[i]]; homeD.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[],[],[]]) }
             var obj = data.boxscore.playerByGameStats.homeTeam.goalies; var keys = Object.keys(obj);
-            for (i = 0; i < keys.length; i++) { var val = obj[keys[i]]; homeG.push(val.playerId, val.sweaterNumber, val.name.default) }
+            for (i = 0; i < keys.length; i++) { var val = obj[keys[i]]; homeG.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[],[],[]]) }
             var obj = data.boxscore.playerByGameStats.awayTeam.forwards; var keys = Object.keys(obj);
-            for (i = 0; i < keys.length; i++) { var val = obj[keys[i]]; awayF.push(val.playerId, val.sweaterNumber, val.name.default) }
+            for (i = 0; i < keys.length; i++) { var val = obj[keys[i]]; awayF.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[],[],[]]) }
             var obj = data.boxscore.playerByGameStats.awayTeam.defense; var keys = Object.keys(obj);
-            for (i = 0; i < keys.length; i++) { var val = obj[keys[i]]; awayD.push(val.playerId, val.sweaterNumber, val.name.default) }
+            for (i = 0; i < keys.length; i++) { var val = obj[keys[i]]; awayD.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[],[],[]]) }
             var obj = data.boxscore.playerByGameStats.awayTeam.goalies; var keys = Object.keys(obj);
-            for (i = 0; i < keys.length; i++) { var val = obj[keys[i]]; awayG.push(val.playerId, val.sweaterNumber, val.name.default) }
-            console.log(homeF, homeD, homeG, awayF, awayD, awayF)
+            for (i = 0; i < keys.length; i++) { var val = obj[keys[i]]; awayG.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[],[],[]]) }
+            console.log(homeF, homeD, homeG, awayF, awayD, awayF, playerIdArray)
 
             var shiftsURL = 'https://cors-anywhere.herokuapp.com/https://api.nhle.com/stats/rest/en/shiftcharts?cayenneExp=gameId=' + gameId;
-            fetch(shiftsURL, {
-              "method": "GET", "headers": {}
-            })
+            fetch(shiftsURL, {"method": "GET", "headers": {}})
               .then(function (response) {
                 return response.json();
               })
-              .then(function (data_shifts) {
-                console.log(data_shifts);
-               
+              .then(function (data_shifts) { console.log('I am in second shift then', data_shifts); 
+              for (i = 0; i < data_shifts.data.length; i++) {if ((data_shifts.data[i].typeCode === 517)&&(data_shifts.data[i].period<4)) 
+                {playerOrder = playerIdArray.indexOf(data_shifts.data[i].playerId);
+                // console.log(data_shifts.data[i].playerId, playerOrder);
+                // shiftsArray.push(data_shifts.data[i].startTime);
+                shiftStart = data_shifts.data[i].startTime; shiftStart1 = shiftStart.split(':'); minutes = Number(shiftStart1[0]); 
+                      seconds = Number(shiftStart1[1]); shiftStart2 = minutes * 60 + seconds; 
+                      shiftEnd = data_shifts.data[i].endTime; shiftEnd1 = shiftEnd.split(':'); minutes = Number(shiftEnd1[0]); 
+                      seconds = Number(shiftEnd1[1]); shiftEnd2 = minutes * 60 + seconds; 
+                playerIdArray[playerOrder+1][data_shifts.data[i].period-1].push(shiftStart2, shiftEnd2)}}
+               console.log(playerIdArray)
           }); // end second .then shifts
-
           }); // end second .then standings
           }); // end second .then gamecenter
       } // end displayGameData         

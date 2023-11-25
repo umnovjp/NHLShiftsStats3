@@ -20,7 +20,7 @@ function getInputValue() {
       for (var i = 0; i < numberOfGames; i++) {
         var gameName = document.createElement('button');
         gameName.setAttribute('id', 'game' + i); var idx = gameName.getAttribute('id');
-        gameName.innerHTML = 'Game ' + i + ': ' + data.gameWeek[0].games[i].awayTeam.abbrev + 'W' + 'L' + ' O vs ' + data.gameWeek[0].games[i].homeTeam.abbrev + 'W' + 'L' + 'O';
+        gameName.innerHTML = 'Game ' + i + ': ' + data.gameWeek[0].games[i].awayTeam.abbrev + ' vs ' + data.gameWeek[0].games[i].homeTeam.abbrev;
         document.getElementById('schedule').appendChild(gameName); gameName.addEventListener('click', displayGameData);
       }
 
@@ -62,10 +62,10 @@ function getInputValue() {
             var gameTitle = document.createElement('h2'); gameTitle.textContent = '';
             gameTitle.innerHTML = 'You are watching stats for ' + data.awayTeam.abbrev + standingsArray[0] + ' W ' + standingsArray[1] + ' L ' + standingsArray[2] + ' O at ' + data.homeTeam.abbrev + standingsArray[3] + ' W ' + standingsArray[4] + ' L ' + standingsArray[5] + ' O game';
             document.getElementById('gameInfo').appendChild(gameTitle);
-            const homeF = []; const awayF = []; const homeD = []; const awayD = []; const homeG = []; const awayG = []; const playerIdArray = [];
+            const homeF = []; const awayF = []; const homeD = []; const awayD = []; const homeG = []; const awayG = []; const playerIdArray = []; let playerIdeObject = {a: 1}; const hasKeyId = true;
             console.log(data.boxscore.playerByGameStats.awayTeam.forwards, data.boxscore.playerByGameStats.awayTeam.defense, data.boxscore.playerByGameStats.awayTeam.goalies, data.boxscore.playerByGameStats.homeTeam.forwards, data.boxscore.playerByGameStats.awayTeam.defense, data.boxscore.playerByGameStats.awayTeam.goalies);
             var obj = data.boxscore.playerByGameStats.homeTeam.forwards; var keys = Object.keys(obj);
-            for (i = 0; i < keys.length; i++) { var val = obj[keys[i]]; homeF.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[],[],[]]) }
+            for (i = 0; i < keys.length; i++) { var val = obj[keys[i]]; homeF.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[],[],[]]); let keyId = hasKeyId ? 'keyId': 'ID'; playerIdeObject[val.playerId] = [] }
             var obj = data.boxscore.playerByGameStats.homeTeam.defense; var keys = Object.keys(obj);
             for (i = 0; i < keys.length; i++) { var val = obj[keys[i]]; homeD.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[],[],[]]) }
             var obj = data.boxscore.playerByGameStats.homeTeam.goalies; var keys = Object.keys(obj);
@@ -93,7 +93,7 @@ function getInputValue() {
                       shiftEnd = data_shifts.data[i].endTime; shiftEnd1 = shiftEnd.split(':'); minutes = Number(shiftEnd1[0]); 
                       seconds = Number(shiftEnd1[1]); shiftEnd2 = minutes * 60 + seconds; 
                 playerIdArray[playerOrder+1][data_shifts.data[i].period-1].push(shiftStart2, shiftEnd2)}}
-               console.log(playerIdArray)
+               console.log(playerIdArray, playerIdeObject)
           }); // end second .then shifts
           }); // end second .then standings
           }); // end second .then gamecenter

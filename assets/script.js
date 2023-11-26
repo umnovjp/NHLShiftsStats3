@@ -65,7 +65,9 @@ function getInputValue() {
             const homeF = []; const awayF = []; const homeD = []; const awayD = []; const homeG = []; const awayG = []; const playerIdArray = []; let playerIdeObject = {a: 1}; const hasKeyId = true;
             console.log(data.boxscore.playerByGameStats.awayTeam.forwards, data.boxscore.playerByGameStats.awayTeam.defense, data.boxscore.playerByGameStats.awayTeam.goalies, data.boxscore.playerByGameStats.homeTeam.forwards, data.boxscore.playerByGameStats.awayTeam.defense, data.boxscore.playerByGameStats.awayTeam.goalies);
             var obj = data.boxscore.playerByGameStats.homeTeam.forwards; var keys = Object.keys(obj);
-            for (i = 0; i < keys.length; i++) { var val = obj[keys[i]]; homeF.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[],[],[]]); let keyId = hasKeyId ? 'keyId': 'ID'; playerIdeObject[val.playerId] = [] }
+            for (i = 0; i < keys.length; i++) { var val = obj[keys[i]]; homeF.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[],[],[]]); 
+              keyId = val.playerId; // let keyId = hasKeyId ? 'keyId': 'ID'; 
+            let playerIdeObject = {}; playerIdeObject[keyId] = [0]; }
             var obj = data.boxscore.playerByGameStats.homeTeam.defense; var keys = Object.keys(obj);
             for (i = 0; i < keys.length; i++) { var val = obj[keys[i]]; homeD.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[],[],[]]) }
             var obj = data.boxscore.playerByGameStats.homeTeam.goalies; var keys = Object.keys(obj);

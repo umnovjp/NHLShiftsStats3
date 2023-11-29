@@ -82,7 +82,7 @@ function getInputValue() {
             var obj = data.boxscore.playerByGameStats.awayTeam.goalies; var keys = Object.keys(obj);
             for (i = 0; i < keys.length; i++) { var val = obj[keys[i]]; awayG.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[],[],[]]); 
               keyId = val.playerId; playerIdeObject[keyId] = [] }
-            // console.log(homeF, homeD, homeG, awayF, awayD, awayF, playerIdArray)
+            console.log(homeF, homeD, homeG, awayF, awayD, awayF, playerIdArray)
 
             var shiftsURL = 'https://cors-anywhere.herokuapp.com/https://api.nhle.com/stats/rest/en/shiftcharts?cayenneExp=gameId=' + gameId;
             fetch(shiftsURL, {"method": "GET", "headers": {}})
@@ -101,11 +101,19 @@ function getInputValue() {
             }}
             for (i = 0; i < playerIdArray.length/2; i++) {currentKey = playerIdArray[2*i];
               playerIdeObject[currentKey] = playerIdArray[2*i+1]}
-               console.log(playerIdArray, playerIdeObject)
+               console.log(playerIdArray, playerIdeObject);
+               firstDNumber.innerHTML = homeD[1] + ' ' + homeD[2];
+               firstD1.innerHTML = 'X' + '<br>' + 'X' + '<br>' + 'X';
+               var firstD2 = document.createElement('p3');
+               secondDNumber.innerHTML = homeD[4] + ' ' + homeD[5];
+                // secondD1.innerHTML = pairingsArray4[0][1] + ' shifts ' + pairingsArray4[0][0] + ' sec ' + '<br>' + pairingsArray4[1][1] + ' sh ' + pairingsArray4[1][0] + ' sec ' + '<br>' + pairingsArray4[2][1] + ' sh ' + pairingsArray4[2][0] + ' sec ';
+                secondD2.innerHTML = 'X' + '<br>' + 'X' + '<br>' + 'X';
           }); // end second .then shifts
           }); // end second .then standings
           }); // end second .then gamecenter
-      } // end displayGameData         
+      } // end displayGameData        
+      
+      
 
     } // end second .then from getinputvalue
     );

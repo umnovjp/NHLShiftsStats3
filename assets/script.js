@@ -102,6 +102,28 @@ function getInputValue() {
             for (i = 0; i < playerIdArray.length/2; i++) {currentKey = playerIdArray[2*i];
               playerIdeObject[currentKey] = playerIdArray[2*i+1]}
                console.log(playerIdArray, playerIdeObject);
+               tempDArray = [];
+               for (i = 0; i < playerIdArray.length/2; i++) {for (j = 0; j < homeD.length/3; j++){if (playerIdArray[2*i]===homeD[3*j]){tempDArray.push(playerIdArray[2*i+1])}}}
+               console.log(tempDArray); pairingsArray = [];
+               for (i = 0; i < 3; i++) {for (j = 0; j < tempDArray.length; j++)
+                {for (k = j + 1; k < tempDArray.length; k++) {tempTime = [];
+                  for (l = 0; l < tempDArray[j][i].length/2; l++) {
+                  for (m = 0; m < tempDArray[k][i].length/2; m++)
+                  {if ((tempDArray[k][i][2*m] >= tempDArray[j][i][2*l]) && (tempDArray[k][i][2*m] <= tempDArray[k][i][2*l+1])) {
+                    if (tempDArray[k][i][2*m+1] >= tempDArray[j][i][2*l + 1]) {tempTime.push(tempDArray[j][i][2*l + 1] - tempDArray[k][i][2*m])}
+                    else {tempTime.push(tempDArray[k][i][2*m + 1] - tempDArray[k][i][2*m])}   
+                  }
+                  else if ((tempDArray[k][i][2*m] <= tempDArray[j][i][2*l]) && (tempDArray[k][i][2*m+1] >= tempDArray[j][i][2*l])) {
+                    if (tempDArray[k][i][2*m+1] >= tempDArray[j][i][2*l+1]) {tempTime.push(tempDArray[j][i][2*l+1] - tempDArray[j][i][2*l])}
+                    else {tempTime.push(tempDArray[k][i][2*m+1] - tempDArray[j][i][2*l])}
+                  }}}   // end l loop
+                shifts = 0; const sum = tempTime.reduce((partialSum, a) => partialSum + a, 0);
+                      for (n = 0; n < tempTime.length; n++) { if (tempTime[n] >= 10) { shifts = shifts + 1 }
+                      }
+                      pairingsArray.push(sum); pairingsArray.push(shifts); console.log(i, j, k, tempTime);
+                }}} // end i loop
+                console.log(pairingsArray)
+               
                firstDNumber.innerHTML = homeD[1] + ' ' + homeD[2];
                firstD1.innerHTML = 'X' + '<br>' + 'X' + '<br>' + 'X';
                var firstD2 = document.createElement('p3');

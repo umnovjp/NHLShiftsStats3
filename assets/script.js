@@ -102,37 +102,66 @@ function getInputValue() {
             for (i = 0; i < playerIdArray.length/2; i++) {currentKey = playerIdArray[2*i];
               playerIdeObject[currentKey] = playerIdArray[2*i+1]}
                console.log(playerIdArray, playerIdeObject);
-               tempDArray = [];
-               for (i = 0; i < playerIdArray.length/2; i++) {for (j = 0; j < homeD.length/3; j++){if (playerIdArray[2*i]===homeD[3*j]){tempDArray.push(playerIdArray[2*i+1])}}}
-               console.log(tempDArray); pairingsArray = [];
-               for (i = 0; i < 3; i++) {for (j = 0; j < tempDArray.length; j++)
-                {for (k = j + 1; k < tempDArray.length; k++) {tempTime = []; 
-                  for (l = 0; l < tempDArray[j][i].length/2; l++) { 
-                  for (m = 0; m < tempDArray[k][i].length/2; m++)
-                  {if ((tempDArray[k][i][2*m] >= tempDArray[j][i][2*l]) && (tempDArray[k][i][2*m] <= tempDArray[j][i][2*l+1])) {
-                    if (tempDArray[k][i][2*m+1] >= tempDArray[j][i][2*l + 1]) {tempTime.push(tempDArray[j][i][2*l + 1] - tempDArray[k][i][2*m])}
-                    else {tempTime.push(tempDArray[k][i][2*m + 1] - tempDArray[k][i][2*m])}   
+               dArray = [[],[]];
+               for (i = 0; i < playerIdArray.length/2; i++) {for (j = 0; j < homeD.length/3; j++){if (playerIdArray[2*i]===homeD[3*j]){dArray[0].push(playerIdArray[2*i+1])}
+              else if (playerIdArray[2*i]===awayD[3*j]){dArray[1].push(playerIdArray[2*i+1])}}}
+               console.log(dArray); pairingsArray = [[],[],[]];
+               for (h = 0; h < 2; h++){
+               for (i = 0; i < 3; i++) {for (j = 0; j < dArray[0].length; j++)
+                {for (k = j + 1; k < dArray[0].length; k++) {tempTime = []; 
+                  for (l = 0; l < dArray[0][j][i].length/2; l++) { 
+                  for (m = 0; m < dArray[0][k][i].length/2; m++)
+                  {if ((dArray[0][k][i][2*m] >= dArray[0][j][i][2*l]) && (dArray[0][k][i][2*m] <= dArray[0][j][i][2*l+1])) {
+                    if (dArray[0][k][i][2*m+1] >= dArray[0][j][i][2*l + 1]) {tempTime.push(dArray[0][j][i][2*l + 1] - dArray[0][k][i][2*m])}
+                    else {tempTime.push(dArray[0][k][i][2*m + 1] - dArray[0][k][i][2*m])}   
                   }
-                  else if ((tempDArray[k][i][2*m] <= tempDArray[j][i][2*l]) && (tempDArray[k][i][2*m+1] >= tempDArray[j][i][2*l])) {
-                    if (tempDArray[k][i][2*m+1] >= tempDArray[j][i][2*l+1]) {tempTime.push(tempDArray[j][i][2*l+1] - tempDArray[j][i][2*l])}
-                    else {tempTime.push(tempDArray[k][i][2*m+1] - tempDArray[j][i][2*l])}
+                  else if ((dArray[0][k][i][2*m] <= dArray[0][j][i][2*l]) && (dArray[0][k][i][2*m+1] >= dArray[0][j][i][2*l])) {
+                    if (dArray[0][k][i][2*m+1] >= dArray[0][j][i][2*l+1]) {tempTime.push(dArray[0][j][i][2*l+1] - dArray[0][j][i][2*l])}
+                    else {tempTime.push(dArray[0][k][i][2*m+1] - dArray[0][j][i][2*l])}
                   }}}   // end l loop
                 shifts = 0; const sum = tempTime.reduce((partialSum, a) => partialSum + a, 0);
                       for (n = 0; n < tempTime.length; n++) { if (tempTime[n] >= 10) { shifts = shifts + 1 }
                       }
-                      pairingsArray.push(sum); pairingsArray.push(shifts); console.log(i, j, k, tempTime);
-                }}} // end i loop periods
-                console.log(pairingsArray)
+                      pairingsArray[i].push(sum); pairingsArray[i].push(shifts); // console.log(i, j, k, tempTime);
+                }}}} // end i and h loop periods
+                console.log(pairingsArray);
                
                firstDNumber.innerHTML = homeD[1] + ' ' + homeD[2];
                firstD1.innerHTML = 'X' + '<br>' + 'X' + '<br>' + 'X';
                var firstD2 = document.createElement('p3');
+                firstD2.innerHTML = pairingsArray[0][1] + ' sh ' + pairingsArray[0][0] + ' sec ' + '<br>' + pairingsArray[1][1] + ' sh ' + pairingsArray[1][0] + ' sec ' + '<br>' + pairingsArray[2][1] + ' sh ' + pairingsArray[2][0] + ' sec ';
+                document.getElementById('firstD2').appendChild(firstD2);
+                var firstD3 = document.createElement('p2');
+                firstD3.innerHTML = pairingsArray[0][3] + ' sh ' + pairingsArray[0][2] + ' sec ' + '<br>' + pairingsArray[1][3] + ' sh ' + pairingsArray[1][2] + ' sec ' + '<br>' + pairingsArray[2][3] + ' sh ' + pairingsArray[2][2] + ' sec ';
+                document.getElementById('firstD3').appendChild(firstD3);
+                var firstD4 = document.createElement('p3');
+                firstD4.innerHTML = pairingsArray[0][5] + ' sh ' + pairingsArray[0][4] + ' sec ' + '<br>' + pairingsArray[1][5] + ' sh ' + pairingsArray[1][4] + ' sec ' + '<br>' + pairingsArray[2][5] + ' sh ' + pairingsArray[2][4] + ' sec ';
+                document.getElementById('firstD4').appendChild(firstD4);
+                var firstD5 = document.createElement('p2');
+                firstD5.innerHTML = pairingsArray[0][7] + ' sh ' + pairingsArray[0][6] + ' sec ' + '<br>' + pairingsArray[1][7] + ' sh ' + pairingsArray[1][6] + ' sec ' + '<br>' + pairingsArray[2][7] + ' sh ' + pairingsArray[2][6] + ' sec ';
+                document.getElementById('firstD5').appendChild(firstD5);
+               
                secondDNumber.innerHTML = homeD[4] + ' ' + homeD[5];
-                // secondD1.innerHTML = pairingsArray4[0][1] + ' shifts ' + pairingsArray4[0][0] + ' sec ' + '<br>' + pairingsArray4[1][1] + ' sh ' + pairingsArray4[1][0] + ' sec ' + '<br>' + pairingsArray4[2][1] + ' sh ' + pairingsArray4[2][0] + ' sec ';
+                secondD1.innerHTML = pairingsArray[0][1] + ' shifts ' + pairingsArray[0][0] + ' sec ' + '<br>' + pairingsArray[1][1] + ' sh ' + pairingsArray[1][0] + ' sec ' + '<br>' + pairingsArray[2][1] + ' sh ' + pairingsArray[2][0] + ' sec ';
                 secondD2.innerHTML = 'X' + '<br>' + 'X' + '<br>' + 'X';
+                var secondD3 = document.createElement('p3');
+                var secondD4 = document.createElement('p3');
+                var secondD5 = document.createElement('p3');
+                thirdDNumber.innerHTML = homeD[7] + ' ' + homeD[8];
+                thirdD1.innerHTML = pairingsArray[0][3] + ' shifts ' + pairingsArray[0][2] + ' sec ' + '<br>' + pairingsArray[1][3] + ' sh ' + pairingsArray[1][2] + ' sec ' + '<br>' + pairingsArray[2][3] + ' sh ' + pairingsArray[2][2] + ' sec ';
+                thirdD3.innerHTML = 'X' + '<br>' + 'X' + '<br>' + 'X';
+                var thirdD4 = document.createElement('p3');
+                var thirdD5 = document.createElement('p3');
+                forthDNumber.innerHTML = homeD[10] + ' ' + homeD[11];
+                forthD1.innerHTML = pairingsArray[0][5] + ' shifts ' + pairingsArray[0][4] + ' sec ' + '<br>' + pairingsArray[1][5] + ' sh ' + pairingsArray[1][4] + ' sec ' + '<br>' + pairingsArray[2][5] + ' sh ' + pairingsArray[2][4] + ' sec ';
+                forthD4.innerHTML = 'X' + '<br>' + 'X' + '<br>' + 'X';
+                var forthD5 = document.createElement('p3');
+                fifthDNumber.innerHTML = homeD[13] + ' ' + homeD[14];
+                fifthD1.innerHTML = pairingsArray[0][7] + ' shifts ' + pairingsArray[0][6] + ' sec ' + '<br>' + pairingsArray[1][7] + ' sh ' + pairingsArray[1][6] + ' sec ' + '<br>' + pairingsArray[2][7] + ' sh ' + pairingsArray[2][6] + ' sec ';
+                fifthD5.innerHTML = 'X' + '<br>' + 'X' + '<br>' + 'X';
           }); // end second .then shifts
-          }); // end second .then standings
-          }); // end second .then gamecenter
+          }); // end second .then standings;
+          }); // end second .then gamecenter;
       } // end displayGameData        
       
       

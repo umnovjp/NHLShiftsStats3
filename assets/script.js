@@ -99,40 +99,32 @@ function getInputValue() {
 
                 var shiftsURL = 'https://cors-anywhere.herokuapp.com/https://api.nhle.com/stats/rest/en/shiftcharts?cayenneExp=gameId=' + gameId;
                 fetch(shiftsURL, { "method": "GET", "headers": {} })
-                  .then(function (response) {
-                    return response.json();
-                  })
+                  .then(function (response) {return response.json()})
                   .then(function (data_shifts) {
                     console.log('I am in second shift then', data_shifts);
                     for (i = 0; i < data_shifts.data.length; i++) {
-                      if ((data_shifts.data[i].typeCode === 517) && (data_shifts.data[i].period < 4)) {
-                        playerOrder = playerIdArray.indexOf(data_shifts.data[i].playerId);
+                      if ((data_shifts.data[i].typeCode === 517) && (data_shifts.data[i].period < 4)) {playerOrder = playerIdArray.indexOf(data_shifts.data[i].playerId);
                         shiftStart = data_shifts.data[i].startTime; shiftStart1 = shiftStart.split(':'); minutes = Number(shiftStart1[0]);
                         seconds = Number(shiftStart1[1]); shiftStart2 = minutes * 60 + seconds;
                         shiftEnd = data_shifts.data[i].endTime; shiftEnd1 = shiftEnd.split(':'); minutes = Number(shiftEnd1[0]);
                         seconds = Number(shiftEnd1[1]); shiftEnd2 = minutes * 60 + seconds;
-                        playerIdArray[playerOrder + 1][data_shifts.data[i].period - 1].push(shiftStart2, shiftEnd2)
-
-                      }
-                    }
-                    for (i = 0; i < playerIdArray.length / 2; i++) {
-                      currentKey = playerIdArray[2 * i];
-                      playerIdeObject[currentKey] = playerIdArray[2 * i + 1]
-                    }
+                        playerIdArray[playerOrder + 1][data_shifts.data[i].period - 1].push(shiftStart2, shiftEnd2)}}
+                    for (i = 0; i < playerIdArray.length / 2; i++) {currentKey = playerIdArray[2 * i]; playerIdeObject[currentKey] = playerIdArray[2 * i + 1]}
                     console.log(playerIdArray, playerIdeObject);
-                    dArray = [[], []];
-                    for (i = 0; i < playerIdArray.length / 2; i++) {
-                      for (j = 0; j < homeD.length / 3; j++) { if (playerIdArray[2 * i] === homeD[3 * j]) { dArray[0].push(playerIdArray[2 * i + 1]) } }
-                      for (j = 0; j < awayD.length / 3; j++) { if (playerIdArray[2 * i] === awayD[3 * j]) { dArray[1].push(playerIdArray[2 * i + 1]) } }
-                    }
-                    // for (i = 0; i < Object.keys(playerIdeObject).length; i++) {
-                    //   for (j = 0; j < homeD.length/3; j++){if (Object.keys(playerIdeObject)[i]==homeD[3*j]){console.log(i, j, Object.keys(playerIdeObject)[i]);
-                    //     dArray[0].push(Object.values(playerIdeObject)[i])}}
-                    //   for (j = 0; j < awayD.length/3; j++){if (Object.keys(playerIdeObject)[i]==awayD[3*j]){console.log(i, j, Object.keys(playerIdeObject)[i]);
-                    //     dArray[1].push(Object.values(playerIdeObject)[i])}}
-                    // }           
                     console.log(Object.keys(playerIdeObject), Object.values(playerIdeObject));
-                    console.log(dArray); pairingsArray = [[], [], [], [], [], []];
+
+                    dArray = [[], []];
+                    for (i = 0; i < playerIdArray.length / 2; i++) {for (j = 0; j < homeD.length / 3; j++) { if (playerIdArray[2 * i] === homeD[3 * j]) { dArray[0].push(playerIdArray[2 * i + 1]) } }
+                      for (j = 0; j < awayD.length / 3; j++) { if (playerIdArray[2 * i] === awayD[3 * j]) { dArray[1].push(playerIdArray[2 * i + 1]) }}}
+                    dArray2 = [[],[]];
+                    for (i = 0; i < Object.keys(playerIdeObject).length; i++) {
+                      for (j = 0; j < homeD.length/3; j++){if (Object.keys(playerIdeObject)[i]==homeD[3*j]){console.log(i, j, Object.keys(playerIdeObject)[i]);
+                        dArray2[0].push(Object.values(playerIdeObject)[i])}}
+                      for (j = 0; j < awayD.length/3; j++){if (Object.keys(playerIdeObject)[i]==awayD[3*j]){console.log(i, j, Object.keys(playerIdeObject)[i]);
+                        dArray2[1].push(Object.values(playerIdeObject)[i])}}
+                    }           
+                    
+                    console.log('dArray', dArray, 'dArray2', dArray2); pairingsArray = [[], [], [], [], [], []];
                     for (h = 0; h < 2; h++) { // h = 0 home team D, h = 1 away team D
                       for (i = 0; i < 3; i++) { for (j = 0; j < dArray[h].length; j++) {
                           for (k = j + 1; k < dArray[h].length; k++) {tempTime = []; for (l = 0; l < dArray[h][j][i].length / 2; l++) {
@@ -141,7 +133,7 @@ function getInputValue() {
                                   else { tempTime.push(dArray[h][k][i][2 * m + 1] - dArray[h][k][i][2 * m]) }}
                                 else if ((dArray[h][k][i][2 * m] <= dArray[h][j][i][2 * l]) && (dArray[h][k][i][2 * m + 1] >= dArray[h][j][i][2 * l])) {
                                   if (dArray[h][k][i][2 * m + 1] >= dArray[h][j][i][2 * l + 1]) { tempTime.push(dArray[h][j][i][2 * l + 1] - dArray[h][j][i][2 * l]) }
-                                  else { tempTime.push(dArray[h][k][i][2 * m + 1] - dArray[h][j][i][2 * l]) }
+                                  else {tempTime.push(dArray[h][k][i][2 * m + 1] - dArray[h][j][i][2 * l])}
                                 }}}   // end l loop
                             shifts = 0; const sum = tempTime.reduce((partialSum, a) => partialSum + a, 0);
                             for (n = 0; n < tempTime.length; n++) { if (tempTime[n] >= 10) { shifts = shifts + 1 } }
@@ -150,7 +142,13 @@ function getInputValue() {
                     console.log(pairingsArray); dArrayTemp = [[[],[],[]],[[],[],[]]];
                     for (i = 0; i < 2; i++) { for (j = 0; j < dArray[i].length; j++) { for (k = 0; k < 3; k++) {dArrayTemp[i][k] = dArrayTemp[i][k].concat(dArray[i][j][k])}}}
                     console.log(dArrayTemp);
-                    dArrayTempSplit = [[[],[]],[]]
+                    dArrayTempSplit = [[[],[],[]],[[],[],[]]]; dArrayTempSplit2 = [[[],[],[]],[[],[],[]]]; // dArrayTempSplit2Ordered = [[[],[],[]],[[],[],[]]]; 
+                    for (i = 0; i < 2; i++) {for (j = 0; j < 3; j++) {for (k = 0; k < dArrayTemp[i][j].length/2; k++){dArrayTempSplit[i][j].push(dArrayTemp[i][j][2*k], k)
+                    dArrayTempSplit2[i][j].push(dArrayTemp[i][j][2*k]);
+                    dArrayTempSplit2 = dArrayTempSplit2.sort(function (a, b) {return a - b;})
+                    // dArrayTempSplit2Ordered = dArrayTempSplit2.sort()
+                    }}}
+                    console.log(dArrayTempSplit, dArrayTempSplit2);
 
                     // adding home team defense to screen 
                     firstDNumber.innerHTML = homeD[1] + ' ' + homeD[2]; secondDNumber.innerHTML = homeD[4] + ' ' + homeD[5]; thirdDNumber.innerHTML = homeD[7] + ' ' + homeD[8];

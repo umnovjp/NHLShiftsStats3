@@ -68,23 +68,19 @@ function getInputValue() {
                 var obj = data.boxscore.playerByGameStats.homeTeam.forwards; var keys = Object.keys(obj); playerIdeObject = {};
                 for (i = 0; i < keys.length; i++) {
                   var val = obj[keys[i]]; homeF.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[], [], []]);
-                  keyId = val.playerId; playerIdeObject[keyId] = []
-                }
+                  keyId = val.playerId; playerIdeObject[keyId] = []}
                 var obj = data.boxscore.playerByGameStats.homeTeam.defense; var keys = Object.keys(obj);
                 for (i = 0; i < keys.length; i++) {
                   var val = obj[keys[i]]; homeD.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[], [], []])
-                  keyId = val.playerId; playerIdeObject[keyId] = []
-                }
+                  keyId = val.playerId; playerIdeObject[keyId] = []}
                 var obj = data.boxscore.playerByGameStats.homeTeam.goalies; var keys = Object.keys(obj);
                 for (i = 0; i < keys.length; i++) {
                   var val = obj[keys[i]]; homeG.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[], [], []])
-                  keyId = val.playerId; playerIdeObject[keyId] = []
-                }
+                  keyId = val.playerId; playerIdeObject[keyId] = []}
                 var obj = data.boxscore.playerByGameStats.awayTeam.forwards; var keys = Object.keys(obj);
                 for (i = 0; i < keys.length; i++) {
                   var val = obj[keys[i]]; awayF.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[], [], []])
-                  keyId = val.playerId; playerIdeObject[keyId] = []
-                }
+                  keyId = val.playerId; playerIdeObject[keyId] = []}
                 var obj = data.boxscore.playerByGameStats.awayTeam.defense; var keys = Object.keys(obj);
                 for (i = 0; i < keys.length; i++) {
                   var val = obj[keys[i]]; awayD.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[], [], []]);
@@ -142,13 +138,15 @@ function getInputValue() {
                     console.log(pairingsArray); dArrayTemp = [[[],[],[]],[[],[],[]]];
                     for (i = 0; i < 2; i++) { for (j = 0; j < dArray[i].length; j++) { for (k = 0; k < 3; k++) {dArrayTemp[i][k] = dArrayTemp[i][k].concat(dArray[i][j][k])}}}
                     console.log(dArrayTemp);
-                    dArrayTempSplit = [[[],[],[]],[[],[],[]]]; dArrayTempSplit2 = [[[],[],[]],[[],[],[]]]; // dArrayTempSplit2Ordered = [[[],[],[]],[[],[],[]]]; 
-                    for (i = 0; i < 2; i++) {for (j = 0; j < 3; j++) {for (k = 0; k < dArrayTemp[i][j].length/2; k++){dArrayTempSplit[i][j].push(dArrayTemp[i][j][2*k], k)
+                    dArrayTempSplit = [[[],[],[]],[[],[],[]]]; dArrayTempSplit2 = [[[],[],[]],[[],[],[]]]; dArrayTempSplit3 = [[[],[],[]],[[],[],[]]];// dArrayTempSplit2Ordered = [[[],[],[]],[[],[],[]]]; 
+                    for (i = 0; i < 2; i++) {for (j = 0; j < 3; j++) {for (k = 0; k < dArrayTemp[i][j].length/2; k++){dArrayTempSplit[i][j].push(dArrayTemp[i][j][2*k])
                     dArrayTempSplit2[i][j].push(dArrayTemp[i][j][2*k]);
-                    dArrayTempSplit2 = dArrayTempSplit2.sort(function (a, b) {return a - b;})
-                    // dArrayTempSplit2Ordered = dArrayTempSplit2.sort()
-                    }}}
-                    console.log(dArrayTempSplit, dArrayTempSplit2);
+                    dArrayTempSplit2[i][j] = dArrayTempSplit2[i][j].sort((a, b) => a - b)}
+                    for (k = 0; k < dArrayTempSplit2[i][j].length; k++) { console.log(dArrayTempSplit[i][j].indexOf(dArrayTempSplit2[i][j][k]), dArrayTempSplit[i][j].lastIndexOf(dArrayTempSplit2[i][j][k]))
+                      if (dArrayTempSplit3[i][j].includes(dArrayTempSplit[i][j].indexOf(dArrayTempSplit[i][j][2*k]))){}
+                  else dArrayTempSplit3[i][j].push(k)}
+                  }}
+                    console.log(dArrayTempSplit, dArrayTempSplit2, dArrayTempSplit3);
 
                     // adding home team defense to screen 
                     firstDNumber.innerHTML = homeD[1] + ' ' + homeD[2]; secondDNumber.innerHTML = homeD[4] + ' ' + homeD[5]; thirdDNumber.innerHTML = homeD[7] + ' ' + homeD[8];

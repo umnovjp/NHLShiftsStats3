@@ -78,19 +78,14 @@ function getInputValue() {
                   var val = obj[keys[i]]; homeG.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[], [], []])
                   keyId = val.playerId; playerIdeObject[keyId] = []}
                 var obj = data.boxscore.playerByGameStats.awayTeam.forwards; var keys = Object.keys(obj);
-                for (i = 0; i < keys.length; i++) {
-                  var val = obj[keys[i]]; awayF.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[], [], []])
+                for (i = 0; i < keys.length; i++) {var val = obj[keys[i]]; awayF.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[], [], []])
                   keyId = val.playerId; playerIdeObject[keyId] = []}
                 var obj = data.boxscore.playerByGameStats.awayTeam.defense; var keys = Object.keys(obj);
-                for (i = 0; i < keys.length; i++) {
-                  var val = obj[keys[i]]; awayD.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[], [], []]);
-                  keyId = val.playerId; playerIdeObject[keyId] = []
-                }
+                for (i = 0; i < keys.length; i++) {var val = obj[keys[i]]; awayD.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[], [], []]);
+                  keyId = val.playerId; playerIdeObject[keyId] = []}
                 var obj = data.boxscore.playerByGameStats.awayTeam.goalies; var keys = Object.keys(obj);
-                for (i = 0; i < keys.length; i++) {
-                  var val = obj[keys[i]]; awayG.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[], [], []]);
-                  keyId = val.playerId; playerIdeObject[keyId] = []
-                }
+                for (i = 0; i < keys.length; i++) {var val = obj[keys[i]]; awayG.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[], [], []]);
+                  keyId = val.playerId; playerIdeObject[keyId] = []}
                 console.log(homeF, homeD, homeG, awayF, awayD, awayF, playerIdArray)
 
                 var shiftsURL = 'https://cors-anywhere.herokuapp.com/https://api.nhle.com/stats/rest/en/shiftcharts?cayenneExp=gameId=' + gameId;
@@ -135,7 +130,9 @@ function getInputValue() {
                             for (n = 0; n < tempTime.length; n++) { if (tempTime[n] >= 10) { shifts = shifts + 1 } }
                             pairingsArray[i + 3 * h].push(sum); pairingsArray[i + 3 * h].push(shifts); // console.log(i, j, k, tempTime);
                           }}}} // end i and h loop periods
-                    console.log(pairingsArray); dArrayTemp = [[[],[],[]],[[],[],[]]];
+                    console.log(pairingsArray);
+                    
+                    dArrayTemp = [[[],[],[]],[[],[],[]]];
                     for (i = 0; i < 2; i++) { for (j = 0; j < dArray[i].length; j++) { for (k = 0; k < 3; k++) {dArrayTemp[i][k] = dArrayTemp[i][k].concat(dArray[i][j][k])}}}
                     console.log(dArrayTemp);
                     dArrayTempSplit = [[[],[],[]],[[],[],[]]]; dArrayTempSplit2 = [[[],[],[]],[[],[],[]]]; dArrayTempSplit3 = [[[],[],[]],[[],[],[]]];// dArrayTempSplit2Ordered = [[[],[],[]],[[],[],[]]]; 
@@ -245,7 +242,7 @@ function getInputValue() {
                       sixthD7A.innerHTML = pairingsArray[3][41] + ' shifts ' + pairingsArray[3][40] + ' sec ' + '<br>' + pairingsArray[4][41] + ' sh ' + pairingsArray[4][40] + ' sec ' + '<br>' + pairingsArray[5][41] + ' sh ' + pairingsArray[5][40] + ' sec ';
                       seventhD1A.innerHTML = firstD7A.innerHTML; seventhD2A.innerHTML = secondD7A.innerHTML; seventhD3A.innerHTML = thirdD7A.innerHTML; seventhD4A.innerHTML = forthD7A.innerHTML; seventhD5A.innerHTML = fifthD7A.innerHTML; seventhD6A.innerHTML = sixthD7A.innerHTML;
                       document.getElementById('firstD7A').appendChild(firstD7A); document.getElementById('secondD7A').appendChild(secondD7A); document.getElementById('thirdD7A').appendChild(thirdD7A); document.getElementById('forthD7A').appendChild(forthD7A); document.getElementById('fifthD7A').appendChild(fifthD7A); document.getElementById('sixthD7A').appendChild(sixthD7A);
-                    } // end if seven D men away
+                    } // end if seven D men away and end of adding DMen to display cycles
 
                   }); // end second .then shifts
               }); // end second .then standings;

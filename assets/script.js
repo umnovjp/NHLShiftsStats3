@@ -108,14 +108,16 @@ function getInputValue() {
                     for (i = 0; i < playerIdArray.length / 2; i++) {for (j = 0; j < homeD.length / 3; j++) { if (playerIdArray[2 * i] === homeD[3 * j]) { dArray[0].push(playerIdArray[2 * i + 1]) } }
                       for (j = 0; j < awayD.length / 3; j++) { if (playerIdArray[2 * i] === awayD[3 * j]) { dArray[1].push(playerIdArray[2 * i + 1]) }}}
                     dArray2 = [[],[]];
-                    for (i = 0; i < Object.keys(playerIdeObject).length; i++) {
-                      for (j = 0; j < homeD.length/3; j++){if (Object.keys(playerIdeObject)[i]==homeD[3*j]){console.log(i, j, Object.keys(playerIdeObject)[i]);
+                    for (i = 0; i < Object.keys(playerIdeObject).length; i++) {for (j = 0; j < homeD.length/3; j++){if (Object.keys(playerIdeObject)[i]==homeD[3*j]){console.log(i, j, Object.keys(playerIdeObject)[i]);
                         dArray2[0].push(Object.values(playerIdeObject)[i])}}
                       for (j = 0; j < awayD.length/3; j++){if (Object.keys(playerIdeObject)[i]==awayD[3*j]){console.log(i, j, Object.keys(playerIdeObject)[i]);
-                        dArray2[1].push(Object.values(playerIdeObject)[i])}}
-                    }           
+                        dArray2[1].push(Object.values(playerIdeObject)[i])}}} 
+                        
+                        fArray = [[], []];
+                    for (i = 0; i < playerIdArray.length / 2; i++) {for (j = 0; j < homeF.length / 3; j++) { if (playerIdArray[2 * i] === homeF[3 * j]) { fArray[0].push(playerIdArray[2 * i + 1]) } }
+                      for (j = 0; j < awayF.length / 3; j++) { if (playerIdArray[2 * i] === awayF[3 * j]) { fArray[1].push(playerIdArray[2 * i + 1]) }}}
                     
-                    console.log('dArray', dArray, 'dArray2', dArray2); pairingsArray = [[], [], [], [], [], []];
+                    console.log('dArray', dArray, 'dArray2', dArray2, 'fArray', fArray); pairingsArray = [[], [], [], [], [], []]; linesArray = [[], [], [], [], [], []];
                     for (h = 0; h < 2; h++) { // h = 0 home team D, h = 1 away team D
                       for (i = 0; i < 3; i++) { for (j = 0; j < dArray[h].length; j++) {
                           for (k = j + 1; k < dArray[h].length; k++) {tempTime = []; for (l = 0; l < dArray[h][j][i].length / 2; l++) {
@@ -139,11 +141,30 @@ function getInputValue() {
                     for (i = 0; i < 2; i++) {for (j = 0; j < 3; j++) {for (k = 0; k < dArrayTemp[i][j].length/2; k++){dArrayTempSplit[i][j].push(dArrayTemp[i][j][2*k])
                     dArrayTempSplit2[i][j].push(dArrayTemp[i][j][2*k]);
                     dArrayTempSplit2[i][j] = dArrayTempSplit2[i][j].sort((a, b) => a - b)}
-                    for (k = 0; k < dArrayTempSplit2[i][j].length; k++) { console.log(dArrayTempSplit[i][j].indexOf(dArrayTempSplit2[i][j][k]), dArrayTempSplit[i][j].lastIndexOf(dArrayTempSplit2[i][j][k]))
+                    for (k = 0; k < dArrayTempSplit2[i][j].length; k++) { //console.log(dArrayTempSplit[i][j].indexOf(dArrayTempSplit2[i][j][k]), dArrayTempSplit[i][j].lastIndexOf(dArrayTempSplit2[i][j][k]))
                       if (dArrayTempSplit3[i][j].includes(dArrayTempSplit[i][j].indexOf(dArrayTempSplit[i][j][2*k]))){}
                   else dArrayTempSplit3[i][j].push(k)}
                   }}
                     console.log(dArrayTempSplit, dArrayTempSplit2, dArrayTempSplit3);
+                  fiveOnFive = [[[0, 600, 700, 1200], [0,600, 700, 1200], [0, 600, 700, 1200]],[[0, 600, 700, 1200], [0, 600, 700, 1200], [0,600, 700, 1200]]];
+                    for (h = 0; h < 2; h++) { // h = 0 home team D, h = 1 away team D
+                      for (i = 0; i < 3; i++) { for (j = 0; j < fArray[h].length; j++) {
+                          for (k = j + 1; k < fArray[h].length; k++) {shiftsPair = []; for (l = 0; l < fArray[h][j][i].length / 2; l++) {
+                              for (m = 0; m < fArray[h][k][i].length / 2; m++) { if ((fArray[h][k][i][2 * m] >= fArray[h][j][i][2 * l]) && (fArray[h][k][i][2 * m] <= fArray[h][j][i][2 * l + 1])) {
+                                  if (fArray[h][k][i][2 * m + 1] >= fArray[h][j][i][2 * l + 1]) { shiftsPair.push(fArray[h][j][i][2 * l + 1] - fArray[h][k][i][2 * m]) }
+                                  else { shiftsPair.push(fArray[h][k][i][2 * m + 1] - fArray[h][k][i][2 * m]) }}
+                                else if ((fArray[h][k][i][2 * m] <= fArray[h][j][i][2 * l]) && (fArray[h][k][i][2 * m + 1] >= fArray[h][j][i][2 * l])) {
+                                  if (fArray[h][k][i][2 * m + 1] >= fArray[h][j][i][2 * l + 1]) { shiftsPair.push(fArray[h][j][i][2 * l + 1] - fArray[h][j][i][2 * l]) }
+                                  else {shiftsPair.push(fArray[h][k][i][2 * m + 1] - fArray[h][j][i][2 * l])}
+                                }}}   // end m, l loop
+                            shifts = 0; const sum = shiftsPair.reduce((partialSum, a) => partialSum + a, 0);
+                            for (n = 0; n < shiftsPair.length; n++) { if (shiftsPair[n] >= 10) { shifts = shifts + 1 } }
+                            linesArray[i + 3 * h].push(sum); linesArray[i + 3 * h].push(shifts); // console.log(i, j, k, tempTime);
+                          }} // temp end k, j loops
+                      
+                        }} // end k, j, i and h loop periods
+
+                        console.log('shiftsPair', shiftsPair, 'linesArray', linesArray)
 
                     // adding home team defense to screen 
                     firstDNumber.innerHTML = homeD[1] + ' ' + homeD[2]; secondDNumber.innerHTML = homeD[4] + ' ' + homeD[5]; thirdDNumber.innerHTML = homeD[7] + ' ' + homeD[8];

@@ -132,7 +132,7 @@ function getInputValue() {
                             for (n = 0; n < tempTime.length; n++) { if (tempTime[n] >= 10) { shifts = shifts + 1 } }
                             pairingsArray[i + 3 * h].push(sum); pairingsArray[i + 3 * h].push(shifts); // console.log(i, j, k, tempTime);
                           }}}} // end i and h loop periods
-                    console.log(pairingsArray); tempTime2 = [];
+                    console.log(pairingsArray);
                     
                     dArrayTemp = [[[],[],[]],[[],[],[]]];
                     for (i = 0; i < 2; i++) { for (j = 0; j < dArray[i].length; j++) { for (k = 0; k < 3; k++) {dArrayTemp[i][k] = dArrayTemp[i][k].concat(dArray[i][j][k])}}}
@@ -151,32 +151,15 @@ function getInputValue() {
                       for (i = 0; i < 3; i++) { for (j = 0; j < fArray[h].length; j++) {
                           for (k = j + 1; k < fArray[h].length; k++) {shiftsPair = []; for (l = 0; l < fArray[h][j][i].length / 2; l++) {
                               for (m = 0; m < fArray[h][k][i].length / 2; m++) { if ((fArray[h][k][i][2 * m] >= fArray[h][j][i][2 * l]) && (fArray[h][k][i][2 * m] <= fArray[h][j][i][2 * l + 1])) {
-                                  if (fArray[h][k][i][2 * m + 1] >= fArray[h][j][i][2 * l + 1]) { shiftsPair.push(fArray[h][j][i][2 * l + 1], fArray[h][k][i][2 * m]) }
-                                  else { shiftsPair.push(fArray[h][k][i][2 * m + 1], fArray[h][k][i][2 * m]) }}
+                                  if (fArray[h][k][i][2 * m + 1] >= fArray[h][j][i][2 * l + 1]) { shiftsPair.push(fArray[h][j][i][2 * l + 1] - fArray[h][k][i][2 * m]) }
+                                  else { shiftsPair.push(fArray[h][k][i][2 * m + 1] - fArray[h][k][i][2 * m]) }}
                                 else if ((fArray[h][k][i][2 * m] <= fArray[h][j][i][2 * l]) && (fArray[h][k][i][2 * m + 1] >= fArray[h][j][i][2 * l])) {
-                                  if (fArray[h][k][i][2 * m + 1] >= fArray[h][j][i][2 * l + 1]) { shiftsPair.push(fArray[h][j][i][2 * l + 1], fArray[h][j][i][2 * l]) }
-                                  else {shiftsPair.push(fArray[h][k][i][2 * m + 1], fArray[h][j][i][2 * l])}
+                                  if (fArray[h][k][i][2 * m + 1] >= fArray[h][j][i][2 * l + 1]) { shiftsPair.push(fArray[h][j][i][2 * l + 1] - fArray[h][j][i][2 * l]) }
+                                  else {shiftsPair.push(fArray[h][k][i][2 * m + 1] - fArray[h][j][i][2 * l])}
                                 }}}   // end m, l loop
-                                for (l = k + 1; l < fArray[h].length; l++) {tempTime = []; if (i === 0  && h === 0) { console.log(j, k, l, shiftsPair);}
-                                  for (m = 0; m < shiftsPair.length/2; m++){ 
-                                    for (n = 0; n < fArray[h][l][i].length/2; n++) 
-                                    {if ((fArray[h][l][i][2*n]>=shiftsPair[2*m])&&(fArray[h][l][i][2*n]<shiftsPair[2*m+1])){
-                                      if (fArray[h][l][i][2*n+1]>=shiftsPair[2*m+1]) {tempTime.push(shiftsPair[2 * m + 1] - fArray[h][l][i][2*n])}
-                                      else { tempTime.push(fArray[h][l][i][2*n+1] - fArray[h][l][i][2*n]) }
-                                      }
-                                      else if (fArray[h][l][i][2 * n] <= shiftsPair[2 * m] && fArray[h][l][i][2 * n + 1] > shiftsPair[2 * m]) {
-                                        if (fArray[h][l][i][2 * n + 1] >= shiftsPair[2 * m + 1]) { tempTime.push(shiftsPair[2 * m + 1] - shiftsPair[2 * m]) }
-                                        else { tempTime.push(fArray[h][l][i][2 * n + 1] - shiftsPair[2 * m]) }
-
-                                      }
-                                  }
-                                  } // end second m loop
-                                  shifts = 0; const sum = tempTime.reduce((partialSum, a) => partialSum + a, 0);
-                                  for (n = 0; n < tempTime.length; n++) { if (tempTime[n] >= 10) { shifts = shifts + 1;
-                                  tempTime2.push(tempTime[n])} }
-                                  linesArray[i + 3 * h].push(sum); linesArray[i + 3 * h].push(shifts, j, k, l); // console.log(i, j, k, tempTime);
-                                } // end second l loop
-                          
+                            shifts = 0; const sum = shiftsPair.reduce((partialSum, a) => partialSum + a, 0);
+                            for (n = 0; n < shiftsPair.length; n++) { if (shiftsPair[n] >= 10) { shifts = shifts + 1 } }
+                            linesArray[i + 3 * h].push(sum); linesArray[i + 3 * h].push(shifts); // console.log(i, j, k, tempTime);
                           }} // temp end k, j loops
                       
                         }} // end k, j, i and h loop periods

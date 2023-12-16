@@ -159,15 +159,13 @@ function getInputValue() {
                                 }}}   // end m, l loop
                                 for (l = k + 1; l < fArray[h].length; l++) {tempTime = []; if (i === 0  && h === 0) { console.log(j, k, l, shiftsPair);}
                                 for (m = 0; m < shiftsPair.length/2; m++){ 
-                                  for (n = 0; n < fArray[h][l][i].length/2; n++) 
-                                  {if ((fArray[h][l][i][2*n]>=shiftsPair[2*m])&&(fArray[h][l][i][2*n]<shiftsPair[2*m+1])){
+                                  for (n = 0; n < fArray[h][l][i].length/2; n++) {if ((fArray[h][l][i][2*n]>=shiftsPair[2*m])&&(fArray[h][l][i][2*n]<shiftsPair[2*m+1])){
                                     if (fArray[h][l][i][2*n+1]>=shiftsPair[2*m+1]) {tempTime.push(shiftsPair[2 * m + 1] - fArray[h][l][i][2*n])}
                                     else { tempTime.push(fArray[h][l][i][2*n+1] - fArray[h][l][i][2*n]) }
                                     }
                                     else if (fArray[h][l][i][2 * n] <= shiftsPair[2 * m] && fArray[h][l][i][2 * n + 1] > shiftsPair[2 * m]) {
                                       if (fArray[h][l][i][2 * n + 1] >= shiftsPair[2 * m + 1]) { tempTime.push(shiftsPair[2 * m + 1] - shiftsPair[2 * m]) }
                                       else { tempTime.push(fArray[h][l][i][2 * n + 1] - shiftsPair[2 * m]) }
-
                                     }
                                 }
                                 } // end second m loop
@@ -256,7 +254,7 @@ function getInputValue() {
                     document.getElementById('secondD3A').appendChild(secondD3A); document.getElementById('secondD4A').appendChild(secondD4A); document.getElementById('secondD5A').appendChild(secondD5A); document.getElementById('thirdD4A').appendChild(thirdD4A);
                     document.getElementById('thirdD5A').appendChild(thirdD5A); document.getElementById('forthD5A').appendChild(forthD5A);
 
-                    if (awayD.length >= 18) {
+                    if (awayD.length >= 18) { 
                       var firstD6A = document.createElement('p3'); var secondD6A = document.createElement('p2'); var thirdD6A = document.createElement('p3'); var forthD6A = document.createElement('p2'); var fifthD6A = document.createElement('p3');
                       sixthD6A.innerHTML = 'X' + '<br>' + 'X' + '<br>' + 'X'; sixthDNumberA.innerHTML = awayD[16] + ' ' + awayD[17];
                       firstD6A.innerHTML = pairingsArray[3][9] + ' sh ' + pairingsArray[3][8] + ' sec ' + '<br>' + pairingsArray[4][9] + ' sh ' + pairingsArray[4][8] + ' sec ' + '<br>' + pairingsArray[5][9] + ' sh ' + pairingsArray[5][8] + ' sec ';
@@ -280,7 +278,12 @@ function getInputValue() {
                       seventhD1A.innerHTML = firstD7A.innerHTML; seventhD2A.innerHTML = secondD7A.innerHTML; seventhD3A.innerHTML = thirdD7A.innerHTML; seventhD4A.innerHTML = forthD7A.innerHTML; seventhD5A.innerHTML = fifthD7A.innerHTML; seventhD6A.innerHTML = sixthD7A.innerHTML;
                       document.getElementById('firstD7A').appendChild(firstD7A); document.getElementById('secondD7A').appendChild(secondD7A); document.getElementById('thirdD7A').appendChild(thirdD7A); document.getElementById('forthD7A').appendChild(forthD7A); document.getElementById('fifthD7A').appendChild(fifthD7A); document.getElementById('sixthD7A').appendChild(sixthD7A);
                     } // end if seven D men away and end of adding DMen to display cycles
-
+                    // for (i = 0; i < homeF.length/3; i++) {tempVar = 'fNumber' + i; tempVar.innerHTML = homeF[i+1] + ' ' + homeF[i+2]}
+                    fNumber1.innerHTML = homeF[1] + ' ' + homeF[2]; fNumber2.innerHTML = homeF[4] + ' ' + homeF[5]; fNumber3.innerHTML = homeF[7] + ' ' + homeF[8]; fNumber4.innerHTML = homeF[10] + ' ' + homeF[11]; fNumber5.innerHTML = homeF[13] + ' ' + homeF[14]; fNumber6.innerHTML = homeF[16] + ' ' + homeF[17]; 
+                    fNumber7.innerHTML = homeF[19] + ' ' + homeF[20]; fNumber8.innerHTML = homeF[22] + ' ' + homeF[23]; fNumber9.innerHTML = homeF[25] + ' ' + homeF[26]; fNumber10.innerHTML = homeF[28] + ' ' + homeF[29]; fNumber11.innerHTML = homeF[31] + ' ' + homeF[32]; fNumber12.innerHTML = homeF[34] + ' ' + homeF[35]; 
+                    if (homeF.length/3 > 11){fNumber13.innerHTML = homeF[34] + ' ' + homeF[35]; }
+                    if (homeF.length/3 > 12){fNumber13.innerHTML = homeF[37] + ' ' + homeF[38]; }
+                    
                   }); // end second .then shifts
               }); // end second .then standings;
           }); // end second .then gamecenter;
@@ -288,4 +291,4 @@ function getInputValue() {
     } // end second .then from getinputvalue
     );
 } // end getInput Value function $65k at 4.50% on 3/27
-// check tix casa. climb sierra blanca; split functions
+// climb sierra blanca; split functions

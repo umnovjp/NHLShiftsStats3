@@ -4,4 +4,4 @@ Original repo is located at https://github.com/umnovjp/NHLShiftStats1. It was wo
 ## Usage
 First thing is to select a date. And remember to select date when games actually were played. ![calendar](image.png) 
 Then you will be prompted to select a game. Press one button to select a game. ![select a game](image-1.png)
-XYZ
+ABC

@@ -1,6 +1,8 @@
 var scheduleContent = document.getElementById('schedule'); var gameId; var inputVal = '2021';
-const homeRosterArray = []; const awayRosterArray = []; // const homeRosterIdArray = []; const awayRosterIdArray = [];
-const homeRosterDArray = []; const awayRosterDArray = []; pairingsArray4 = []; standingsArray = [];
+// const homeRosterArray = []; 
+// const awayRosterArray = []; // const homeRosterIdArray = []; const awayRosterIdArray = [];
+// const homeRosterDArray = []; 
+// const awayRosterDArray = []; pairingsArray4 = []; standingsArray = [];
 
 // lines below will allow user to search by year
 function getInputValue() {
@@ -133,7 +135,8 @@ function getInputValue() {
                             pairingsArray[i + 3 * h].push(sum); pairingsArray[i + 3 * h].push(shifts); // console.log(i, j, k, tempTime);
                           }}}} // end i and h loop periods
                     console.log(pairingsArray); tempTime2 = [];
-                    
+
+                    // this one is not currently used it is created for 5x5 loop
                     dArrayTemp = [[[],[],[]],[[],[],[]]];
                     for (i = 0; i < 2; i++) { for (j = 0; j < dArray[i].length; j++) { for (k = 0; k < 3; k++) {dArrayTemp[i][k] = dArrayTemp[i][k].concat(dArray[i][j][k])}}}
                     console.log(dArrayTemp);
@@ -146,7 +149,7 @@ function getInputValue() {
                   else dArrayTempSplit3[i][j].push(k)}
                   }}
                     console.log(dArrayTempSplit, dArrayTempSplit2, dArrayTempSplit3);
-                  fiveOnFive = [[[0, 600, 700, 1200], [0,600, 700, 1200], [0, 600, 700, 1200]],[[0, 600, 700, 1200], [0, 600, 700, 1200], [0,600, 700, 1200]]];
+                  fiveOnFive = [[[0, 601, 700, 1200], [0,601, 700, 1200], [0, 601, 700, 1200]],[[0, 601, 700, 1200], [0, 601, 700, 1200], [0,601, 700, 1200]]];
                     for (h = 0; h < 2; h++) { // h = 0 home team D, h = 1 away team D
                       for (i = 0; i < 3; i++) { for (j = 0; j < fArray[h].length; j++) {
                           for (k = j + 1; k < fArray[h].length; k++) {shiftsPair = []; for (l = 0; l < fArray[h][j][i].length / 2; l++) {

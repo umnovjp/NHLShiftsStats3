@@ -1,19 +1,12 @@
-var scheduleContent = document.getElementById('schedule'); var gameId; var inputVal = '2021';
-// const homeRosterArray = []; 
-// const awayRosterArray = []; // const homeRosterIdArray = []; const awayRosterIdArray = [];
-// const homeRosterDArray = []; 
-// const awayRosterDArray = []; pairingsArray4 = []; standingsArray = [];
-
-// lines below will allow user to search by year
+var scheduleContent = document.getElementById('schedule'); var gameId; var inputVal = '2021'; standingsArray = [];
+// lines below will allow user to select date then to select game on that date 
 function getInputValue() {
   var inputVal = document.getElementById('datepicker').value; var date = inputVal.split('/');
   var formatted = date[2] + '-' + date[0] + '-' + date[1]; console.log(formatted)
   var requestURL = 'https://cors-anywhere.herokuapp.com/https://api-web.nhle.com/v1/schedule/' + formatted; // old version https://statsapi.web.nhl.com/api/v1/schedule/?date=
-  fetch(requestURL, {
-    "method": "GET", "headers": {}
+  fetch(requestURL, {"method": "GET", "headers": {}
   })
-    .then(function (response) {
-      return response.json();
+    .then(function (response) {return response.json();
     })
     .then(function (data) {
       console.log('I am in schedule then');
@@ -60,7 +53,7 @@ function getInputValue() {
                     standingsArray.push(data.homeTeam.abbrev, data_standings.standings[i].wins, data_standings.standings[i].losses, data_standings.standings[i].otLosses)
                     console.log(i, data.homeTeam.abbrev, data_standings.standings[i].wins, data_standings.standings[i].losses, data_standings.standings[i].otLosses)
                   }
-                  // else (console.log('No Such Abbrev'));
+                  else (console.log('No Such Abbrev'));
                 }
                 var gameTitle = document.createElement('h2'); gameTitle.textContent = '';
                 gameTitle.innerHTML = 'You are watching stats for ' + data.awayTeam.abbrev + standingsArray[0] + ' W ' + standingsArray[1] + ' L ' + standingsArray[2] + ' O at ' + data.homeTeam.abbrev + standingsArray[3] + ' W ' + standingsArray[4] + ' L ' + standingsArray[5] + ' O game';
@@ -282,10 +275,16 @@ function getInputValue() {
                       document.getElementById('firstD7A').appendChild(firstD7A); document.getElementById('secondD7A').appendChild(secondD7A); document.getElementById('thirdD7A').appendChild(thirdD7A); document.getElementById('forthD7A').appendChild(forthD7A); document.getElementById('fifthD7A').appendChild(fifthD7A); document.getElementById('sixthD7A').appendChild(sixthD7A);
                     } // end if seven D men away and end of adding DMen to display cycles
                     // for (i = 0; i < homeF.length/3; i++) {tempVar = 'fNumber' + i; tempVar.innerHTML = homeF[i+1] + ' ' + homeF[i+2]}
+                    
+                    // temporary script to add forwards to screen; permamnent script will require 5x5 script which i do not have now
                     fNumber1.innerHTML = homeF[1] + ' ' + homeF[2]; fNumber2.innerHTML = homeF[4] + ' ' + homeF[5]; fNumber3.innerHTML = homeF[7] + ' ' + homeF[8]; fNumber4.innerHTML = homeF[10] + ' ' + homeF[11]; fNumber5.innerHTML = homeF[13] + ' ' + homeF[14]; fNumber6.innerHTML = homeF[16] + ' ' + homeF[17]; 
-                    fNumber7.innerHTML = homeF[19] + ' ' + homeF[20]; fNumber8.innerHTML = homeF[22] + ' ' + homeF[23]; fNumber9.innerHTML = homeF[25] + ' ' + homeF[26]; fNumber10.innerHTML = homeF[28] + ' ' + homeF[29]; fNumber11.innerHTML = homeF[31] + ' ' + homeF[32]; fNumber12.innerHTML = homeF[34] + ' ' + homeF[35]; 
-                    if (homeF.length/3 > 11){fNumber13.innerHTML = homeF[34] + ' ' + homeF[35]; }
+                    fNumber7.innerHTML = homeF[19] + ' ' + homeF[20]; fNumber8.innerHTML = homeF[22] + ' ' + homeF[23]; fNumber9.innerHTML = homeF[25] + ' ' + homeF[26]; fNumber10.innerHTML = homeF[28] + ' ' + homeF[29]; fNumber11.innerHTML = homeF[31] + ' ' + homeF[32]; // fNumber12.innerHTML = homeF[34] + ' ' + homeF[35]; 
+                    if (homeF.length/3 > 11){fNumber12.innerHTML = homeF[34] + ' ' + homeF[35]; }
                     if (homeF.length/3 > 12){fNumber13.innerHTML = homeF[37] + ' ' + homeF[38]; }
+                    fNumber1A.innerHTML = awayF[1] + ' ' + awayF[2]; fNumber2A.innerHTML = awayF[4] + ' ' + awayF[5]; fNumber3A.innerHTML = awayF[7] + ' ' + awayF[8]; fNumber4A.innerHTML = awayF[10] + ' ' + awayF[11]; fNumber5A.innerHTML = awayF[13] + ' ' + awayF[14]; fNumber6A.innerHTML = awayF[16] + ' ' + awayF[17]; 
+                    fNumber7A.innerHTML = awayF[19] + ' ' + awayF[20]; fNumber8A.innerHTML = awayF[22] + ' ' + awayF[23]; fNumber9A.innerHTML = awayF[25] + ' ' + awayF[26]; fNumber10A.innerHTML = awayF[28] + ' ' + awayF[29]; fNumber11A.innerHTML = awayF[31] + ' ' + awayF[32]; // fNumber12A.innerHTML = awayF[34] + ' ' + awayF[35]; 
+                    if (awayF.length/3 > 11){fNumber12A.innerHTML = awayF[34] + ' ' + awayF[35]; }
+                    if (awayF.length/3 > 12){fNumber13A.innerHTML = awayF[37] + ' ' + awayF[38]; }
                     
                   }); // end second .then shifts
               }); // end second .then standings;

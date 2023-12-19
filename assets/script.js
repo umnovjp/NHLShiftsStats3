@@ -42,8 +42,7 @@ function getInputValue() {
               .then(function (response) {
                 return response.json();
               })
-              .then(function (data_standings) {
-                console.log(data_standings.standings);
+              .then(function (data_standings) { console.log(data_standings.standings);
                 for (i = 0; i < data_standings.standings.length; i++) {
                   if (data_standings.standings[i].teamAbbrev.default === data.awayTeam.abbrev) {
                     standingsArray.push(data_standings.standings[i].wins, data_standings.standings[i].losses, data_standings.standings[i].otLosses)
@@ -53,8 +52,7 @@ function getInputValue() {
                     standingsArray.push(data.homeTeam.abbrev, data_standings.standings[i].wins, data_standings.standings[i].losses, data_standings.standings[i].otLosses)
                     console.log(i, data.homeTeam.abbrev, data_standings.standings[i].wins, data_standings.standings[i].losses, data_standings.standings[i].otLosses)
                   }
-                  else (console.log('No Such Abbrev'));
-                }
+                  else (console.log('No Such Abbrev'))}
                 var gameTitle = document.createElement('h2'); gameTitle.textContent = '';
                 gameTitle.innerHTML = 'You are watching stats for ' + data.awayTeam.abbrev + standingsArray[0] + ' W ' + standingsArray[1] + ' L ' + standingsArray[2] + ' O at ' + data.homeTeam.abbrev + standingsArray[3] + ' W ' + standingsArray[4] + ' L ' + standingsArray[5] + ' O game';
                 document.getElementById('gameInfo').appendChild(gameTitle);
@@ -128,11 +126,12 @@ function getInputValue() {
                             pairingsArray[i + 3 * h].push(sum); pairingsArray[i + 3 * h].push(shifts); // console.log(i, j, k, tempTime);
                           }}}} // end i and h loop periods
                     console.log(pairingsArray); tempTime2 = [];
-
-                    // this one is not currently used it is created for 5x5 loop
-                    dArrayTemp = [[[],[],[]],[[],[],[]]];
+                    
+                    dArrayTemp = [[[],[],[]],[[],[],[]]]; fArrayTemp = [[[],[],[]],[[],[],[]]];
                     for (i = 0; i < 2; i++) { for (j = 0; j < dArray[i].length; j++) { for (k = 0; k < 3; k++) {dArrayTemp[i][k] = dArrayTemp[i][k].concat(dArray[i][j][k])}}}
-                    console.log(dArrayTemp);
+                    for (i = 0; i < 2; i++) { for (j = 0; j < fArray[i].length; j++) { for (k = 0; k < 3; k++) {fArrayTemp[i][k] = fArrayTemp[i][k].concat(fArray[i][j][k])}}}
+                    console.log(dArrayTemp, fArrayTemp);
+                    // this one is not currently used it is created for 5x5 loop
                     dArrayTempSplit = [[[],[],[]],[[],[],[]]]; dArrayTempSplit2 = [[[],[],[]],[[],[],[]]]; dArrayTempSplit3 = [[[],[],[]],[[],[],[]]];// dArrayTempSplit2Ordered = [[[],[],[]],[[],[],[]]]; 
                     for (i = 0; i < 2; i++) {for (j = 0; j < 3; j++) {for (k = 0; k < dArrayTemp[i][j].length/2; k++){dArrayTempSplit[i][j].push(dArrayTemp[i][j][2*k])
                     dArrayTempSplit2[i][j].push(dArrayTemp[i][j][2*k]);
@@ -142,6 +141,16 @@ function getInputValue() {
                   else dArrayTempSplit3[i][j].push(k)}
                   }}
                     console.log(dArrayTempSplit, dArrayTempSplit2, dArrayTempSplit3);
+
+                    // new attempt to create 5x5 loop
+                    dArrayTemp2 = [[[],[],[]],[[],[],[]]];
+                    for (i = 0; i < 2; i++) {for (j = 0; j < 3; j++) {for (k = 0; k < 1200; k++) {dArrayTemp2[i][j].push(0)}}}
+                    for (i = 0; i < 2; i++) {for (j = 0; j < 3; j++) for (k = 0; k < dArrayTemp[i][j].length/2; k++) 
+                  {for (l = dArrayTemp[i][j][2*k]; l < dArrayTemp[i][j][2*k + 1]; l++) {dArrayTemp2[i][j][l] = dArrayTemp2[i][j][l] + 1}}}
+                  
+                  for (i = 0; i < 2; i++) {for (j = 0; j < 3; j++) {for (k = 0; k < 1200; k++) {if (dArrayTemp2[i][j][k+1] === dArrayTemp2[i][j][k]) {delete dArrayTemp2[i][j][k]}}}}
+                  console.log(dArrayTemp2)
+
                   fiveOnFive = [[[0, 601, 700, 1200], [0,601, 700, 1200], [0, 601, 700, 1200]],[[0, 601, 700, 1200], [0, 601, 700, 1200], [0,601, 700, 1200]]];
                     for (h = 0; h < 2; h++) { // h = 0 home team D, h = 1 away team D
                       for (i = 0; i < 3; i++) { for (j = 0; j < fArray[h].length; j++) {
@@ -153,7 +162,7 @@ function getInputValue() {
                                   if (fArray[h][k][i][2 * m + 1] >= fArray[h][j][i][2 * l + 1]) { shiftsPair.push(fArray[h][j][i][2 * l], fArray[h][j][i][2 * l + 1]) }
                                   else {shiftsPair.push(fArray[h][j][i][2 * l], fArray[h][k][i][2 * m + 1])}
                                 }}}   // end m, l loop
-                                for (l = k + 1; l < fArray[h].length; l++) {tempTime = []; if (i === 0  && h === 0) { console.log(j, k, l, shiftsPair);}
+                                for (l = k + 1; l < fArray[h].length; l++) {tempTime = []; // if (i === 0  && h === 0) { console.log(j, k, l, shiftsPair);}
                                 for (m = 0; m < shiftsPair.length/2; m++){ 
                                   for (n = 0; n < fArray[h][l][i].length/2; n++) {if ((fArray[h][l][i][2*n]>=shiftsPair[2*m])&&(fArray[h][l][i][2*n]<shiftsPair[2*m+1])){
                                     if (fArray[h][l][i][2*n+1]>=shiftsPair[2*m+1]) {tempTime.push(shiftsPair[2 * m + 1] - fArray[h][l][i][2*n])}

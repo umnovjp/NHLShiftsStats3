@@ -156,13 +156,16 @@ function getInputValue() {
                 for (i = 0; i < 2; i++) {for (j = 0; j < 3; j++) {for (k = 0; k < 1200; k++) {if (!dArrayTemp2[i][j][k]) {} else {dArrayTemp3[i][j].push(dArrayTemp2[i][j][k], k)}}}}
                 for (i = 0; i < 2; i++) {for (j = 0; j < 3; j++) {for (k = 0; k < 1200; k++) {if (!fArrayTemp2[i][j][k]) {} else {fArrayTemp3[i][j].push(fArrayTemp2[i][j][k], k)}}}}
                   console.log(dArrayTemp3, fArrayTemp3);
-                  fiveOnFive = [[[],[],[]],[[],[],[]]]
+                  fiveOnFive = [[[],[],[]],[[],[],[]]]; fiveOnFive2 = [[[],[],[]],[[],[],[]]]
                   for (i = 0; i < 2; i++) {for (j = 0; j < 3; j++) { if (dArrayTemp3[i][j][0] === 2) {fiveOnFive[i][j].push(0, dArrayTemp3[i][j][1])}
-                    for (k = 1; k < dArrayTemp3[i][j].length/2; k++) {if ((dArrayTemp3[i][j][2*k] === 2)&&(dArrayTemp3[i][j][2*k+1]-dArrayTemp3[i][j][2*k-1]>3)) {fiveOnFive[i][j].push(dArrayTemp3[i][j][2*k-1], dArrayTemp3[i][j][2*k+1])
-                    
-                  }} }}                   
-                  console.log(fiveOnFive)
+                    for (k = 1; k < dArrayTemp3[i][j].length/2; k++) {if (dArrayTemp3[i][j][2*k] === 2) {fiveOnFive[i][j].push(dArrayTemp3[i][j][2*k-1], dArrayTemp3[i][j][2*k+1])}}}}
+                  console.log(fiveOnFive);
+                  for (i = 0; i < 2; i++) {for (j = 0; j < 3; j++) {for (k = 0; k < fiveOnFive[i][j].length/2; k++) {if (fiveOnFive[i][j][2*k+2]-fiveOnFive[i][j][2*k+1]<3) {tempArray1=fiveOnFive[i][j].slice(0,2*k); tempArray2=fiveOnFive[i][j].slice(2*k+2);
+                  console.log(i, j, k, fiveOnFive[i][j][2*k+2], fiveOnFive[i][j][2*k+1], tempArray1, tempArray2);
+                    fiveOnFive2[i][j]=tempArray1.concat(tempArray2)}}}}
+                  console.log(fiveOnFive2);
                  // fiveOnFive = [[[0, 601, 700, 1200], [0,601, 700, 1200], [0, 601, 700, 1200]],[[0, 601, 700, 1200], [0, 601, 700, 1200], [0,601, 700, 1200]]];
+                 // IV&V EOIR MATLAB Sensor Technologies next-generation cross-functional 
                     for (h = 0; h < 2; h++) { // h = 0 home team D, h = 1 away team D
                       for (i = 0; i < 3; i++) { for (j = 0; j < fArray[h].length; j++) {
                           for (k = j + 1; k < fArray[h].length; k++) {shiftsPair = []; for (l = 0; l < fArray[h][j][i].length / 2; l++) {

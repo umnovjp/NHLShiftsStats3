@@ -152,13 +152,12 @@ function getInputValue() {
                        else if ((fiveOnFive[i][j][2*k]>=fiveOnFive3[i][j][2*l])&&(fiveOnFive[i][j][2*k+1]>=fiveOnFive3[i][j][2*l+1])&&(fiveOnFive[i][j][2*k]<fiveOnFive3[i][j][2*l+1])) {fiveOnFive5[i][j].push(fiveOnFive[i][j][2*k], fiveOnFive3[i][j][2*l+1])}
                        else if ((fiveOnFive[i][j][2*k]<=fiveOnFive3[i][j][2*l])&&(fiveOnFive[i][j][2*k+1]<=fiveOnFive3[i][j][2*l+1])&&(fiveOnFive[i][j][2*k+1]>fiveOnFive3[i][j][2*l])) {fiveOnFive5[i][j].push(fiveOnFive3[i][j][2*l], fiveOnFive[i][j][2*k+1])}
                      }}}} 
-                    console.log(fiveOnFive);
-                    console.log(fiveOnFive3); 
-                    console.log(fiveOnFive5);
+                    console.log(fiveOnFive); 
+                    console.log(fiveOnFive3);
+                    console.log(fiveOnFive5); 
 
-                    for (h = 0; h < 2; h++) { // h = 0 home team D, h = 1 away team D
-                      for (i = 0; i < 3; i++) { for (j = 0; j < dArray[h].length; j++) {
-                          for (k = j + 1; k < dArray[h].length; k++) {tempTime = []; tempTime2 = []; for (l = 0; l < dArray[h][j][i].length / 2; l++) {
+                    for (h = 0; h < 2; h++) { // h = 0 home team D, h = 1 away team D 
+                      for (i = 0; i < 3; i++) { for (j = 0; j < dArray[h].length; j++) { for (k = j + 1; k < dArray[h].length; k++) {tempTime = []; tempTime2 = []; for (l = 0; l < dArray[h][j][i].length / 2; l++) {
                               for (m = 0; m < dArray[h][k][i].length / 2; m++) { if ((dArray[h][k][i][2 * m] >= dArray[h][j][i][2 * l]) && (dArray[h][k][i][2 * m] <= dArray[h][j][i][2 * l + 1])) {
                                   if (dArray[h][k][i][2 * m + 1] >= dArray[h][j][i][2 * l + 1]) { tempTime.push(dArray[h][k][i][2 * m], dArray[h][j][i][2 * l + 1]) }
                                   else { tempTime.push(dArray[h][k][i][2 * m], dArray[h][k][i][2 * m + 1]) }}
@@ -177,16 +176,10 @@ function getInputValue() {
                               }}
                             shifts = 0; const sum = tempTime2.reduce((partialSum, a) => partialSum + a, 0);
                             for (n = 0; n < tempTime2.length; n++) { if (tempTime2[n] >= 10) { shifts = shifts + 1 } }
-                            pairingsArray[i + 3 * h].push(sum); pairingsArray[i + 3 * h].push(shifts); console.log(h, i, j, k, tempTime);
-                          }}}} // end k, j, i and h loop periods
-                    console.log(pairingsArray); tempTime2 = [];
+                            pairingsArray[i + 3 * h].push(sum); pairingsArray[i + 3 * h].push(shifts); console.log(h, i, j, k, tempTime, tempt);
+                          }}}} // end k, j, i and h loop periods 
+                    console.log(pairingsArray); tempTime2 = []; 
                     
-                    // dArrayTemp = [[[],[],[]],[[],[],[]]]; fArrayTemp = [[[],[],[]],[[],[],[]]];
-                    // for (i = 0; i < 2; i++) { for (j = 0; j < dArray[i].length; j++) { for (k = 0; k < 3; k++) {dArrayTemp[i][k] = dArrayTemp[i][k].concat(dArray[i][j][k])}}}
-                    // for (i = 0; i < 2; i++) { for (j = 0; j < fArray[i].length; j++) { for (k = 0; k < 3; k++) {fArrayTemp[i][k] = fArrayTemp[i][k].concat(fArray[i][j][k])}}}
-                    // console.log(dArrayTemp, fArrayTemp);
-
-                //     // new attempt to create 5x5 loop
                      dArrayTemp2 = [[[],[],[]],[[],[],[]]]; dArrayTemp3 = [[[],[],[]],[[],[],[]]]; fArrayTemp2 = [[[],[],[]],[[],[],[]]]; fArrayTemp3 = [[[],[],[]],[[],[],[]]]; 
                 //     for (i = 0; i < 2; i++) {for (j = 0; j < 3; j++) {for (k = 0; k < 1200; k++) {dArrayTemp2[i][j].push(0); fArrayTemp2[i][j].push(0)}}}
                 //     for (i = 0; i < 2; i++) {for (j = 0; j < 3; j++) for (k = 0; k < dArrayTemp[i][j].length/2; k++) 
@@ -223,10 +216,6 @@ function getInputValue() {
                 //       else if ((fiveOnFive[i][j][2*k]<=fiveOnFive3[i][j][2*l])&&(fiveOnFive[i][j][2*k+1]<=fiveOnFive3[i][j][2*l+1])&&(fiveOnFive[i][j][2*k+1]>fiveOnFive3[i][j][2*l])) {fiveOnFive5[i][j].push(fiveOnFive3[i][j][2*l], fiveOnFive[i][j][2*k+1])}
                 //     }}}}                
 
-                //    console.log(fiveOnFive);
-                //    console.log(fiveOnFive3); 
-                //    console.log(fiveOnFive5); // move lines 130-165 to before 114
-                 // fiveOnFive = [[[0, 601, 700, 1200], [0,601, 700, 1200], [0, 601, 700, 1200]],[[0, 601, 700, 1200], [0, 601, 700, 1200], [0,601, 700, 1200]]];
                     for (h = 0; h < 2; h++) { // h = 0 home team D, h = 1 away team D
                       for (i = 0; i < 3; i++) { for (j = 0; j < fArray[h].length; j++) {
                           for (k = j + 1; k < fArray[h].length; k++) {shiftsPair = []; for (l = 0; l < fArray[h][j][i].length / 2; l++) {

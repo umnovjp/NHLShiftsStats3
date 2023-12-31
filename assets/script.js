@@ -181,15 +181,11 @@ function getInputValue() {
                     console.log(pairingsArray); tempTime2 = []; 
                     
                      dArrayTemp2 = [[[],[],[]],[[],[],[]]]; dArrayTemp3 = [[[],[],[]],[[],[],[]]]; fArrayTemp2 = [[[],[],[]],[[],[],[]]]; fArrayTemp3 = [[[],[],[]],[[],[],[]]]; 
-                //     for (i = 0; i < 2; i++) {for (j = 0; j < 3; j++) {for (k = 0; k < 1200; k++) {dArrayTemp2[i][j].push(0); fArrayTemp2[i][j].push(0)}}}
                 //     for (i = 0; i < 2; i++) {for (j = 0; j < 3; j++) for (k = 0; k < dArrayTemp[i][j].length/2; k++) 
                 //   {for (l = dArrayTemp[i][j][2*k]; l < dArrayTemp[i][j][2*k + 1]; l++) {dArrayTemp2[i][j][l] = dArrayTemp2[i][j][l] + 1}}}
                 //   for (i = 0; i < 2; i++) {for (j = 0; j < 3; j++) for (k = 0; k < fArrayTemp[i][j].length/2; k++) 
                 //   {for (l = fArrayTemp[i][j][2*k]; l < fArrayTemp[i][j][2*k + 1]; l++) {fArrayTemp2[i][j][l] = fArrayTemp2[i][j][l] + 1}}}
-                  
-                //   for (i = 0; i < 2; i++) {for (j = 0; j < 3; j++) {for (k = 0; k < 1200; k++) {if (dArrayTemp2[i][j][k+1] === dArrayTemp2[i][j][k]) {delete dArrayTemp2[i][j][k]}}}} 
-                //   for (i = 0; i < 2; i++) {for (j = 0; j < 3; j++) {for (k = 0; k < 1200; k++) {if (fArrayTemp2[i][j][k+1] === fArrayTemp2[i][j][k]) {delete fArrayTemp2[i][j][k]}}}} 
-                
+                              
                 // for (i = 0; i < 2; i++) {for (j = 0; j < 3; j++) {for (k = 0; k < 1200; k++) {if (!dArrayTemp2[i][j][k]) {} else {dArrayTemp3[i][j].push(dArrayTemp2[i][j][k], k)}}}}
                 // for (i = 0; i < 2; i++) {for (j = 0; j < 3; j++) {for (k = 0; k < 1200; k++) {if (!fArrayTemp2[i][j][k]) {} else {fArrayTemp3[i][j].push(fArrayTemp2[i][j][k], k)}}}}
                 //   console.log(dArrayTemp3, fArrayTemp3);
@@ -204,11 +200,6 @@ function getInputValue() {
                 //     }}}}
                 //     for (i = 0; i < 2; i++) {for (j = 0; j < 3; j++) { if (fArrayTemp3[i][j][0] === 3) {fiveOnFive3[i][j].push(0, fArrayTemp3[i][j][1]); fiveOnFive4[i][j].push(0, fArrayTemp3[i][j][1])}
                 //     for (k = 1; k < fArrayTemp3[i][j].length/2; k++) {if (fArrayTemp3[i][j][2*k] === 3) {fiveOnFive3[i][j].push(fArrayTemp3[i][j][2*k-1], fArrayTemp3[i][j][2*k+1]); fiveOnFive4[i][j].push(fArrayTemp3[i][j][2*k-1], fArrayTemp3[i][j][2*k+1])}}}}
-                //   for (i = 0; i < 2; i++) {for (j = 0; j < 3; j++) {for (k = fiveOnFive3[i][j].length/2-1; k > 0; k--) {if (fiveOnFive3[i][j][2*k]-fiveOnFive3[i][j][2*k-1]<4) { // console.log('160', fiveOnFive3[i][j][2*k], fiveOnFive3[i][j][2*k-1] )
-                //     tempArray1=fiveOnFive3[i][j].slice(0,2*k-1); tempArray2=fiveOnFive3[i][j].slice(2*k+1);
-                //     fiveOnFive3[i][j]=tempArray1.concat(tempArray2)
-                //     // console.log(i, j, k, fiveOnFive[i][j][2*k], fiveOnFive[i][j][2*k-1], tempArray1, tempArray2);
-                //     }}}}         
 
                     for (h = 0; h < 2; h++) { // h = 0 home team D, h = 1 away team D
                       for (i = 0; i < 3; i++) { for (j = 0; j < fArray[h].length; j++) {
@@ -244,9 +235,12 @@ function getInputValue() {
                           }} // temp end k, j loops                      
                         }} // end k, j, i and h loop periods
 
-                        console.log('shiftsPair', shiftsPair, 'linesArray', linesArray);
-                        for (i = 0; i<linesArray[0].length/5; i++) {if (linesArray[0][5*i]>100) {console.log('home F', linesArray[0][5*i], linesArray[0][5*i+1], linesArray[0][5*i+2], linesArray[0][5*i+3], linesArray[0][5*i + 4])}}
-                        for (i = 0; i<linesArray[3].length/5; i++) {if (linesArray[3][5*i]>100) {console.log('away F', linesArray[3][5*i], linesArray[3][5*i+1], linesArray[3][5*i+2], linesArray[3][5*i+3], linesArray[3][5*i + 4])}}
+                        console.log('shiftsPair', shiftsPair, 'linesArray', linesArray); linesArray2 = [[],[]]
+                        for (i = 0; i<linesArray[0].length/5; i++) {if (linesArray[0][5*i]>100) {console.log('home F', linesArray[0][5*i], linesArray[0][5*i+1], linesArray[0][5*i+2], linesArray[0][5*i+3], linesArray[0][5*i + 4]); 
+                        for (j = 0; j < 3; j++) {linesArray2[0].push(linesArray[j][5*i], linesArray[j][5*i+1], linesArray[j][5*i+2], linesArray[j][5*i+3], linesArray[j][5*i+4])}}}
+                        for (i = 0; i<linesArray[3].length/5; i++) {if (linesArray[3][5*i]>100) {console.log('away F', linesArray[3][5*i], linesArray[3][5*i+1], linesArray[3][5*i+2], linesArray[3][5*i+3], linesArray[3][5*i + 4]); 
+                        for (j = 3; j < 6; j++) {linesArray2[1].push(linesArray[j][5*i], linesArray[j][5*i+1], linesArray[j][5*i+2], linesArray[j][5*i+3], linesArray[j][5*i+4])}
+                        }}
 
                     // adding home team defense to screen 
                     firstDNumber.innerHTML = homeD[1] + ' ' + homeD[2]; secondDNumber.innerHTML = homeD[4] + ' ' + homeD[5]; thirdDNumber.innerHTML = homeD[7] + ' ' + homeD[8];
@@ -267,7 +261,7 @@ function getInputValue() {
                     thirdD4.innerHTML = pairingsArray[0][4 * homeD.length / 3 - 5] + ' shifts ' + pairingsArray[0][4 * homeD.length / 3 - 6] + ' sec ' + '<br>' + pairingsArray[1][4 * homeD.length / 3 - 5] + ' sh ' + pairingsArray[1][4 * homeD.length / 3 - 6] + ' sec ' + '<br>' + pairingsArray[2][4 * homeD.length / 3 - 5] + ' sh ' + pairingsArray[2][4 * homeD.length / 3 - 6] + ' sec ';
                     thirdD5.innerHTML = pairingsArray[0][4 * homeD.length / 3 - 3] + ' shifts ' + pairingsArray[0][4 * homeD.length / 3 - 4] + ' sec ' + '<br>' + pairingsArray[1][4 * homeD.length / 3 - 3] + ' sh ' + pairingsArray[1][4 * homeD.length / 3 - 4] + ' sec ' + '<br>' + pairingsArray[2][4 * homeD.length / 3 - 3] + ' sh ' + pairingsArray[2][4 * homeD.length / 3 - 4] + ' sec ';
                     forthDNumber.innerHTML = homeD[10] + ' ' + homeD[11]; forthD2.innerHTML = secondD4.innerHTML; forthD3.innerHTML = thirdD4.innerHTML; forthD1.innerHTML = firstD4.innerHTML; var forthD5 = document.createElement('p3');
-                    forthD5.innerHTML = pairingsArray[0][6 * homeD.length / 3 - 11] + ' shifts ' + pairingsArray[0][6 * homeD.length / 3 - 10] + ' sec ' + '<br>' + pairingsArray[1][6 * homeD.length / 3 - 11] + ' sh ' + pairingsArray[1][6 * homeD.length / 3 - 10] + ' sec ' + '<br>' + pairingsArray[2][6 * homeD.length / 3 - 11] + ' sh ' + pairingsArray[2][4 * homeD.length / 3 - 10] + ' sec ';
+                    forthD5.innerHTML = pairingsArray[0][6 * homeD.length / 3 - 11] + ' shifts ' + pairingsArray[0][6 * homeD.length / 3 - 12] + ' sec ' + '<br>' + pairingsArray[1][6 * homeD.length / 3 - 11] + ' sh ' + pairingsArray[1][6 * homeD.length / 3 - 12] + ' sec ' + '<br>' + pairingsArray[2][6 * homeD.length / 3 - 11] + ' sh ' + pairingsArray[2][6 * homeD.length / 3 - 12] + ' sec ';
                     fifthDNumber.innerHTML = homeD[13] + ' ' + homeD[14];
                     fifthD1.innerHTML = firstD5.innerHTML; fifthD2.innerHTML = secondD5.innerHTML; fifthD3.innerHTML = thirdD5.innerHTML; fifthD4.innerHTML = forthD5.innerHTML; fifthD5.innerHTML = 'X' + '<br>' + 'X' + '<br>' + 'X';
                     document.getElementById('secondD3').appendChild(secondD3); document.getElementById('secondD4').appendChild(secondD4); document.getElementById('secondD5').appendChild(secondD5); document.getElementById('thirdD4').appendChild(thirdD4);
@@ -316,7 +310,7 @@ function getInputValue() {
                     thirdD4A.innerHTML = pairingsArray[3][4 * awayD.length / 3 - 5] + ' shifts ' + pairingsArray[3][4 * awayD.length / 3 - 6] + ' sec ' + '<br>' + pairingsArray[4][4 * awayD.length / 3 - 5] + ' sh ' + pairingsArray[4][4 * awayD.length / 3 - 6] + ' sec ' + '<br>' + pairingsArray[5][4 * awayD.length / 3 - 5] + ' sh ' + pairingsArray[5][4 * awayD.length / 3 - 6] + ' sec ';
                     thirdD5A.innerHTML = pairingsArray[3][4 * awayD.length / 3 - 3] + ' shifts ' + pairingsArray[3][4 * awayD.length / 3 - 4] + ' sec ' + '<br>' + pairingsArray[4][4 * awayD.length / 3 - 3] + ' sh ' + pairingsArray[4][4 * awayD.length / 3 - 4] + ' sec ' + '<br>' + pairingsArray[5][4 * awayD.length / 3 - 3] + ' sh ' + pairingsArray[5][4 * awayD.length / 3 - 4] + ' sec ';
                     forthDNumberA.innerHTML = awayD[10] + ' ' + awayD[11]; forthD2A.innerHTML = secondD4A.innerHTML; forthD3A.innerHTML = thirdD4A.innerHTML; forthD1A.innerHTML = firstD4A.innerHTML; var forthD5A = document.createElement('p3');
-                    forthD5A.innerHTML = pairingsArray[3][6 * awayD.length / 3 - 11] + ' shifts ' + pairingsArray[3][6 * awayD.length / 3 - 10] + ' sec ' + '<br>' + pairingsArray[4][6 * awayD.length / 3 - 11] + ' sh ' + pairingsArray[4][6 * awayD.length / 3 - 10] + ' sec ' + '<br>' + pairingsArray[5][6 * awayD.length / 3 - 11] + ' sh ' + pairingsArray[5][4 * awayD.length / 3 - 10] + ' sec ';
+                    forthD5A.innerHTML = pairingsArray[3][6 * awayD.length / 3 - 11] + ' shifts ' + pairingsArray[3][6 * awayD.length / 3 - 12] + ' sec ' + '<br>' + pairingsArray[4][6 * awayD.length / 3 - 11] + ' sh ' + pairingsArray[4][6 * awayD.length / 3 - 12] + ' sec ' + '<br>' + pairingsArray[5][6 * awayD.length / 3 - 11] + ' sh ' + pairingsArray[5][6 * awayD.length / 3 - 12] + ' sec ';
                     fifthDNumberA.innerHTML = awayD[13] + ' ' + awayD[14];
                     fifthD1A.innerHTML = firstD5A.innerHTML; fifthD2A.innerHTML = secondD5A.innerHTML; fifthD3A.innerHTML = thirdD5A.innerHTML; fifthD4A.innerHTML = forthD5A.innerHTML; fifthD5A.innerHTML = 'X' + '<br>' + 'X' + '<br>' + 'X';
                     document.getElementById('secondD3A').appendChild(secondD3A); document.getElementById('secondD4A').appendChild(secondD4A); document.getElementById('secondD5A').appendChild(secondD5A); document.getElementById('thirdD4A').appendChild(thirdD4A);
@@ -357,7 +351,15 @@ function getInputValue() {
                     fNumber7A.innerHTML = awayF[19] + ' ' + awayF[20]; fNumber8A.innerHTML = awayF[22] + ' ' + awayF[23]; fNumber9A.innerHTML = awayF[25] + ' ' + awayF[26]; fNumber10A.innerHTML = awayF[28] + ' ' + awayF[29]; fNumber11A.innerHTML = awayF[31] + ' ' + awayF[32]; // fNumber12A.innerHTML = awayF[34] + ' ' + awayF[35]; 
                     if (awayF.length/3 > 11){fNumber12A.innerHTML = awayF[34] + ' ' + awayF[35]; }
                     if (awayF.length/3 > 12){fNumber13A.innerHTML = awayF[37] + ' ' + awayF[38]; }
-                    
+
+                    // actually adding F lines to the screen but checking result before that
+                    console.log(linesArray2);
+                    firstLine.innerHTML = homeF[3*linesArray2[0][2]+1] + ' ' + homeF[3*linesArray2[0][2]+2] + linesArray2[0][1] + 'shifts' + linesArray2[0][0] + 'sec' + '<br>' + homeF[3*linesArray2[0][3]+1] + ' ' + homeF[3*linesArray2[0][3]+2] + + linesArray2[0][6] + 'shifts' + linesArray2[0][5] + 'sec' + '<br>' + homeF[3*linesArray2[0][4]+1] + ' ' + homeF[3*linesArray2[0][4]+2] + linesArray2[0][11] + 'shifts' + linesArray2[0][10] + 'sec';
+                    secondLine.innerHTML = homeF[3*linesArray2[0][17]+1] + ' ' + homeF[3*linesArray2[0][17]+2] + linesArray2[0][16] + 'shifts' + linesArray2[0][15] + 'sec' + '<br>' + homeF[3*linesArray2[0][18]+1] + ' ' + homeF[3*linesArray2[0][18]+2] + linesArray2[0][21] + 'shifts' + linesArray2[0][20] + 'sec' + '<br>' + homeF[3*linesArray2[0][19]+1] + ' ' + homeF[3*linesArray2[0][19]+2] + linesArray2[0][26] + 'shifts' + linesArray2[0][25] + 'sec';
+                    thirdLine.innerHTML = homeF[3*linesArray2[0][32]+1] + ' ' + homeF[3*linesArray2[0][32]+2] + linesArray2[0][31] + 'shifts' + linesArray2[0][30] + 'sec' + '<br>' + homeF[3*linesArray2[0][33]+1] + ' ' + homeF[3*linesArray2[0][33]+2] + linesArray2[0][36] + 'shifts' + linesArray2[0][35] + 'sec' + '<br>' + homeF[3*linesArray2[0][34]+1] + ' ' + homeF[3*linesArray2[0][34]+2]+ linesArray2[0][41] + 'shifts' + linesArray2[0][40] + 'sec';
+                    firstLineAway.innerHTML = awayF[3*linesArray2[1][2]+1] + ' ' + awayF[3*linesArray2[1][2]+2] + linesArray2[1][1] + 'shifts' + linesArray2[1][0] + 'sec' + '<br>' + awayF[3*linesArray2[1][3]+1] + ' ' + awayF[3*linesArray2[1][3]+2] + + linesArray2[1][6] + 'shifts' + linesArray2[1][5] + 'sec' + '<br>' + awayF[3*linesArray2[1][4]+1] + ' ' + awayF[3*linesArray2[1][4]+2] + linesArray2[1][11] + 'shifts' + linesArray2[1][10] + 'sec';
+                    secondLineAway.innerHTML = awayF[3*linesArray2[1][17]+1] + ' ' + awayF[3*linesArray2[1][17]+2] + linesArray2[1][16] + 'shifts' + linesArray2[1][15] + 'sec' + '<br>' + awayF[3*linesArray2[1][18]+1] + ' ' + awayF[3*linesArray2[1][18]+2] + linesArray2[1][21] + 'shifts' + linesArray2[1][20] + 'sec' + '<br>' + awayF[3*linesArray2[1][19]+1] + ' ' + awayF[3*linesArray2[1][19]+2] + linesArray2[1][26] + 'shifts' + linesArray2[1][25] + 'sec';
+                    thirdLineAway.innerHTML = awayF[3*linesArray2[1][32]+1] + ' ' + awayF[3*linesArray2[1][32]+2] + linesArray2[1][31] + 'shifts' + linesArray2[1][30] + 'sec' + '<br>' + awayF[3*linesArray2[1][33]+1] + ' ' + awayF[3*linesArray2[1][33]+2] + linesArray2[1][36] + 'shifts' + linesArray2[1][35] + 'sec' + '<br>' + awayF[3*linesArray2[1][34]+1] + ' ' + awayF[3*linesArray2[1][34]+2]+ linesArray2[1][41] + 'shifts' + linesArray2[1][40] + 'sec'; 
                   }); // end second .then shifts
               }); // end second .then standings;
           }); // end second .then gamecenter;

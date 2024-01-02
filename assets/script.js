@@ -182,8 +182,6 @@ function getInputValue() {
                     
                      dArrayTemp2 = [[[],[],[]],[[],[],[]]]; dArrayTemp3 = [[[],[],[]],[[],[],[]]]; fArrayTemp2 = [[[],[],[]],[[],[],[]]]; fArrayTemp3 = [[[],[],[]],[[],[],[]]]; 
                             
-                // for (i = 0; i < 2; i++) {for (j = 0; j < 3; j++) {for (k = 0; k < 1200; k++) {if (!dArrayTemp2[i][j][k]) {} else {dArrayTemp3[i][j].push(dArrayTemp2[i][j][k], k)}}}}
-                // for (i = 0; i < 2; i++) {for (j = 0; j < 3; j++) {for (k = 0; k < 1200; k++) {if (!fArrayTemp2[i][j][k]) {} else {fArrayTemp3[i][j].push(fArrayTemp2[i][j][k], k)}}}}
                 //   console.log(dArrayTemp3, fArrayTemp3);
                 //   fiveOnFive = [[[],[],[]],[[],[],[]]]; fiveOnFive2 = [[[],[],[]],[[],[],[]]]; fiveOnFive3 = [[[],[],[]],[[],[],[]]]; fiveOnFive4 = [[[],[],[]],[[],[],[]]]; fiveOnFive5 = [[[],[],[]],[[],[],[]]]; 
                 //   // fiveOnFive2 and fiveOnFive4 are used for comparison only not for script should be deleted later
@@ -336,23 +334,21 @@ function getInputValue() {
                       document.getElementById('firstD7A').appendChild(firstD7A); document.getElementById('secondD7A').appendChild(secondD7A); document.getElementById('thirdD7A').appendChild(thirdD7A); document.getElementById('forthD7A').appendChild(forthD7A); document.getElementById('fifthD7A').appendChild(fifthD7A); document.getElementById('sixthD7A').appendChild(sixthD7A);
                     } // end if seven D men away and end of adding DMen to display cycles
                     
-                    // temporary script to add forwards to screen; permamnent script will require 5x5 script which i do not have now
-                    // fNumber1.innerHTML = homeF[1] + ' ' + homeF[2]; fNumber2.innerHTML = homeF[4] + ' ' + homeF[5]; fNumber3.innerHTML = homeF[7] + ' ' + homeF[8]; fNumber4.innerHTML = homeF[10] + ' ' + homeF[11]; fNumber5.innerHTML = homeF[13] + ' ' + homeF[14]; fNumber6.innerHTML = homeF[16] + ' ' + homeF[17]; 
                     // fNumber7.innerHTML = homeF[19] + ' ' + homeF[20]; fNumber8.innerHTML = homeF[22] + ' ' + homeF[23]; fNumber9.innerHTML = homeF[25] + ' ' + homeF[26]; fNumber10.innerHTML = homeF[28] + ' ' + homeF[29]; fNumber11.innerHTML = homeF[31] + ' ' + homeF[32];
                     // if (homeF.length/3 > 11){fNumber12.innerHTML = homeF[34] + ' ' + homeF[35]; }
-                    // if (homeF.length/3 > 12){fNumber13.innerHTML = homeF[37] + ' ' + homeF[38]; }
                     // fNumber1A.innerHTML = awayF[1] + ' ' + awayF[2]; fNumber2A.innerHTML = awayF[4] + ' ' + awayF[5]; fNumber3A.innerHTML = awayF[7] + ' ' + awayF[8]; fNumber4A.innerHTML = awayF[10] + ' ' + awayF[11]; fNumber5A.innerHTML = awayF[13] + ' ' + awayF[14]; fNumber6A.innerHTML = awayF[16] + ' ' + awayF[17]; 
                     // fNumber7A.innerHTML = awayF[19] + ' ' + awayF[20]; fNumber8A.innerHTML = awayF[22] + ' ' + awayF[23]; fNumber9A.innerHTML = awayF[25] + ' ' + awayF[26]; fNumber10A.innerHTML = awayF[28] + ' ' + awayF[29]; fNumber11A.innerHTML = awayF[31] + ' ' + awayF[32]; 
-                    // if (awayF.length/3 > 11){fNumber12A.innerHTML = awayF[34] + ' ' + awayF[35]; }
-                    // if (awayF.length/3 > 12){fNumber13A.innerHTML = awayF[37] + ' ' + awayF[38]; }
 
                     // actually adding F lines to the screen but checking result before that
-                  
-                    for (i = 0; i < homeF.length/3; i++) {linesArray2[4].push(i)}; for (i = 0; i < awayF.length/3; i++) {linesArray2[5].push(i)}
-                    for (i = 0; i < linesArray2[2].length; i++) {linesArray2[4] = linesArray2[2].filter(function(number) {return number !== linesArray2[2][i];
-                    })
-                    console.log(linesArray2[4])}
-                    console.log(linesArray2); 
+                    for (i = 0; i < homeF.length/3; i++) {linesArray2[4].push(i)}
+                    // for (i = 0; i < homeF.length/3; i++) {if (linesArray2[2].includes[i]) linesArray2[4].push(i)}; 
+                    for (i = 0; i < awayF.length/3; i++) {linesArray2[5].push(i)}
+                    // for (i = 0; i < linesArray2[2].length; i++) {linesArray2[4] = linesArray2[2].filter(function(number) {return number !== linesArray2[2][i];
+                    // })
+                    // console.log(linesArray2[4])}
+                    // linesArray2[4] = linesArray2[2].filter(function(number) {for (i = 0; i < linesArray2[2].length; i++) return number !== linesArray2[2][i];
+                    // })
+                    console.log(linesArray2);
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI seconds'; headerHome3.innerHTML = 'shifts';
                     firstLine.innerHTML = homeF[3*linesArray2[0][2]+1] + ' ' + homeF[3*linesArray2[0][2]+2] + '<br>' + homeF[3*linesArray2[0][3]+1] + ' ' + homeF[3*linesArray2[0][3]+2] + '<br>' + homeF[3*linesArray2[0][4]+1] + ' ' + homeF[3*linesArray2[0][4]+2];
                     firstLineTime.innerHTML = linesArray2[0][0] + '<br>' + linesArray2[0][5] + '<br>' + linesArray2[0][10];

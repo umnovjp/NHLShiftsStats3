@@ -181,14 +181,10 @@ function getInputValue() {
                     console.log(pairingsArray); tempTime2 = []; 
                     
                      dArrayTemp2 = [[[],[],[]],[[],[],[]]]; dArrayTemp3 = [[[],[],[]],[[],[],[]]]; fArrayTemp2 = [[[],[],[]],[[],[],[]]]; fArrayTemp3 = [[[],[],[]],[[],[],[]]]; 
-                            
-                //   console.log(dArrayTemp3, fArrayTemp3);
                 //   fiveOnFive = [[[],[],[]],[[],[],[]]]; fiveOnFive2 = [[[],[],[]],[[],[],[]]]; fiveOnFive3 = [[[],[],[]],[[],[],[]]]; fiveOnFive4 = [[[],[],[]],[[],[],[]]]; fiveOnFive5 = [[[],[],[]],[[],[],[]]]; 
                 //   // fiveOnFive2 and fiveOnFive4 are used for comparison only not for script should be deleted later
-                //   // fiveOnFive is when team played with 2D but fiveOnFive3 is when team played with 3F. Player is allowed up to 3 seconds to make a change
                 //   for (i = 0; i < 2; i++) {for (j = 0; j < 3; j++) { if (dArrayTemp3[i][j][0] === 2) {fiveOnFive[i][j].push(0, dArrayTemp3[i][j][1]); fiveOnFive2[i][j].push(0, dArrayTemp3[i][j][1])}
                 //     for (k = 1; k < dArrayTemp3[i][j].length/2; k++) {if (dArrayTemp3[i][j][2*k] === 2) {fiveOnFive[i][j].push(dArrayTemp3[i][j][2*k-1], dArrayTemp3[i][j][2*k+1]); fiveOnFive2[i][j].push(dArrayTemp3[i][j][2*k-1], dArrayTemp3[i][j][2*k+1])}}}}
-                //   for (i = 0; i < 2; i++) {for (j = 0; j < 3; j++) {for (k = fiveOnFive[i][j].length/2-1; k > 0; k--) {if (fiveOnFive[i][j][2*k]-fiveOnFive[i][j][2*k-1]<4) {tempArray1=fiveOnFive[i][j].slice(0,2*k-1); tempArray2=fiveOnFive[i][j].slice(2*k+1);
 
                     for (h = 0; h < 2; h++) { // h = 0 home team D, h = 1 away team D
                       for (i = 0; i < 3; i++) { for (j = 0; j < fArray[h].length; j++) {
@@ -220,9 +216,9 @@ function getInputValue() {
                                 for (o = 0; o < tempTime.length; o++) { if (tempTime[o] >= 10) { shifts = shifts + 1;
                                 tempTime2.push(tempTime[o])}}
                                 linesArray[i + 3 * h].push(sum); linesArray[i + 3 * h].push(shifts, j, k, l); // console.log(i, j, k, tempTime);
-                              } // end second l loop
-                          }} // temp end k, j loops                      
-                        }} // end k, j, i and h loop periods
+                              } // end second l loop 
+                          }} // temp end k, j loops          
+                        }} // end k, j, i and h loop periods 
 
                         console.log('shiftsPair', shiftsPair, 'linesArray', linesArray); linesArray2 = [[],[],[],[],[],[]]
                         for (i = 0; i<linesArray[0].length/5; i++) {if (linesArray[0][5*i]>100) {console.log('home F', linesArray[0][5*i], linesArray[0][5*i+1], linesArray[0][5*i+2], linesArray[0][5*i+3], linesArray[0][5*i + 4]); 
@@ -232,8 +228,7 @@ function getInputValue() {
                         for (i = 0; i<linesArray[3].length/5; i++) {if (linesArray[3][5*i]>100) {console.log('away F', linesArray[3][5*i], linesArray[3][5*i+1], linesArray[3][5*i+2], linesArray[3][5*i+3], linesArray[3][5*i + 4]); 
                         for (j = 3; j < 6; j++) {linesArray2[1].push(linesArray[j][5*i], linesArray[j][5*i+1], linesArray[j][5*i+2], linesArray[j][5*i+3], linesArray[j][5*i+4])
                           }
-                          linesArray2[3].push(linesArray[3][5*i+2], linesArray[3][5*i+3], linesArray[3][5*i+4])
-                        }}
+                          linesArray2[3].push(linesArray[3][5*i+2], linesArray[3][5*i+3], linesArray[3][5*i+4])}}
 
                     // adding home team defense to screen 
                     firstDNumber.innerHTML = homeD[1] + ' ' + homeD[2]; secondDNumber.innerHTML = homeD[4] + ' ' + homeD[5]; thirdDNumber.innerHTML = homeD[7] + ' ' + homeD[8];
@@ -260,7 +255,7 @@ function getInputValue() {
                     document.getElementById('secondD3').appendChild(secondD3); document.getElementById('secondD4').appendChild(secondD4); document.getElementById('secondD5').appendChild(secondD5); document.getElementById('thirdD4').appendChild(thirdD4);
                     document.getElementById('thirdD5').appendChild(thirdD5); document.getElementById('forthD5').appendChild(forthD5);
 
-                    if (homeD.length >= 18) {
+                    if (homeD.length >= 18) { 
                       var firstD6 = document.createElement('p3'); var secondD6 = document.createElement('p2'); var thirdD6 = document.createElement('p3'); var forthD6 = document.createElement('p2'); var fifthD6 = document.createElement('p3');
                       sixthD6.innerHTML = 'X' + '<br>' + 'X' + '<br>' + 'X'; sixthDNumber.innerHTML = homeD[16] + ' ' + homeD[17];
                       firstD6.innerHTML = pairingsArray[0][9] + ' sh ' + pairingsArray[0][8] + ' sec ' + '<br>' + pairingsArray[1][9] + ' sh ' + pairingsArray[1][8] + ' sec ' + '<br>' + pairingsArray[2][9] + ' sh ' + pairingsArray[2][8] + ' sec ';
@@ -272,7 +267,7 @@ function getInputValue() {
                       document.getElementById('firstD6').appendChild(firstD6); document.getElementById('secondD6').appendChild(secondD6); document.getElementById('thirdD6').appendChild(thirdD6); document.getElementById('forthD6').appendChild(forthD6); document.getElementById('fifthD6').appendChild(fifthD6);
                     } // end if six D men 
 
-                    if (homeD.length == 21) { 
+                    if (homeD.length == 21) {
                       var firstD7 = document.createElement('p2'); var secondD7 = document.createElement('p3'); var thirdD7 = document.createElement('p2'); var forthD7 = document.createElement('p3'); var fifthD7 = document.createElement('p2'); var sixthD7 = document.createElement('p3');
                       seventhD7.innerHTML = 'X' + '<br>' + 'X' + '<br>' + 'X'; seventhDNumber.innerHTML = homeD[19] + ' ' + homeD[20];
                       firstD7.innerHTML = pairingsArray[0][11] + ' sh ' + pairingsArray[0][10] + ' sec ' + '<br>' + pairingsArray[1][11] + ' sh ' + pairingsArray[1][10] + ' sec ' + '<br>' + pairingsArray[2][9] + ' sh ' + pairingsArray[2][8] + ' sec ';
@@ -336,19 +331,19 @@ function getInputValue() {
                     
                     // fNumber7.innerHTML = homeF[19] + ' ' + homeF[20]; fNumber8.innerHTML = homeF[22] + ' ' + homeF[23]; fNumber9.innerHTML = homeF[25] + ' ' + homeF[26]; fNumber10.innerHTML = homeF[28] + ' ' + homeF[29]; fNumber11.innerHTML = homeF[31] + ' ' + homeF[32];
                     // if (homeF.length/3 > 11){fNumber12.innerHTML = homeF[34] + ' ' + homeF[35]; }
-                    // fNumber1A.innerHTML = awayF[1] + ' ' + awayF[2]; fNumber2A.innerHTML = awayF[4] + ' ' + awayF[5]; fNumber3A.innerHTML = awayF[7] + ' ' + awayF[8]; fNumber4A.innerHTML = awayF[10] + ' ' + awayF[11]; fNumber5A.innerHTML = awayF[13] + ' ' + awayF[14]; fNumber6A.innerHTML = awayF[16] + ' ' + awayF[17]; 
-                    // fNumber7A.innerHTML = awayF[19] + ' ' + awayF[20]; fNumber8A.innerHTML = awayF[22] + ' ' + awayF[23]; fNumber9A.innerHTML = awayF[25] + ' ' + awayF[26]; fNumber10A.innerHTML = awayF[28] + ' ' + awayF[29]; fNumber11A.innerHTML = awayF[31] + ' ' + awayF[32]; 
 
                     // actually adding F lines to the screen but checking result before that
                     for (i = 0; i < homeF.length/3; i++) {linesArray2[4].push(i)}
+                //     for (i = 0; i < homeF.length/3; i++) {if (linesArray2[i])}
                     // for (i = 0; i < homeF.length/3; i++) {if (linesArray2[2].includes[i]) linesArray2[4].push(i)}; 
                     for (i = 0; i < awayF.length/3; i++) {linesArray2[5].push(i)}
                     // for (i = 0; i < linesArray2[2].length; i++) {linesArray2[4] = linesArray2[2].filter(function(number) {return number !== linesArray2[2][i];
                     // })
                     // console.log(linesArray2[4])}
-                    // linesArray2[4] = linesArray2[2].filter(function(number) {for (i = 0; i < linesArray2[2].length; i++) return number !== linesArray2[2][i];
+                    // linesArray2[4] = linesArray2[2].filter(function(number) {for (i = 0; i < linesArray2[2].length; i++) {return number !== linesArray2[2][i];
+                    //   console.log(linesArray2[4])}
                     // })
-                    console.log(linesArray2);
+                    console.log(linesArray2); 
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI seconds'; headerHome3.innerHTML = 'shifts';
                     firstLine.innerHTML = homeF[3*linesArray2[0][2]+1] + ' ' + homeF[3*linesArray2[0][2]+2] + '<br>' + homeF[3*linesArray2[0][3]+1] + ' ' + homeF[3*linesArray2[0][3]+2] + '<br>' + homeF[3*linesArray2[0][4]+1] + ' ' + homeF[3*linesArray2[0][4]+2];
                     firstLineTime.innerHTML = linesArray2[0][0] + '<br>' + linesArray2[0][5] + '<br>' + linesArray2[0][10];

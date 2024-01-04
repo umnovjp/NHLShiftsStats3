@@ -132,7 +132,7 @@ function getInputValue() {
                    console.log(dArrayTemp3, fArrayTemp3);
                    fiveOnFive = [[[],[],[]],[[],[],[]]]; fiveOnFive2 = [[[],[],[]],[[],[],[]]]; fiveOnFive3 = [[[],[],[]],[[],[],[]]]; fiveOnFive4 = [[[],[],[]],[[],[],[]]]; fiveOnFive5 = [[[],[],[]],[[],[],[]]]; 
                    // fiveOnFive2 and fiveOnFive4 are used for comparison only not for script should be deleted later
-                   // fiveOnFive is when team played with 2D but fiveOnFive3 is when team played with 3F. Player is allowed up to 3 seconds to make a change
+                   // fiveOnFive is when team played with 2D but fiveOnFive3 is when team played with 3F. Player is allowed up to 3 seconds to make a change. fiveOnFive5 is when team played with 2D and 3F
                    for (i = 0; i < 2; i++) {for (j = 0; j < 3; j++) { if (dArrayTemp3[i][j][0] === 2) {fiveOnFive[i][j].push(0, dArrayTemp3[i][j][1]); fiveOnFive2[i][j].push(0, dArrayTemp3[i][j][1])}
                      for (k = 1; k < dArrayTemp3[i][j].length/2; k++) {if (dArrayTemp3[i][j][2*k] === 2) {fiveOnFive[i][j].push(dArrayTemp3[i][j][2*k-1], dArrayTemp3[i][j][2*k+1]); fiveOnFive2[i][j].push(dArrayTemp3[i][j][2*k-1], dArrayTemp3[i][j][2*k+1])}}}}
                    for (i = 0; i < 2; i++) {for (j = 0; j < 3; j++) {for (k = fiveOnFive[i][j].length/2-1; k > 0; k--) {if (fiveOnFive[i][j][2*k]-fiveOnFive[i][j][2*k-1]<4) {tempArray1=fiveOnFive[i][j].slice(0,2*k-1); tempArray2=fiveOnFive[i][j].slice(2*k+1);
@@ -180,11 +180,9 @@ function getInputValue() {
                           }}}} // end k, j, i and h loop periods 
                     console.log(pairingsArray); tempTime2 = []; 
                     
-                     dArrayTemp2 = [[[],[],[]],[[],[],[]]]; dArrayTemp3 = [[[],[],[]],[[],[],[]]]; fArrayTemp2 = [[[],[],[]],[[],[],[]]]; fArrayTemp3 = [[[],[],[]],[[],[],[]]]; 
-                //   fiveOnFive = [[[],[],[]],[[],[],[]]]; fiveOnFive2 = [[[],[],[]],[[],[],[]]]; fiveOnFive3 = [[[],[],[]],[[],[],[]]]; fiveOnFive4 = [[[],[],[]],[[],[],[]]]; fiveOnFive5 = [[[],[],[]],[[],[],[]]]; 
+                     dArrayTemp2 = [[[],[],[]],[[],[],[]]]; dArrayTemp3 = [[[],[],[]],[[],[],[]]]; fArrayTemp2 = [[[],[],[]],[[],[],[]]]; fArrayTemp3 = [[[],[],[]],[[],[],[]]];
                 //   // fiveOnFive2 and fiveOnFive4 are used for comparison only not for script should be deleted later
                 //   for (i = 0; i < 2; i++) {for (j = 0; j < 3; j++) { if (dArrayTemp3[i][j][0] === 2) {fiveOnFive[i][j].push(0, dArrayTemp3[i][j][1]); fiveOnFive2[i][j].push(0, dArrayTemp3[i][j][1])}
-                //     for (k = 1; k < dArrayTemp3[i][j].length/2; k++) {if (dArrayTemp3[i][j][2*k] === 2) {fiveOnFive[i][j].push(dArrayTemp3[i][j][2*k-1], dArrayTemp3[i][j][2*k+1]); fiveOnFive2[i][j].push(dArrayTemp3[i][j][2*k-1], dArrayTemp3[i][j][2*k+1])}}}}
 
                     for (h = 0; h < 2; h++) { // h = 0 home team D, h = 1 away team D
                       for (i = 0; i < 3; i++) { for (j = 0; j < fArray[h].length; j++) {
@@ -333,17 +331,16 @@ function getInputValue() {
                     // if (homeF.length/3 > 11){fNumber12.innerHTML = homeF[34] + ' ' + homeF[35]; }
 
                     // actually adding F lines to the screen but checking result before that
-                    for (i = 0; i < homeF.length/3; i++) {linesArray2[4].push(i)}
+                    for (i = 0; i < homeF.length/3; i++) {if (linesArray2[2].includes(i)) {} else linesArray2[4].push(i)}                    
                 //     for (i = 0; i < homeF.length/3; i++) {if (linesArray2[i])}
                     // for (i = 0; i < homeF.length/3; i++) {if (linesArray2[2].includes[i]) linesArray2[4].push(i)}; 
-                    for (i = 0; i < awayF.length/3; i++) {linesArray2[5].push(i)}
+                    for (i = 0; i < awayF.length/3; i++) {if (linesArray2[3].includes(i)) {} else linesArray2[5].push(i)}
                     // for (i = 0; i < linesArray2[2].length; i++) {linesArray2[4] = linesArray2[2].filter(function(number) {return number !== linesArray2[2][i];
                     // })
-                    // console.log(linesArray2[4])}
+                    // }
                     // linesArray2[4] = linesArray2[2].filter(function(number) {for (i = 0; i < linesArray2[2].length; i++) {return number !== linesArray2[2][i];
-                    //   console.log(linesArray2[4])}
                     // })
-                    console.log(linesArray2); 
+                    console.log(linesArray2);
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI seconds'; headerHome3.innerHTML = 'shifts';
                     firstLine.innerHTML = homeF[3*linesArray2[0][2]+1] + ' ' + homeF[3*linesArray2[0][2]+2] + '<br>' + homeF[3*linesArray2[0][3]+1] + ' ' + homeF[3*linesArray2[0][3]+2] + '<br>' + homeF[3*linesArray2[0][4]+1] + ' ' + homeF[3*linesArray2[0][4]+2];
                     firstLineTime.innerHTML = linesArray2[0][0] + '<br>' + linesArray2[0][5] + '<br>' + linesArray2[0][10];
@@ -354,6 +351,12 @@ function getInputValue() {
                     thirdLine.innerHTML = homeF[3*linesArray2[0][32]+1] + ' ' + homeF[3*linesArray2[0][32]+2] + '<br>' + homeF[3*linesArray2[0][33]+1] + ' ' + homeF[3*linesArray2[0][33]+2] + '<br>' + homeF[3*linesArray2[0][34]+1] + ' ' + homeF[3*linesArray2[0][34]+2];
                     thirdLineTime.innerHTML = linesArray2[0][30] + '<br>' + linesArray2[0][35] + '<br>' + linesArray2[0][40];
                     thirdLineTime2.innerHTML = linesArray2[0][31] + '<br>' + linesArray2[0][36] + '<br>' + linesArray2[0][41];
+                    if ((homeF.length/3 === 12)&&(linesArray2[4].length === 0)) {fourthLine.innerHTML = homeF[3*linesArray2[0][47]+1] + ' ' + homeF[3*linesArray2[0][47]+2] + '<br>' + homeF[3*linesArray2[0][48]+1] + ' ' + homeF[3*linesArray2[0][48]+2] + '<br>' + homeF[3*linesArray2[0][49]+1] + ' ' + homeF[3*linesArray2[0][49]+2];
+                    fourthLineTime.innerHTML = linesArray2[0][45] + '<br>' + linesArray2[0][50] + '<br>' + linesArray2[0][55];
+                    fourthLineTime2.innerHTML = linesArray2[0][46] + '<br>' + linesArray2[0][51] + '<br>' + linesArray2[0][56]}
+                    else if ((homeF.length/3 === 11)&&(linesArray2[2].length === 9)) {fourthLine.innerHTML = homeF[3*linesArray2[4][0]+1] + ' ' + homeF[3*linesArray2[4][0]+2] + '<br>' + homeF[3*linesArray2[4][1]+1] + ' ' + homeF[3*linesArray2[4][1]+2] // + '<br>' + homeF[3*linesArray2[0][49]+1] + ' ' + homeF[3*linesArray2[0][49]+2];
+                  }
+
                     firstLineAway.innerHTML = awayF[3*linesArray2[1][2]+1] + ' ' + awayF[3*linesArray2[1][2]+2] + '<br>' + awayF[3*linesArray2[1][3]+1] + ' ' + awayF[3*linesArray2[1][3]+2] + '<br>' + awayF[3*linesArray2[1][4]+1] + ' ' + awayF[3*linesArray2[1][4]+2];
                     headerAway.innerHTML = 'Players'; headerAway2.innerHTML = 'TOI seconds'; headerAway3.innerHTML = 'shifts';
                     firstLineTimeAway.innerHTML = linesArray2[1][0] + '<br>' + linesArray2[1][5] + '<br>' + linesArray2[1][10];
@@ -364,7 +367,12 @@ function getInputValue() {
                     thirdLineAway.innerHTML = awayF[3*linesArray2[1][32]+1] + ' ' + awayF[3*linesArray2[1][32]+2] + '<br>' + awayF[3*linesArray2[1][33]+1] + ' ' + awayF[3*linesArray2[1][33]+2] + '<br>' + awayF[3*linesArray2[1][34]+1] + ' ' + awayF[3*linesArray2[1][34]+2];
                     thirdLineTimeAway.innerHTML = linesArray2[1][30] + '<br>' + linesArray2[1][35] + '<br>' + linesArray2[1][40];
                     thirdLineTime2Away.innerHTML = linesArray2[1][31] + '<br>' + linesArray2[1][36] + '<br>' + linesArray2[1][41];
-                    if (homeD.length/3 === 7) {console.log(homeD)}
+                    // console.log(linesArray2[3].length);
+                    if ((awayF.length/3 === 12)&&(linesArray2[5].length === 0)) {fourthLineAway.innerHTML = awayF[3*linesArray2[1][47]+1] + ' ' + awayF[3*linesArray2[1][47]+2] + '<br>' + awayF[3*linesArray2[1][48]+1] + ' ' + awayF[3*linesArray2[1][48]+2] + '<br>' + awayF[3*linesArray2[1][49]+1] + ' ' + awayF[3*linesArray2[1][49]+2];
+                    fourthLineTimeAway.innerHTML = linesArray2[1][45] + '<br>' + linesArray2[1][50] + '<br>' + linesArray2[1][55];
+                    fourthLineTime2Away.innerHTML = linesArray2[1][46] + '<br>' + linesArray2[1][51] + '<br>' + linesArray2[1][56]}                    
+                    else if ((awayF.length/3 === 11)&&(linesArray2[3].length == 9)) {fourthLineAway.innerHTML = awayF[3*linesArray2[5][0]+1] + ' ' + awayF[3*linesArray2[5][0]+2] + '<br>' + awayF[3*linesArray2[5][1]+1] + ' ' + awayF[3*linesArray2[5][1]+2]}
+                    if (homeD.length/3 === 7) {console.log(homeD)} // this line will be deleted
                   }); // end second .then shifts
               }); // end second .then standings;
           }); // end second .then gamecenter;

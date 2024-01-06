@@ -181,7 +181,7 @@ function getInputValue() {
                     console.log(pairingsArray); tempTime2 = []; 
                     
                      dArrayTemp2 = [[[],[],[]],[[],[],[]]]; dArrayTemp3 = [[[],[],[]],[[],[],[]]]; fArrayTemp2 = [[[],[],[]],[[],[],[]]]; fArrayTemp3 = [[[],[],[]],[[],[],[]]];
-                //   // fiveOnFive2 and fiveOnFive4 are used for comparison only not for script should be deleted later
+                // fiveOnFive2 and fiveOnFive4 are used for comparison only not for script should be deleted later
 
                     for (h = 0; h < 2; h++) { // h = 0 home team D, h = 1 away team D
                       for (i = 0; i < 3; i++) { for (j = 0; j < fArray[h].length; j++) {
@@ -327,18 +327,17 @@ function getInputValue() {
                     } // end if seven D men away and end of adding DMen to display cycles
                     
                     // fNumber7.innerHTML = homeF[19] + ' ' + homeF[20]; fNumber8.innerHTML = homeF[22] + ' ' + homeF[23]; fNumber9.innerHTML = homeF[25] + ' ' + homeF[26]; fNumber10.innerHTML = homeF[28] + ' ' + homeF[29]; fNumber11.innerHTML = homeF[31] + ' ' + homeF[32];
-
-                    // actually adding F lines to the screen but checking result before that
-                    for (i = 0; i < homeF.length/3; i++) {if (linesArray2[2].includes(i)) {} else linesArray2[4].push(i)}                    
+                    for (i = 0; i < homeF.length/3; i++) {if (linesArray2[2].includes(i)) {} else linesArray2[4].push(i)} 
+                    if ((homeF.lengtgh/3===12)&&(linesArray2[4].length===9)) {console.log(linesArray2[4].length)}
                 //     for (i = 0; i < homeF.length/3; i++) {if (linesArray2[i])}
                     // for (i = 0; i < homeF.length/3; i++) {if (linesArray2[2].includes[i]) linesArray2[4].push(i)}; 
                     for (i = 0; i < awayF.length/3; i++) {if (linesArray2[3].includes(i)) {} else linesArray2[5].push(i)}
+                    if ((awayF.lengtgh/3===12)&&(linesArray2[5].length===9)) {console.log(linesArray2[5].length)}
                     // })
-                    // }
-                    // })
-                    console.log(linesArray2);
-                    for (i=2; i<4; i++) if (linesArray2[i]>12) {linesArray3 = [[],[]];
-                    for (j = 0; j < linesArray2[i].length; j++) {for (k = 0; k < linesArray2[i].length; k++) {if (linesArray2[i][j] === linesArray2[i][k]){linesArray3[i-2].push()}}}}
+                    console.log(linesArray2); linesArray3 = [[],[]];
+                    for (i=2; i<4; i++) if (linesArray2[i]>12) {
+                    for (j = 0; j < linesArray2[i].length; j++) {for (k = j + 1; k < linesArray2[i].length; k++) {if (linesArray2[i][j] === linesArray2[i][k]){linesArray3[i-2].push(linesArray2[i][j])}}}}
+                    console.log(linesArray3);
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI seconds'; headerHome3.innerHTML = 'shifts';
                     firstLine.innerHTML = homeF[3*linesArray2[0][2]+1] + ' ' + homeF[3*linesArray2[0][2]+2] + '<br>' + homeF[3*linesArray2[0][3]+1] + ' ' + homeF[3*linesArray2[0][3]+2] + '<br>' + homeF[3*linesArray2[0][4]+1] + ' ' + homeF[3*linesArray2[0][4]+2];
                     firstLineTime.innerHTML = linesArray2[0][0] + '<br>' + linesArray2[0][5] + '<br>' + linesArray2[0][10];

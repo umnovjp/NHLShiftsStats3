@@ -57,7 +57,7 @@ function getInputValue() {
                 gameTitle.innerHTML = 'You are watching stats for ' + data.awayTeam.abbrev + standingsArray[0] + ' W ' + standingsArray[1] + ' L ' + standingsArray[2] + ' O at ' + data.homeTeam.abbrev + standingsArray[3] + ' W ' + standingsArray[4] + ' L ' + standingsArray[5] + ' O game';
                 document.getElementById('gameInfo').appendChild(gameTitle);
                 const homeF = []; const awayF = []; const homeD = []; const awayD = []; const homeG = []; const awayG = []; const playerIdArray = []; // let playerIdeObject = {a: 1}; const hasKeyId = true;
-                console.log(data.boxscore.playerByGameStats.awayTeam.forwards, data.boxscore.playerByGameStats.awayTeam.defense, data.boxscore.playerByGameStats.awayTeam.goalies, data.boxscore.playerByGameStats.homeTeam.forwards, data.boxscore.playerByGameStats.awayTeam.defense, data.boxscore.playerByGameStats.awayTeam.goalies);
+                // console.log(data.boxscore.playerByGameStats.awayTeam.forwards, data.boxscore.playerByGameStats.awayTeam.defense, data.boxscore.playerByGameStats.awayTeam.goalies, data.boxscore.playerByGameStats.homeTeam.forwards, data.boxscore.playerByGameStats.homeTeam.defense, data.boxscore.playerByGameStats.homeTeam.goalies);
                 var obj = data.boxscore.playerByGameStats.homeTeam.forwards; var keys = Object.keys(obj); playerIdeObject = {};
                 for (i = 0; i < keys.length; i++) {
                   var val = obj[keys[i]]; homeF.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[], [], []]);
@@ -326,13 +326,28 @@ function getInputValue() {
                       document.getElementById('firstD7A').appendChild(firstD7A); document.getElementById('secondD7A').appendChild(secondD7A); document.getElementById('thirdD7A').appendChild(thirdD7A); document.getElementById('forthD7A').appendChild(forthD7A); document.getElementById('fifthD7A').appendChild(fifthD7A); document.getElementById('sixthD7A').appendChild(sixthD7A);
                     } // end if seven D men away and end of adding DMen to display cycles
                     
-                    // fNumber7.innerHTML = homeF[19] + ' ' + homeF[20]; fNumber8.innerHTML = homeF[22] + ' ' + homeF[23]; fNumber9.innerHTML = homeF[25] + ' ' + homeF[26]; fNumber10.innerHTML = homeF[28] + ' ' + homeF[29]; fNumber11.innerHTML = homeF[31] + ' ' + homeF[32];
-                    for (i = 0; i < homeF.length/3; i++) {if (linesArray2[2].includes(i)) {} else linesArray2[4].push(i)} 
-                    if ((homeF.lengtgh/3===12)&&(linesArray2[4].length===9)) {console.log(linesArray2[4].length)}
-                //     for (i = 0; i < homeF.length/3; i++) {if (linesArray2[i])}
+                    for (i = 0; i < homeF.length/3; i++) {if (linesArray2[2].includes(i)) {} else linesArray2[4].push(i)}
+                    
+                    if ((homeF.length/3===12)&&(linesArray2[2].length===9)) {linesArray4 = []; for (i = 0; i < 3; i++){for (j = 0; j<linesArray[i].length/5; j++) {if ((linesArray2[4][0] === linesArray[i][5*j+2])&&(linesArray2[4][1] === linesArray[i][5*j+3])&&(linesArray2[4][2] === linesArray[i][5*j+4])) 
+                      linesArray4.push(linesArray[i][5*j], linesArray[i][5*j+1])}
+                    fourthLine.innerHTML = homeF[3*linesArray2[4][0]+1] + ' ' + homeF[3*linesArray2[4][0]+2] + '<br>' + homeF[3*linesArray2[4][1]+1] + ' ' + homeF[3*linesArray2[4][1]+2] + '<br>' + homeF[3*linesArray2[4][2]+1] + ' ' + homeF[3*linesArray2[4][2]+2];
+                    fourthLineTime2.innerHTML = linesArray4[1] + '<br>' + linesArray4[3] + '<br>' + linesArray4[5];
+                    fourthLineTime.innerHTML = linesArray4[0] + '<br>' + linesArray4[2] + '<br>' + linesArray4[4]}}
+                    if(linesArray2[2].length<=6){linesArray4 = []; for(i=0; i<3; i++){for (j = 0; j<linesArray[i].length/5; j++){for (k=0; k<linesArray2[4].length-2; k++) {for (l=k+1; l<linesArray2[4].length-1; l++){for (m=l+1; m<linesArray2[4].length; m++){
+                      if((linesArray2[4][k] === linesArray[i][5*j+2])&&(linesArray2[4][l] === linesArray[i][5*j+3])&&(linesArray2[4][m] === linesArray[i][5*j+4])){linesArray4.push(linesArray[i][5*j], linesArray[i][5*j+1], linesArray[i][5*j+2], linesArray[i][5*j+3], linesArray[i][5*j+4])}
+                      
+                    }}}}}
+                    console.log(linesArray4, Math.max(...linesArray4), linesArray4.indexOf(Math.max(...linesArray4)));
+                   thirdLine.innerHTML = linesArray4[120]// linesArray4.indexOf(Math.max(...linesArray4))//  + linesArray4[linesArray4.indexOf(...linesArray4) + 3] + linesArray4[linesArray4.indexOf(...linesArray4) + 4]
+                  }
+                    
                     // for (i = 0; i < homeF.length/3; i++) {if (linesArray2[2].includes[i]) linesArray2[4].push(i)}; 
                     for (i = 0; i < awayF.length/3; i++) {if (linesArray2[3].includes(i)) {} else linesArray2[5].push(i)}
-                    if ((awayF.lengtgh/3===12)&&(linesArray2[5].length===9)) {console.log(linesArray2[5].length)}
+                    if ((awayF.length/3===12)&&(linesArray2[3].length===9)) {linesArray4 = []; for (i = 3; i < 6; i++){for (j = 0; j<linesArray[i].length/5; j++) {if ((linesArray2[5][0] === linesArray[i][5*j+2])&&(linesArray2[5][1] === linesArray[i][5*j+3])&&(linesArray2[5][2] === linesArray[i][5*j+4])) 
+                      linesArray4.push(linesArray[i][5*j], linesArray[i][5*j+1])}
+                    fourthLineAway.innerHTML = awayF[3*linesArray2[5][0]+1] + ' ' + awayF[3*linesArray2[5][0]+2] + '<br>' + awayF[3*linesArray2[5][1]+1] + ' ' + awayF[3*linesArray2[5][1]+2] + '<br>' + awayF[3*linesArray2[5][2]+1] + ' ' + awayF[3*linesArray2[5][2]+2];
+                    fourthLineTime2Away.innerHTML = linesArray4[1] + '<br>' + linesArray4[3] + '<br>' + linesArray4[5];
+                    fourthLineTimeAway.innerHTML = linesArray4[0] + '<br>' + linesArray4[2] + '<br>' + linesArray4[4]}}
                     // })
                     console.log(linesArray2); linesArray3 = [[],[]];
                     for (i=2; i<4; i++) if (linesArray2[i]>12) {
@@ -364,7 +379,6 @@ function getInputValue() {
                     thirdLineAway.innerHTML = awayF[3*linesArray2[1][32]+1] + ' ' + awayF[3*linesArray2[1][32]+2] + '<br>' + awayF[3*linesArray2[1][33]+1] + ' ' + awayF[3*linesArray2[1][33]+2] + '<br>' + awayF[3*linesArray2[1][34]+1] + ' ' + awayF[3*linesArray2[1][34]+2];
                     thirdLineTimeAway.innerHTML = linesArray2[1][30] + '<br>' + linesArray2[1][35] + '<br>' + linesArray2[1][40];
                     thirdLineTime2Away.innerHTML = linesArray2[1][31] + '<br>' + linesArray2[1][36] + '<br>' + linesArray2[1][41];
-                    // console.log(linesArray2[3].length);
                     if ((awayF.length/3 >= 12)&&(linesArray2[5].length < 2)) {fourthLineAway.innerHTML = awayF[3*linesArray2[1][47]+1] + ' ' + awayF[3*linesArray2[1][47]+2] + '<br>' + awayF[3*linesArray2[1][48]+1] + ' ' + awayF[3*linesArray2[1][48]+2] + '<br>' + awayF[3*linesArray2[1][49]+1] + ' ' + awayF[3*linesArray2[1][49]+2];
                     fourthLineTimeAway.innerHTML = linesArray2[1][45] + '<br>' + linesArray2[1][50] + '<br>' + linesArray2[1][55];
                     fourthLineTime2Away.innerHTML = linesArray2[1][46] + '<br>' + linesArray2[1][51] + '<br>' + linesArray2[1][56]}                    

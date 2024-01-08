@@ -333,12 +333,30 @@ function getInputValue() {
                     fourthLine.innerHTML = homeF[3*linesArray2[4][0]+1] + ' ' + homeF[3*linesArray2[4][0]+2] + '<br>' + homeF[3*linesArray2[4][1]+1] + ' ' + homeF[3*linesArray2[4][1]+2] + '<br>' + homeF[3*linesArray2[4][2]+1] + ' ' + homeF[3*linesArray2[4][2]+2];
                     fourthLineTime2.innerHTML = linesArray4[1] + '<br>' + linesArray4[3] + '<br>' + linesArray4[5];
                     fourthLineTime.innerHTML = linesArray4[0] + '<br>' + linesArray4[2] + '<br>' + linesArray4[4]}}
-                    if(linesArray2[2].length<=6){linesArray4 = []; for(i=0; i<3; i++){for (j = 0; j<linesArray[i].length/5; j++){for (k=0; k<linesArray2[4].length-2; k++) {for (l=k+1; l<linesArray2[4].length-1; l++){for (m=l+1; m<linesArray2[4].length; m++){
-                      if((linesArray2[4][k] === linesArray[i][5*j+2])&&(linesArray2[4][l] === linesArray[i][5*j+3])&&(linesArray2[4][m] === linesArray[i][5*j+4])){linesArray4.push(linesArray[i][5*j], linesArray[i][5*j+1], linesArray[i][5*j+2], linesArray[i][5*j+3], linesArray[i][5*j+4])}
-                      
+                    if(linesArray2[2].length<=7){linesArray4 = []; for(i=0; i<3; i++){for (j = 0; j<linesArray[i].length/5; j++){for (k=0; k<linesArray2[4].length-2; k++) {for (l=k+1; l<linesArray2[4].length-1; l++){for (m=l+1; m<linesArray2[4].length; m++){
+                      if((linesArray2[4][k] === linesArray[i][5*j+2])&&(linesArray2[4][l] === linesArray[i][5*j+3])&&(linesArray2[4][m] === linesArray[i][5*j+4])){linesArray4.push(linesArray[i][5*j], linesArray[i][5*j+1], linesArray[i][5*j+2], linesArray[i][5*j+3], linesArray[i][5*j+4])}                      
                     }}}}}
-                    console.log(linesArray4, Math.max(...linesArray4), linesArray4.indexOf(Math.max(...linesArray4)));
-                   thirdLine.innerHTML = linesArray4[120]// linesArray4.indexOf(Math.max(...linesArray4))//  + linesArray4[linesArray4.indexOf(...linesArray4) + 3] + linesArray4[linesArray4.indexOf(...linesArray4) + 4]
+                    tempIndex = linesArray4.indexOf(Math.max(...linesArray4)); tempIndex2 = tempIndex%(linesArray4.length/3);
+                    console.log(linesArray4, Math.max(...linesArray4), tempIndex, tempIndex2);
+                   thirdLine.innerHTML = homeF[3*linesArray4[tempIndex+2]+1] + ' ' + homeF[3*linesArray4[tempIndex+2]+2] + '<br>' + homeF[3*linesArray4[tempIndex+3]+1] + ' ' + homeF[3*linesArray4[tempIndex+3]+2]+ '<br>' + homeF[3*linesArray4[tempIndex+4]+1] + ' ' + homeF[3*linesArray4[tempIndex+4]+2];
+                   thirdLineTime.innerHTML = linesArray4[tempIndex2] + '<br>' + linesArray4[tempIndex2 + linesArray4.length/3] + '<br>' + linesArray4[tempIndex2 + 2*linesArray4.length/3]
+                   thirdLineTime2.innerHTML = linesArray4[tempIndex2+1] + '<br>' + linesArray4[tempIndex2 + 1 + linesArray4.length/3] + '<br>' + linesArray4[tempIndex2 + 2 + 2*linesArray4.length/3];
+                   console.log(linesArray4[tempIndex+2], linesArray4[tempIndex+3], linesArray4[tempIndex+4]);
+                   linesArray5 = [];
+                   for (i = 0; i < linesArray2[4].length; i++) {if ((linesArray2[4][i]===linesArray4[tempIndex+2])||(linesArray2[4][i]===linesArray4[tempIndex+3])||(linesArray2[4][i]===linesArray4[tempIndex+4])) {}
+                  else linesArray5.push(linesArray2[4][i])}
+                  console.log(linesArray5, linesArray5.length)
+                  if (linesArray5.length===2){fourthLine.innerHTML = homeF[3*linesArray5[0]+1] + ' ' + homeF[3*linesArray5[0]+2] + '<br>' + homeF[3*linesArray5[1]+1] + ' ' + homeF[3*linesArray5[1]+2]}
+                  else if (linesArray5.length===3){fourthLine.innerHTML = homeF[3*linesArray5[0]+1] + ' ' + homeF[3*linesArray5[0]+2] + '<br>' + homeF[3*linesArray5[1]+1] + ' ' + homeF[3*linesArray5[1]+2]  + '<br>' + homeF[3*linesArray5[2]+1] + ' ' + homeF[3*linesArray5[2]+2];
+                  // linesArray4 = [] 
+                  for (i = 0; i < linesArray2[0].length/5; i++) {if ((linesArray[0][5*i+2] === linesArray5[0])&&(linesArray[0][5*i+3] === linesArray5[1])&&(linesArray[0][5*i+4] === linesArray5[2]))
+                    {linesArray4.push(linesArray2[0][5*i], linesArray2[0][5*i+1], linesArray2[1][5*i], linesArray2[1][5*i+1], linesArray2[2][5*i], linesArray2[2][5*i+1]);
+                      console.log(i)
+                    }
+                  
+                }
+                  fourthLineTime.innerHTML = 'to be added';
+                  fourthLineTime2.innerHTML = 'to be added 2'}
                   }
                     
                     // for (i = 0; i < homeF.length/3; i++) {if (linesArray2[2].includes[i]) linesArray2[4].push(i)}; 
@@ -360,9 +378,10 @@ function getInputValue() {
                     secondLine.innerHTML = homeF[3*linesArray2[0][17]+1] + ' ' + homeF[3*linesArray2[0][17]+2] + '<br>' + homeF[3*linesArray2[0][18]+1] + ' ' + homeF[3*linesArray2[0][18]+2] + '<br>' + homeF[3*linesArray2[0][19]+1] + ' ' + homeF[3*linesArray2[0][19]+2];
                     secondLineTime.innerHTML = linesArray2[0][15] + '<br>' + linesArray2[0][20] + '<br>' + linesArray2[0][25];
                     secondLineTime2.innerHTML = linesArray2[0][16] + '<br>' + linesArray2[0][21] + '<br>' + linesArray2[0][26];
+                    if(linesArray2[2].length>=9){
                     thirdLine.innerHTML = homeF[3*linesArray2[0][32]+1] + ' ' + homeF[3*linesArray2[0][32]+2] + '<br>' + homeF[3*linesArray2[0][33]+1] + ' ' + homeF[3*linesArray2[0][33]+2] + '<br>' + homeF[3*linesArray2[0][34]+1] + ' ' + homeF[3*linesArray2[0][34]+2];
                     thirdLineTime.innerHTML = linesArray2[0][30] + '<br>' + linesArray2[0][35] + '<br>' + linesArray2[0][40];
-                    thirdLineTime2.innerHTML = linesArray2[0][31] + '<br>' + linesArray2[0][36] + '<br>' + linesArray2[0][41];
+                    thirdLineTime2.innerHTML = linesArray2[0][31] + '<br>' + linesArray2[0][36] + '<br>' + linesArray2[0][41]}
                     if ((homeF.length/3 === 12)&&(linesArray2[4].length === 0)) {fourthLine.innerHTML = homeF[3*linesArray2[0][47]+1] + ' ' + homeF[3*linesArray2[0][47]+2] + '<br>' + homeF[3*linesArray2[0][48]+1] + ' ' + homeF[3*linesArray2[0][48]+2] + '<br>' + homeF[3*linesArray2[0][49]+1] + ' ' + homeF[3*linesArray2[0][49]+2];
                     fourthLineTime.innerHTML = linesArray2[0][45] + '<br>' + linesArray2[0][50] + '<br>' + linesArray2[0][55];
                     fourthLineTime2.innerHTML = linesArray2[0][46] + '<br>' + linesArray2[0][51] + '<br>' + linesArray2[0][56]}
@@ -376,9 +395,10 @@ function getInputValue() {
                     secondLineAway.innerHTML = awayF[3*linesArray2[1][17]+1] + ' ' + awayF[3*linesArray2[1][17]+2] + '<br>' + awayF[3*linesArray2[1][18]+1] + ' ' + awayF[3*linesArray2[1][18]+2] + '<br>' + awayF[3*linesArray2[1][19]+1] + ' ' + awayF[3*linesArray2[1][19]+2];
                     secondLineTimeAway.innerHTML = linesArray2[1][15] + '<br>' + linesArray2[1][20] + '<br>' + linesArray2[1][25];
                     secondLineTime2Away.innerHTML = linesArray2[1][16] + '<br>' + linesArray2[1][21] + '<br>' + linesArray2[1][26];
+                    if(linesArray2[3].length>=9){
                     thirdLineAway.innerHTML = awayF[3*linesArray2[1][32]+1] + ' ' + awayF[3*linesArray2[1][32]+2] + '<br>' + awayF[3*linesArray2[1][33]+1] + ' ' + awayF[3*linesArray2[1][33]+2] + '<br>' + awayF[3*linesArray2[1][34]+1] + ' ' + awayF[3*linesArray2[1][34]+2];
                     thirdLineTimeAway.innerHTML = linesArray2[1][30] + '<br>' + linesArray2[1][35] + '<br>' + linesArray2[1][40];
-                    thirdLineTime2Away.innerHTML = linesArray2[1][31] + '<br>' + linesArray2[1][36] + '<br>' + linesArray2[1][41];
+                    thirdLineTime2Away.innerHTML = linesArray2[1][31] + '<br>' + linesArray2[1][36] + '<br>' + linesArray2[1][41]}
                     if ((awayF.length/3 >= 12)&&(linesArray2[5].length < 2)) {fourthLineAway.innerHTML = awayF[3*linesArray2[1][47]+1] + ' ' + awayF[3*linesArray2[1][47]+2] + '<br>' + awayF[3*linesArray2[1][48]+1] + ' ' + awayF[3*linesArray2[1][48]+2] + '<br>' + awayF[3*linesArray2[1][49]+1] + ' ' + awayF[3*linesArray2[1][49]+2];
                     fourthLineTimeAway.innerHTML = linesArray2[1][45] + '<br>' + linesArray2[1][50] + '<br>' + linesArray2[1][55];
                     fourthLineTime2Away.innerHTML = linesArray2[1][46] + '<br>' + linesArray2[1][51] + '<br>' + linesArray2[1][56]}                    

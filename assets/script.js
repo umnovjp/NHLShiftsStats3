@@ -152,9 +152,7 @@ function getInputValue() {
                        else if ((fiveOnFive[i][j][2*k]>=fiveOnFive3[i][j][2*l])&&(fiveOnFive[i][j][2*k+1]>=fiveOnFive3[i][j][2*l+1])&&(fiveOnFive[i][j][2*k]<fiveOnFive3[i][j][2*l+1])) {fiveOnFive5[i][j].push(fiveOnFive[i][j][2*k], fiveOnFive3[i][j][2*l+1])}
                        else if ((fiveOnFive[i][j][2*k]<=fiveOnFive3[i][j][2*l])&&(fiveOnFive[i][j][2*k+1]<=fiveOnFive3[i][j][2*l+1])&&(fiveOnFive[i][j][2*k+1]>fiveOnFive3[i][j][2*l])) {fiveOnFive5[i][j].push(fiveOnFive3[i][j][2*l], fiveOnFive[i][j][2*k+1])}
                      }}}} 
-                    console.log(fiveOnFive); 
-                    console.log(fiveOnFive3);
-                    console.log(fiveOnFive5); 
+                    console.log(fiveOnFive); console.log(fiveOnFive3); console.log(fiveOnFive5); 
 
                     for (h = 0; h < 2; h++) { // h = 0 home team D, h = 1 away team D 
                       for (i = 0; i < 3; i++) { for (j = 0; j < dArray[h].length; j++) { for (k = j + 1; k < dArray[h].length; k++) {tempTime = []; tempTime2 = []; for (l = 0; l < dArray[h][j][i].length / 2; l++) {
@@ -172,8 +170,7 @@ function getInputValue() {
                                 else if ((tempTime[2*m] <= fiveOnFive5[h][i][2*l])&&(tempTime[2*m+1] >= fiveOnFive5[h][i][2*l])) {
                                   if (tempTime[2*m+1] >= fiveOnFive5[h][i][2*l+1]) {tempTime2.push(fiveOnFive5[h][i][2*l+1]-fiveOnFive5[h][i][2*l])}
                                   else {tempTime2.push(tempTime[2*m+1] - fiveOnFive5[h][i][2*l])}
-                                }
-                              }} // end second m,l loop to count only 5x5 plays
+                                }}} // end second m,l loop to count only 5x5 plays
                             shifts = 0; const sum = tempTime2.reduce((partialSum, a) => partialSum + a, 0);
                             for (n = 0; n < tempTime2.length; n++) { if (tempTime2[n] >= 10) { shifts = shifts + 1 } }
                             pairingsArray[i + 3 * h].push(sum); pairingsArray[i + 3 * h].push(shifts); // console.log(h, i, j, k, tempTime, tempTime2);
@@ -348,13 +345,10 @@ function getInputValue() {
                   console.log(linesArray5, linesArray5.length)
                   if (linesArray5.length===2){fourthLine.innerHTML = homeF[3*linesArray5[0]+1] + ' ' + homeF[3*linesArray5[0]+2] + '<br>' + homeF[3*linesArray5[1]+1] + ' ' + homeF[3*linesArray5[1]+2]}
                   else if (linesArray5.length===3){fourthLine.innerHTML = homeF[3*linesArray5[0]+1] + ' ' + homeF[3*linesArray5[0]+2] + '<br>' + homeF[3*linesArray5[1]+1] + ' ' + homeF[3*linesArray5[1]+2]  + '<br>' + homeF[3*linesArray5[2]+1] + ' ' + homeF[3*linesArray5[2]+2];
-                  // linesArray4 = [] 
                   for (i = 0; i < linesArray2[0].length/5; i++) {if ((linesArray[0][5*i+2] === linesArray5[0])&&(linesArray[0][5*i+3] === linesArray5[1])&&(linesArray[0][5*i+4] === linesArray5[2]))
                     {linesArray4.push(linesArray2[0][5*i], linesArray2[0][5*i+1], linesArray2[1][5*i], linesArray2[1][5*i+1], linesArray2[2][5*i], linesArray2[2][5*i+1]);
                       console.log(i)
-                    }
-                  
-                }
+                    }}
                   fourthLineTime.innerHTML = 'to be added';
                   fourthLineTime2.innerHTML = 'to be added 2'}
                   }

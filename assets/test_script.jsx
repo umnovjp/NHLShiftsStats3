@@ -23,16 +23,15 @@ if (linesArray2[2].length <= 7) {
   }
   console.log(linesArray5, linesArray5.length)
   if (linesArray5.length === 2) { fourthLine.innerHTML = homeF[3 * linesArray5[0] + 1] + ' ' + homeF[3 * linesArray5[0] + 2] + '<br>' + homeF[3 * linesArray5[1] + 1] + ' ' + homeF[3 * linesArray5[1] + 2] }
-  else if (linesArray5.length === 3) {
+  else if (linesArray5.length === 3) { 
     fourthLine.innerHTML = homeF[3 * linesArray5[0] + 1] + ' ' + homeF[3 * linesArray5[0] + 2] + '<br>' + homeF[3 * linesArray5[1] + 1] + ' ' + homeF[3 * linesArray5[1] + 2] + '<br>' + homeF[3 * linesArray5[2] + 1] + ' ' + homeF[3 * linesArray5[2] + 2];
-    // linesArray4 = [] 
-    for (i = 0; i < linesArray2[0].length / 5; i++) {
+    for (i = 0; i < linesArray2[0].length / 5; i++) { 
       if ((linesArray2[0][5 * i + 2] === linesArray5[0]) && (linesArray2[0][5 * i + 3] === linesArray5[1]) && (linesArray2[0][5 * i + 4] === linesArray5[2])) {
         linesArray4.push(linesArray2[0][5 * i], linesArray2[0][5 * i + 1], linesArray2[1][5 * i], linesArray2[1][5 * i + 1], linesArray2[2][5 * i], linesArray2[2][5 * i + 1]);
       }
-      console.log(i)
+      console.log(i) 
     }
-    fourthLineTime.innerHTML = 'to be added';
-    fourthLineTime2.innerHTML = 'to be added 2'
+    fourthLineTime.innerHTML = 'to be added'; 
+    fourthLineTime2.innerHTML = 'to be added 2' 
   }
 }

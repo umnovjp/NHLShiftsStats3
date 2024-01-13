@@ -25,7 +25,7 @@ if (linesArray2[2].length <= 7) {
   }
   tempIndex = linesArray4.indexOf(Math.max(...linesArray4)); tempIndex2 = tempIndex % (linesArray4.length / 3);
   console.log(linesArray4, Math.max(...linesArray4), tempIndex, tempIndex2);
-  // stopped here
+
   thirdLine.innerHTML = homeF[3 * linesArray4[tempIndex + 2] + 1] + ' ' + homeF[3 * linesArray4[tempIndex + 2] + 2] + '<br>' + homeF[3 * linesArray4[tempIndex + 3] + 1] + ' ' + homeF[3 * linesArray4[tempIndex + 3] + 2] + '<br>' + homeF[3 * linesArray4[tempIndex + 4] + 1] + ' ' + homeF[3 * linesArray4[tempIndex + 4] + 2];
   thirdLineTime.innerHTML = linesArray4[tempIndex2] + '<br>' + linesArray4[tempIndex2 + linesArray4.length / 3] + '<br>' + linesArray4[tempIndex2 + 2 * linesArray4.length / 3]
   thirdLineTime2.innerHTML = linesArray4[tempIndex2 + 1] + '<br>' + linesArray4[tempIndex2 + 1 + linesArray4.length / 3] + '<br>' + linesArray4[tempIndex2 + 2 + 2 * linesArray4.length / 3];
@@ -51,3 +51,14 @@ if (linesArray2[2].length <= 7) {
   }
   else if (linesArray5.length === 4) { console.log('will be added when required') }
 }
+ if (awayD.length >= 18) {
+                      var firstD6A = document.createElement('p3'); var secondD6A = document.createElement('p2'); var thirdD6A = document.createElement('p3'); var forthD6A = document.createElement('p2'); var fifthD6A = document.createElement('p3');
+                      sixthD6A.innerHTML = 'X' + '<br>' + 'X' + '<br>' + 'X'; sixthDNumberA.innerHTML = awayD[16] + ' ' + awayD[17];
+                      firstD6A.innerHTML = pairingsArray[3][9] + ' sh ' + pairingsArray[3][8] + ' sec ' + '<br>' + pairingsArray[4][9] + ' sh ' + pairingsArray[4][8] + ' sec ' + '<br>' + pairingsArray[5][9] + ' sh ' + pairingsArray[5][8] + ' sec ';
+                      secondD6A.innerHTML = pairingsArray[3][2 * awayD.length / 3 + 5] + ' shifts ' + pairingsArray[3][2 * awayD.length / 3 + 4] + ' sec ' + '<br>' + pairingsArray[4][2 * awayD.length / 3 + 5] + ' sh ' + pairingsArray[4][2 * awayD.length / 3 + 4] + ' sec ' + '<br>' + pairingsArray[5][2 * awayD.length / 3 + 5] + ' sh ' + pairingsArray[5][2 * awayD.length / 3 + 4] + ' sec ';
+                      thirdD6A.innerHTML = pairingsArray[3][4 * awayD.length / 3 - 1] + ' shifts ' + pairingsArray[3][4 * awayD.length / 3 - 2] + ' sec ' + '<br>' + pairingsArray[4][4 * awayD.length / 3 - 1] + ' sh ' + pairingsArray[4][4 * awayD.length / 3 - 2] + ' sec ' + '<br>' + pairingsArray[5][4 * awayD.length / 3 - 1] + ' sh ' + pairingsArray[5][4 * awayD.length / 3 - 2] + ' sec ';
+                      forthD6A.innerHTML = pairingsArray[3][6 * awayD.length / 3 - 9] + ' shifts ' + pairingsArray[3][6 * awayD.length / 3 - 10] + ' sec ' + '<br>' + pairingsArray[4][6 * awayD.length / 3 - 9] + ' sh ' + pairingsArray[4][6 * awayD.length / 3 - 10] + ' sec ' + '<br>' + pairingsArray[5][6 * awayD.length / 3 - 9] + ' sh ' + pairingsArray[5][6 * awayD.length / 3 - 10] + ' sec ';
+                      fifthD6A.innerHTML = pairingsArray[3][8 * awayD.length / 3 - 19] + ' shifts ' + pairingsArray[3][8 * awayD.length / 3 - 20] + ' sec ' + '<br>' + pairingsArray[4][8 * awayD.length / 3 - 19] + ' sh ' + pairingsArray[4][8 * awayD.length / 3 - 20] + ' sec ' + '<br>' + pairingsArray[5][8 * awayD.length / 3 - 19] + ' sh ' + pairingsArray[5][8 * awayD.length / 3 - 20] + ' sec ';
+                      sixthD1A.innerHTML = firstD6A.innerHTML; sixthD2A.innerHTML = secondD6A.innerHTML; sixthD3A.innerHTML = thirdD6A.innerHTML; sixthD4A.innerHTML = forthD6A.innerHTML; sixthD5A.innerHTML = fifthD6A.innerHTML;
+                      document.getElementById('firstD6A').appendChild(firstD6A); document.getElementById('secondD6A').appendChild(secondD6A); document.getElementById('thirdD6A').appendChild(thirdD6A); document.getElementById('forthD6A').appendChild(forthD6A); document.getElementById('fifthD6A').appendChild(fifthD6A);
+                    } // end if six D men away

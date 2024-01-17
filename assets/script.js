@@ -329,10 +329,11 @@ function getInputValue() {
                     
                     // start 12F 3 lines home if loop
                     if ((homeF.length/3===12)&&(linesArray2[2].length===9)) {linesArray4 = []; for (i = 0; i < 3; i++){for (j = 0; j<linesArray[i].length/5; j++) {if ((linesArray2[4][0] === linesArray[i][5*j+2])&&(linesArray2[4][1] === linesArray[i][5*j+3])&&(linesArray2[4][2] === linesArray[i][5*j+4])) 
-                      linesArray4.push(linesArray[i][5*j], linesArray[i][5*j+1])}
+                      linesArray4.push(linesArray[i][5*j], linesArray[i][5*j+1])} 
                     fourthLine.innerHTML = homeF[3*linesArray2[4][0]+1] + ' ' + homeF[3*linesArray2[4][0]+2] + '<br>' + homeF[3*linesArray2[4][1]+1] + ' ' + homeF[3*linesArray2[4][1]+2] + '<br>' + homeF[3*linesArray2[4][2]+1] + ' ' + homeF[3*linesArray2[4][2]+2];
                     fourthLineTime2.innerHTML = linesArray4[1] + '<br>' + linesArray4[3] + '<br>' + linesArray4[5];
                     fourthLineTime.innerHTML = linesArray4[0] + '<br>' + linesArray4[2] + '<br>' + linesArray4[4]}} // end 12F 3 lines if loop
+                    // console.log(linesArray4);
                     // start 12F 2 lines if loop
                     if((linesArray2[2].length<=7)&&(linesArray2[2].length>4)){linesArray4 = []; for(i=0; i<3; i++) {for (j = 0; j<linesArray[i].length/5; j++){for (k=0; k<linesArray2[4].length-2; k++) {for (l=k+1; l<linesArray2[4].length-1; l++){for (m=l+1; m<linesArray2[4].length; m++){
                       if((linesArray2[4][k] === linesArray[i][5*j+2])&&(linesArray2[4][l] === linesArray[i][5*j+3])&&(linesArray2[4][m] === linesArray[i][5*j+4])){linesArray4.push(linesArray[i][5*j], linesArray[i][5*j+1], linesArray[i][5*j+2], linesArray[i][5*j+3], linesArray[i][5*j+4])}                      
@@ -362,8 +363,7 @@ function getInputValue() {
                 }}}}}
                 tempIndex = linesArray4.indexOf(Math.max(...linesArray4)); tempIndex2 = tempIndex%(linesArray4.length/3); 
                 console.log(linesArray4, Math.max(...linesArray4), tempIndex, tempIndex2); 
-              }
-               
+              }       
                                       
                     for (i = 0; i < awayF.length/3; i++) {if (linesArray2[3].includes(i)) {} else linesArray2[5].push(i)}
                     // start 12F 3 lines away if loop
@@ -410,18 +410,21 @@ function getInputValue() {
                     console.log(linesArray5); linesArray6 = [];
                   for (i = 3; i < 6; i++) {
                     for (j = 0; j<linesArray[i].length/5; j++) {for (k=0; k<linesArray5.length-2; k++) {for (l=k+1; l<linesArray5.length-1; l++) {for (m=l+1; m<linesArray5.length; m++) 
-                      {if((linesArray5[k]===linesArray[i][5*j+2])&&(linesArray5[l]===linesArray[i][5*j+3])&&(linesArray5[m]===linesArray[i][5*j+4])) { console.log('second cycle')
-                      linesArray6.push(linesArray[i][5*j], linesArray[i][5*j+1], linesArray[i][5*j+2], linesArray[i][5*j+3], linesArray[i][5*j+4]);                      
+                      {if((linesArray5[k]===linesArray[i][5*j+2])&&(linesArray5[l]===linesArray[i][5*j+3])&&(linesArray5[m]===linesArray[i][5*j+4])) {linesArray6.push(linesArray[i][5*j], linesArray[i][5*j+1], linesArray[i][5*j+2], linesArray[i][5*j+3], linesArray[i][5*j+4]);                      
                       tempIndex = linesArray6.indexOf(Math.max(...linesArray6)); tempIndex2 = tempIndex%(linesArray6.length/3)}
-                  }}}}}
-                console.log(linesArray6,  Math.max(...linesArray6), tempIndex, tempIndex2);
-                thirdLineAway.innerHTML = awayF[3*linesArray6[tempIndex+2]+1] + ' ' + awayF[3*linesArray6[tempIndex+2]+2] + '<br>' + awayF[3*linesArray6[tempIndex+3]+1] + ' ' + awayF[3*linesArray6[tempIndex+3]+2]+ '<br>' + awayF[3*linesArray6[tempIndex+4]+1] + ' ' + awayF[3*linesArray6[tempIndex+4]+2];
+                    }}}}}
+                    console.log(linesArray6,  Math.max(...linesArray6), tempIndex, tempIndex2);
+                    thirdLineAway.innerHTML = awayF[3*linesArray6[tempIndex+2]+1] + ' ' + awayF[3*linesArray6[tempIndex+2]+2] + '<br>' + awayF[3*linesArray6[tempIndex+3]+1] + ' ' + awayF[3*linesArray6[tempIndex+3]+2]+ '<br>' + awayF[3*linesArray6[tempIndex+4]+1] + ' ' + awayF[3*linesArray6[tempIndex+4]+2];
                     thirdLineTimeAway.innerHTML = linesArray6[tempIndex2] + '<br>' + linesArray6[tempIndex2 + linesArray6.length/3] + '<br>' + linesArray6[tempIndex2 + 2*linesArray6.length/3];
                     thirdLineTime2Away.innerHTML = linesArray6[tempIndex2+1] + '<br>' + linesArray6[tempIndex2 + 1 + linesArray6.length/3] + '<br>' + linesArray6[tempIndex2 + 1 + 2*linesArray6.length/3];
                     linesArray7 = [];
                     console.log(linesArray6[tempIndex+2], linesArray6[tempIndex+3], linesArray6[tempIndex+4])
-                    for (i = 0; i < linesArray5.length; i++) {// to continue here tomorrow
+                    for (i = 0; i < linesArray5.length; i++) { if ((linesArray5[i]===linesArray6[tempIndex+2])||(linesArray5[i]===linesArray6[tempIndex+3])||(linesArray5[i]===linesArray6[tempIndex+4])){}
+                    else {linesArray7.push(linesArray5[i])}
                     }
+                    console.log(linesArray7)
+                    if (linesArray7.length = 2) {fourthLineAway.innerHTML = awayF[3*linesArray7[0]+1] + ' ' + awayF[3*linesArray7[0]+2] + '<br>' + awayF[3*linesArray7[1]+1] + ' ' + awayF[3*linesArray7[1]+2]}
+                    else {console.log('use case will be added later')}
                   }
                     
                     console.log(linesArray2); linesArray3 = [[],[]];
@@ -429,11 +432,11 @@ function getInputValue() {
                     for (i=2; i<4; i++) {if (linesArray2[i].length>12) {
                     for (j = 0; j < linesArray2[i].length; j++) {for (k = j + 1; k < linesArray2[i].length; k++) {if (linesArray2[i][j] === linesArray2[i][k]){linesArray3[i-2].push(linesArray2[i][j])}}}}}
                     console.log(linesArray3); // end check repeating player
-                    headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI seconds'; headerHome3.innerHTML = 'shifts';
+                    headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI sec'; headerHome3.innerHTML = 'shifts';
                     firstLine.innerHTML = homeF[3*linesArray2[0][2]+1] + ' ' + homeF[3*linesArray2[0][2]+2] + '<br>' + homeF[3*linesArray2[0][3]+1] + ' ' + homeF[3*linesArray2[0][3]+2] + '<br>' + homeF[3*linesArray2[0][4]+1] + ' ' + homeF[3*linesArray2[0][4]+2];
                     firstLineTime.innerHTML = linesArray2[0][0] + '<br>' + linesArray2[0][5] + '<br>' + linesArray2[0][10];
                     firstLineTime2.innerHTML = linesArray2[0][1] + '<br>' + linesArray2[0][6] + '<br>' + linesArray2[0][11];
-                    if (linesArray2[3].length>=6) {
+                    if (linesArray2[2].length>=6) {
                     secondLine.innerHTML = homeF[3*linesArray2[0][17]+1] + ' ' + homeF[3*linesArray2[0][17]+2] + '<br>' + homeF[3*linesArray2[0][18]+1] + ' ' + homeF[3*linesArray2[0][18]+2] + '<br>' + homeF[3*linesArray2[0][19]+1] + ' ' + homeF[3*linesArray2[0][19]+2];
                     secondLineTime.innerHTML = linesArray2[0][15] + '<br>' + linesArray2[0][20] + '<br>' + linesArray2[0][25];
                     secondLineTime2.innerHTML = linesArray2[0][16] + '<br>' + linesArray2[0][21] + '<br>' + linesArray2[0][26]}
@@ -448,7 +451,7 @@ function getInputValue() {
                   }
 
                     firstLineAway.innerHTML = awayF[3*linesArray2[1][2]+1] + ' ' + awayF[3*linesArray2[1][2]+2] + '<br>' + awayF[3*linesArray2[1][3]+1] + ' ' + awayF[3*linesArray2[1][3]+2] + '<br>' + awayF[3*linesArray2[1][4]+1] + ' ' + awayF[3*linesArray2[1][4]+2];
-                    headerAway.innerHTML = 'Players'; headerAway2.innerHTML = 'TOI seconds'; headerAway3.innerHTML = 'shifts';
+                    headerAway.innerHTML = 'Players'; headerAway2.innerHTML = 'TOI sec'; headerAway3.innerHTML = 'shifts';
                     firstLineTimeAway.innerHTML = linesArray2[1][0] + '<br>' + linesArray2[1][5] + '<br>' + linesArray2[1][10];
                     firstLineTime2Away.innerHTML = linesArray2[1][1] + '<br>' + linesArray2[1][6] + '<br>' + linesArray2[1][11];
                     if (linesArray2[3].length>=6) {
@@ -473,5 +476,5 @@ function getInputValue() {
       } // end displayGameData     
     } // end second .then from getinputvalue
     );
-} // end getInput Value function $65k at 4.50% on 3/27
+} // end getInput Value function 
 // split functions

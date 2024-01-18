@@ -372,7 +372,7 @@ function getInputValue() {
                     fourthLineAway.innerHTML = awayF[3*linesArray2[5][0]+1] + ' ' + awayF[3*linesArray2[5][0]+2] + '<br>' + awayF[3*linesArray2[5][1]+1] + ' ' + awayF[3*linesArray2[5][1]+2] + '<br>' + awayF[3*linesArray2[5][2]+1] + ' ' + awayF[3*linesArray2[5][2]+2];
                     fourthLineTime2Away.innerHTML = linesArray4[1] + '<br>' + linesArray4[3] + '<br>' + linesArray4[5];
                     fourthLineTimeAway.innerHTML = linesArray4[0] + '<br>' + linesArray4[2] + '<br>' + linesArray4[4]}} // end 12F 3 lines away if loop
-                    // start 2 lines loop away
+                    // start 2 lines loop away 
                     if((linesArray2[3].length<=7)&&(linesArray2[3].length>4)) {linesArray4 = []; for(i=3; i<6; i++){for (j = 0; j<linesArray[i].length/5; j++){for (k=0; k<linesArray2[5].length-2; k++) {for (l=k+1; l<linesArray2[5].length-1; l++){for (m=l+1; m<linesArray2[5].length; m++){
                       if((linesArray2[5][k] === linesArray[i][5*j+2])&&(linesArray2[5][l] === linesArray[i][5*j+3])&&(linesArray2[5][m] === linesArray[i][5*j+4])){linesArray4.push(linesArray[i][5*j], linesArray[i][5*j+1], linesArray[i][5*j+2], linesArray[i][5*j+3], linesArray[i][5*j+4])}                      
                     }}}}}
@@ -393,7 +393,7 @@ function getInputValue() {
                     fourthLineTimeAway.innerHTML = linesArray[3][5*tempIndex] + '<br>' + linesArray[4][5*tempIndex] + '<br>' + linesArray[5][5*tempIndex];
                     fourthLineTime2Away.innerHTML = linesArray[3][5*tempIndex+1] + '<br>' + linesArray[4][5*tempIndex+1] + '<br>' + linesArray[5][5*tempIndex+1]}
                     else if (linesArray5.length===4) {console.log('will be added when required')}
-                    } // end 12F 2 lines loop away start one line away
+                    } // end 12F 2 lines loop away start one line away 
                     if ((linesArray2[3].length<=4)&&(linesArray2[3].length>0)) {console.log ('one line away');
                     linesArray4 = []; for(i=3; i<6; i++) {for (j = 0; j<linesArray[i].length/5; j++){for (k=0; k<linesArray2[5].length-2; k++) {for (l=k+1; l<linesArray2[5].length-1; l++){for (m=l+1; m<linesArray2[5].length; m++){
                       if((linesArray2[5][k] === linesArray[i][5*j+2])&&(linesArray2[5][l] === linesArray[i][5*j+3])&&(linesArray2[5][m] === linesArray[i][5*j+4])){linesArray4.push(linesArray[i][5*j], linesArray[i][5*j+1], linesArray[i][5*j+2], linesArray[i][5*j+3], linesArray[i][5*j+4])}                      
@@ -417,20 +417,25 @@ function getInputValue() {
                     thirdLineAway.innerHTML = awayF[3*linesArray6[tempIndex+2]+1] + ' ' + awayF[3*linesArray6[tempIndex+2]+2] + '<br>' + awayF[3*linesArray6[tempIndex+3]+1] + ' ' + awayF[3*linesArray6[tempIndex+3]+2]+ '<br>' + awayF[3*linesArray6[tempIndex+4]+1] + ' ' + awayF[3*linesArray6[tempIndex+4]+2];
                     thirdLineTimeAway.innerHTML = linesArray6[tempIndex2] + '<br>' + linesArray6[tempIndex2 + linesArray6.length/3] + '<br>' + linesArray6[tempIndex2 + 2*linesArray6.length/3];
                     thirdLineTime2Away.innerHTML = linesArray6[tempIndex2+1] + '<br>' + linesArray6[tempIndex2 + 1 + linesArray6.length/3] + '<br>' + linesArray6[tempIndex2 + 1 + 2*linesArray6.length/3];
-                    linesArray7 = [];
+                    linesArray7 = []; 
                     console.log(linesArray6[tempIndex+2], linesArray6[tempIndex+3], linesArray6[tempIndex+4])
                     for (i = 0; i < linesArray5.length; i++) { if ((linesArray5[i]===linesArray6[tempIndex+2])||(linesArray5[i]===linesArray6[tempIndex+3])||(linesArray5[i]===linesArray6[tempIndex+4])){}
                     else {linesArray7.push(linesArray5[i])}
                     }
-                    console.log(linesArray7)
+                    console.log(linesArray7);
                     if (linesArray7.length = 2) {fourthLineAway.innerHTML = awayF[3*linesArray7[0]+1] + ' ' + awayF[3*linesArray7[0]+2] + '<br>' + awayF[3*linesArray7[1]+1] + ' ' + awayF[3*linesArray7[1]+2]}
-                    else {console.log('use case will be added later')}
+                    else {console.log('use case will be added later')} 
                   }
                     
                     console.log(linesArray2); linesArray3 = [[],[]];
                     // to check if any players repeats in the lines H and A that will work if there are 5 lines
                     for (i=2; i<4; i++) {if (linesArray2[i].length>12) {
-                    for (j = 0; j < linesArray2[i].length; j++) {for (k = j + 1; k < linesArray2[i].length; k++) {if (linesArray2[i][j] === linesArray2[i][k]){linesArray3[i-2].push(linesArray2[i][j])}}}}}
+                    for (j = 0; j < linesArray2[i].length; j++) {for (k = j + 1; k < linesArray2[i].length; k++) {if (linesArray2[i][j] === linesArray2[i][k]){linesArray3[i-2].push(linesArray2[i][j])}}
+                    }
+                  if (linesArray3[i-2].length>0) {console.log(i-2, 'more than 4 lines');
+                    for (j = 0; j < linesArray2[i].length; j++)
+                }
+                }}
                     console.log(linesArray3); // end check repeating player
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI sec'; headerHome3.innerHTML = 'shifts';
                     firstLine.innerHTML = homeF[3*linesArray2[0][2]+1] + ' ' + homeF[3*linesArray2[0][2]+2] + '<br>' + homeF[3*linesArray2[0][3]+1] + ' ' + homeF[3*linesArray2[0][3]+2] + '<br>' + homeF[3*linesArray2[0][4]+1] + ' ' + homeF[3*linesArray2[0][4]+2];

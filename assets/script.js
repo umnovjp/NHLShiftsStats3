@@ -385,7 +385,7 @@ function getInputValue() {
                     linesArray5 = [];
                     for (i = 0; i < linesArray2[5].length; i++) {if ((linesArray2[5][i]===linesArray4[tempIndex+2])||(linesArray2[5][i]===linesArray4[tempIndex+3])||(linesArray2[5][i]===linesArray4[tempIndex+4])) {}
                     else linesArray5.push(linesArray2[5][i])}
-                    console.log(linesArray5, linesArray5.length);
+                    // console.log(linesArray5, linesArray5.length);
                     if (linesArray5.length===2){fourthLineAway.innerHTML = awayF[3*linesArray5[0]+1] + ' ' + awayF[3*linesArray5[0]+2] + '<br>' + awayF[3*linesArray5[1]+1] + ' ' + awayF[3*linesArray5[1]+2]}
                     else if (linesArray5.length===3){fourthLineAway.innerHTML = awayF[3*linesArray5[0]+1] + ' ' + awayF[3*linesArray5[0]+2] + '<br>' + awayF[3*linesArray5[1]+1] + ' ' + awayF[3*linesArray5[1]+2]  + '<br>' + awayF[3*linesArray5[2]+1] + ' ' + awayF[3*linesArray5[2]+2];
                     for (i = 0; i < linesArray[3].length/5; i++) {if ((linesArray[3][5*i+2] === linesArray5[0])&&(linesArray[3][5*i+3] === linesArray5[1])&&(linesArray[3][5*i+4] === linesArray5[2]))
@@ -420,8 +420,7 @@ function getInputValue() {
                     linesArray7 = []; 
                     console.log(linesArray6[tempIndex+2], linesArray6[tempIndex+3], linesArray6[tempIndex+4])
                     for (i = 0; i < linesArray5.length; i++) { if ((linesArray5[i]===linesArray6[tempIndex+2])||(linesArray5[i]===linesArray6[tempIndex+3])||(linesArray5[i]===linesArray6[tempIndex+4])){}
-                    else {linesArray7.push(linesArray5[i])}
-                    }
+                    else {linesArray7.push(linesArray5[i])}}
                     console.log(linesArray7);
                     if (linesArray7.length = 2) {fourthLineAway.innerHTML = awayF[3*linesArray7[0]+1] + ' ' + awayF[3*linesArray7[0]+2] + '<br>' + awayF[3*linesArray7[1]+1] + ' ' + awayF[3*linesArray7[1]+2]}
                     else {console.log('use case will be added later')} 
@@ -432,11 +431,13 @@ function getInputValue() {
                     for (i=2; i<4; i++) {if (linesArray2[i].length>12) {
                     for (j = 0; j < linesArray2[i].length; j++) {for (k = j + 1; k < linesArray2[i].length; k++) {if (linesArray2[i][j] === linesArray2[i][k]){linesArray3[i-2].push(linesArray2[i][j])}}
                     }
-                  if (linesArray3[i-2].length>0) {console.log(i-2, 'more than 4 lines');
-                    for (j = 0; j < linesArray2[i].length; j++)
+                  if (linesArray3[i-2].length>0) {console.log(i-2, 'more than 4 lines'); linesArray8=[[],[]]
+                    for (j = 0; j < linesArray3[i-2].length; j++) {console.log('test case', linesArray3[i-2][j]);
+                  for (k = 0; k<linesArray2[i].length/3; k++) {if ((linesArray3[i-2].includes(linesArray2[i][3*k]))||(linesArray3[i-2].includes(linesArray2[i][3*k+1]))||(linesArray3[i-2].includes(linesArray2[i][3*k+2]))) {}
+                  else {linesArray8[i-2].push(linesArray2[i][3*k], linesArray2[i][3*k+1], linesArray2[i][3*k+2])}}}
                 }
                 }}
-                    console.log(linesArray3); // end check repeating player
+                    console.log(linesArray3, linesArray8); // end check repeating player
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI sec'; headerHome3.innerHTML = 'shifts';
                     firstLine.innerHTML = homeF[3*linesArray2[0][2]+1] + ' ' + homeF[3*linesArray2[0][2]+2] + '<br>' + homeF[3*linesArray2[0][3]+1] + ' ' + homeF[3*linesArray2[0][3]+2] + '<br>' + homeF[3*linesArray2[0][4]+1] + ' ' + homeF[3*linesArray2[0][4]+2];
                     firstLineTime.innerHTML = linesArray2[0][0] + '<br>' + linesArray2[0][5] + '<br>' + linesArray2[0][10];

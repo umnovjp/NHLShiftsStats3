@@ -328,6 +328,8 @@ function getInputValue() {
                     for (i = 0; i < homeF.length/3; i++) {if (linesArray2[2].includes(i)) {} else linesArray2[4].push(i)}
                     
                     // start 12F 3 lines home if loop
+                    // to start here if 11F and 3 lines
+                    // chapter 6 analyzing the borrower
                     if ((homeF.length/3===12)&&(linesArray2[2].length===9)) {linesArray4 = []; for (i = 0; i < 3; i++){for (j = 0; j<linesArray[i].length/5; j++) {if ((linesArray2[4][0] === linesArray[i][5*j+2])&&(linesArray2[4][1] === linesArray[i][5*j+3])&&(linesArray2[4][2] === linesArray[i][5*j+4])) 
                       linesArray4.push(linesArray[i][5*j], linesArray[i][5*j+1])} 
                     fourthLine.innerHTML = homeF[3*linesArray2[4][0]+1] + ' ' + homeF[3*linesArray2[4][0]+2] + '<br>' + homeF[3*linesArray2[4][1]+1] + ' ' + homeF[3*linesArray2[4][1]+2] + '<br>' + homeF[3*linesArray2[4][2]+1] + ' ' + homeF[3*linesArray2[4][2]+2];
@@ -426,17 +428,20 @@ function getInputValue() {
                     else {console.log('use case will be added later')} 
                   }
                     
-                    console.log(linesArray2); linesArray3 = [[],[]];
+                    console.log(linesArray2); linesArray3 = [[],[]]; linesArray8=[[],[],[],[]]
                     // to check if any players repeats in the lines H and A that will work if there are 5 lines
                     for (i=2; i<4; i++) {if (linesArray2[i].length>12) {
                     for (j = 0; j < linesArray2[i].length; j++) {for (k = j + 1; k < linesArray2[i].length; k++) {if (linesArray2[i][j] === linesArray2[i][k]){linesArray3[i-2].push(linesArray2[i][j])}}
                     }
-                  if (linesArray3[i-2].length>0) {console.log(i-2, 'more than 4 lines'); linesArray8=[[],[]]
+                  if (linesArray3[i-2].length>0) {
                     for (j = 0; j < linesArray3[i-2].length; j++) {console.log('test case', linesArray3[i-2][j]);
                   for (k = 0; k<linesArray2[i].length/3; k++) {if ((linesArray3[i-2].includes(linesArray2[i][3*k]))||(linesArray3[i-2].includes(linesArray2[i][3*k+1]))||(linesArray3[i-2].includes(linesArray2[i][3*k+2]))) {}
-                  else {linesArray8[i-2].push(linesArray2[i][3*k], linesArray2[i][3*k+1], linesArray2[i][3*k+2])}}}
+                  else { if (linesArray8[i-2].includes(linesArray2[i][3*k])) {}
+                  else {linesArray8[i-2].push(linesArray2[i][3*k], linesArray2[i][3*k+1], linesArray2[i][3*k+2])}}
                 }
-                }}
+              for (k=0; k<linesArray2[i].length/3; k++) {if (linesArray8[i-2].includes(linesArray2[i+2][3*k])) {}
+            else {linesArray8[i].push(linesArray2[i][3*k], linesArray2[i][3*k+1], linesArray2[i][3*k+2])}}
+              }}}} // end i loop for 2 teams and if loop if there are > 4 lines // private lender playbook
                     console.log(linesArray3, linesArray8); // end check repeating player
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI sec'; headerHome3.innerHTML = 'shifts';
                     firstLine.innerHTML = homeF[3*linesArray2[0][2]+1] + ' ' + homeF[3*linesArray2[0][2]+2] + '<br>' + homeF[3*linesArray2[0][3]+1] + ' ' + homeF[3*linesArray2[0][3]+2] + '<br>' + homeF[3*linesArray2[0][4]+1] + ' ' + homeF[3*linesArray2[0][4]+2];
@@ -483,4 +488,4 @@ function getInputValue() {
     } // end second .then from getinputvalue
     );
 } // end getInput Value function 
-// split functions
+// 

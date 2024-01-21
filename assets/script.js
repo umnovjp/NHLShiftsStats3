@@ -419,7 +419,7 @@ function getInputValue() {
                     thirdLineAway.innerHTML = awayF[3*linesArray6[tempIndex+2]+1] + ' ' + awayF[3*linesArray6[tempIndex+2]+2] + '<br>' + awayF[3*linesArray6[tempIndex+3]+1] + ' ' + awayF[3*linesArray6[tempIndex+3]+2]+ '<br>' + awayF[3*linesArray6[tempIndex+4]+1] + ' ' + awayF[3*linesArray6[tempIndex+4]+2];
                     thirdLineTimeAway.innerHTML = linesArray6[tempIndex2] + '<br>' + linesArray6[tempIndex2 + linesArray6.length/3] + '<br>' + linesArray6[tempIndex2 + 2*linesArray6.length/3];
                     thirdLineTime2Away.innerHTML = linesArray6[tempIndex2+1] + '<br>' + linesArray6[tempIndex2 + 1 + linesArray6.length/3] + '<br>' + linesArray6[tempIndex2 + 1 + 2*linesArray6.length/3];
-                    linesArray7 = []; 
+                    linesArray7 = [];
                     console.log(linesArray6[tempIndex+2], linesArray6[tempIndex+3], linesArray6[tempIndex+4])
                     for (i = 0; i < linesArray5.length; i++) { if ((linesArray5[i]===linesArray6[tempIndex+2])||(linesArray5[i]===linesArray6[tempIndex+3])||(linesArray5[i]===linesArray6[tempIndex+4])){}
                     else {linesArray7.push(linesArray5[i])}}
@@ -430,19 +430,23 @@ function getInputValue() {
                     
                     console.log(linesArray2); linesArray3 = [[],[]]; linesArray8=[[],[],[],[]]
                     // to check if any players repeats in the lines H and A that will work if there are 5 lines
-                    for (i=2; i<4; i++) {if (linesArray2[i].length>12) {
+                    for (i=2; i<4; i++) {if (linesArray2[i].length>12) { 
                     for (j = 0; j < linesArray2[i].length; j++) {for (k = j + 1; k < linesArray2[i].length; k++) {if (linesArray2[i][j] === linesArray2[i][k]){linesArray3[i-2].push(linesArray2[i][j])}}
                     }
-                  if (linesArray3[i-2].length>0) {
+                  if (linesArray3[i-2].length>0) { 
                     for (j = 0; j < linesArray3[i-2].length; j++) {console.log('test case', linesArray3[i-2][j]);
-                  for (k = 0; k<linesArray2[i].length/3; k++) {if ((linesArray3[i-2].includes(linesArray2[i][3*k]))||(linesArray3[i-2].includes(linesArray2[i][3*k+1]))||(linesArray3[i-2].includes(linesArray2[i][3*k+2]))) {}
+                  for (k = 0; k<linesArray2[i].length/3; k++) {if ((linesArray3[i-2].includes(linesArray2[i][3*k]))||(linesArray3[i-2].includes(linesArray2[i][3*k+1]))||(linesArray3[i-2].includes(linesArray2[i][3*k+2]))) { }
                   else { if (linesArray8[i-2].includes(linesArray2[i][3*k])) {}
                   else {linesArray8[i-2].push(linesArray2[i][3*k], linesArray2[i][3*k+1], linesArray2[i][3*k+2])}}
-                }
-              for (k=0; k<linesArray2[i].length/3; k++) {if (linesArray8[i-2].includes(linesArray2[i+2][3*k])) {}
-            else {linesArray8[i].push(linesArray2[i][3*k], linesArray2[i][3*k+1], linesArray2[i][3*k+2])}}
-              }}}} // end i loop for 2 teams and if loop if there are > 4 lines // private lender playbook
-                    console.log(linesArray3, linesArray8); // end check repeating player
+                }}
+              // for (k=0; k<linesArray2[i].length/3; k++) { for (l=0; l<linesArray8[i-2].length/3; l++) {
+              //   if ((k<linesArray2[i][3*k]===linesArray8[i-2][3*l])&&(k<linesArray2[i][3*k+1]===linesArray8[i-2][3*l+1])&&(k<linesArray2[i][3*k+2]===linesArray8[i-2][3*l+2])) {}
+              // else linesArray8[i].push(linesArray2[i][3*k], linesArray2[i][3*k+1], linesArray2[i][3*k+2])}
+              //   }
+              for (j=0; j<linesArray2[i].length/3; j++) {for (k=0; k<3; k++) {tempArray3 = [linesArray2[i][3*j], linesArray2[i][3*j+1], linesArray2[i][3*j+2]]; tempIndex = 0;
+              }}
+            }}} // end i loop for 2 teams and if loop if there are > 4 lines
+                    console.log(linesArray3, linesArray8); // end check repeating F player
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI sec'; headerHome3.innerHTML = 'shifts';
                     firstLine.innerHTML = homeF[3*linesArray2[0][2]+1] + ' ' + homeF[3*linesArray2[0][2]+2] + '<br>' + homeF[3*linesArray2[0][3]+1] + ' ' + homeF[3*linesArray2[0][3]+2] + '<br>' + homeF[3*linesArray2[0][4]+1] + ' ' + homeF[3*linesArray2[0][4]+2];
                     firstLineTime.innerHTML = linesArray2[0][0] + '<br>' + linesArray2[0][5] + '<br>' + linesArray2[0][10];
@@ -488,4 +492,4 @@ function getInputValue() {
     } // end second .then from getinputvalue
     );
 } // end getInput Value function 
-// 
+// private lender playbook

@@ -439,12 +439,14 @@ function getInputValue() {
                   else { if (linesArray8[i-2].includes(linesArray2[i][3*k])) {}
                   else {linesArray8[i-2].push(linesArray2[i][3*k], linesArray2[i][3*k+1], linesArray2[i][3*k+2])}}
                 }}
-              // for (k=0; k<linesArray2[i].length/3; k++) { for (l=0; l<linesArray8[i-2].length/3; l++) {
-              //   if ((k<linesArray2[i][3*k]===linesArray8[i-2][3*l])&&(k<linesArray2[i][3*k+1]===linesArray8[i-2][3*l+1])&&(k<linesArray2[i][3*k+2]===linesArray8[i-2][3*l+2])) {}
-              // else linesArray8[i].push(linesArray2[i][3*k], linesArray2[i][3*k+1], linesArray2[i][3*k+2])}
-              //   }
-              for (j=0; j<linesArray2[i].length/3; j++) {for (k=0; k<3; k++) {tempArray3 = [linesArray2[i][3*j], linesArray2[i][3*j+1], linesArray2[i][3*j+2]]; tempIndex = 0;
-              }}
+              for (j=0; j<linesArray2[i].length/3; j++) {tempIndex = 0; for (k=0; k<3; k++) {
+                // console.log(linesArray3, linesArray2[i])
+              if (linesArray3[i-2].includes(linesArray2[i][3*j+k]) ) {tempIndex=tempIndex+1; console.log(tempIndex)}
+            }
+            if (tempIndex===1) {console.log(linesArray2[i][3*j], linesArray2[i][3*j+1], linesArray2[i][3*j+2]);
+              linesArray8[i-2].push(linesArray2[i][3*j], linesArray2[i][3*j+1], linesArray2[i][3*j+2])}            
+          }
+              
             }}} // end i loop for 2 teams and if loop if there are > 4 lines
                     console.log(linesArray3, linesArray8); // end check repeating F player
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI sec'; headerHome3.innerHTML = 'shifts';

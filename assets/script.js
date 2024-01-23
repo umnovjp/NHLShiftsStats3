@@ -426,29 +426,25 @@ function getInputValue() {
                     console.log(linesArray7);
                     if (linesArray7.length = 2) {fourthLineAway.innerHTML = awayF[3*linesArray7[0]+1] + ' ' + awayF[3*linesArray7[0]+2] + '<br>' + awayF[3*linesArray7[1]+1] + ' ' + awayF[3*linesArray7[1]+2]}
                     else {console.log('use case will be added later')} 
-                  }
-                    
+                  }                    
                     console.log(linesArray2); linesArray3 = [[],[]]; linesArray8=[[],[],[],[]]
                     // to check if any players repeats in the lines H and A that will work if there are 5 lines
-                    for (i=2; i<4; i++) {if (linesArray2[i].length>12) { 
-                    for (j = 0; j < linesArray2[i].length; j++) {for (k = j + 1; k < linesArray2[i].length; k++) {if (linesArray2[i][j] === linesArray2[i][k]){linesArray3[i-2].push(linesArray2[i][j])}}
+                    for (i=2; i<4; i++) {if (linesArray2[i].length>12) {for (j = 0; j < linesArray2[i].length; j++) {for (k = j + 1; k < linesArray2[i].length; k++) {if (linesArray2[i][j] === linesArray2[i][k]){linesArray3[i-2].push(linesArray2[i][j])}}
                     }
-                  if (linesArray3[i-2].length>0) { 
-                    for (j = 0; j < linesArray3[i-2].length; j++) {console.log('test case', linesArray3[i-2][j]);
+                  if (linesArray3[i-2].length>0) {for (j = 0; j < linesArray3[i-2].length; j++) {console.log('test case', linesArray3[i-2][j]);
                   for (k = 0; k<linesArray2[i].length/3; k++) {if ((linesArray3[i-2].includes(linesArray2[i][3*k]))||(linesArray3[i-2].includes(linesArray2[i][3*k+1]))||(linesArray3[i-2].includes(linesArray2[i][3*k+2]))) { }
-                  else { if (linesArray8[i-2].includes(linesArray2[i][3*k])) {}
+                  else { if (linesArray8[i-2].includes(linesArray2[i][3*k])) { }
                   else {linesArray8[i-2].push(linesArray2[i][3*k], linesArray2[i][3*k+1], linesArray2[i][3*k+2])}}
                 }}
               for (j=0; j<linesArray2[i].length/3; j++) {tempIndex = 0; for (k=0; k<3; k++) {
-                // console.log(linesArray3, linesArray2[i])
-              if (linesArray3[i-2].includes(linesArray2[i][3*j+k]) ) {tempIndex=tempIndex+1; console.log(tempIndex)}
-            }
+              if (linesArray3[i-2].includes(linesArray2[i][3*j+k]) ) {tempIndex=tempIndex+1; console.log(tempIndex)}}
             if (tempIndex===1) {console.log(linesArray2[i][3*j], linesArray2[i][3*j+1], linesArray2[i][3*j+2]);
-              linesArray8[i-2].push(linesArray2[i][3*j], linesArray2[i][3*j+1], linesArray2[i][3*j+2])}            
-          }
-              
+              linesArray8[i-2].push(linesArray2[i][3*j], linesArray2[i][3*j+1], linesArray2[i][3*j+2])}
+              // new script will be added here           
+          }              
             }}} // end i loop for 2 teams and if loop if there are > 4 lines
                     console.log(linesArray3, linesArray8); // end check repeating F player
+
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI sec'; headerHome3.innerHTML = 'shifts';
                     firstLine.innerHTML = homeF[3*linesArray2[0][2]+1] + ' ' + homeF[3*linesArray2[0][2]+2] + '<br>' + homeF[3*linesArray2[0][3]+1] + ' ' + homeF[3*linesArray2[0][3]+2] + '<br>' + homeF[3*linesArray2[0][4]+1] + ' ' + homeF[3*linesArray2[0][4]+2];
                     firstLineTime.innerHTML = linesArray2[0][0] + '<br>' + linesArray2[0][5] + '<br>' + linesArray2[0][10];

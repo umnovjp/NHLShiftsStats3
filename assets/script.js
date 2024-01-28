@@ -427,21 +427,21 @@ function getInputValue() {
                     if (linesArray7.length = 2) {fourthLineAway.innerHTML = awayF[3*linesArray7[0]+1] + ' ' + awayF[3*linesArray7[0]+2] + '<br>' + awayF[3*linesArray7[1]+1] + ' ' + awayF[3*linesArray7[1]+2]}
                     else {console.log('use case will be added later')}
                   }                    
-                    console.log(linesArray2); linesArray3 = [[],[]]; linesArray8=[[],[],[],[]];
+                    console.log(linesArray2); linesArray3 = [[],[]]; linesArray8=[[],[],[],[]]; 
                     // to check if any players repeats in the lines H and A that will work if there are 5 lines 
                     for (i=2; i<4; i++) {if (linesArray2[i].length>12) {for (j = 0; j < linesArray2[i].length; j++) {for (k = j + 1; k < linesArray2[i].length; k++) {if (linesArray2[i][j] === linesArray2[i][k]){linesArray3[i-2].push(linesArray2[i][j])}}
                     }
                   if (linesArray3[i-2].length>0) {for (j = 0; j < linesArray3[i-2].length; j++) {//console.log('test case', linesArray3[i-2][j]);
                   for (k=0; k<linesArray2[i].length/3; k++) {if ((linesArray3[i-2].includes(linesArray2[i][3*k]))||(linesArray3[i-2].includes(linesArray2[i][3*k+1]))||(linesArray3[i-2].includes(linesArray2[i][3*k+2]))) { }
-                  else {if (linesArray8[i-2].includes(linesArray2[i][3*k])) {}
+                  else {if (linesArray8[i-2].includes(linesArray2[i][3*k])) { }
                   else {linesArray8[i-2].push(linesArray2[i][3*k], linesArray2[i][3*k+1], linesArray2[i][3*k+2])}}}}
-              for (j=0; j<linesArray2[i].length/3; j++) {tempIndex = 0; for (k=0; k<3; k++) {
+              for (j=0; j<linesArray2[i].length/3; j++) {tempIndex = 0; for (k=0; k<3; k++) { 
               if (linesArray3[i-2].includes(linesArray2[i][3*j+k])) {tempIndex=tempIndex+1; console.log(tempIndex)}}
             if (tempIndex===1) {linesArray8[i-2].push(linesArray2[i][3*j], linesArray2[i][3*j+1], linesArray2[i][3*j+2])
-            if (linesArray8[i-2].length=9) {for (k=0; k<homeF.length/3; k++) {if (linesArray8[i-2].includes(k)) {}
+            if (linesArray8[i-2].length=9) {for (k=0; k<homeF.length/3; k++) {if (linesArray8[i-2].includes(k)) { }
           else (linesArray8[i-2].push(k))}}}}
             }}} // end i loop for 2 teams and if loop if there are > 4 lines
-                    console.log(linesArray3, linesArray8); // end check repeating F player 
+                    console.log(linesArray3, linesArray8); // end check repeating F player
 
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI sec'; headerHome3.innerHTML = 'shifts';
                     firstLine.innerHTML = homeF[3*linesArray2[0][2]+1] + ' ' + homeF[3*linesArray2[0][2]+2] + '<br>' + homeF[3*linesArray2[0][3]+1] + ' ' + homeF[3*linesArray2[0][3]+2] + '<br>' + homeF[3*linesArray2[0][4]+1] + ' ' + homeF[3*linesArray2[0][4]+2];
@@ -458,8 +458,10 @@ function getInputValue() {
                     if ((homeF.length/3 === 12)&&(linesArray2[4].length === 0)) {fourthLine.innerHTML = homeF[3*linesArray2[0][47]+1] + ' ' + homeF[3*linesArray2[0][47]+2] + '<br>' + homeF[3*linesArray2[0][48]+1] + ' ' + homeF[3*linesArray2[0][48]+2] + '<br>' + homeF[3*linesArray2[0][49]+1] + ' ' + homeF[3*linesArray2[0][49]+2];
                     fourthLineTime.innerHTML = linesArray2[0][45] + '<br>' + linesArray2[0][50] + '<br>' + linesArray2[0][55];
                     fourthLineTime2.innerHTML = linesArray2[0][46] + '<br>' + linesArray2[0][51] + '<br>' + linesArray2[0][56]}
-                    else if ((homeF.length/3 === 11)&&(linesArray2[2].length === 9)) {fourthLine.innerHTML = homeF[3*linesArray2[4][0]+1] + ' ' + homeF[3*linesArray2[4][0]+2] + '<br>' + homeF[3*linesArray2[4][1]+1] + ' ' + homeF[3*linesArray2[4][1]+2]
-                  }
+                    else if ((homeF.length/3 === 11)&&(linesArray2[2].length === 9)) {fourthLine.innerHTML = homeF[3*linesArray2[4][0]+1] + ' ' + homeF[3*linesArray2[4][0]+2] + '<br>' + homeF[3*linesArray2[4][1]+1] + ' ' + homeF[3*linesArray2[4][1]+2]}
+                    else if ((homeF.length/3 === 11)&&(linesArray2[2].length == 12)) {fourthLine.innerHTML = homeF[3*linesArray2[0][47]+1] + ' ' + homeF[3*linesArray2[0][47]+2] + '<br>' + homeF[3*linesArray2[0][48]+1] + ' ' + homeF[3*linesArray2[0][48]+2] + '<br>' + homeF[3*linesArray2[0][49]+1] + ' ' + homeF[3*linesArray2[0][49]+2];
+                    fourthLineTime.innerHTML = linesArray2[0][45] + '<br>' + linesArray2[0][50] + '<br>' + linesArray2[0][55];
+                    fourthLineTime2.innerHTML = linesArray2[0][46] + '<br>' + linesArray2[0][51] + '<br>' + linesArray2[0][56]}
 
                     firstLineAway.innerHTML = awayF[3*linesArray2[1][2]+1] + ' ' + awayF[3*linesArray2[1][2]+2] + '<br>' + awayF[3*linesArray2[1][3]+1] + ' ' + awayF[3*linesArray2[1][3]+2] + '<br>' + awayF[3*linesArray2[1][4]+1] + ' ' + awayF[3*linesArray2[1][4]+2];
                     headerAway.innerHTML = 'Players'; headerAway2.innerHTML = 'TOI sec'; headerAway3.innerHTML = 'shifts';
@@ -480,12 +482,13 @@ function getInputValue() {
                     else if ((awayF.length/3 === 11)&&(linesArray2[3].length == 12)) {fourthLineAway.innerHTML = awayF[3*linesArray2[1][47]+1] + ' ' + awayF[3*linesArray2[1][47]+2] + '<br>' + awayF[3*linesArray2[1][48]+1] + ' ' + awayF[3*linesArray2[1][48]+2] + '<br>' + awayF[3*linesArray2[1][49]+1] + ' ' + awayF[3*linesArray2[1][49]+2];
                     fourthLineTimeAway.innerHTML = linesArray2[1][45] + '<br>' + linesArray2[1][50] + '<br>' + linesArray2[1][55];
                     fourthLineTime2Away.innerHTML = linesArray2[1][46] + '<br>' + linesArray2[1][51] + '<br>' + linesArray2[1][56]}  
-                    if (homeD.length/3 === 7) {console.log(homeD)} // this line will be deleted
+                    if (homeD.length/3 === 7) {console.log(homeD)} // this line will be deleted 
+                    if (awayD.length/3 === 7) {console.log(awayD)} // this line will be deleted as well
                   }); // end second .then shifts
               }); // end second .then standings;
           }); // end second .then gamecenter;
-      } // end displayGameData     
+      } // end displayGameData
     } // end second .then from getinputvalue
     );
 } // end getInput Value function 
-// private lender playbook
+// private lender playbook sex and the city sequel

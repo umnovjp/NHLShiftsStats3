@@ -210,9 +210,9 @@ function getInputValue() {
                                 for (o = 0; o < tempTime.length; o++) { if (tempTime[o] >= 10) { shifts = shifts + 1;
                                 tempTime2.push(tempTime[o])}}
                                 linesArray[i + 3 * h].push(sum); linesArray[i + 3 * h].push(shifts, j, k, l); // console.log(i, j, k, tempTime);
-                              } // end second l loop 
-                          }} // temp end k, j loops          
-                        }} // end k, j, i and h loop periods 
+                              } // end second l loop
+                          }} // temp end k, j loops
+                        }} // end k, j, i and h loop periods
 
                         console.log('shiftsPair', shiftsPair, 'linesArray', linesArray); linesArray2 = [[],[],[],[],[],[]]
                         // create linesArray2 this is an array of lines where line is defined as 3F which spent 100s in a period playing 3F and 2D
@@ -440,8 +440,8 @@ function getInputValue() {
             if (tempIndex===1) {linesArray8[i-2].push(linesArray2[i][3*j], linesArray2[i][3*j+1], linesArray2[i][3*j+2])
             if (linesArray8[i-2].length=9) {for (k=0; k<homeF.length/3; k++) {if (linesArray8[i-2].includes(k)) { }
           else (linesArray8[i-2].push(k))}}}} 
-            }}} // end i loop for 2 teams and if loop if there are > 4 lines 
-                    console.log(linesArray3, linesArray8); // end check repeating F player 
+            }}} // end i loop for 2 teams and if loop if there are > 4 lines
+                    console.log(linesArray3, linesArray8); // end check repeating F player
 
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI sec'; headerHome3.innerHTML = 'shifts';
                     firstLine.innerHTML = homeF[3*linesArray2[0][2]+1] + ' ' + homeF[3*linesArray2[0][2]+2] + '<br>' + homeF[3*linesArray2[0][3]+1] + ' ' + homeF[3*linesArray2[0][3]+2] + '<br>' + homeF[3*linesArray2[0][4]+1] + ' ' + homeF[3*linesArray2[0][4]+2];

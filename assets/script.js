@@ -406,11 +406,11 @@ function getInputValue() {
                     secondLineTimeAway.innerHTML = linesArray4[tempIndex2] + '<br>' + linesArray4[tempIndex2 + linesArray4.length/3] + '<br>' + linesArray4[tempIndex2 + 2*linesArray4.length/3]
                     secondLineTime2Away.innerHTML = linesArray4[tempIndex2+1] + '<br>' + linesArray4[tempIndex2 + 1 + linesArray4.length/3] + '<br>' + linesArray4[tempIndex2 + 1 + 2*linesArray4.length/3];
                     console.log(linesArray4[tempIndex+2], linesArray4[tempIndex+3], linesArray4[tempIndex+4]);
-                    linesArray5 = []; 
+                    linesArray5 = [];
                     for (i = 0; i < awayF.length/3; i++) {if ((i === linesArray2[3][0])||(i === linesArray2[3][1])||(i === linesArray2[3][2])||(i === linesArray4[tempIndex + 2])||(i === linesArray4[tempIndex + 3])||(i === linesArray4[tempIndex + 4])) {}
-                  else {linesArray5.push(i)}} 
-                    console.log(linesArray5); linesArray6 = [];
-                  for (i = 3; i < 6; i++) {
+                  else {linesArray5.push(i)}}
+                    console.log(linesArray5); linesArray6 = []; 
+                  for (i = 3; i < 6; i++) { 
                     for (j = 0; j<linesArray[i].length/5; j++) {for (k=0; k<linesArray5.length-2; k++) {for (l=k+1; l<linesArray5.length-1; l++) {for (m=l+1; m<linesArray5.length; m++) 
                       {if((linesArray5[k]===linesArray[i][5*j+2])&&(linesArray5[l]===linesArray[i][5*j+3])&&(linesArray5[m]===linesArray[i][5*j+4])) {linesArray6.push(linesArray[i][5*j], linesArray[i][5*j+1], linesArray[i][5*j+2], linesArray[i][5*j+3], linesArray[i][5*j+4]);                      
                       tempIndex = linesArray6.indexOf(Math.max(...linesArray6)); tempIndex2 = tempIndex%(linesArray6.length/3)}
@@ -419,21 +419,21 @@ function getInputValue() {
                     thirdLineAway.innerHTML = awayF[3*linesArray6[tempIndex+2]+1] + ' ' + awayF[3*linesArray6[tempIndex+2]+2] + '<br>' + awayF[3*linesArray6[tempIndex+3]+1] + ' ' + awayF[3*linesArray6[tempIndex+3]+2]+ '<br>' + awayF[3*linesArray6[tempIndex+4]+1] + ' ' + awayF[3*linesArray6[tempIndex+4]+2];
                     thirdLineTimeAway.innerHTML = linesArray6[tempIndex2] + '<br>' + linesArray6[tempIndex2 + linesArray6.length/3] + '<br>' + linesArray6[tempIndex2 + 2*linesArray6.length/3];
                     thirdLineTime2Away.innerHTML = linesArray6[tempIndex2+1] + '<br>' + linesArray6[tempIndex2 + 1 + linesArray6.length/3] + '<br>' + linesArray6[tempIndex2 + 1 + 2*linesArray6.length/3];
-                    linesArray7 = []; 
+                    linesArray7 = [];
                     console.log(linesArray6[tempIndex+2], linesArray6[tempIndex+3], linesArray6[tempIndex+4])
                     for (i = 0; i < linesArray5.length; i++) { if ((linesArray5[i]===linesArray6[tempIndex+2])||(linesArray5[i]===linesArray6[tempIndex+3])||(linesArray5[i]===linesArray6[tempIndex+4])){}
                     else {linesArray7.push(linesArray5[i])}}
-                    console.log(linesArray7);
+                    console.log(linesArray7); 
                     if (linesArray7.length = 2) {fourthLineAway.innerHTML = awayF[3*linesArray7[0]+1] + ' ' + awayF[3*linesArray7[0]+2] + '<br>' + awayF[3*linesArray7[1]+1] + ' ' + awayF[3*linesArray7[1]+2]}
                     else {console.log('use case will be added later')}
                   }                    
-                    console.log(linesArray2); linesArray3 = [[],[]]; linesArray8=[[],[],[],[]]; 
-                    // to check if any players repeats in the lines H and A that will work if there are 5 lines 
+                    console.log(linesArray2); linesArray3 = [[],[]]; linesArray8=[[],[],[],[]];
+                    //to check if any players repeats in the lines H and A that will work if there are 5 lines
                     for (i=2; i<4; i++) {if (linesArray2[i].length>12) {for (j = 0; j < linesArray2[i].length; j++) {for (k = j + 1; k < linesArray2[i].length; k++) {if (linesArray2[i][j] === linesArray2[i][k]){linesArray3[i-2].push(linesArray2[i][j])}}
                     }
                   if (linesArray3[i-2].length>0) {for (j = 0; j < linesArray3[i-2].length; j++) {//console.log('test case', linesArray3[i-2][j]);
-                  for (k=0; k<linesArray2[i].length/3; k++) {if ((linesArray3[i-2].includes(linesArray2[i][3*k]))||(linesArray3[i-2].includes(linesArray2[i][3*k+1]))||(linesArray3[i-2].includes(linesArray2[i][3*k+2]))) { }
-                  else {if (linesArray8[i-2].includes(linesArray2[i][3*k])) { }
+                  for (k=0; k<linesArray2[i].length/3; k++) {if ((linesArray3[i-2].includes(linesArray2[i][3*k]))||(linesArray3[i-2].includes(linesArray2[i][3*k+1]))||(linesArray3[i-2].includes(linesArray2[i][3*k+2]))) {}
+                  else {if (linesArray8[i-2].includes(linesArray2[i][3*k])) {}
                   else {linesArray8[i-2].push(linesArray2[i][3*k], linesArray2[i][3*k+1], linesArray2[i][3*k+2])}}}}
               for (j=0; j<linesArray2[i].length/3; j++) {tempIndex = 0; for (k=0; k<3; k++) { 
               if (linesArray3[i-2].includes(linesArray2[i][3*j+k])) {tempIndex=tempIndex+1; console.log(tempIndex)}}

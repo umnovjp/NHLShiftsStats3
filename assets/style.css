@@ -46,12 +46,12 @@ h1 {
   
   .yearEntry{float:right;
     font-size:20px;
-  width: 215px;
-  height: 128px;
+  width: 212px;
+  height: 126px;
   color: lightblue;
   vertical-align: top;
-  margin-right: 20px;
-  rotate: -20.2deg; 
+  margin-right: 10px;
+  rotate: -0deg; 
   }
   
   .yearEntry:hover  {box-shadow: 5px 5px 3px rgb(234, 0, 255);}

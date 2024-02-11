@@ -444,7 +444,7 @@ function getInputValue() {
             if (linesArray8[i-2].length=9) {for (k=0; k<homeF.length/3; k++) {if (linesArray8[i-2].includes(k)) { }
           else (linesArray8[i-2].push(k))}}}} 
             }}} // end i loop for 2 teams and if loop if there are > 4 lines
-                    console.log('linesArray3', linesArray3, 'linesArray8'. linesArray8); // end check repeating F player
+                    console.log('linesArray3', linesArray3, 'linesArray8', linesArray8); // end check repeating F player
 
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI sec'; headerHome3.innerHTML = 'shifts';
                     firstLine.innerHTML = homeF[3*linesArray2[0][2]+1] + ' ' + homeF[3*linesArray2[0][2]+2] + '<br>' + homeF[3*linesArray2[0][3]+1] + ' ' + homeF[3*linesArray2[0][3]+2] + '<br>' + homeF[3*linesArray2[0][4]+1] + ' ' + homeF[3*linesArray2[0][4]+2];

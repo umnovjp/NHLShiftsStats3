@@ -446,22 +446,23 @@ function getInputValue() {
                     console.log('linesArray3', linesArray3, 'linesArray8', linesArray8); // end check repeating F player
 
                     finalLineup =[[],[]]; tempArray3 = [homeF.length/3, awayF.length/3];
-
-                    for (i=2; i<4; i++) {finalLineup[i-2]=linesArray2[i]; linesArray4 = []; 
+                    linesArray4 = []; 
+                    for (i=2; i<4; i++) {finalLineup[i-2]=linesArray2[i]; 
                     // if (tempArray3[i].length>=12) {
                       if (linesArray2[i].length===12) {}
                   else if (linesArray2[i].length===9) {for (j=0;j<linesArray2[i].length;j++){if (linesArray2[i].includes(j)){}
                 else finalLineup[i-2].push(j)}} //copy lines 339-360
                 else if (linesArray2[i].length===6) {for (j=3*(i-2);j<3+3*(i-2);j++) {for (k=0;k<linesArray[j].length;k++) {for (l=0;l<tempArray3[i-2];l++)
                 for (m=l+1;m<tempArray3[i-2];m++) {for (n=m+1;n<tempArray3[i-2];n++) 
-              {if((linesArray2[i][l] === linesArray[i][5*k+2])&&(linesArray2[i][m] === linesArray[i][5*k+3])&&(linesArray2[4][n] === linesArray[i][5*k+4])){
+              {if((linesArray2[i][l] === linesArray[i][5*k+2])&&(linesArray2[i][m] === linesArray[i][5*k+3])&&(linesArray2[4][n] === linesArray[i][5*k+4])) {}
+              else {
                 linesArray4.push(linesArray[i][5*k], linesArray[i][5*k+1], linesArray[i][5*k+2], linesArray[i][5*k+3], linesArray[i][5*k+4])}}}}}}
                 else {console.log('case to be added')}
               //}                    
-              console.log(linesArray4);
+              
                    //  else if (homeF.length/3===11) {console.log('homeF.length', homeF.length)}
                     }
-                    
+                    console.log(linesArray4);
 
                     // for (i=2; i<4; i++) {if ((linesArray2[i].length===12)&&(homeF.length/3 === 12))}
 

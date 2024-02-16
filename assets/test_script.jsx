@@ -7,7 +7,7 @@ if((linesArray2[2].length<=7)&&(linesArray2[2].length>4)){linesArray4 = []; for(
  thirdLineTime.innerHTML = linesArray4[tempIndex2] + '<br>' + linesArray4[tempIndex2 + linesArray4.length/3] + '<br>' + linesArray4[tempIndex2 + 2*linesArray4.length/3]
  thirdLineTime2.innerHTML = linesArray4[tempIndex2+1] + '<br>' + linesArray4[tempIndex2 + 1 + linesArray4.length/3] + '<br>' + linesArray4[tempIndex2 + 2 + 2*linesArray4.length/3];
  console.log(linesArray4[tempIndex+2], linesArray4[tempIndex+3], linesArray4[tempIndex+4]);
- linesArray5 = []; 
+ linesArray5 = [];
  for (i = 0; i < linesArray2[4].length; i++) {if ((linesArray2[4][i]===linesArray4[tempIndex+2])||(linesArray2[4][i]===linesArray4[tempIndex+3])||(linesArray2[4][i]===linesArray4[tempIndex+4])) {}
 else linesArray5.push(linesArray2[4][i])} 
 console.log(linesArray5, linesArray5.length); 

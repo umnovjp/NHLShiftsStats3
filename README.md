@@ -18,3 +18,5 @@ Summary of January 2024. 48 + 50 + 53 + 51 + 6 = 208 games. December 34 + 54 + 5
 Unique lines: 3 7; 2 22; 1 2;
 
 11F playing in 3 or 4 lines 5 times in January and 3 or more times in December and once in November. Currently game 3 on 01/04 displays 4 lines because H team had 7 Ds but #71 belongs to 2 lines. Game 3 on 01/04 11F but #71 played on 2 lines. on 1/22  game 3 H team 11F #9 played on 2 lines. game 3 on 1/18 #11 played on two lines for 11F home team. Game 9 on 1/13 A has 3 lines with 7D. Game 6 on 12/29 11F but 4 lines. game 9 on 12/9 displays #13, #96, #29 all playing on two lines. Game 12 on 12/7 #15 played on two lines. Game 7 on 11/2 11F but 4 lines displayed with #29 on 2 lines. Will add October games here. No games so far in October
+
+Example of 2 line game is game 2 02/12. Example of 1 line game 9 on 01/02. 

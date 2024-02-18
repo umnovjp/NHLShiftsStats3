@@ -463,22 +463,29 @@ function getInputValue() {
           else (finalLineup[i-2].push(j))}
           console.log(linesArray4, Math.max(...linesArray4[i-2]), tempIndex, tempIndex2);
           } // end if loop 2 lines
-          else if (linesArray2[i].length===3) {for (j=3*(i-2);j<3+3*(i-2);j++) {console.log('One line'); linesArray5 = [[],[]];
+          else if (linesArray2[i].length===3) {for (j=3*(i-2);j<3+3*(i-2);j++) {console.log('One line'); linesArray5 = [[],[]]; linesArray6 = [[],[]]
           for (j=3*(i-2);j<3+3*(i-2);j++) {for (k=0;k<linesArray[j].length/5;k++) {for (l=0;l<tempArray3[i-2];l++) {for (m=l+1;m<tempArray3[i-2];m++) {for (n=m+1;n<tempArray3[i-2];n++) {
             if((linesArray2[i+2][l] === linesArray[j][5*k+2])&&(linesArray2[i+2][m] === linesArray[j][5*k+3])&&(linesArray2[i+2][n] === linesArray[j][5*k+4])){linesArray5[i-2].push(linesArray[j][5*k], linesArray[j][5*k+1], linesArray[j][5*k+2], linesArray[j][5*k+3], linesArray[j][5*k+4])}
           }}}}}
         }
         tempIndex = linesArray5[i-2].indexOf(Math.max(...linesArray5[i-2])); tempIndex2 = tempIndex%(linesArray5[i-2].length/3); 
-        console.log(linesArray5, Math.max(...linesArray5[i-2]), tempIndex, tempIndex2); 
-      }        
-            
-                else {console.log('case to be added')}
-                
-              //}              
-                   //  else if (homeF.length/3===11) {console.log('homeF.length', homeF.length)}
+        console.log(linesArray5, Math.max(...linesArray5[i-2]), tempIndex, tempIndex2);
+        finalLineup[i-2].push(linesArray5[i-2][tempIndex+2], linesArray5[i-2][tempIndex+3], linesArray5[i-2][tempIndex+4]);
+        for (j=3*(i-2);j<3+3*(i-2);j++) {for (k=0;k<linesArray[j].length/5;k++) {if ((finalLineup[i-2].includes(linesArray[j][5*k+2]))||(finalLineup[i-2].includes(linesArray[j][5*k+3]))||(finalLineup[i-2].includes(linesArray[j][5*k+4]))){}
+      else (linesArray6[i-2].push(linesArray[j][5*k], linesArray[j][5*k+1], linesArray[j][5*k+2], linesArray[j][5*k+3], linesArray[j][5*k+4]))}}
+      // console.log(linesArray6);
+      tempIndex = linesArray6[i-2].indexOf(Math.max(...linesArray6[i-2])); tempIndex2 = tempIndex%(linesArray6[i-2].length/3); 
+        console.log(linesArray6, Math.max(...linesArray6[i-2]), tempIndex, tempIndex2);
+        finalLineup[i-2].push(linesArray6[i-2][tempIndex+2], linesArray6[i-2][tempIndex+3], linesArray6[i-2][tempIndex+4]);
+        for (j=0; j<tempArray3[i-2]; j++) {if (finalLineup[i-2].includes(j)){} else finalLineup[i-2].push(j)}
+        console.log(finalLineup, linesArray6[i-2][tempIndex+2], linesArray6[i-2][tempIndex+3], linesArray6[i-2][tempIndex+4]);
+      } // end if 1 line loop
+      else if (linesArray2[i].length===15) {console.log ('5 lines')}
+                else {console.log('case to be added')}                
+              //}
                     } // end i 2,3 loop
                   
-                    console.log(finalLineup);
+                   // console.log(finalLineup);
                     // for (i=2; i<4; i++) {if ((linesArray2[i].length===12)&&(homeF.length/3 === 12))}
 
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI sec'; headerHome3.innerHTML = 'shifts';

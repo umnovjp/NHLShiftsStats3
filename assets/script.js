@@ -480,11 +480,17 @@ function getInputValue() {
         for (j=0; j<tempArray3[i-2]; j++) {if (finalLineup[i-2].includes(j)){} else finalLineup[i-2].push(j)}
         console.log(finalLineup, linesArray6[i-2][tempIndex+2], linesArray6[i-2][tempIndex+3], linesArray6[i-2][tempIndex+4]);
       } // end if 1 line loop
-      else if (linesArray2[i].length===15) {console.log ('5 lines')}
-                else {console.log('case to be added')}                
+      else if (linesArray2[i].length>=15) {console.log ('5 lines'); tempArray4 = [[],[],[],[]];
+      
+    tempArray4[i-2]=linesArray2[i].filter((e, i, a) => a.indexOf(e) !== i);
+    for (j=0;j<linesArray2[i].length/3;j++) { if ((tempArray4[i-2].includes(linesArray2[i][3*j]))||(tempArray4[i-2].includes(linesArray2[i][3*j+1]))||(tempArray4[i-2].includes(linesArray2[i][3*j+2]))) {}
+  else {tempArray4[i].push(linesArray2[i][3*j], linesArray2[i][3*j+1], linesArray2[i][3*j+2])}}
+    }
+                else {console.log('case to be added')} 
+                
               //}
                     } // end i 2,3 loop
-                  
+                    console.log(tempArray4);
                    // console.log(finalLineup);
                     // for (i=2; i<4; i++) {if ((linesArray2[i].length===12)&&(homeF.length/3 === 12))}
 

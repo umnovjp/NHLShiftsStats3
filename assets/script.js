@@ -480,7 +480,7 @@ function getInputValue() {
         for (j=0; j<tempArray3[i-2]; j++) {if (finalLineup[i-2].includes(j)){} else finalLineup[i-2].push(j)}
         console.log(finalLineup, linesArray6[i-2][tempIndex+2], linesArray6[i-2][tempIndex+3], linesArray6[i-2][tempIndex+4]);
       } // end if 1 line loop
-      else if (linesArray2[i].length>=15) {console.log ('5 lines'); let tempArray4 = [[],[],[],[]];
+      else if (linesArray2[i].length>=15) {console.log ('5 lines'); let tempArray4 = [[],[],[],[]]; // in tempArray4 first pair is repeating number, last pair is unique line
       
     tempArray4[i-2]=linesArray2[i].filter((e, i, a) => a.indexOf(e) !== i);
     for (j=0;j<linesArray2[i].length/3;j++) { if ((tempArray4[i-2].includes(linesArray2[i][3*j]))||(tempArray4[i-2].includes(linesArray2[i][3*j+1]))||(tempArray4[i-2].includes(linesArray2[i][3*j+2]))) {}

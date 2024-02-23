@@ -445,10 +445,10 @@ function getInputValue() {
             }}} // end i loop for 2 teams and if loop if there are > 4 lines
                     console.log('linesArray3', linesArray3, 'linesArray8', linesArray8); // end check repeating F player
 
-                    finalLineup =[[],[]]; tempArray3 = [homeF.length/3, awayF.length/3];
+                    finalLineup =[[],[],[],[]]; 
+                    tempArray3 = [homeF.length/3, awayF.length/3];
                     linesArray4 = [[],[]]; 
-                    for (i=2; i<4; i++) {finalLineup[i-2]=linesArray2[i]; 
-                    // if (tempArray3[i].length>=12) {
+                    for (i=2; i<4; i++) {finalLineup[i-2]=linesArray2[i].filter((e, i, a) => a.indexOf(e) !== i);
                       if (linesArray2[i].length===12) {}
                   else if (linesArray2[i].length===9) {for (j=0;j<linesArray2[i].length;j++){if (linesArray2[i].includes(j)){}
                 else finalLineup[i-2].push(j)}} //copy lines 339-360
@@ -484,15 +484,13 @@ function getInputValue() {
     tempArray4[i-2]=linesArray2[i].filter((e, i, a) => a.indexOf(e) !== i);
     for (j=0;j<linesArray2[i].length/3;j++) { if ((tempArray4[i-2].includes(linesArray2[i][3*j]))||(tempArray4[i-2].includes(linesArray2[i][3*j+1]))||(tempArray4[i-2].includes(linesArray2[i][3*j+2]))) {}
   else {tempArray4[i].push(linesArray2[i][3*j], linesArray2[i][3*j+1], linesArray2[i][3*j+2])}}
-  console.log(tempArray4);
-    }
-                else {console.log('case to be added')}                
-              //}
+  console.log(tempArray4)}
+                else {console.log('case to be added')}
                     } // end i 2,3 loop
                     repeatingPlayers = [[],[]]
                     for (i=0; i<2; i++) {repeatingPlayers[i]=finalLineup[i].filter((e, i, a) => a.indexOf(e) !== i)}
                     
-                   console.log(finalLineup, repeatingPlayers);
+                   console.log(finalLineup, repeatingPlayers); 
 
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI sec'; headerHome3.innerHTML = 'shifts';
                     firstLine.innerHTML = homeF[3*linesArray2[0][2]+1] + ' ' + homeF[3*linesArray2[0][2]+2] + '<br>' + homeF[3*linesArray2[0][3]+1] + ' ' + homeF[3*linesArray2[0][3]+2] + '<br>' + homeF[3*linesArray2[0][4]+1] + ' ' + homeF[3*linesArray2[0][4]+2];

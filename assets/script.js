@@ -449,10 +449,15 @@ function getInputValue() {
                     tempArray3 = [homeF.length/3, awayF.length/3];
                     linesArray4 = [[],[]]; 
                     for (i=2; i<4; i++) {finalLineup[i-2]=linesArray2[i].filter((e, i, a) => a.indexOf(e) !== i);
-                      if (linesArray2[i].length===12) {}
-                  else if (linesArray2[i].length===9) {for (j=0;j<linesArray2[i].length;j++){if (linesArray2[i].includes(j)){}
-                else finalLineup[i-2].push(j)}} //copy lines 339-360
-                else if (linesArray2[i].length===6) {for (j=3*(i-2);j<3+3*(i-2);j++) {for (k=0;k<linesArray[j].length/5;k++) {for (l=0;l<tempArray3[i-2];l++)
+                      console.log(finalLineup)
+                     for (j=0; j<linesArray2[i].length/3; j++) {
+                      if ((finalLineup[i-2].includes(linesArray2[i][3*j]))||(finalLineup[i-2].includes(linesArray2[i][3*j+1]))||(finalLineup[i-2].includes(linesArray2[i][3*j+2]))) {}
+                      else {finalLineup[i].push(linesArray2[i][3*j], linesArray2[i][3*j+1], linesArray2[i][3*j+2])}
+                     }
+                      if (finalLineup[i].length===12) {}
+                  else if (finalLineup[i].length===9) {for (j=0;j<linesArray2[i].length;j++){if (linesArray2[i].includes(j)){}
+                else finalLineup[i].push(j)}} //copy lines 339-360
+                else if (finalLineup[i].length===6) {for (j=3*(i-2);j<3+3*(i-2);j++) {for (k=0;k<linesArray[j].length/5;k++) {for (l=0;l<tempArray3[i-2];l++)
                 for (m=l+1;m<tempArray3[i-2];m++) {for (n=m+1;n<tempArray3[i-2];n++) 
               {if((linesArray2[i+2][l] === linesArray[j][5*k+2])&&(linesArray2[i+2][m] === linesArray[j][5*k+3])&&(linesArray2[i+2][n] === linesArray[j][5*k+4]))
               {linesArray4[i-2].push(linesArray[j][5*k], linesArray[j][5*k+1], linesArray[j][5*k+2], linesArray[j][5*k+3], linesArray[j][5*k+4])}
@@ -463,20 +468,20 @@ function getInputValue() {
           else (finalLineup[i-2].push(j))}
           console.log(linesArray4, Math.max(...linesArray4[i-2]), tempIndex, tempIndex2);
           } // end if loop 2 lines
-          else if (linesArray2[i].length===3) {for (j=3*(i-2);j<3+3*(i-2);j++) {console.log('One line'); linesArray5 = [[],[]]; linesArray6 = [[],[]]
-          for (j=3*(i-2);j<3+3*(i-2);j++) {for (k=0;k<linesArray[j].length/5;k++) {for (l=0;l<tempArray3[i-2];l++) {for (m=l+1;m<tempArray3[i-2];m++) {for (n=m+1;n<tempArray3[i-2];n++) {
+          else if (finalLineup[i].length===3) {for (j=3*(i-2);j<3+3*(i-2);j++) {console.log('One line'); linesArray5 = [[],[]]; linesArray6 = [[],[]]
+          for (k=0;k<linesArray[j].length/5;k++) {for (l=0;l<tempArray3[i-2];l++) {for (m=l+1;m<tempArray3[i-2];m++) {for (n=m+1;n<tempArray3[i-2];n++) {
             if((linesArray2[i+2][l] === linesArray[j][5*k+2])&&(linesArray2[i+2][m] === linesArray[j][5*k+3])&&(linesArray2[i+2][n] === linesArray[j][5*k+4])){linesArray5[i-2].push(linesArray[j][5*k], linesArray[j][5*k+1], linesArray[j][5*k+2], linesArray[j][5*k+3], linesArray[j][5*k+4])}
-          }}}}}
+          }}}}
         }
         tempIndex = linesArray5[i-2].indexOf(Math.max(...linesArray5[i-2])); tempIndex2 = tempIndex%(linesArray5[i-2].length/3); 
         console.log(linesArray5, Math.max(...linesArray5[i-2]), tempIndex, tempIndex2);
-        finalLineup[i-2].push(linesArray5[i-2][tempIndex+2], linesArray5[i-2][tempIndex+3], linesArray5[i-2][tempIndex+4]);
+        finalLineup[i].push(linesArray5[i-2][tempIndex+2], linesArray5[i-2][tempIndex+3], linesArray5[i-2][tempIndex+4]);
         for (j=3*(i-2);j<3+3*(i-2);j++) {for (k=0;k<linesArray[j].length/5;k++) {if ((finalLineup[i-2].includes(linesArray[j][5*k+2]))||(finalLineup[i-2].includes(linesArray[j][5*k+3]))||(finalLineup[i-2].includes(linesArray[j][5*k+4]))){}
       else (linesArray6[i-2].push(linesArray[j][5*k], linesArray[j][5*k+1], linesArray[j][5*k+2], linesArray[j][5*k+3], linesArray[j][5*k+4]))}}
       tempIndex = linesArray6[i-2].indexOf(Math.max(...linesArray6[i-2])); tempIndex2 = tempIndex%(linesArray6[i-2].length/3); 
         console.log(linesArray6, Math.max(...linesArray6[i-2]), tempIndex, tempIndex2);
-        finalLineup[i-2].push(linesArray6[i-2][tempIndex+2], linesArray6[i-2][tempIndex+3], linesArray6[i-2][tempIndex+4]);
-        for (j=0; j<tempArray3[i-2]; j++) {if (finalLineup[i-2].includes(j)){} else finalLineup[i-2].push(j)}
+        finalLineup[i].push(linesArray6[i-2][tempIndex+2], linesArray6[i-2][tempIndex+3], linesArray6[i-2][tempIndex+4]);
+        for (j=0; j<tempArray3[i-2]; j++) {if (finalLineup[i-2].includes(j)){} else finalLineup[i].push(j)}
         console.log(finalLineup, linesArray6[i-2][tempIndex+2], linesArray6[i-2][tempIndex+3], linesArray6[i-2][tempIndex+4]);
       } // end if 1 line loop
       else if (linesArray2[i].length>=15) {console.log ('5 lines'); let tempArray4 = [[],[],[],[]]; // in tempArray4 first pair is repeating number, last pair is unique line
@@ -490,7 +495,7 @@ function getInputValue() {
                     repeatingPlayers = [[],[]]
                     for (i=0; i<2; i++) {repeatingPlayers[i]=finalLineup[i].filter((e, i, a) => a.indexOf(e) !== i)}
                     
-                   console.log(finalLineup, repeatingPlayers); 
+                   console.log('final lineup', finalLineup, 'repeating player lineup', repeatingPlayers); 
 
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI sec'; headerHome3.innerHTML = 'shifts';
                     firstLine.innerHTML = homeF[3*linesArray2[0][2]+1] + ' ' + homeF[3*linesArray2[0][2]+2] + '<br>' + homeF[3*linesArray2[0][3]+1] + ' ' + homeF[3*linesArray2[0][3]+2] + '<br>' + homeF[3*linesArray2[0][4]+1] + ' ' + homeF[3*linesArray2[0][4]+2];

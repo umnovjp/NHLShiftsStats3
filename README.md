@@ -31,4 +31,4 @@ Where new script works better: Game 2 01/31; game 1 01/30 3 lines displayed; gam
 
 New test starts 02/26: game 1 01/14 10F; game 1 on 1/31 5F lines; game 2 1/31 to check just 2F lines; game 0 02/05 11F; game 1 02/05 11F again; game 0 2/07 5F lines; game 2 2/07 incorrectly shows 18F 5910 are repeating 167 is unique line it adds 023 167; game 0 02/08 again 1 line; 
 
-01/30-02/05 start
+01/30-02/08 game 0

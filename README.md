@@ -23,12 +23,12 @@ Unique lines: 3 7; 2 22; 1 2;
 
 11F playing in 3 or 4 lines 5 times in January and 3 or more times in December and once in November. Currently game 3 on 01/04 displays 4 lines because H team had 7 Ds but #71 belongs to 2 lines. Game 3 on 01/04 11F but #71 played on 2 lines. on 1/22  game 3 H team 11F #9 played on 2 lines. game 3 on 1/18 #11 played on two lines for 11F home team. Game 9 on 1/13 A has 3 lines with 7D. Game 6 on 12/29 11F but 4 lines. game 9 on 12/9 displays #13, #96, #29 all playing on two lines. Game 12 on 12/7 #15 played on two lines. Game 7 on 11/2 11F but 4 lines displayed with #29 on 2 lines. Will add October games here. No games so far in October
 
-new test 01/14-01/31 game 5 on 1/21 is where shifts are not correct.
+new test 01/14-01/31 game 5 on 1/21 is where shifts are not correct. no longer relevant line
 
 Example of 2 line game is game 2 02/12. Example of 1 line game 9 on 01/02.
 
-Where new script works better: Game 2 01/31; game 1 01/30 3 lines displayed; game 0 01/29 only 11F are displayed though there are 12F; game 11 on 01/27 only 3 lines displayed; game 2 on 01/26 only 3 lines dispalyed; game 0 on 01/24 new does not show F10, 11; game 2 on 1/23 does not work repeating player; game 3 on 1/22 repeating player; game 0 on 1/21 repeating player; game 1 1/20 repeating player H; game 2 1/20 repeating player; game 7 on 1/20 my script has 10 F; game 1 on 1/18 3 lines displayed but I have 11F; game 3 on 1/18 repeating player; game 5 1/18 my script has just 11F; game 9 1/18 3 lines displayed but script has 11F; game 1 1/14 repeating player updated;
+Where new script works better: Game 2 01/31; game 1 01/30 3 lines displayed; game 0 01/29 only 11F are displayed though there are 12F; game 11 on 01/27 only 3 lines displayed; game 2 on 01/26 only 3 lines dispalyed; game 0 on 01/24 new does not show F10, 11; game 2 on 1/23 does not work repeating player; game 3 on 1/22 repeating player; game 0 on 1/21 repeating player; game 1 1/20 repeating player H; game 2 1/20 repeating player; game 7 on 1/20 my script has 10 F; game 1 on 1/18 3 lines displayed but I have 11F; game 3 on 1/18 repeating player; game 5 1/18 my script has just 11F; game 9 1/18 3 lines displayed but script has 11F; game 1 1/14 repeating player updated; 
 
-New test starts 02/26: game 1 01/14 10F; game 1 on 1/31 5F lines; game 2 1/31 to check just 2F lines; game 0 02/05 11F; game 1 02/05 11F again; game 0 2/07 5F lines; game 2 2/07 incorrectly shows 18F 5910 are repeating 167 is unique line it adds 023 167; game 0 02/08 again 1 line; 
+New test starts 02/26: game 1 01/14 10F; game 1 on 1/31 5F lines; game 2 1/31 to check just 2F lines; game 0 02/05 11F; game 1 02/05 11F again; game 0 2/07 5F lines; game 2 2/07 1 line incorrectly shows 18F 5910 are repeating 167 is unique line it adds 023 167; game 0 02/08 again 1 line;
 
 01/30-02/08 game 0

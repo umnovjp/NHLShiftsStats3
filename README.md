@@ -25,10 +25,10 @@ Unique lines: 3 7; 2 22; 1 2;
 
 new test 01/14-01/31 game 5 on 1/21 is where shifts are not correct. no longer relevant line
 
-Example of 2 line game is game 2 02/12. Example of 1 line game 9 on 01/02.
+Example of 2 line game is game 2 02/12. Example of 1 line game 9 on 01/02. both work well now. 
 
 Where new script works better: Game 2 01/31; game 1 01/30 3 lines displayed; game 0 01/29 only 11F are displayed though there are 12F; game 11 on 01/27 only 3 lines displayed; game 2 on 01/26 only 3 lines dispalyed; game 0 on 01/24 new does not show F10, 11; game 2 on 1/23 does not work repeating player; game 3 on 1/22 repeating player; game 0 on 1/21 repeating player; game 1 1/20 repeating player H; game 2 1/20 repeating player; game 7 on 1/20 my script has 10 F; game 1 on 1/18 3 lines displayed but I have 11F; game 3 on 1/18 repeating player; game 5 1/18 my script has just 11F; game 9 1/18 3 lines displayed but script has 11F; game 1 1/14 repeating player updated;
 
-New test starts 02/26: game 1 01/14 10F; game 1 on 1/31 5F lines; game 2 1/31 to check just 2F lines; game 0 02/05 11F; game 1 02/05 11F again; game 0 2/07 5F lines; game 2 2/07 1 line incorrectly shows 18F 5910 are repeating 167 is unique line it adds 023 167; game 0 02/08 again 1 line;
+New test starts 02/26: game 1 01/14 10F 3 lines all unique; game 1 on 1/31 5F lines; game 2 1/31 to check just 2F lines; game 0 02/05 11F 3 lines all unique; game 1 02/05 11F again 3 lines all unique; game 0 2/07 5F lines; game 2 2/07 1 line; game 0 02/08 again 1 line; game 1 02/08 0 lines case to be added; game 3 02/08 2 lines; game 0 02/09 only 11F 3 lines all unique; game 1 02/09 only 11F both teams 3 lines all unique; game 1 02/10 10F 3 lines all unique; game 5 02/10 11F; game 6 02/10 11F both teams; game 11 02/11 11F
 
-01/30-02/08 game 0
+01/30-02/10

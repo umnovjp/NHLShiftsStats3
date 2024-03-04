@@ -452,13 +452,11 @@ function getInputValue() {
                       if (finalLineup[i-2].includes(linesArray2[i][j])) {}
                   else {finalLineup[i-2].push(linesArray2[i][j])}
                 }}}
-                    //  for (j=0; j<linesArray2[i].length/3; j++) {
-                    //   if ((finalLineup[i-2].includes(linesArray2[i][3*j]))||(finalLineup[i-2].includes(linesArray2[i][3*j+1]))||(finalLineup[i-2].includes(linesArray2[i][3*j+2]))) {}
-                    //   else {finalLineup[i].push(linesArray2[i][3*j], linesArray2[i][3*j+1], linesArray2[i][3*j+2])}
+
                     for (j=0;j<linesArray2[i].length/3;j++) {if ((finalLineup[i-2].includes(linesArray2[i][3*j]))||(finalLineup[i-2].includes(linesArray2[i][3*j+1]))||(finalLineup[i-2].includes(linesArray2[i][3*j+2]))){}
                   else {finalLineup[i].push(linesArray2[i][3*j], linesArray2[i][3*j+1], linesArray2[i][3*j+2])}}
                       if (finalLineup[i].length===12) {}
-                  else if (finalLineup[i].length===9) {for (j=0;j<linesArray2[i].length;j++){if (linesArray2[i].includes(j)){}
+                  else if (finalLineup[i].length===9) {for (j=0;j<tempArray3[i-2];j++){if (linesArray2[i].includes(j)){}
                 else finalLineup[i].push(j)}} //copy lines 339-360
                 else if (finalLineup[i].length===6) {console.log('Two lines', finalLineup); linesArray4 = [[],[]]
                 for (j=3*(i-2);j<3+3*(i-2);j++) {for (k=0;k<linesArray[j].length/5;k++) {
@@ -487,21 +485,17 @@ function getInputValue() {
         finalLineup[i].push(linesArray6[i-2][tempIndex+2], linesArray6[i-2][tempIndex+3], linesArray6[i-2][tempIndex+4]);
         for (j=0; j<tempArray3[i-2]; j++) {if (finalLineup[i].includes(j)){} else finalLineup[i].push(j)}
         console.log(finalLineup, linesArray6[i-2][tempIndex+2], linesArray6[i-2][tempIndex+3], linesArray6[i-2][tempIndex+4]);
-      } // end if 1 line loop
-      else if (linesArray2[i].length>=15) {console.log ('5 lines'); let tempArray4 = [[],[],[],[]]; // in tempArray4 first pair is repeating number, last pair is unique line
+      } // end if 1 line loop 
+  //     else if (linesArray2[i].length>=15) {console.log ('5 lines'); let tempArray4 = [[],[],[],[]]; // in tempArray4 first pair is repeating number, last pair is unique line
       
-    tempArray4[i-2]=linesArray2[i].filter((e, i, a) => a.indexOf(e) !== i);
-    for (j=0;j<linesArray2[i].length/3;j++) { if ((tempArray4[i-2].includes(linesArray2[i][3*j]))||(tempArray4[i-2].includes(linesArray2[i][3*j+1]))||(tempArray4[i-2].includes(linesArray2[i][3*j+2]))) {}
-  else {tempArray4[i].push(linesArray2[i][3*j], linesArray2[i][3*j+1], linesArray2[i][3*j+2])}}
-  console.log(tempArray4)}
                 else {console.log('case to be added', 'i', i, linesArray2[i].length, finalLineup[i].length)}
                     } // end i 2,3 loop
-                    repeatingPlayers = [[],[]]
-                    for (i=0; i<2; i++) {repeatingPlayers[i]=finalLineup[i].filter((e, i, a) => a.indexOf(e) !== i)}
+                    // repeatingPlayers = [[],[]]
+                    // for (i=0; i<2; i++) {repeatingPlayers[i]=finalLineup[i].filter((e, i, a) => a.indexOf(e) !== i)}
                     
-                   console.log('final lineup', finalLineup, 'repeating player lineup', repeatingPlayers); 
-
+                   console.log('final lineup', finalLineup);
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI sec'; headerHome3.innerHTML = 'shifts';
+                    firstLine.innerHTML = finalLineup[0][0]+'br'+finalLineup[0][1]+'br'+finalLineup[0][2];
                     firstLine.innerHTML = homeF[3*linesArray2[0][2]+1] + ' ' + homeF[3*linesArray2[0][2]+2] + '<br>' + homeF[3*linesArray2[0][3]+1] + ' ' + homeF[3*linesArray2[0][3]+2] + '<br>' + homeF[3*linesArray2[0][4]+1] + ' ' + homeF[3*linesArray2[0][4]+2];
                     firstLineTime.innerHTML = linesArray2[0][0] + '<br>' + linesArray2[0][5] + '<br>' + linesArray2[0][10];
                     firstLineTime2.innerHTML = linesArray2[0][1] + '<br>' + linesArray2[0][6] + '<br>' + linesArray2[0][11];

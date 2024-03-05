@@ -429,8 +429,6 @@ function getInputValue() {
                     console.log(linesArray2); linesArray3 = [[],[],[],[]]; linesArray8=[[],[],[],[]];
                     //to check if any players repeats in the lines H and A that will work if there are 5 lines
                     for (i=2; i<4; i++) {if (linesArray2[i].length>12) {for (j = 0; j < linesArray2[i].length; j++) {for (k = j + 1; k < linesArray2[i].length; k++) {if (linesArray2[i][j] === linesArray2[i][k]){linesArray3[i-2].push(linesArray2[i][j])}
-                  // else { if (linesArray3[i].includes(linesArray2[i][j])) {}
-                  //   else {linesArray3[i].push(linesArray2[i][j])}}
                   }
                     }
                   if (linesArray3[i-2].length>0) {for (j = 0; j < linesArray3[i-2].length; j++) {
@@ -443,11 +441,11 @@ function getInputValue() {
             if (linesArray8[i-2].length=9) {for (k=0; k<homeF.length/3; k++) {if (linesArray8[i-2].includes(k)) { }
           else (linesArray8[i-2].push(k))}}}} 
             }}} // end i loop for 2 teams and if loop if there are > 4 lines
-                    console.log('linesArray3', linesArray3, 'linesArray8', linesArray8); // end check repeating F player
+                    console.log('linesArray3', linesArray3, 'linesArray8', linesArray8); // end check repeating F player 
 
                     finalLineup =[[],[],[],[]];
                     tempArray3 = [homeF.length/3, awayF.length/3];
-                    linesArray4 = [[],[]]; 
+                    linesArray4 = [[],[]];
                     for (i=2; i<4; i++) {for (j=0; j<linesArray2[i].length; j++) {for (k=j+1; k<linesArray2[i].length; k++) {if (linesArray2[i][j]===linesArray2[i][k]) {console.log(j,k)
                       if (finalLineup[i-2].includes(linesArray2[i][j])) {}
                   else {finalLineup[i-2].push(linesArray2[i][j])}

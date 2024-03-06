@@ -490,10 +490,29 @@ function getInputValue() {
                     } // end i 2,3 loop
                     // repeatingPlayers = [[],[]]
                     // for (i=0; i<2; i++) {repeatingPlayers[i]=finalLineup[i].filter((e, i, a) => a.indexOf(e) !== i)}
+                    // function lineNumber(h,i,j,k) {
+                    //   
+                    //   sum=0;
+                    //   for (l=0;l<j-1;l++) {sum=sum+l}
+                    //   // console.log(tempArray4)
+                    //   // thirdPart=Math.sum(tempArray4)
+                    //   return firstPart[i] + secondPart - sum + k
+                    // }
+                    console.log(tempArray3)
+
+
+                    if (tempArray3[0]=12) {firstPart=[0,56,100,136,164,185,200,210,216,219]}
+                    else if (tempArray3[0]=11) {firstPart=[0,44,80,108,129,144,154,160,163]}
+                   for (i=0;i<tempArray3[0].length-2;i++) {for (j=i+1;j<tempArray3[0].length-1;j++)// secondPart = (tempArray3[0].length-1-i)*(j-1-i);
+                    {for(k=j+1;k<tempArray3[0].length;k++) {console.log(i,j,k)}}}
                     
                    console.log('final lineup', finalLineup);
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI sec'; headerHome3.innerHTML = 'shifts';
-                    firstLine.innerHTML = finalLineup[0][0]+'br'+finalLineup[0][1]+'br'+finalLineup[0][2];
+                    firstLine.innerHTML = finalLineup[2][0]+'br'+finalLineup[2][1]+'br'+finalLineup[2][2];
+                    //console.log(lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2]))
+                    // for (h=0;h<2;h++) {}
+                    // for (i=0;i<tempArray3[i].length;i++)
+                   // lineNumber = 
                     firstLine.innerHTML = homeF[3*linesArray2[0][2]+1] + ' ' + homeF[3*linesArray2[0][2]+2] + '<br>' + homeF[3*linesArray2[0][3]+1] + ' ' + homeF[3*linesArray2[0][3]+2] + '<br>' + homeF[3*linesArray2[0][4]+1] + ' ' + homeF[3*linesArray2[0][4]+2];
                     firstLineTime.innerHTML = linesArray2[0][0] + '<br>' + linesArray2[0][5] + '<br>' + linesArray2[0][10];
                     firstLineTime2.innerHTML = linesArray2[0][1] + '<br>' + linesArray2[0][6] + '<br>' + linesArray2[0][11];

@@ -500,11 +500,14 @@ function getInputValue() {
                     // }
                     console.log(tempArray3)
 
-
-                    if (tempArray3[0]=12) {firstPart=[0,56,100,136,164,185,200,210,216,219]}
+                    if (tempArray3[0]=12) {firstPart=[0,55,100,136,164,185,200,210,216,219]}
                     else if (tempArray3[0]=11) {firstPart=[0,44,80,108,129,144,154,160,163]}
-                   for (i=0;i<tempArray3[0].length-2;i++) {for (j=i+1;j<tempArray3[0].length-1;j++)// secondPart = (tempArray3[0].length-1-i)*(j-1-i);
-                    {for(k=j+1;k<tempArray3[0].length;k++) {console.log(i,j,k)}}}
+                   for (i=0;i<tempArray3[0]-2;i++) {
+                   for (j=i+1;j<tempArray3[0];j++) {secondPart = (tempArray3[0]-1-i)*(j-1-i); sum=0;
+                    for (l=0;l<j;l++) {sum=sum+l}
+                   for(k=j+1;k<tempArray3[0];k++) {
+                  console.log(i,j,k,firstPart[i],secondPart,sum,firstPart[i]+secondPart-sum+k-1-j)
+                   }}}
                     
                    console.log('final lineup', finalLineup);
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI sec'; headerHome3.innerHTML = 'shifts';

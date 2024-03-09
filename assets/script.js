@@ -488,21 +488,23 @@ function getInputValue() {
       
                 else {console.log('case to be added', 'i', i, linesArray2[i].length, finalLineup[i].length)}
                     } // end i 2,3 loop
-                    // repeatingPlayers = [[],[]]
-                    // for (i=0; i<2; i++) {repeatingPlayers[i]=finalLineup[i].filter((e, i, a) => a.indexOf(e) !== i)}
 
-                    function lineNumber(h,i,j,k) {if (tempArray3[h]=12) {firstPart=[0,55,100,136,164,185,200,210,216,219]}
-                    else if (tempArray3[h]=11) {firstPart=[0,44,80,108,129,144,154,160,163]}
-                    secondPart = (tempArray3[h]-1-i)*(j-1-i); sum=0;
+                    function lineNumber(h,i,j,k) {if (h=1) {firstPart=[0,55,100,136,164,185,200,210,216,219]; topFLimit=homeF.length/3}
+                    else if (h=0) {firstPart=[0,45,81,108,129,144,154,160,163]; topFLimit=awayF.length/3}
+                    secondPart = (topFLimit-1-i)*(j-1-i); sum=0;
                     for (l=0;l<j-i;l++) {sum=sum+l}
-                      // console.log(tempArray4)
-                      // thirdPart=Math.sum(tempArray4)
                       return firstPart[i] + secondPart - sum + k-1-j
                     }
                     console.log(tempArray3, tempArray3[0], tempArray3[1])
 
-                    for (h=0;h<1;h++) {for (i=0;i<tempArray3[h]-2;i++) {for (j=i+1;j<tempArray3[h]-1;j++) {for (k=j+1;k<tempArray3[h];k++)
-                    console.log(h,i,j,k,tempArray3[0],tempArray3[1],lineNumber(h,i,j,k))}}}
+                    // for (h=0;h<2;h++) {topFLimit = [homeF.length/3, awayF.length/3]; for (i=0;i<topFLimit[h]-2;i++) {for (j=i+1;j<topFLimit[h]-1;j++) {for (k=j+1;k<topFLimit[h];k++)
+                    // console.log(h,i,j,k,homeF.length/3,awayF.length/3,lineNumber(h,i,j,k))}}}
+
+                    for (h=0;h<2;h++) {topFLimit = [homeF.length/3, awayF.length/3]; 
+                    if (h=0) {firstPart=[0,55,100,136,164,185,200,210,216,219]}
+                    else if (h=1) {firstPart=[0,45,81,108,129,144,154,160,163]}
+                    for (i=0;i<topFLimit[h]-2;i++) { for (j=i+1;j<topFLimit[h];j++) { for (k=j+1;k<topFLimit[h];k++) {
+                      console.log(h,topFLimit[h],i,j,k,lineNumber(h,i,j,k))}}}}
 
                   //  for (i=0;i<tempArray3[0]-2;i++) {
                   //  for (j=i+1;j<tempArray3[0];j++) {secondPart = (tempArray3[0]-1-i)*(j-1-i); sum=0;

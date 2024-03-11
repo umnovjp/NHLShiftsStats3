@@ -33,4 +33,4 @@ Where new script works better: Game 2 01/31; game 1 01/30 3 lines displayed; gam
 
 New test starts 02/26: game 1 on 1/31 5F lines; game 0 02/05 11F 3 lines all unique; game 0 2/07 5F lines; game 2 2/07 1 line; game 0 02/08 again 1 line; game 1 02/08 0 lines case to be added;
 
-01/30-02/10
+game 7 09/09 13F

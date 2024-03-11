@@ -483,29 +483,27 @@ function getInputValue() {
         finalLineup[i].push(linesArray6[i-2][tempIndex+2], linesArray6[i-2][tempIndex+3], linesArray6[i-2][tempIndex+4]);
         for (j=0; j<tempArray3[i-2]; j++) {if (finalLineup[i].includes(j)){} else finalLineup[i].push(j)}
         console.log(finalLineup, linesArray6[i-2][tempIndex+2], linesArray6[i-2][tempIndex+3], linesArray6[i-2][tempIndex+4]);
-      } // end if 1 line loop 
-  //     else if (linesArray2[i].length>=15) {console.log ('5 lines'); let tempArray4 = [[],[],[],[]]; // in tempArray4 first pair is repeating number, last pair is unique line
+      } // end if 1 line loop
       
                 else {console.log('case to be added', 'i', i, linesArray2[i].length, finalLineup[i].length)}
                     } // end i 2,3 loop
 
-                    function lineNumber(h,i,j,k) { topFLimit = (1-h)*homeF.length/3 + h*awayD.length/3;
+                    function lineNumber(h,i,j,k) { topFLimit = (1-h)*(homeF.length)/3 + h*(awayF.length)/3;
                     if (topFLimit===12) {firstPart=[0,55,100,136,164,185,200,210,216,219]}
-                    else if (topFLimit===11) {firstPart=[0,45,81,108,129,144,154,160,163]}
+                    else if (topFLimit===11) {firstPart=[0,45,81,109,130,145,155,161,164]}
                     secondPart = (topFLimit-1-i)*(j-1-i); sum=0;
                     for (l=0;l<j-i;l++) {sum=sum+l}
                       return firstPart[i] + secondPart - sum + k-1-j
                     }
-                    console.log(tempArray3, tempArray3[0], tempArray3[1])
+                    console.log(tempArray3[0], tempArray3[1])
+                    // for (h=0;h<5;h++) {topFLimit = (1-h)*(homeF.length)/3 + h*(awayF.length)/3; 
+                    // console.log(h,topFLimit)}
 
-                    // for (h=0;h<2;h++) {topFLimit = [homeF.length/3, awayF.length/3]; for (i=0;i<topFLimit[h]-2;i++) {for (j=i+1;j<topFLimit[h]-1;j++) {for (k=j+1;k<topFLimit[h];k++)
-                    // console.log(h,i,j,k,homeF.length/3,awayF.length/3,lineNumber(h,i,j,k))}}}
-
-                    for (h=0;h<2;h++) {topFLimit = [homeF.length/3, awayF.length/3]; // firstPart=[0,55,100,136,164,185,200,210,216,219]
-                    // if (h=0) {}
-                    // else if (h=1) {firstPart=[0,45,81,108,129,144,154,160,163]}
-                    for (i=0;i<topFLimit[h]-2;i++) { for (j=i+1;j<topFLimit[h];j++) { for (k=j+1;k<topFLimit[h];k++) {
-                      console.log(h,topFLimit[h],i,j,k,lineNumber(h,i,j,k))}}}}
+                    // for (h=0;h<2;h++) {topFLimit = [homeF.length/3, awayF.length/3]; // firstPart=[0,55,100,136,164,185,200,210,216,219]
+                    // // if (h=0) {}
+                    // // else if (h=1) {firstPart=[0,45,81,108,129,144,154,160,163]}
+                    // for (i=0;i<topFLimit[h]-2;i++) { for (j=i+1;j<topFLimit[h];j++) { for (k=j+1;k<topFLimit[h];k++) {
+                    //   console.log(h,topFLimit[h],i,j,k,lineNumber(h,i,j,k))}}}}
 
                   //  for (i=0;i<tempArray3[0]-2;i++) {
                   //  for (j=i+1;j<tempArray3[0];j++) {secondPart = (tempArray3[0]-1-i)*(j-1-i); sum=0;
@@ -517,8 +515,8 @@ function getInputValue() {
                    console.log('final lineup', finalLineup);
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI sec'; headerHome3.innerHTML = 'shifts';
                     firstLine.innerHTML = finalLineup[2][0]+'br'+finalLineup[2][1]+'br'+finalLineup[2][2];
-                    console.log(lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2]),lineNumber(0,finalLineup[2][3],finalLineup[2][4],finalLineup[2][5]))
-                    console.log(lineNumber(1,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2]),lineNumber(1,finalLineup[2][3],finalLineup[2][4],finalLineup[2][5]))
+                    console.log(finalLineup[2][0],finalLineup[2][1],finalLineup[2][2],lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2]),finalLineup[2][3],finalLineup[2][4],finalLineup[2][5],lineNumber(0,finalLineup[2][3],finalLineup[2][4],finalLineup[2][5]),finalLineup[2][6],finalLineup[2][7],finalLineup[2][8],lineNumber(0,finalLineup[2][6],finalLineup[2][7],finalLineup[2][8]));
+                    console.log(finalLineup[3][0],finalLineup[3][1],finalLineup[3][2],lineNumber(1,finalLineup[3][0],finalLineup[3][1],finalLineup[3][2]),finalLineup[3][3],finalLineup[3][4],finalLineup[3][5],lineNumber(1,finalLineup[3][3],finalLineup[3][4],finalLineup[3][5]),finalLineup[3][6],finalLineup[3][7],finalLineup[3][8],lineNumber(1,finalLineup[3][6],finalLineup[3][7],finalLineup[3][8]))
                     // firstLine.innerHTML = homeF[3*linesArray2[0][2]+1] + ' ' + homeF[3*linesArray2[0][2]+2] + '<br>' + homeF[3*linesArray2[0][3]+1] + ' ' + homeF[3*linesArray2[0][3]+2] + '<br>' + homeF[3*linesArray2[0][4]+1] + ' ' + homeF[3*linesArray2[0][4]+2];
                     firstLineTime.innerHTML = linesArray2[0][0] + '<br>' + linesArray2[0][5] + '<br>' + linesArray2[0][10];
                     firstLineTime2.innerHTML = linesArray2[0][1] + '<br>' + linesArray2[0][6] + '<br>' + linesArray2[0][11];

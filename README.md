@@ -33,5 +33,5 @@ Where new script works better: Game 2 01/31; game 1 01/30 3 lines displayed; gam
 
 New test starts 02/26: game 1 on 1/31 5F lines; game 0 02/05 11F 3 lines all unique; game 0 2/07 5F lines; game 2 2/07 1 line; game 0 02/08 again 1 line; game 1 02/08 0 lines case to be added;
 
-game 7 03/09 13F time not displayed correctly; game 8 03/09 100s 0 sh; game 7 03/02 apparently incorrect lines because of H line change; game 3 on 03/12 6F lines but too many 0s; game 0 03/12 apparently incorrect because of lines change;
-tested 02/24-03/12
+game 7 03/09 13F time not displayed correctly; game 8 03/09 100s 0 sh; game 7 03/02 apparently incorrect lines because of H line change; game 3 on 03/12 6F lines but too many 0s; game 0 03/12 apparently incorrect because of lines change; game 9 2/22 apparently 4th H line wrong; game 7 2/22 line combinations changed does not look perfect; game 6 2/22 A team no lines at all; game 2 2/22 A team wrong 4th line; game 0 2/22 17s 3 shifts and 10s 10 shifts; game 3 2/21 8s 4 shifts; game 7 2/20 apparently 4th line wrong; game 6 2/20 4th line wrong;
+tested 02/20-03/12

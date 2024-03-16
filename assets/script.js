@@ -429,26 +429,23 @@ function getInputValue() {
                   //   if (linesArray7.length = 2) {fourthLineAway.innerHTML = awayF[3*linesArray7[0]+1] + ' ' + awayF[3*linesArray7[0]+2] + '<br>' + awayF[3*linesArray7[1]+1] + ' ' + awayF[3*linesArray7[1]+2]}
                   //   else {console.log('use case will be added later')}
                   // }                    
-                    console.log(linesArray2); linesArray3 = [[],[],[],[]]; linesArray8=[[],[],[],[]];
-                    //to check if any players repeats in the lines H and A that will work if there are 5 lines
-                    for (i=2; i<4; i++) {if (linesArray2[i].length>12) {for (j = 0; j < linesArray2[i].length; j++) {for (k = j + 1; k < linesArray2[i].length; k++) {if (linesArray2[i][j] === linesArray2[i][k]){linesArray3[i-2].push(linesArray2[i][j])}
-                  }
-                    }
-                  if (linesArray3[i-2].length>0) {for (j = 0; j < linesArray3[i-2].length; j++) {
-                  for (k=0; k<linesArray2[i].length/3; k++) {if ((linesArray3[i-2].includes(linesArray2[i][3*k]))||(linesArray3[i-2].includes(linesArray2[i][3*k+1]))||(linesArray3[i-2].includes(linesArray2[i][3*k+2]))) {}
-                  else {if (linesArray8[i-2].includes(linesArray2[i][3*k])) {}
-                  else {linesArray8[i-2].push(linesArray2[i][3*k], linesArray2[i][3*k+1], linesArray2[i][3*k+2])}}}}
-              for (j=0; j<linesArray2[i].length/3; j++) {tempIndex = 0; for (k=0; k<3; k++) { 
-              if (linesArray3[i-2].includes(linesArray2[i][3*j+k])) {tempIndex=tempIndex+1; console.log(tempIndex)}}
-            if (tempIndex===1) {linesArray8[i-2].push(linesArray2[i][3*j], linesArray2[i][3*j+1], linesArray2[i][3*j+2])
-            if (linesArray8[i-2].length=9) {for (k=0; k<homeF.length/3; k++) {if (linesArray8[i-2].includes(k)) { }
-          else (linesArray8[i-2].push(k))}}}} 
-            }}} // end i loop for 2 teams and if loop if there are > 4 lines
-                    console.log('linesArray3', linesArray3, 'linesArray8', linesArray8); // end check repeating F player 
+                 //   linesArray3 = [[],[],[],[]]; linesArray8=[[],[],[],[]];
+                    //to check if any players repeats in the lines H and A that will work if there are 5 or more lines
+          //           for (i=2; i<4; i++) {if (linesArray2[i].length>12) {for (j = 0; j < linesArray2[i].length; j++) {for (k = j + 1; k < linesArray2[i].length; k++) {if (linesArray2[i][j] === linesArray2[i][k]){linesArray3[i-2].push(linesArray2[i][j])}
+          //         }}
+          //         if (linesArray3[i-2].length>0) {for (j = 0; j < linesArray3[i-2].length; j++) {
+          //         for (k=0; k<linesArray2[i].length/3; k++) {if ((linesArray3[i-2].includes(linesArray2[i][3*k]))||(linesArray3[i-2].includes(linesArray2[i][3*k+1]))||(linesArray3[i-2].includes(linesArray2[i][3*k+2]))) {}
+          //         else {if (linesArray8[i-2].includes(linesArray2[i][3*k])) {}
+          //         else {linesArray8[i-2].push(linesArray2[i][3*k], linesArray2[i][3*k+1], linesArray2[i][3*k+2])}}}}
+          //     for (j=0; j<linesArray2[i].length/3; j++) {tempIndex = 0; for (k=0; k<3; k++) { 
+          //     if (linesArray3[i-2].includes(linesArray2[i][3*j+k])) {tempIndex=tempIndex+1; console.log(tempIndex)}}
+          //   if (tempIndex===1) {linesArray8[i-2].push(linesArray2[i][3*j], linesArray2[i][3*j+1], linesArray2[i][3*j+2])
+          //   if (linesArray8[i-2].length=9) {for (k=0; k<homeF.length/3; k++) {if (linesArray8[i-2].includes(k)) { }
+          // else (linesArray8[i-2].push(k))}}}}
+          //   }}} // end i loop for 2 teams and if loop if there are > 4 lines
+          //           console.log('linesArray3', linesArray3, 'linesArray8', linesArray8); // end check repeating F player 
 
-                    finalLineup =[[],[],[],[]];
-                    tempArray3 = [homeF.length/3, awayF.length/3];
-                    linesArray4 = [[],[]];
+                    finalLineup =[[],[],[],[]]; tempArray3 = [homeF.length/3, awayF.length/3]; linesArray4 = [[],[]];
                     for (i=2; i<4; i++) {for (j=0; j<linesArray2[i].length; j++) {for (k=j+1; k<linesArray2[i].length; k++) {if (linesArray2[i][j]===linesArray2[i][k]) {console.log(j,k)
                       if (finalLineup[i-2].includes(linesArray2[i][j])) {}
                   else {finalLineup[i-2].push(linesArray2[i][j])}

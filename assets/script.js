@@ -325,49 +325,7 @@ function getInputValue() {
                       document.getElementById('firstD7A').appendChild(firstD7A); document.getElementById('secondD7A').appendChild(secondD7A); document.getElementById('thirdD7A').appendChild(thirdD7A); document.getElementById('forthD7A').appendChild(forthD7A); document.getElementById('fifthD7A').appendChild(fifthD7A); document.getElementById('sixthD7A').appendChild(sixthD7A);
                     } // end if seven D men away and end of adding DMen to display cycles
                     
-                    for (i = 0; i < homeF.length/3; i++) {if (linesArray2[2].includes(i)) {} else linesArray2[4].push(i)}
-                    
-                    // start 12F 3 lines home if loop
-                    // to start here if 11F and 3 lines
-                    // chapter 6 analyzing the borrower
-                    // if ((homeF.length/3===12)&&(linesArray2[2].length===9)) {linesArray4 = []; for (i = 0; i < 3; i++){for (j = 0; j<linesArray[i].length/5; j++) {if ((linesArray2[4][0] === linesArray[i][5*j+2])&&(linesArray2[4][1] === linesArray[i][5*j+3])&&(linesArray2[4][2] === linesArray[i][5*j+4])) 
-                    //   linesArray4.push(linesArray[i][5*j], linesArray[i][5*j+1])} 
-                    // fourthLine.innerHTML = homeF[3*linesArray2[4][0]+1] + ' ' + homeF[3*linesArray2[4][0]+2] + '<br>' + homeF[3*linesArray2[4][1]+1] + ' ' + homeF[3*linesArray2[4][1]+2] + '<br>' + homeF[3*linesArray2[4][2]+1] + ' ' + homeF[3*linesArray2[4][2]+2];
-                    // fourthLineTime2.innerHTML = linesArray4[1] + '<br>' + linesArray4[3] + '<br>' + linesArray4[5];
-                    // fourthLineTime.innerHTML = linesArray4[0] + '<br>' + linesArray4[2] + '<br>' + linesArray4[4]}} // end 12F 3 lines if loop
-                    // start 12F 2 lines if loop
-              //       if((linesArray2[2].length<=7)&&(linesArray2[2].length>4)){linesArray4 = []; for(i=0; i<3; i++) {for (j = 0; j<linesArray[i].length/5; j++){for (k=0; k<linesArray2[4].length-2; k++) {for (l=k+1; l<linesArray2[4].length-1; l++){for (m=l+1; m<linesArray2[4].length; m++){
-              //         if((linesArray2[4][k] === linesArray[i][5*j+2])&&(linesArray2[4][l] === linesArray[i][5*j+3])&&(linesArray2[4][m] === linesArray[i][5*j+4])){linesArray4.push(linesArray[i][5*j], linesArray[i][5*j+1], linesArray[i][5*j+2], linesArray[i][5*j+3], linesArray[i][5*j+4])}                      
-              //       }}}}}
-              //       tempIndex = linesArray4.indexOf(Math.max(...linesArray4)); tempIndex2 = tempIndex%(linesArray4.length/3); 
-              //       console.log(linesArray4, Math.max(...linesArray4), tempIndex, tempIndex2); 
-              //      thirdLine.innerHTML = homeF[3*linesArray4[tempIndex+2]+1] + ' ' + homeF[3*linesArray4[tempIndex+2]+2] + '<br>' + homeF[3*linesArray4[tempIndex+3]+1] + ' ' + homeF[3*linesArray4[tempIndex+3]+2]+ '<br>' + homeF[3*linesArray4[tempIndex+4]+1] + ' ' + homeF[3*linesArray4[tempIndex+4]+2];
-              //      thirdLineTime.innerHTML = linesArray4[tempIndex2] + '<br>' + linesArray4[tempIndex2 + linesArray4.length/3] + '<br>' + linesArray4[tempIndex2 + 2*linesArray4.length/3]
-              //      thirdLineTime2.innerHTML = linesArray4[tempIndex2+1] + '<br>' + linesArray4[tempIndex2 + 1 + linesArray4.length/3] + '<br>' + linesArray4[tempIndex2 + 2 + 2*linesArray4.length/3];
-              //      console.log(linesArray4[tempIndex+2], linesArray4[tempIndex+3], linesArray4[tempIndex+4]);
-              //      linesArray5 = []; 
-              //      for (i = 0; i < linesArray2[4].length; i++) {if ((linesArray2[4][i]===linesArray4[tempIndex+2])||(linesArray2[4][i]===linesArray4[tempIndex+3])||(linesArray2[4][i]===linesArray4[tempIndex+4])) {}
-              //     else linesArray5.push(linesArray2[4][i])} 
-              //     console.log(linesArray5, linesArray5.length); 
-              //     if (linesArray5.length===2){ console.log('linesarray5 length = 2') 
-              //       // fourthLine.innerHTML = homeF[3*linesArray5[0]+1] + ' ' + homeF[3*linesArray5[0]+2] + '<br>' + homeF[3*linesArray5[1]+1] + ' ' + homeF[3*linesArray5[1]+2]
-              //     }
-              //     else if (linesArray5.length===3){// fourthLine.innerHTML = homeF[3*linesArray5[0]+1] + ' ' + homeF[3*linesArray5[0]+2] + '<br>' + homeF[3*linesArray5[1]+1] + ' ' + homeF[3*linesArray5[1]+2]  + '<br>' + homeF[3*linesArray5[2]+1] + ' ' + homeF[3*linesArray5[2]+2];
-              //     for (i = 0; i < linesArray[0].length/5; i++) {if ((linesArray[0][5*i+2] === linesArray5[0])&&(linesArray[0][5*i+3] === linesArray5[1])&&(linesArray[0][5*i+4] === linesArray5[2]))
-              //       {console.log(i); tempIndex = i}}
-              //     // fourthLineTime.innerHTML = linesArray[0][5*tempIndex] + '<br>' + linesArray[1][5*tempIndex] + '<br>' + linesArray[2][5*tempIndex];
-              //     // fourthLineTime2.innerHTML = linesArray[0][5*tempIndex+1] + '<br>' + linesArray[1][5*tempIndex+1] + '<br>' + linesArray[2][5*tempIndex+1]
-              //   }
-              //     else if (linesArray5.length===4) {console.log('will be added when required')}
-              //   } // end 12F 2 lines if loop
-              //   if ((linesArray2[2].length<=4)&&(linesArray2[2].length<=4)) {console.log ('one line home');
-              //   linesArray4 = []; for(i=0; i<3; i++) {for (j = 0; j<linesArray[i].length/5; j++){for (k=0; k<linesArray2[4].length-2; k++) {for (l=k+1; l<linesArray2[4].length-1; l++){for (m=l+1; m<linesArray2[4].length; m++){
-              //     if((linesArray2[4][k] === linesArray[i][5*j+2])&&(linesArray2[4][l] === linesArray[i][5*j+3])&&(linesArray2[4][m] === linesArray[i][5*j+4])){linesArray4.push(linesArray[i][5*j], linesArray[i][5*j+1], linesArray[i][5*j+2], linesArray[i][5*j+3], linesArray[i][5*j+4])}                      
-              //   }}}}}
-              //   tempIndex = linesArray4.indexOf(Math.max(...linesArray4)); tempIndex2 = tempIndex%(linesArray4.length/3); 
-              //   console.log(linesArray4, Math.max(...linesArray4), tempIndex, tempIndex2); 
-              // }       
-                                      
+                    for (i = 0; i < homeF.length/3; i++) {if (linesArray2[2].includes(i)) {} else linesArray2[4].push(i)}                                     
                     for (i = 0; i < awayF.length/3; i++) {if (linesArray2[3].includes(i)) {} else linesArray2[5].push(i)}
  
                     finalLineup =[[],[],[],[]]; tempArray3 = [homeF.length/3, awayF.length/3]; linesArray4 = [[],[]];

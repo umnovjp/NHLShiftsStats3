@@ -310,7 +310,7 @@ function getInputValue() {
                       fifthD6A.innerHTML = pairingsArray[3][8 * awayD.length / 3 - 19] + ' sh ' + pairingsArray[3][8 * awayD.length / 3 - 20] + ' sec ' + '<br>' + pairingsArray[4][8 * awayD.length / 3 - 19] + ' sh ' + pairingsArray[4][8 * awayD.length / 3 - 20] + ' sec ' + '<br>' + pairingsArray[5][8 * awayD.length / 3 - 19] + ' sh ' + pairingsArray[5][8 * awayD.length / 3 - 20] + ' sec ';
                       sixthD1A.innerHTML = firstD6A.innerHTML; sixthD2A.innerHTML = secondD6A.innerHTML; sixthD3A.innerHTML = thirdD6A.innerHTML; sixthD4A.innerHTML = forthD6A.innerHTML; sixthD5A.innerHTML = fifthD6A.innerHTML;
                       document.getElementById('firstD6A').appendChild(firstD6A); document.getElementById('secondD6A').appendChild(secondD6A); document.getElementById('thirdD6A').appendChild(thirdD6A); document.getElementById('forthD6A').appendChild(forthD6A); document.getElementById('fifthD6A').appendChild(fifthD6A);
-                    } // end if six D men away
+                    } // end if six D men away 
 
                     if (awayD.length == 21) {
                       var firstD7A = document.createElement('p2'); var secondD7A = document.createElement('p3'); var thirdD7A = document.createElement('p2'); var forthD7A = document.createElement('p3'); var fifthD7A = document.createElement('p2'); var sixthD7A = document.createElement('p3');
@@ -338,7 +338,7 @@ function getInputValue() {
                   else {finalLineup[i].push(linesArray2[i][3*j], linesArray2[i][3*j+1], linesArray2[i][3*j+2])}}
                       if (finalLineup[i].length===12) {}
                   else if (finalLineup[i].length===9) {for (j=0;j<tempArray3[i-2];j++){if (linesArray2[i].includes(j)){}
-                else finalLineup[i].push(j)}} //copy lines 339-360
+                else finalLineup[i].push(j)}}
                 else if (finalLineup[i].length===6) {console.log('Two lines', finalLineup); linesArray4 = [[],[]]
                 for (j=3*(i-2);j<3+3*(i-2);j++) {for (k=0;k<linesArray[j].length/5;k++) {
                   if((finalLineup[i].includes(linesArray[j][5*k+2]))||(finalLineup[i].includes(linesArray[j][5*k+3]))||(finalLineup[i].includes(linesArray[j][5*k+4]))) {}          
@@ -371,7 +371,7 @@ function getInputValue() {
                     function lineNumber(h,i,j,k) { topFLimit = (1-h)*(homeF.length)/3 + h*(awayF.length)/3;
                     if (topFLimit===12) {firstPart=[0,55,100,136,164,185,200,210,216,219]}
                     else if (topFLimit===11) {firstPart=[0,45,81,109,130,145,155,161,164]}
-                    secondPart = (topFLimit-1-i)*(j-1-i); sum=0;
+                    secondPart = (topFLimit-1-i)*(j-1-i); sum=0; 
                     for (l=0;l<j-i;l++) {sum=sum+l}
                       return firstPart[i] + secondPart - sum + k-1-j}
                     console.log(tempArray3[0], tempArray3[1]) // line to be deleted later
@@ -410,8 +410,6 @@ function getInputValue() {
                     fourthLineTimeAway.innerHTML=linesArray[3][5*lineNumber(1,finalLineup[3][9],finalLineup[3][10],finalLineup[3][11])]+'<br>'+linesArray[4][5*lineNumber(1,finalLineup[3][9],finalLineup[3][10],finalLineup[3][11])]+'<br>'+linesArray[5][5*lineNumber(1,finalLineup[3][9],finalLineup[3][10],finalLineup[3][11])];
                     fourthLineTime2Away.innerHTML=linesArray[3][1+5*lineNumber(1,finalLineup[3][9],finalLineup[3][10],finalLineup[3][11])]+'<br>'+linesArray[4][1+5*lineNumber(1,finalLineup[3][9],finalLineup[3][10],finalLineup[3][11])]+'<br>'+linesArray[5][1+5*lineNumber(1,finalLineup[3][9],finalLineup[3][10],finalLineup[3][11])]}
                     else if (awayF.length/3===11) {fourthLineAway.innerHTML=awayF[1+3*finalLineup[3][9]]+' '+awayF[2+3*finalLineup[3][9]]+'<br>'+awayF[1+3*finalLineup[3][10]]+' '+awayF[2+3*finalLineup[3][10]]}
-                    if (homeD.length/3 === 7) {console.log(homeD)} // this line will be deleted
-                    if (awayD.length/3 === 7) {console.log(awayD)} // this line will be deleted as well 
                   }); // end second .then shifts 
               }); // end second .then standings; 
           }); // end second .then gamecenter; 
@@ -419,4 +417,4 @@ function getInputValue() {
     } // end second .then from getinputvalue
     ); 
 } // end getInput Value function
-// private lender playbook sex and the city sequel
+// private lender playbook sex and the city sequel 

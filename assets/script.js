@@ -57,26 +57,26 @@ function getInputValue() {
                 gameTitle.innerHTML = 'You are watching stats for ' + data.awayTeam.abbrev + standingsArray[0] + ' W ' + standingsArray[1] + ' L ' + standingsArray[2] + ' O at ' + data.homeTeam.abbrev + standingsArray[3] + ' W ' + standingsArray[4] + ' L ' + standingsArray[5] + ' O game';
                 document.getElementById('gameInfo').appendChild(gameTitle);
                 const homeF = []; const awayF = []; const homeD = []; const awayD = []; const homeG = []; const awayG = []; const playerIdArray = []; // let playerIdeObject = {a: 1}; const hasKeyId = true;
-                // console.log(data.boxscore.playerByGameStats.awayTeam.forwards, data.boxscore.playerByGameStats.awayTeam.defense, data.boxscore.playerByGameStats.awayTeam.goalies, data.boxscore.playerByGameStats.homeTeam.forwards, data.boxscore.playerByGameStats.homeTeam.defense, data.boxscore.playerByGameStats.homeTeam.goalies);
-                var obj = data.boxscore.playerByGameStats.homeTeam.forwards; var keys = Object.keys(obj); playerIdeObject = {};
+                //console.log(data.boxscore.playerByGameStats.awayTeam.forwards, data.boxscore.playerByGameStats.awayTeam.defense, data.boxscore.playerByGameStats.awayTeam.goalies, data.boxscore.playerByGameStats.homeTeam.forwards, data.boxscore.playerByGameStats.homeTeam.defense, data.boxscore.playerByGameStats.homeTeam.goalies);
+                var obj = data.playerByGameStats.homeTeam.forwards; var keys = Object.keys(obj); playerIdeObject = {};
                 for (i = 0; i < keys.length; i++) {
                   var val = obj[keys[i]]; homeF.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[], [], []]);
                   keyId = val.playerId; playerIdeObject[keyId] = []}
-                var obj = data.boxscore.playerByGameStats.homeTeam.defense; var keys = Object.keys(obj);
+                var obj = data.playerByGameStats.homeTeam.defense; var keys = Object.keys(obj);
                 for (i = 0; i < keys.length; i++) {
                   var val = obj[keys[i]]; homeD.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[], [], []])
                   keyId = val.playerId; playerIdeObject[keyId] = []}
-                var obj = data.boxscore.playerByGameStats.homeTeam.goalies; var keys = Object.keys(obj);
+                var obj = data.playerByGameStats.homeTeam.goalies; var keys = Object.keys(obj);
                 for (i = 0; i < keys.length; i++) {
                   var val = obj[keys[i]]; homeG.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[], [], []])
                   keyId = val.playerId; playerIdeObject[keyId] = []}
-                var obj = data.boxscore.playerByGameStats.awayTeam.forwards; var keys = Object.keys(obj);
+                var obj = data.playerByGameStats.awayTeam.forwards; var keys = Object.keys(obj);
                 for (i = 0; i < keys.length; i++) {var val = obj[keys[i]]; awayF.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[], [], []])
                   keyId = val.playerId; playerIdeObject[keyId] = []}
-                var obj = data.boxscore.playerByGameStats.awayTeam.defense; var keys = Object.keys(obj);
+                var obj = data.playerByGameStats.awayTeam.defense; var keys = Object.keys(obj);
                 for (i = 0; i < keys.length; i++) {var val = obj[keys[i]]; awayD.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[], [], []]);
                   keyId = val.playerId; playerIdeObject[keyId] = []}
-                var obj = data.boxscore.playerByGameStats.awayTeam.goalies; var keys = Object.keys(obj);
+                var obj = data.playerByGameStats.awayTeam.goalies; var keys = Object.keys(obj);
                 for (i = 0; i < keys.length; i++) {var val = obj[keys[i]]; awayG.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[], [], []]);
                   keyId = val.playerId; playerIdeObject[keyId] = []}
                 console.log(homeF, homeD, homeG, awayF, awayD, awayG, playerIdArray)
@@ -386,11 +386,13 @@ function getInputValue() {
                     var firstF1 = document.createElement('p2'); var firstF2 = document.createElement('p2'); var firstF3 = document.createElement('p2'); var firstF4 = document.createElement('p2');
                     firstF1.innerHTML = 'TBD1'; firstF2.innerHTML = 'TBD2'; firstF3.innerHTML = 'TBD3'; firstF4.innerHTML = 'TBD4';
                     document.getElementById('firstLineTime2').appendChild(firstF1); document.getElementById('firstLineTime2').appendChild(firstF2); document.getElementById('firstLineTime2').appendChild(firstF3); document.getElementById('firstLineTime2').appendChild(firstF4);
-                    var fisrtF1A = document.createElement('p2'); 
                     secondLine.innerHTML=homeF[1+3*finalLineup[2][3]]+' '+homeF[2+3*finalLineup[2][3]]+'<br>'+homeF[1+3*finalLineup[2][4]]+' '+homeF[2+3*finalLineup[2][4]]+'<br>'+homeF[1+3*finalLineup[2][5]]+' '+homeF[2+3*finalLineup[2][5]];
                     secondLineTime.innerHTML=linesArray[0][5*lineNumber(0,finalLineup[2][3],finalLineup[2][4],finalLineup[2][5])]+'<br>'+linesArray[1][5*lineNumber(0,finalLineup[2][3],finalLineup[2][4],finalLineup[2][5])]+'<br>'+linesArray[2][5*lineNumber(0,finalLineup[2][3],finalLineup[2][4],finalLineup[2][5])];
                     secondLineTime2.innerHTML=linesArray[0][1+5*lineNumber(0,finalLineup[2][3],finalLineup[2][4],finalLineup[2][5])]+'<br>'+linesArray[1][1+5*lineNumber(0,finalLineup[2][3],finalLineup[2][4],finalLineup[2][5])]+'<br>'+linesArray[2][1+5*lineNumber(0,finalLineup[2][3],finalLineup[2][4],finalLineup[2][5])];
-                      thirdLine.innerHTML=homeF[1+3*finalLineup[2][6]]+' '+homeF[2+3*finalLineup[2][6]]+'<br>'+homeF[1+3*finalLineup[2][7]]+' '+homeF[2+3*finalLineup[2][7]]+'<br>'+homeF[1+3*finalLineup[2][8]]+' '+homeF[2+3*finalLineup[2][8]];
+                    var secondF1 = document.createElement('p2'); var secondF2 = document.createElement('p2'); var secondF3 = document.createElement('p2'); var secondF4 = document.createElement('p2');
+                    secondF1.innerHTML = 'TBD21'; secondF2.innerHTML = 'TBD22'; secondF3.innerHTML = 'TBD2'; secondF4.innerHTML = 'TBD24';
+                    document.getElementById('secondLineTime2').appendChild(secondF1); document.getElementById('secondLineTime2').appendChild(secondF2); document.getElementById('secondLineTime2').appendChild(secondF3); document.getElementById('secondLineTime2').appendChild(secondF4);
+                    thirdLine.innerHTML=homeF[1+3*finalLineup[2][6]]+' '+homeF[2+3*finalLineup[2][6]]+'<br>'+homeF[1+3*finalLineup[2][7]]+' '+homeF[2+3*finalLineup[2][7]]+'<br>'+homeF[1+3*finalLineup[2][8]]+' '+homeF[2+3*finalLineup[2][8]];
                       thirdLineTime.innerHTML=linesArray[0][5*lineNumber(0,finalLineup[2][6],finalLineup[2][7],finalLineup[2][8])]+'<br>'+linesArray[1][5*lineNumber(0,finalLineup[2][6],finalLineup[2][7],finalLineup[2][8])]+'<br>'+linesArray[2][5*lineNumber(0,finalLineup[2][6],finalLineup[2][7],finalLineup[2][8])];
                       thirdLineTime2.innerHTML=linesArray[0][1+5*lineNumber(0,finalLineup[2][6],finalLineup[2][7],finalLineup[2][8])]+'<br>'+linesArray[1][1+5*lineNumber(0,finalLineup[2][6],finalLineup[2][7],finalLineup[2][8])]+'<br>'+linesArray[2][1+5*lineNumber(0,finalLineup[2][6],finalLineup[2][7],finalLineup[2][8])];
 
@@ -403,10 +405,11 @@ function getInputValue() {
                     firstLineAway.innerHTML=awayF[1+3*finalLineup[3][0]]+' '+awayF[2+3*finalLineup[3][0]]+'<br>'+awayF[1+3*finalLineup[3][1]]+' '+awayF[2+3*finalLineup[3][1]]+'<br>'+awayF[1+3*finalLineup[3][2]]+' '+awayF[2+3*finalLineup[3][2]];
                     firstLineTimeAway.innerHTML=linesArray[3][5*lineNumber(1,finalLineup[3][0],finalLineup[3][1],finalLineup[3][2])]+'<br>'+linesArray[4][5*lineNumber(1,finalLineup[3][0],finalLineup[3][1],finalLineup[3][2])]+'<br>'+linesArray[5][5*lineNumber(1,finalLineup[3][0],finalLineup[3][1],finalLineup[3][2])];
                     firstLineTime2Away.innerHTML=linesArray[3][1+5*lineNumber(1,finalLineup[3][0],finalLineup[3][1],finalLineup[3][2])]+'<br>'+linesArray[4][1+5*lineNumber(1,finalLineup[3][0],finalLineup[3][1],finalLineup[3][2])]+'<br>'+linesArray[5][1+5*lineNumber(1,finalLineup[3][0],finalLineup[3][1],finalLineup[3][2])];
-                    fisrtF1A.innerHTML = firstF1.innerHTML; document.getElementById('firstLineTime2Away').appendChild(firstF1A);
+                    var firstF1A = document.createElement('p2'); firstF1A.innerHTML = firstF1.innerHTML; document.getElementById('firstLineTime2Away').appendChild(firstF1A);
                     secondLineAway.innerHTML=awayF[1+3*finalLineup[3][3]]+' '+awayF[2+3*finalLineup[3][3]]+'<br>'+awayF[1+3*finalLineup[3][4]]+' '+awayF[2+3*finalLineup[3][4]]+'<br>'+awayF[1+3*finalLineup[3][5]]+' '+awayF[2+3*finalLineup[3][5]];
                     secondLineTimeAway.innerHTML=linesArray[3][5*lineNumber(1,finalLineup[3][3],finalLineup[3][4],finalLineup[3][5])]+'<br>'+linesArray[4][5*lineNumber(1,finalLineup[3][3],finalLineup[3][4],finalLineup[3][5])]+'<br>'+linesArray[5][5*lineNumber(1,finalLineup[3][3],finalLineup[3][4],finalLineup[3][5])];
                     secondLineTime2Away.innerHTML=linesArray[3][1+5*lineNumber(1,finalLineup[3][3],finalLineup[3][4],finalLineup[3][5])]+'<br>'+linesArray[4][1+5*lineNumber(1,finalLineup[3][3],finalLineup[3][4],finalLineup[3][5])]+'<br>'+linesArray[5][1+5*lineNumber(1,finalLineup[3][3],finalLineup[3][4],finalLineup[3][5])];
+                    var secondF1A = document.createElement('p2'); secondF1A.innerHTML = firstF2.innerHTML; document.getElementById('secondLineTime2Away').appendChild(secondF1A);
                     thirdLineAway.innerHTML=awayF[1+3*finalLineup[3][6]]+' '+awayF[2+3*finalLineup[3][6]]+'<br>'+awayF[1+3*finalLineup[3][7]]+' '+awayF[2+3*finalLineup[3][7]]+'<br>'+awayF[1+3*finalLineup[3][8]]+' '+awayF[2+3*finalLineup[3][8]];
                     thirdLineTimeAway.innerHTML=linesArray[3][5*lineNumber(1,finalLineup[3][6],finalLineup[3][7],finalLineup[3][8])]+'<br>'+linesArray[4][5*lineNumber(1,finalLineup[3][6],finalLineup[3][7],finalLineup[3][8])]+'<br>'+linesArray[5][5*lineNumber(1,finalLineup[3][6],finalLineup[3][7],finalLineup[3][8])];
                     thirdLineTime2Away.innerHTML=linesArray[3][1+5*lineNumber(1,finalLineup[3][6],finalLineup[3][7],finalLineup[3][8])]+'<br>'+linesArray[4][1+5*lineNumber(1,finalLineup[3][6],finalLineup[3][7],finalLineup[3][8])]+'<br>'+linesArray[5][1+5*lineNumber(1,finalLineup[3][6],finalLineup[3][7],finalLineup[3][8])];

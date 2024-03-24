@@ -172,12 +172,12 @@ function getInputValue() {
                             for (n = 0; n < tempTime2.length; n++) { if (tempTime2[n] >= 10) { shifts = shifts + 1 } }
                             pairingsArray[i + 3 * h].push(sum); pairingsArray[i + 3 * h].push(shifts); // console.log(h, i, j, k, tempTime, tempTime2);
                           }}}} // end k, j, i and h loop periods 
-                    console.log(pairingsArray); tempTime2 = []; 
+                    console.log(pairingsArray); tempTime2 = [];
                     
                      dArrayTemp2 = [[[],[],[]],[[],[],[]]]; dArrayTemp3 = [[[],[],[]],[[],[],[]]]; fArrayTemp2 = [[[],[],[]],[[],[],[]]]; fArrayTemp3 = [[[],[],[]],[[],[],[]]];
                 // fiveOnFive2 and fiveOnFive4 are used for comparison only not for script should be deleted later
 
-                    for (h = 0; h < 2; h++) { // h = 0 home team D, h = 1 away team D
+                    for (h = 0; h < 2; h++) {// h = 0 home team D, h = 1 away team D
                       for (i = 0; i < 3; i++) { for (j = 0; j < fArray[h].length; j++) {
                           for (k = j + 1; k < fArray[h].length; k++) {shiftsPair = []; for (l = 0; l < fArray[h][j][i].length / 2; l++) {
                               for (m = 0; m < fArray[h][k][i].length / 2; m++) { if ((fArray[h][k][i][2 * m] >= fArray[h][j][i][2 * l]) && (fArray[h][k][i][2 * m] <= fArray[h][j][i][2 * l + 1])) {
@@ -186,7 +186,7 @@ function getInputValue() {
                                 else if ((fArray[h][k][i][2 * m] <= fArray[h][j][i][2 * l]) && (fArray[h][k][i][2 * m + 1] >= fArray[h][j][i][2 * l])) {
                                   if (fArray[h][k][i][2 * m + 1] >= fArray[h][j][i][2 * l + 1]) { shiftsPair.push(fArray[h][j][i][2 * l], fArray[h][j][i][2 * l + 1]) }
                                   else {shiftsPair.push(fArray[h][j][i][2 * l], fArray[h][k][i][2 * m + 1])}
-                                }}}   // end m, l loop
+                                }}}// end m, l loop
                                 for (l = k + 1; l < fArray[h].length; l++) {tempTime = []; tempTime2 = [];// if (i === 0  && h === 0) { console.log(j, k, l, shiftsPair);}
                                 for (m = 0; m < shiftsPair.length/2; m++){
                                   for (n = 0; n < fArray[h][l][i].length/2; n++) {if ((fArray[h][l][i][2*n]>=shiftsPair[2*m])&&(fArray[h][l][i][2*n]<shiftsPair[2*m+1])){
@@ -365,15 +365,28 @@ function getInputValue() {
                 else {console.log('case to be added', 'i', i, linesArray2[i].length, finalLineup[i].length)}
                     } // end i 2,3 loop
 
-                    function lineNumber(h,i,j,k) { topFLimit = (1-h)*(homeF.length)/3 + h*(awayF.length)/3;
+                    function lineNumber(h,i,j,k) {topFLimit = (1-h)*(homeF.length)/3 + h*(awayF.length)/3; // h may be 0 or 1 only!
                     if (topFLimit===12) {firstPart=[0,55,100,136,164,185,200,210,216,219]}
                     else if (topFLimit===11) {firstPart=[0,45,81,109,130,145,155,161,164]}
                     secondPart = (topFLimit-1-i)*(j-1-i); sum=0;
                     for (l=0;l<j-i;l++) {sum=sum+l}
-                      return firstPart[i] + secondPart - sum + k-1-j}
+                      return firstPart[i] + secondPart - sum + k-1-j} // end function lineNumber
                     console.log(tempArray3[0], tempArray3[1]) // line to be deleted later
+                    console.log('final lineup', finalLineup);
+
+                    function lineByLine(h) {
+                      // for (h=0;h<2;h++) { for (i=0;i<3;i++){
+                      // for (j=0;j<finalLineup[h].length/3;j++) {for (k=0;k<finalLineup[1-h].length/3;k++) {for (l=0;l<fArray[h][i][finalLineup[h][j]];l++){
+                      // for (m=0;m<fArray[1-h][i][finalLineup[1-h][k]];m++)
+                      // {
+                        console.log(finalLineup[h])
+                    //   }
+                    // }}}}}
+                  }
+
+                    lineByLine(0)
                     
-                   console.log('final lineup', finalLineup);
+                   
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI sec'; headerHome3.innerHTML = 'shifts';
                     firstLine.innerHTML=homeF[1+3*finalLineup[2][0]]+' '+homeF[2+3*finalLineup[2][0]]+'<br>'+homeF[1+3*finalLineup[2][1]]+' '+homeF[2+3*finalLineup[2][1]]+'<br>'+homeF[1+3*finalLineup[2][2]]+' '+homeF[2+3*finalLineup[2][2]];
                     console.log(finalLineup[2][0],finalLineup[2][1],finalLineup[2][2],lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2]),finalLineup[2][3],finalLineup[2][4],finalLineup[2][5],lineNumber(0,finalLineup[2][3],finalLineup[2][4],finalLineup[2][5]),finalLineup[2][6],finalLineup[2][7],finalLineup[2][8],lineNumber(0,finalLineup[2][6],finalLineup[2][7],finalLineup[2][8]));

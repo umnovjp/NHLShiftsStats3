@@ -374,17 +374,18 @@ function getInputValue() {
                     console.log(tempArray3[0], tempArray3[1]) // line to be deleted later
                     console.log('final lineup', finalLineup);
 
-                    function lineByLine(h) {
-                      // for (h=0;h<2;h++) { for (i=0;i<3;i++){
-                      // for (j=0;j<finalLineup[h].length/3;j++) {for (k=0;k<finalLineup[1-h].length/3;k++) {for (l=0;l<fArray[h][i][finalLineup[h][j]];l++){
+                    function lineByLine(h,g) {
+                      for (i=0;i<3;i++){ //3 periods
+                      for (j=0;j<finalLineup[1-h].length/3;j++) { //opposite team lines
+                        //for (k=0;k<finalLineup[1-h].length/3;k++) {for (l=0;l<fArray[h][i][finalLineup[h][j]];l++){
                       // for (m=0;m<fArray[1-h][i][finalLineup[1-h][k]];m++)
                       // {
-                        console.log(finalLineup[h])
-                    //   }
-                    // }}}}}
-                  }
+                        console.log(finalLineup[h][g],finalLineup[1-h][j],linesArray[3*h+i],lineNumber(h,finalLineup[h][3*g],finalLineup[h][3*g+1],finalLineup[h][3*g+2]),lineNumber(1-h,finalLineup[1-h][3*j],finalLineup[1-h][3*j+1],finalLineup[1-h][3*j+2]))}
+                    // }
+                    // }}}
+                  }}
 
-                    lineByLine(0)
+                    lineByLine(0,0)
                     
                    
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI sec'; headerHome3.innerHTML = 'shifts';
@@ -431,8 +432,8 @@ function getInputValue() {
                     fourthLineTimeAway.innerHTML=linesArray[3][5*lineNumber(1,finalLineup[3][9],finalLineup[3][10],finalLineup[3][11])]+'<br>'+linesArray[4][5*lineNumber(1,finalLineup[3][9],finalLineup[3][10],finalLineup[3][11])]+'<br>'+linesArray[5][5*lineNumber(1,finalLineup[3][9],finalLineup[3][10],finalLineup[3][11])];
                     fourthLineTime2Away.innerHTML=linesArray[3][1+5*lineNumber(1,finalLineup[3][9],finalLineup[3][10],finalLineup[3][11])]+'<br>'+linesArray[4][1+5*lineNumber(1,finalLineup[3][9],finalLineup[3][10],finalLineup[3][11])]+'<br>'+linesArray[5][1+5*lineNumber(1,finalLineup[3][9],finalLineup[3][10],finalLineup[3][11])]}
                     else if (awayF.length/3===11) {fourthLineAway.innerHTML=awayF[1+3*finalLineup[3][9]]+' '+awayF[2+3*finalLineup[3][9]]+'<br>'+awayF[1+3*finalLineup[3][10]]+' '+awayF[2+3*finalLineup[3][10]]}
-                  }); // end second .then shifts 
-              }); // end second .then standings; 
+                  }); // end second .then shifts
+              }); // end second .then standings;
           }); // end second .then gamecenter; 
       } // end displayGameData 
     } // end second .then from getinputvalue

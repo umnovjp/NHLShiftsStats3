@@ -6,6 +6,8 @@ First thing is to select a date. And remember to select date when games actually
 Then you will be prompted to select a game. Press one button to select a game. ![select a game](image-1.png) Separate tables will be displayed for home and away team defensemen. ![Alt text](image-2.png) You can easy determine defensive pairs from this table. It is not that easy for forward lines. Because lines of three forwards are not that easy to display in a 2D table. This is how it is done currently ![Alt text](image-3.png). Also, special teams are frequently played with 2 or 4 forwards depending on if it is penalty kill or power play. This script limits 5x5 play as play with 2D and 3F only. This is done to exclude PP with 4F and 1 D. Still it includes PP with 3F and 2D. 
 
 Definition of shift is 10 seconds pair of defensmen or trio of forwards played continuously at the same time.
+## Notes
+I tried maybe 30-40 different algorithms to come up with reasonable lines combinations. There are 32 teams in NHL. And each of them has its own defensive system. Next, each game is different. 
 
 ## Live version URL
 https://umnovjp.github.io/NHLShiftsStats3/

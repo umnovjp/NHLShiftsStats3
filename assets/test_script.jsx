@@ -9,4 +9,4 @@ function lineByLine(h) {
 // }}}
 }
 }
-console.log(lineNumber(1-h,finalLineup[1-h][3*j],finalLineup[1-h][3*j+1],finalLineup[1-h][3*j+2])}
+console.log(lineNumber(1-h,finalLineup[1-h][3*j],finalLineup[1-h][3*j+1],finalLineup[1-h][3*j+2]))

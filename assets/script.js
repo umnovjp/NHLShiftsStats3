@@ -374,18 +374,28 @@ function getInputValue() {
                     console.log(tempArray3[0], tempArray3[1]) // line to be deleted later
                     console.log('final lineup', finalLineup);
 
-                    function lineByLine(h,g) {
-                      for (i=0;i<3;i++){ //3 periods
-                      for (j=0;j<finalLineup[1-h].length/3;j++) { //opposite team lines
-                        //for (k=0;k<finalLineup[1-h].length/3;k++) {for (l=0;l<fArray[h][i][finalLineup[h][j]];l++){
-                      // for (m=0;m<fArray[1-h][i][finalLineup[1-h][k]];m++)
-                      // {
-                        console.log(finalLineup[h][g],finalLineup[1-h][j],linesArray[3*h+i],lineNumber(h,finalLineup[h][3*g],finalLineup[h][3*g+1],finalLineup[h][3*g+2]),lineNumber(1-h,finalLineup[1-h][3*j],finalLineup[1-h][3*j+1],finalLineup[1-h][3*j+2]))}
-                    // }
-                    // }}}
-                  }}
+                  //   function lineByLine(h) {
+                  //     for (i=0;i<3;i++){ //3 periods
+                  //     for (j=0;j<finalLineup[1-h].length/3;j++) { //opposite team lines
+                  //       //for (k=0;k<finalLineup[1-h].length/3;k++) {for (l=0;l<fArray[h][i][finalLineup[h][j]];l++){
+                  //     // for (m=0;m<fArray[1-h][i][finalLineup[1-h][k]];m++)
+                  //     // {
+                        
+                  //       console.log('new function', h)
+                  //      // 
+                  //     }
+                  //   // }
+                  //   // }}}
+                  // }}
 
-                    lineByLine(0,0)
+                   // lineByLine(0);
+
+                    function lineByLine(h) {for (i=0; i<3; i++){ console.log(finalLineup[h-3]);
+                      for (j=0;j<finalLineup[1-h].length/3;j++){
+                      console.log('h ',h,i,j);
+                      }}}
+                    lineByLine(0);
+
                     
                    
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI sec'; headerHome3.innerHTML = 'shifts';

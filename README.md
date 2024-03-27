@@ -7,7 +7,7 @@ Then you will be prompted to select a game. Press one button to select a game. !
 
 Definition of shift is 10 seconds pair of defensmen or trio of forwards played continuously at the same time.
 ## Notes
-I tried maybe 30-40 different algorithms to come up with reasonable lines combinations. There are 32 teams in NHL. And each of them has its own defensive system. Next, each game is different. 
+I tried maybe 30-40 different algorithms to come up with reasonable lines combinations. There are 32 teams in NHL. And each of them has its own defensive system. Next, each game is different. Player may be injured in 1st period or may get a game misconduct. There may be multiple penalties resulting in limited 5x5 play. 
 
 ## Live version URL
 https://umnovjp.github.io/NHLShiftsStats3/

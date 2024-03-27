@@ -371,7 +371,7 @@ function getInputValue() {
                     secondPart = (topFLimit-1-i)*(j-1-i); sum=0;
                     for (l=0;l<j-i;l++) {sum=sum+l}
                       return firstPart[i] + secondPart - sum + k-1-j} // end function lineNumber
-                    console.log(tempArray3[0], tempArray3[1]) // line to be deleted later
+                    console.log(tempArray3[0], tempArray3[1]) // line to be deleted later 
                     console.log('final lineup', finalLineup);
 
                   //   function lineByLine(h) {
@@ -390,11 +390,12 @@ function getInputValue() {
 
                    // lineByLine(0);
 
-                    function lineByLine(h) {for (i=0; i<3; i++){ console.log(finalLineup[h-3]);
-                      for (j=0;j<finalLineup[1-h].length/3;j++){
-                      console.log('h ',h,i,j);
+                    function lineByLine(hid) {for (i=0; i<3; i++){ console.log(hid, finalLineup[3-hid]);
+                      for (j=0;j<finalLineup[3-hid].length/3;j++){
+                      // console.log('h ',hid,i,j);
+                      return finalLineup[3-hid][1]
                       }}}
-                    lineByLine(0);
+                    // lineByLine(0);
 
                     
                    
@@ -405,7 +406,7 @@ function getInputValue() {
                     firstLineTime.innerHTML=linesArray[0][5*lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2])]+'<br>'+linesArray[1][5*lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2])]+'<br>'+linesArray[2][5*lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2])];
                     firstLineTime2.innerHTML=linesArray[0][1+5*lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2])]+'<br>'+linesArray[1][1+5*lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2])]+'<br>'+linesArray[2][1+5*lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2])];
                     var firstF1 = document.createElement('p2'); var firstF2 = document.createElement('p2'); var firstF3 = document.createElement('p2'); var firstF4 = document.createElement('p2');
-                    firstF1.innerHTML = 'TBD1'; firstF2.innerHTML = 'TBD2'; firstF3.innerHTML = 'TBD3'; firstF4.innerHTML = 'TBD4';
+                    firstF1.innerHTML = lineByLine(0); firstF2.innerHTML = lineByLine(1); firstF3.innerHTML = 'TBD3'; firstF4.innerHTML = 'TBD4';
                     document.getElementById('firstLineTime2').appendChild(firstF1); document.getElementById('firstLineTime2').appendChild(firstF2); document.getElementById('firstLineTime2').appendChild(firstF3); document.getElementById('firstLineTime2').appendChild(firstF4);
                     secondLine.innerHTML=homeF[1+3*finalLineup[2][3]]+' '+homeF[2+3*finalLineup[2][3]]+'<br>'+homeF[1+3*finalLineup[2][4]]+' '+homeF[2+3*finalLineup[2][4]]+'<br>'+homeF[1+3*finalLineup[2][5]]+' '+homeF[2+3*finalLineup[2][5]];
                     secondLineTime.innerHTML=linesArray[0][5*lineNumber(0,finalLineup[2][3],finalLineup[2][4],finalLineup[2][5])]+'<br>'+linesArray[1][5*lineNumber(0,finalLineup[2][3],finalLineup[2][4],finalLineup[2][5])]+'<br>'+linesArray[2][5*lineNumber(0,finalLineup[2][3],finalLineup[2][4],finalLineup[2][5])];

@@ -178,7 +178,7 @@ function getInputValue() {
                 // fiveOnFive2 and fiveOnFive4 are used for comparison only not for script should be deleted later
 
                     for (h = 0; h < 2; h++) {// h = 0 home team D, h = 1 away team D
-                      for (i = 0; i < 3; i++) { for (j = 0; j < fArray[h].length; j++) {
+                      for (i = 0; i < 3; i++) { for (j = 0; j < fArray[h].length; j++) { // i loop for 3 periods
                           for (k = j + 1; k < fArray[h].length; k++) {shiftsPair = []; for (l = 0; l < fArray[h][j][i].length / 2; l++) {
                               for (m = 0; m < fArray[h][k][i].length / 2; m++) { if ((fArray[h][k][i][2 * m] >= fArray[h][j][i][2 * l]) && (fArray[h][k][i][2 * m] <= fArray[h][j][i][2 * l + 1])) {
                                   if (fArray[h][k][i][2 * m + 1] >= fArray[h][j][i][2 * l + 1]) { shiftsPair.push(fArray[h][k][i][2 * m], fArray[h][j][i][2 * l + 1]) }
@@ -387,17 +387,13 @@ function getInputValue() {
                   //   // }
                   //   // }}}
                   // }}
-
                    // lineByLine(0);
 
-                    function lineByLine(hid) {for (i=0; i<3; i++){ console.log(hid, finalLineup[3-hid]);
-                      for (j=0;j<finalLineup[3-hid].length/3;j++){
-                      // console.log('h ',hid,i,j);
+                    function lineByLine(hid) { tempArray4 = [[],[],[]]; for (i=0; i<3; i++){ console.log(hid, finalLineup[3-hid]);
+                      for (j=0;j<finalLineup[3-hid].length/3;j++){ for (k=0;k<fArray[hid][finalLineup].length;k++){}
                       return finalLineup[3-hid][1]
                       }}}
                     // lineByLine(0);
-
-                    
                    
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI sec'; headerHome3.innerHTML = 'shifts';
                     firstLine.innerHTML=homeF[1+3*finalLineup[2][0]]+' '+homeF[2+3*finalLineup[2][0]]+'<br>'+homeF[1+3*finalLineup[2][1]]+' '+homeF[2+3*finalLineup[2][1]]+'<br>'+homeF[1+3*finalLineup[2][2]]+' '+homeF[2+3*finalLineup[2][2]];

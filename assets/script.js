@@ -387,13 +387,12 @@ function getInputValue() {
                   //   // }
                   //   // }}}
                   // }}
-                   // lineByLine(0);
 
-                    function lineByLine(hid) { tempArray4 = [[],[],[]]; for (i=0; i<3; i++){ console.log(hid, finalLineup[3-hid]);
-                      for (j=0;j<finalLineup[3-hid].length/3;j++){ for (k=0;k<fArray[hid][finalLineup].length;k++){}
-                      return finalLineup[3-hid][1]
-                      }}}
-                    // lineByLine(0);
+                    function lineByLine(h) {for (i=0; i<3; i++){ shiftsLine =[];
+                      for (j=0;j<fArray[3-h].length;j++){ for (k=0;k<fArray[h][finalLineup].length;k++){}
+                      return finalLineup[3-h][1]
+                      }}
+                    }
                    
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI sec'; headerHome3.innerHTML = 'shifts';
                     firstLine.innerHTML=homeF[1+3*finalLineup[2][0]]+' '+homeF[2+3*finalLineup[2][0]]+'<br>'+homeF[1+3*finalLineup[2][1]]+' '+homeF[2+3*finalLineup[2][1]]+'<br>'+homeF[1+3*finalLineup[2][2]]+' '+homeF[2+3*finalLineup[2][2]];

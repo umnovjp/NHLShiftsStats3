@@ -376,7 +376,7 @@ function getInputValue() {
 
                     function lineByLine(h,f) {for (i=0; i<3; i++){ shiftsLine=[];
                       for (j=0;j<fArray[1-h].length/3;j++){ for (k=3*f;k<3*f+3;k++){ console.log('home line', finalLineup[3-h][3*k], finalLineup[3-h][3*k+1], finalLineup[3-h][3*k+2], j, 'away line', finalLineup[h+2][3*j], finalLineup[h+2][3*j+1], finalLineup[h+2][3*j+2] )
-                    for (l=0;l<fArray[h][i][finalLineup[3-h][3*k]].length/2;l++) {console.log(fArray[h][finalLineup[3-h][3*k]][i][2*l+1]-fArray[h][finalLineup[3-h][3*k]][i][2*l])}}
+                    for (l=0;l<fArray[h][finalLineup[3-h][3*k]][i].length/2;l++) {console.log(fArray[h][finalLineup[3-h][3*k]][i][2*l+1]-fArray[h][finalLineup[3-h][3*k]][i][2*l])}}
                       return finalLineup[3-h][1]
                       }}
                     }

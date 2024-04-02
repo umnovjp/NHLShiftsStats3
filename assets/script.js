@@ -371,7 +371,7 @@ function getInputValue() {
                     secondPart = (topFLimit-1-i)*(j-1-i); sum=0;
                     for (l=0;l<j-i;l++) {sum=sum+l}
                       return firstPart[i] + secondPart - sum + k-1-j} // end function lineNumber
-                    console.log(tempArray3[0], tempArray3[1]) // line to be deleted 
+                    console.log(tempArray3[0], tempArray3[1]) // line to be deleted
                     console.log('final lineup', finalLineup); 
 
                     function lineByLine(h,f) {for (i=0; i<3; i++){ shiftsLine=[];
@@ -380,9 +380,9 @@ function getInputValue() {
                       return finalLineup[3-h][1] 
                       }}
                     }
-                    lineByLine(0,0);
+                    lineByLine(1,0);
                    
-                    headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI sec'; headerHome3.innerHTML = 'shifts';
+                    headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI sec'; headerHome3.innerHTML = 'shifts'; 
                     firstLine.innerHTML=homeF[1+3*finalLineup[2][0]]+' '+homeF[2+3*finalLineup[2][0]]+'<br>'+homeF[1+3*finalLineup[2][1]]+' '+homeF[2+3*finalLineup[2][1]]+'<br>'+homeF[1+3*finalLineup[2][2]]+' '+homeF[2+3*finalLineup[2][2]];
                     console.log(finalLineup[2][0],finalLineup[2][1],finalLineup[2][2],lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2]),finalLineup[2][3],finalLineup[2][4],finalLineup[2][5],lineNumber(0,finalLineup[2][3],finalLineup[2][4],finalLineup[2][5]),finalLineup[2][6],finalLineup[2][7],finalLineup[2][8],lineNumber(0,finalLineup[2][6],finalLineup[2][7],finalLineup[2][8]));
                     console.log(finalLineup[3][0],finalLineup[3][1],finalLineup[3][2],lineNumber(1,finalLineup[3][0],finalLineup[3][1],finalLineup[3][2]),finalLineup[3][3],finalLineup[3][4],finalLineup[3][5],lineNumber(1,finalLineup[3][3],finalLineup[3][4],finalLineup[3][5]),finalLineup[3][6],finalLineup[3][7],finalLineup[3][8],lineNumber(1,finalLineup[3][6],finalLineup[3][7],finalLineup[3][8]));

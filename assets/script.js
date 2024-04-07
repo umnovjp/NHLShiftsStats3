@@ -372,14 +372,16 @@ function getInputValue() {
                     for (l=0;l<j-i;l++) {sum=sum+l}
                       return firstPart[i] + secondPart - sum + k-1-j} // end function lineNumber
                     console.log(tempArray3[0], tempArray3[1]) // line to be deleted 
-                    console.log('final lineup', finalLineup);
+                    console.log('final lineup', finalLineup); 
 
                     function lineByLine(h,f) {for (i=0; i<3; i++){shiftsLine=[];
                       for (j=0;j<fArray[1-h].length/3;j++){ for (k=3*f;k<3*f+3;k++){console.log('away line', finalLineup[3-h][3*k], finalLineup[3-h][3*k+1], finalLineup[3-h][3*k+2], j, 'home line', finalLineup[h+2][3*j], finalLineup[h+2][3*j+1], finalLineup[h+2][3*j+2] )
-                    for (l=0;l<fArray[h][finalLineup[3-h][3*k]][i].length/2;l++) {console.log(fArray[h][finalLineup[3-h][3*k]][i][2*l])}}
+                    for (l=0;l<fArray[h][finalLineup[3-h][3*k]][i].length/2;l++) {console.log(i, fArray[h][finalLineup[3-h][3*k]][i][2*l])}}
+                      
+                      }}
                       return finalLineup[3-h][1]
-                      }}}
-                    lineByLine(1,0);
+                    }
+                    lineByLine(0,0);
                    
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI sec'; headerHome3.innerHTML = 'shifts';
                     firstLine.innerHTML=homeF[1+3*finalLineup[2][0]]+' '+homeF[2+3*finalLineup[2][0]]+'<br>'+homeF[1+3*finalLineup[2][1]]+' '+homeF[2+3*finalLineup[2][1]]+'<br>'+homeF[1+3*finalLineup[2][2]]+' '+homeF[2+3*finalLineup[2][2]];

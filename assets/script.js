@@ -177,7 +177,7 @@ function getInputValue() {
                      dArrayTemp2 = [[[],[],[]],[[],[],[]]]; dArrayTemp3 = [[[],[],[]],[[],[],[]]]; fArrayTemp2 = [[[],[],[]],[[],[],[]]]; fArrayTemp3 = [[[],[],[]],[[],[],[]]];
                 // fiveOnFive2 and fiveOnFive4 are used for comparison only not for script should be deleted later
 
-                    for (h = 0; h < 2; h++) {// h = 0 home team D, h = 1 away team D
+                    for (h = 0; h < 2; h++) {// h = 0 home team F, h = 1 away team F
                       for (i = 0; i < 3; i++) { for (j = 0; j < fArray[h].length; j++) { // i loop for 3 periods
                           for (k = j + 1; k < fArray[h].length; k++) {shiftsPair = []; for (l = 0; l < fArray[h][j][i].length / 2; l++) {
                               for (m = 0; m < fArray[h][k][i].length / 2; m++) { if ((fArray[h][k][i][2 * m] >= fArray[h][j][i][2 * l]) && (fArray[h][k][i][2 * m] <= fArray[h][j][i][2 * l + 1])) {
@@ -371,22 +371,28 @@ function getInputValue() {
                     secondPart = (topFLimit-1-i)*(j-1-i); sum=0;
                     for (l=0;l<j-i;l++) {sum=sum+l}
                       return firstPart[i] + secondPart - sum + k-1-j} // end function lineNumber
-                    console.log(tempArray3[0], tempArray3[1]) // line to be deleted 
-                    console.log('final lineup', finalLineup); 
+                    console.log(tempArray3[0], tempArray3[1]) // line to be deleted
+                    console.log('final lineup', finalLineup);
+                    console.log(finalLineup[2][3*0], fArray[0][finalLineup[2][2]][0])
 
-                    function lineByLine(h,f) {for (i=0; i<3; i++){shiftsLine=[];
-                      for (j=0;j<fArray[1-h].length/3;j++){ for (k=3*f;k<3*f+3;k++){console.log('away line', finalLineup[3-h][3*k], finalLineup[3-h][3*k+1], finalLineup[3-h][3*k+2], j, 'home line', finalLineup[h+2][3*j], finalLineup[h+2][3*j+1], finalLineup[h+2][3*j+2] )
-                    for (l=0;l<fArray[h][finalLineup[3-h][3*k]][i].length/2;l++) {console.log(i, fArray[h][finalLineup[3-h][3*k]][i][2*l])}}
-                      
-                      }}
-                      return finalLineup[3-h][1]
+                       function lineByLine(h,f) {shiftsLine=[[],[],[]]; for (k=3*f;k<3*f+3;k++) { for (i=0;i<3;i++) { //f is line number 0,1,2,3, h is 0 or 1 home away team
+                    for (l=0;l<fArray[h][finalLineup[2+h][3*f]][i].length/2;l++) { for (m=0;m<fArray[h][finalLineup[2+h][3*f+1]][i].length/2;m++) {if ((fArray[h][finalLineup[2+h][3*f+1]][i][2*m]>=fArray[h][finalLineup[2+h][3*f]][i][2*l]) && (fArray[h][finalLineup[2+h][3*f+1]][i][2*m]<=fArray[h][finalLineup[2+h][3*f]][i][2*l+1]))
+                      {if (fArray[h][finalLineup[2+h][3*f+1]][i][2*m+1]>=fArray[h][finalLineup[2+h][3*f]][i][2*l+1]) {shiftsLine[i].push( 'case 0', l, m, fArray[h][finalLineup[2+h][3*f+1]][i][2*m], fArray[h][finalLineup[2+h][3*f]][i][2*l+1]) }
+                        else { shiftsLine[i].push('case 1', l, m, fArray[h][finalLineup[2+h][3*f+1]][i][2*m], fArray[h][finalLineup[2+h][3*f]][i][2*m+1]) }}
+                        else if ((fArray[h][finalLineup[2+h][3*f+1]][i][2*m]<=fArray[h][finalLineup[2+h][3*f]][i][2*l])&&(fArray[h][finalLineup[2+h][3*f+1]][i][2*m+1]>=fArray[h][finalLineup[2+h][3*f]][i][2*l])) {
+                          if (fArray[h][finalLineup[2+h][3*f+1]][i][2*m+1]>=fArray[h][finalLineup[2+h][3*f]][i][2*l+1]) { shiftsLine[i].push('case 2', l, m, fArray[h][finalLineup[2+h][3*f]][i][2*l], fArray[h][finalLineup[2+h][3*f]][i][2*l+1]) }
+                          else {shiftsLine[i].push('case 3', l, m, fArray[h][finalLineup[2+h][3*f]][i][2*l], fArray[h][finalLineup[2+h][3*f]][i][2*m+1])}}
+                    }} // end m,l loop
+                  }}
+                    console.log(shiftsLine);
+                    return finalLineup[3-h][1]
                     }
                     lineByLine(0,0);
                    
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI sec'; headerHome3.innerHTML = 'shifts';
                     firstLine.innerHTML=homeF[1+3*finalLineup[2][0]]+' '+homeF[2+3*finalLineup[2][0]]+'<br>'+homeF[1+3*finalLineup[2][1]]+' '+homeF[2+3*finalLineup[2][1]]+'<br>'+homeF[1+3*finalLineup[2][2]]+' '+homeF[2+3*finalLineup[2][2]];
-                    console.log(finalLineup[2][0],finalLineup[2][1],finalLineup[2][2],lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2]),finalLineup[2][3],finalLineup[2][4],finalLineup[2][5],lineNumber(0,finalLineup[2][3],finalLineup[2][4],finalLineup[2][5]),finalLineup[2][6],finalLineup[2][7],finalLineup[2][8],lineNumber(0,finalLineup[2][6],finalLineup[2][7],finalLineup[2][8]));
-                    console.log(finalLineup[3][0],finalLineup[3][1],finalLineup[3][2],lineNumber(1,finalLineup[3][0],finalLineup[3][1],finalLineup[3][2]),finalLineup[3][3],finalLineup[3][4],finalLineup[3][5],lineNumber(1,finalLineup[3][3],finalLineup[3][4],finalLineup[3][5]),finalLineup[3][6],finalLineup[3][7],finalLineup[3][8],lineNumber(1,finalLineup[3][6],finalLineup[3][7],finalLineup[3][8]));
+                    // console.log(finalLineup[2][0],finalLineup[2][1],finalLineup[2][2],lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2]),finalLineup[2][3],finalLineup[2][4],finalLineup[2][5],lineNumber(0,finalLineup[2][3],finalLineup[2][4],finalLineup[2][5]),finalLineup[2][6],finalLineup[2][7],finalLineup[2][8],lineNumber(0,finalLineup[2][6],finalLineup[2][7],finalLineup[2][8]));
+                    // console.log(finalLineup[3][0],finalLineup[3][1],finalLineup[3][2],lineNumber(1,finalLineup[3][0],finalLineup[3][1],finalLineup[3][2]),finalLineup[3][3],finalLineup[3][4],finalLineup[3][5],lineNumber(1,finalLineup[3][3],finalLineup[3][4],finalLineup[3][5]),finalLineup[3][6],finalLineup[3][7],finalLineup[3][8],lineNumber(1,finalLineup[3][6],finalLineup[3][7],finalLineup[3][8]));
                     firstLineTime.innerHTML=linesArray[0][5*lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2])]+'<br>'+linesArray[1][5*lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2])]+'<br>'+linesArray[2][5*lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2])];
                     firstLineTime2.innerHTML=linesArray[0][1+5*lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2])]+'<br>'+linesArray[1][1+5*lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2])]+'<br>'+linesArray[2][1+5*lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2])];
                     var firstF1 = document.createElement('p2'); var firstF2 = document.createElement('p2'); var firstF3 = document.createElement('p2'); var firstF4 = document.createElement('p2');

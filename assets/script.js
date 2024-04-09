@@ -187,7 +187,7 @@ function getInputValue() {
                                   if (fArray[h][k][i][2 * m + 1] >= fArray[h][j][i][2 * l + 1]) { shiftsPair.push(fArray[h][j][i][2 * l], fArray[h][j][i][2 * l + 1]) }
                                   else {shiftsPair.push(fArray[h][j][i][2 * l], fArray[h][k][i][2 * m + 1])}
                                 }}}// end m, l loop
-                                for (l = k + 1; l < fArray[h].length; l++) {tempTime = []; tempTime2 = [];// if (i === 0  && h === 0) { console.log(j, k, l, shiftsPair);}
+                                for (l = k + 1; l < fArray[h].length; l++) {tempTime = []; tempTime2 = [];
                                 for (m = 0; m < shiftsPair.length/2; m++){
                                   for (n = 0; n < fArray[h][l][i].length/2; n++) {if ((fArray[h][l][i][2*n]>=shiftsPair[2*m])&&(fArray[h][l][i][2*n]<shiftsPair[2*m+1])){
                                     if (fArray[h][l][i][2*n+1]>=shiftsPair[2*m+1]) {tempTime.push(fArray[h][l][i][2*n], shiftsPair[2 * m + 1])}
@@ -331,7 +331,7 @@ function getInputValue() {
                   else {finalLineup[i-2].push(linesArray2[i][j])}
                 }}}
 
-                    for (j=0;j<linesArray2[i].length/3;j++) {if ((finalLineup[i-2].includes(linesArray2[i][3*j]))||(finalLineup[i-2].includes(linesArray2[i][3*j+1]))||(finalLineup[i-2].includes(linesArray2[i][3*j+2]))){}
+                  for (j=0;j<linesArray2[i].length/3;j++) {if ((finalLineup[i-2].includes(linesArray2[i][3*j]))||(finalLineup[i-2].includes(linesArray2[i][3*j+1]))||(finalLineup[i-2].includes(linesArray2[i][3*j+2]))){}
                   else {finalLineup[i].push(linesArray2[i][3*j], linesArray2[i][3*j+1], linesArray2[i][3*j+2])}}
                       if (finalLineup[i].length===12) {}
                   else if (finalLineup[i].length===9) {for (j=0;j<tempArray3[i-2];j++){if (linesArray2[i].includes(j)){}
@@ -362,8 +362,8 @@ function getInputValue() {
         for (j=0; j<tempArray3[i-2]; j++) {if (finalLineup[i].includes(j)){} else finalLineup[i].push(j)}
         console.log(finalLineup, linesArray6[i-2][tempIndex+2], linesArray6[i-2][tempIndex+3], linesArray6[i-2][tempIndex+4]);
       } // end if 1 line loop      
-                else {console.log('case to be added', 'i', i, linesArray2[i].length, finalLineup[i].length)}
-                    } // end i 2,3 loop
+          else {console.log('case to be added', 'i', i, linesArray2[i].length, finalLineup[i].length)}
+            } // end i 2,3 loop
 
                     function lineNumber(h,i,j,k) {topFLimit = (1-h)*(homeF.length)/3 + h*(awayF.length)/3; // h may be 0 or 1 only!
                     if (topFLimit===12) {firstPart=[0,55,100,136,164,185,200,210,216,219]}
@@ -387,7 +387,7 @@ function getInputValue() {
                     console.log(shiftsLine);
                     return finalLineup[3-h][1]
                     }
-                    lineByLine(0,0);
+                    lineByLine(0,0)
                    
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI sec'; headerHome3.innerHTML = 'shifts';
                     firstLine.innerHTML=homeF[1+3*finalLineup[2][0]]+' '+homeF[2+3*finalLineup[2][0]]+'<br>'+homeF[1+3*finalLineup[2][1]]+' '+homeF[2+3*finalLineup[2][1]]+'<br>'+homeF[1+3*finalLineup[2][2]]+' '+homeF[2+3*finalLineup[2][2]];
@@ -435,9 +435,9 @@ function getInputValue() {
                     else if (awayF.length/3===11) {fourthLineAway.innerHTML=awayF[1+3*finalLineup[3][9]]+' '+awayF[2+3*finalLineup[3][9]]+'<br>'+awayF[1+3*finalLineup[3][10]]+' '+awayF[2+3*finalLineup[3][10]]}
                   }); // end second .then shifts
               }); // end second .then standings;
-          }); // end second .then gamecenter; 
+          }); // end second .then gamecenter;
       } // end displayGameData 
     } // end second .then from getinputvalue
     ); 
-} // end getInput Value function
-// private lender playbook sex and the city sequel 
+} // end getInput Value function 
+// private lender playbook

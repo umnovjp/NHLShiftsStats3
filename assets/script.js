@@ -375,19 +375,28 @@ function getInputValue() {
                     console.log('final lineup', finalLineup);
                     console.log(finalLineup[2][3*0], fArray[0][finalLineup[2][2]][0])
 
-                       function lineByLine(h,f) {shiftsLine=[[],[],[]]; for (k=3*f;k<3*f+3;k++) { for (i=0;i<3;i++) { //f is line number 0,1,2,3, h is 0 or 1 home away team
+                       function lineByLine(h,f) {shiftsLine=[[],[],[],[],[],[]];
+                        for (i=0;i<3;i++) { //f is line number 0,1,2,3, h is 0 or 1 home away team
                     for (l=0;l<fArray[h][finalLineup[2+h][3*f]][i].length/2;l++) { for (m=0;m<fArray[h][finalLineup[2+h][3*f+1]][i].length/2;m++) {if ((fArray[h][finalLineup[2+h][3*f+1]][i][2*m]>=fArray[h][finalLineup[2+h][3*f]][i][2*l]) && (fArray[h][finalLineup[2+h][3*f+1]][i][2*m]<=fArray[h][finalLineup[2+h][3*f]][i][2*l+1]))
                       {if (fArray[h][finalLineup[2+h][3*f+1]][i][2*m+1]>=fArray[h][finalLineup[2+h][3*f]][i][2*l+1]) {shiftsLine[i].push( 'case 0', l, m, fArray[h][finalLineup[2+h][3*f+1]][i][2*m], fArray[h][finalLineup[2+h][3*f]][i][2*l+1]) }
-                        else { shiftsLine[i].push('case 1', l, m, fArray[h][finalLineup[2+h][3*f+1]][i][2*m], fArray[h][finalLineup[2+h][3*f]][i][2*m+1]) }}
+                        else { shiftsLine[i].push('case 1', l, m, fArray[h][finalLineup[2+h][3*f+1]][i][2*m], fArray[h][finalLineup[2+h][3*f+1]][i][2*m+1]) }}
                         else if ((fArray[h][finalLineup[2+h][3*f+1]][i][2*m]<=fArray[h][finalLineup[2+h][3*f]][i][2*l])&&(fArray[h][finalLineup[2+h][3*f+1]][i][2*m+1]>=fArray[h][finalLineup[2+h][3*f]][i][2*l])) {
                           if (fArray[h][finalLineup[2+h][3*f+1]][i][2*m+1]>=fArray[h][finalLineup[2+h][3*f]][i][2*l+1]) { shiftsLine[i].push('case 2', l, m, fArray[h][finalLineup[2+h][3*f]][i][2*l], fArray[h][finalLineup[2+h][3*f]][i][2*l+1]) }
-                          else {shiftsLine[i].push('case 3', l, m, fArray[h][finalLineup[2+h][3*f]][i][2*l], fArray[h][finalLineup[2+h][3*f]][i][2*m+1])}}
+                          else {shiftsLine[i].push('case 3', l, m, fArray[h][finalLineup[2+h][3*f]][i][2*l], fArray[h][finalLineup[2+h][3*f+1]][i][2*m+1])}}
                     }} // end m,l loop
-                  }}
+                    // start second l,m loop fArray[h][finalLineup[2+h][3*f]][i] = shiftsLine[i]
+                    for (l=0;l<shiftsLine[i].length/2;l++) { for (m=0;m<fArray[h][finalLineup[2+h][3*f+2]][i].length/2;m++) {if ((fArray[h][finalLineup[2+h][3*f+2]][i][2*m]>=shiftsLine[i][2*l]) && (fArray[h][finalLineup[2+h][3*f+2]][i][2*m]<=shiftsLine[i][2*l+1]))
+                      {if (fArray[h][finalLineup[2+h][3*f+2]][i][2*m+1]>=shiftsLine[i][2*l+1]) {shiftsLine[i+3].push( 'case 5', l, m, fArray[h][finalLineup[2+h][3*f+2]][i][2*m], shiftsLine[i][2*l+1]) }
+                        else { shiftsLine[i+3].push('case 6', l, m, fArray[h][finalLineup[2+h][3*f+2]][i][2*m], fArray[h][finalLineup[2+h][3*f+2]][i][2*m+1]) }}
+                        else if ((fArray[h][finalLineup[2+h][3*f+2]][i][2*m]<=shiftsLine[i][2*l])&&(fArray[h][finalLineup[2+h][3*f+2]][i][2*m+1]>=shiftsLine[i][2*l])) {
+                          if (fArray[h][finalLineup[2+h][3*f+2]][i][2*m+1]>=shiftsLine[i][2*l+1]) { shiftsLine[i+3].push('case 7', l, m, shiftsLine[i][2*l], shiftsLine[i][2*l+1]) }
+                          else {shiftsLine[i+3].push('case 8', l, m, shiftsLine[i][2*l], shiftsLine[i][2*m+1])}}
+                    }} // end second m,l loop
+                  } // end i loop
                     console.log(shiftsLine);
                     return finalLineup[3-h][1]
                     }
-                    lineByLine(0,0)
+                    lineByLine(0,0);
                    
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI sec'; headerHome3.innerHTML = 'shifts';
                     firstLine.innerHTML=homeF[1+3*finalLineup[2][0]]+' '+homeF[2+3*finalLineup[2][0]]+'<br>'+homeF[1+3*finalLineup[2][1]]+' '+homeF[2+3*finalLineup[2][1]]+'<br>'+homeF[1+3*finalLineup[2][2]]+' '+homeF[2+3*finalLineup[2][2]];
@@ -396,7 +405,7 @@ function getInputValue() {
                     firstLineTime.innerHTML=linesArray[0][5*lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2])]+'<br>'+linesArray[1][5*lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2])]+'<br>'+linesArray[2][5*lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2])];
                     firstLineTime2.innerHTML=linesArray[0][1+5*lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2])]+'<br>'+linesArray[1][1+5*lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2])]+'<br>'+linesArray[2][1+5*lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2])];
                     var firstF1 = document.createElement('p2'); var firstF2 = document.createElement('p2'); var firstF3 = document.createElement('p2'); var firstF4 = document.createElement('p2');
-                    firstF1.innerHTML = lineByLine(0); firstF2.innerHTML = lineByLine(1); firstF3.innerHTML = 'TBD3'; firstF4.innerHTML = 'TBD4';
+                    firstF1.innerHTML = lineByLine(0,0); firstF2.innerHTML = lineByLine(0,1); firstF3.innerHTML = 'TBD3'; firstF4.innerHTML = 'TBD4';
                     document.getElementById('firstLineTime2').appendChild(firstF1); document.getElementById('firstLineTime2').appendChild(firstF2); document.getElementById('firstLineTime2').appendChild(firstF3); document.getElementById('firstLineTime2').appendChild(firstF4);
                     secondLine.innerHTML=homeF[1+3*finalLineup[2][3]]+' '+homeF[2+3*finalLineup[2][3]]+'<br>'+homeF[1+3*finalLineup[2][4]]+' '+homeF[2+3*finalLineup[2][4]]+'<br>'+homeF[1+3*finalLineup[2][5]]+' '+homeF[2+3*finalLineup[2][5]];
                     secondLineTime.innerHTML=linesArray[0][5*lineNumber(0,finalLineup[2][3],finalLineup[2][4],finalLineup[2][5])]+'<br>'+linesArray[1][5*lineNumber(0,finalLineup[2][3],finalLineup[2][4],finalLineup[2][5])]+'<br>'+linesArray[2][5*lineNumber(0,finalLineup[2][3],finalLineup[2][4],finalLineup[2][5])];

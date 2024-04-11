@@ -375,23 +375,24 @@ function getInputValue() {
                     console.log('final lineup', finalLineup);
                     console.log(finalLineup[2][3*0], fArray[0][finalLineup[2][2]][0])
 
-                       function lineByLine(h,f) {shiftsLine=[[],[],[],[],[],[]];
+                       function lineByLine(h,f) { shiftsLine=[]; for (i=0;i<30;i++) {shiftsLine.push([])}
                         for (i=0;i<3;i++) { //f is line number 0,1,2,3, h is 0 or 1 home away team
                     for (l=0;l<fArray[h][finalLineup[2+h][3*f]][i].length/2;l++) { for (m=0;m<fArray[h][finalLineup[2+h][3*f+1]][i].length/2;m++) {if ((fArray[h][finalLineup[2+h][3*f+1]][i][2*m]>=fArray[h][finalLineup[2+h][3*f]][i][2*l]) && (fArray[h][finalLineup[2+h][3*f+1]][i][2*m]<=fArray[h][finalLineup[2+h][3*f]][i][2*l+1]))
-                      {if (fArray[h][finalLineup[2+h][3*f+1]][i][2*m+1]>=fArray[h][finalLineup[2+h][3*f]][i][2*l+1]) {shiftsLine[i].push( 'case 0', l, m, fArray[h][finalLineup[2+h][3*f+1]][i][2*m], fArray[h][finalLineup[2+h][3*f]][i][2*l+1]) }
-                        else { shiftsLine[i].push('case 1', l, m, fArray[h][finalLineup[2+h][3*f+1]][i][2*m], fArray[h][finalLineup[2+h][3*f+1]][i][2*m+1]) }}
+                      {if (fArray[h][finalLineup[2+h][3*f+1]][i][2*m+1]>=fArray[h][finalLineup[2+h][3*f]][i][2*l+1]) {shiftsLine[i].push(fArray[h][finalLineup[2+h][3*f+1]][i][2*m], fArray[h][finalLineup[2+h][3*f]][i][2*l+1]) }
+                        else { shiftsLine[i].push(fArray[h][finalLineup[2+h][3*f+1]][i][2*m], fArray[h][finalLineup[2+h][3*f+1]][i][2*m+1]) }}
                         else if ((fArray[h][finalLineup[2+h][3*f+1]][i][2*m]<=fArray[h][finalLineup[2+h][3*f]][i][2*l])&&(fArray[h][finalLineup[2+h][3*f+1]][i][2*m+1]>=fArray[h][finalLineup[2+h][3*f]][i][2*l])) {
-                          if (fArray[h][finalLineup[2+h][3*f+1]][i][2*m+1]>=fArray[h][finalLineup[2+h][3*f]][i][2*l+1]) { shiftsLine[i].push('case 2', l, m, fArray[h][finalLineup[2+h][3*f]][i][2*l], fArray[h][finalLineup[2+h][3*f]][i][2*l+1]) }
-                          else {shiftsLine[i].push('case 3', l, m, fArray[h][finalLineup[2+h][3*f]][i][2*l], fArray[h][finalLineup[2+h][3*f+1]][i][2*m+1])}}
-                    }} // end m,l loop
+                          if (fArray[h][finalLineup[2+h][3*f+1]][i][2*m+1]>=fArray[h][finalLineup[2+h][3*f]][i][2*l+1]) { shiftsLine[i].push(fArray[h][finalLineup[2+h][3*f]][i][2*l], fArray[h][finalLineup[2+h][3*f]][i][2*l+1]) }
+                          else {shiftsLine[i].push(fArray[h][finalLineup[2+h][3*f]][i][2*l], fArray[h][finalLineup[2+h][3*f+1]][i][2*m+1])}}
+                    }} // end first m,l loop
                     // start second l,m loop fArray[h][finalLineup[2+h][3*f]][i] = shiftsLine[i]
                     for (l=0;l<shiftsLine[i].length/2;l++) { for (m=0;m<fArray[h][finalLineup[2+h][3*f+2]][i].length/2;m++) {if ((fArray[h][finalLineup[2+h][3*f+2]][i][2*m]>=shiftsLine[i][2*l]) && (fArray[h][finalLineup[2+h][3*f+2]][i][2*m]<=shiftsLine[i][2*l+1]))
                       {if (fArray[h][finalLineup[2+h][3*f+2]][i][2*m+1]>=shiftsLine[i][2*l+1]) {shiftsLine[i+3].push( 'case 5', l, m, fArray[h][finalLineup[2+h][3*f+2]][i][2*m], shiftsLine[i][2*l+1]) }
                         else { shiftsLine[i+3].push('case 6', l, m, fArray[h][finalLineup[2+h][3*f+2]][i][2*m], fArray[h][finalLineup[2+h][3*f+2]][i][2*m+1]) }}
                         else if ((fArray[h][finalLineup[2+h][3*f+2]][i][2*m]<=shiftsLine[i][2*l])&&(fArray[h][finalLineup[2+h][3*f+2]][i][2*m+1]>=shiftsLine[i][2*l])) {
                           if (fArray[h][finalLineup[2+h][3*f+2]][i][2*m+1]>=shiftsLine[i][2*l+1]) { shiftsLine[i+3].push('case 7', l, m, shiftsLine[i][2*l], shiftsLine[i][2*l+1]) }
-                          else {shiftsLine[i+3].push('case 8', l, m, shiftsLine[i][2*l], shiftsLine[i][2*m+1])}}
+                          else {shiftsLine[i+3].push('case 8', l, m, shiftsLine[i][2*l], fArray[h][finalLineup[2+h][3*f+2]][i][2*m+1])}}
                     }} // end second m,l loop
+                    for (j=0;j<3;j++) {console.log(j)}
                   } // end i loop
                     console.log(shiftsLine);
                     return finalLineup[3-h][1]

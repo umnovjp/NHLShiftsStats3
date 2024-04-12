@@ -92,7 +92,7 @@ function getInputValue() {
                         playerIdArray[playerOrder + 1][data_shifts.data[i].period - 1].push(shiftStart2, shiftEnd2)}}
                     for (i = 0; i < playerIdArray.length / 2; i++) {currentKey = playerIdArray[2 * i]; playerIdeObject[currentKey] = playerIdArray[2 * i + 1]}
                     console.log(playerIdArray, playerIdeObject);
-                    console.log(Object.keys(playerIdeObject), Object.values(playerIdeObject));
+                    // console.log(Object.keys(playerIdeObject), Object.values(playerIdeObject)); to be viewed later
 
                     dArray = [[], []];
                     for (i = 0; i < playerIdArray.length / 2; i++) {for (j = 0; j < homeD.length / 3; j++) { if (playerIdArray[2 * i] === homeD[3 * j]) { dArray[0].push(playerIdArray[2 * i + 1]) } }
@@ -371,7 +371,6 @@ function getInputValue() {
                     secondPart = (topFLimit-1-i)*(j-1-i); sum=0;
                     for (l=0;l<j-i;l++) {sum=sum+l}
                       return firstPart[i] + secondPart - sum + k-1-j} // end function lineNumber
-                    console.log(tempArray3[0], tempArray3[1]) // line to be deleted
                     console.log('final lineup', finalLineup);
                     console.log(finalLineup[2][3*0], fArray[0][finalLineup[2][2]][0])
 
@@ -392,12 +391,29 @@ function getInputValue() {
                           if (fArray[h][finalLineup[2+h][3*f+2]][i][2*m+1]>=shiftsLine[i][2*l+1]) { shiftsLine[i+3].push('case 7', l, m, shiftsLine[i][2*l], shiftsLine[i][2*l+1]) }
                           else {shiftsLine[i+3].push('case 8', l, m, shiftsLine[i][2*l], fArray[h][finalLineup[2+h][3*f+2]][i][2*m+1])}}
                     }} // end second m,l loop
-                    for (j=0;j<3;j++) {console.log(j)}
+                    for (j=1; j<5; j++) {for (l=0;l<fArray[1-h][finalLineup[3-h][3*(j-1)]][i].length/2;l++) { for (m=0;m<fArray[1-h][finalLineup[3-h][3*(j-1)+1]][i].length/2;m++) {if ((fArray[1-h][finalLineup[3-h][3*(j-1)+1]][i][2*m]>=fArray[h][finalLineup[3-h][3*(j-1)]][i][2*l]) && (fArray[1-h][finalLineup[3-h][3*(j-1)+1]][i][2*m]<=fArray[1-h][finalLineup[3-h][3*(j-1)]][i][2*l+1]))
+                      {if (fArray[1-h][finalLineup[3-h][3*(j-1)+1]][i][2*m+1]>=fArray[1-h][finalLineup[3-h][3*(j-1)]][i][2*l+1]) {shiftsLine[6*j+i].push(fArray[1-h][finalLineup[3-h][3*(j-1)+1]][i][2*m], fArray[1-h][finalLineup[3-h][3*(j-1)]][i][2*l+1]) }
+                        else { shiftsLine[6*j+i].push(fArray[1-h][finalLineup[3-h][3*(j-1)+1]][i][2*m], fArray[1-h][finalLineup[3-h][3*(j-1)+1]][i][2*m+1]) }}
+                        else if ((fArray[1-h][finalLineup[3-h][3*(j-1)+1]][i][2*m]<=fArray[1-h][finalLineup[3-h][3*(j-1)]][i][2*l])&&(fArray[1-h][finalLineup[3-h][3*(j-1)+1]][i][2*m+1]>=fArray[1-h][finalLineup[3-h][3*(j-1)]][i][2*l])) {
+                          if (fArray[1-h][finalLineup[3-h][3*(j-1)+1]][i][2*m+1]>=fArray[1-h][finalLineup[3-h][3*(j-1)]][i][2*l+1]) { shiftsLine[6*j+i].push(fArray[1-h][finalLineup[3-h][3*(j-1)]][i][2*l], fArray[1-h][finalLineup[3-h][3*(j-1)]][i][2*l+1]) }
+                          else {shiftsLine[6*j+i].push(fArray[1-h][finalLineup[3-h][3*(j-1)]][i][2*l], fArray[1-h][finalLineup[3-h][3*(j-1)+1]][i][2*m+1])}}
+                    }} // end first m,l loop
+                    // start second l,m loop fArray[h][finalLineup[2+h][3*f]][i] = shiftsLine[i]
+                    for (l=0;l<shiftsLine[6*j+i].length/2;l++) { for (m=0;m<fArray[1-h][finalLineup[3-h][3*(j-1)+2]][i].length/2;m++) {if ((fArray[1-h][finalLineup[3-h][3*(j-1)+2]][i][2*m]>=shiftsLine[6*j+i][2*l]) && (fArray[1-h][finalLineup[3-h][3*(j-1)+2]][i][2*m]<=shiftsLine[6*j+i][2*l+1]))
+                      {if (fArray[1-h][finalLineup[3-h][3*(j-1)+2]][i][2*m+1]>=shiftsLine[6*j+i][2*l+1]) {shiftsLine[6*j+i+3].push( 'case 5', l, m, fArray[1-h][finalLineup[3-h][3*(j-1)+2]][i][2*m], shiftsLine[6*j+i][2*l+1]) }
+                        else { shiftsLine[6*j+i+3].push('case 6', l, m, fArray[1-h][finalLineup[3-h][3*(j-1)+2]][i][2*m], fArray[1-h][finalLineup[3-h][3*(j-1)+2]][i][2*m+1]) }}
+                        else if ((fArray[1-h][finalLineup[3-h][3*(j-1)+2]][i][2*m]<=shiftsLine[6*j+i][2*l])&&(fArray[1-h][finalLineup[3-h][3*(j-1)+2]][i][2*m+1]>=shiftsLine[6*j+i][2*l])) {
+                          if (fArray[1-h][finalLineup[3-h][3*(j-1)+2]][i][2*m+1]>=shiftsLine[6*j+i][2*l+1]) { shiftsLine[6*j+i+3].push('case 7', l, m, shiftsLine[6*j+i][2*l], shiftsLine[6*j+i][2*l+1]) }
+                          else {shiftsLine[6*j+i+3].push('case 8', l, m, shiftsLine[6*j+i][2*l], fArray[1-h][finalLineup[3-h][3*(j-1)+2]][i][2*m+1])}}
+                        
+                        }} // end second m,l loop}
+                      } // end j loop
+                    
                   } // end i loop
                     console.log(shiftsLine);
                     return finalLineup[3-h][1]
-                    }
-                    lineByLine(0,0);
+                    } // end function lineByLine
+                    lineByLine(1,1);
                    
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI sec'; headerHome3.innerHTML = 'shifts';
                     firstLine.innerHTML=homeF[1+3*finalLineup[2][0]]+' '+homeF[2+3*finalLineup[2][0]]+'<br>'+homeF[1+3*finalLineup[2][1]]+' '+homeF[2+3*finalLineup[2][1]]+'<br>'+homeF[1+3*finalLineup[2][2]]+' '+homeF[2+3*finalLineup[2][2]];

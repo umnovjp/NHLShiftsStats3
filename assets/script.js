@@ -373,7 +373,7 @@ function getInputValue() {
                       return firstPart[i] + secondPart - sum + k-1-j} // end function lineNumber
                     console.log('final lineup', finalLineup);
 
-                       function lineByLine(h,f,j) { shiftsLine=[]; for (i=0;i<12;i++) {shiftsLine.push([])}
+                       function lineByLine(h,f,j) { shiftsLine=[]; for (i=0;i<14;i++) {shiftsLine.push([])}
                         for (i=0;i<3;i++) { //f is line number 0,1,2,3, h is 0 or 1 home away team
                     for (l=0;l<fArray[h][finalLineup[2+h][3*f]][i].length/2;l++) { for (m=0;m<fArray[h][finalLineup[2+h][3*f+1]][i].length/2;m++) {if ((fArray[h][finalLineup[2+h][3*f+1]][i][2*m]>=fArray[h][finalLineup[2+h][3*f]][i][2*l]) && (fArray[h][finalLineup[2+h][3*f+1]][i][2*m]<=fArray[h][finalLineup[2+h][3*f]][i][2*l+1]))
                       {if (fArray[h][finalLineup[2+h][3*f+1]][i][2*m+1]>=fArray[h][finalLineup[2+h][3*f]][i][2*l+1]) {shiftsLine[i].push(fArray[h][finalLineup[2+h][3*f+1]][i][2*m], fArray[h][finalLineup[2+h][3*f]][i][2*l+1]) }
@@ -404,23 +404,35 @@ function getInputValue() {
                         else if ((fArray[1-h][finalLineup[3-h][3*j+2]][i][2*m]<=shiftsLine[6+i][2*l])&&(fArray[1-h][finalLineup[3-h][3*j+2]][i][2*m+1]>=shiftsLine[6+i][2*l])) {
                           if (fArray[1-h][finalLineup[3-h][3*j+2]][i][2*m+1]>=shiftsLine[6+i][2*l+1]) { shiftsLine[6+i+3].push(shiftsLine[6+i][2*l], shiftsLine[6+i][2*l+1]) }
                           else {shiftsLine[6+i+3].push(shiftsLine[6+i][2*l], fArray[1-h][finalLineup[3-h][3*j+2]][i][2*m+1])}}
-                        }} // end second away m,l loop}
-                    for (l=0;l<shiftsLine[3+i].length;l++) {for (m=0;m<shiftsLine[9+i].length;m++) {if ((shiftsLine[9+i][2*m]>=shiftsLine[3+i][2*l])&&(shiftsLine[9+i][2*m]<=shiftsLine[3+i][2*l+1])){}}}
+                        }} // end second away m,l loop
+                        shiftsLine[12].push([]);
+                    for (l=0;l<shiftsLine[3+i].length/2;l++) {for (m=0;m<shiftsLine[9+i].length/2;m++) {if ((shiftsLine[9+i][2*m]>=shiftsLine[3+i][2*l])&&(shiftsLine[9+i][2*m]<=shiftsLine[3+i][2*l+1])){
+                      if ((shiftsLine[9+i][2*m]>=m<shiftsLine[3+i][2*l]) && (shiftsLine[9+i][2*m]<=m<shiftsLine[9+i][2*l+1])) {if (shiftsLine[3+i][2*m+1]>=shiftsLine[9+i][2*l+1]){shiftsLine[12][i].push(shiftsLine[9+i][2*m], shiftsLine[3+i][2*l+1])}
+                      else { shiftsLine[12][i].push(shiftsLine[9+i][2*m], shiftsLine[9+i][2*m+1]) }}}
+                      else if ((shiftsLine[9+i][2*m]<=shiftsLine[3+i][2*l])&&(shiftsLine[9+i][2*m+1]>=shiftsLine[3+i][2*l])) {
+                        if (shiftsLine[9+i][2*m+1]>=shiftsLine[3+i][2*l+1]) { shiftsLine[12][i].push(shiftsLine[3+i][2*l], shiftsLine[3+i][2*l+1]) }
+                        else {shiftsLine[12][i].push(shiftsLine[3+i][2*l], shiftsLine[9+i][2*m+1])}}
+                  }} // end m,l loop line vs line
+                  lineVsLineTime=0; lineVsLineShifts=0;
+                  for (k=0;k<shiftsLine[12][i].length/2;k++) { lineVsLineTime=lineVsLineTime+shiftsLine[12][i][2*k+1]-shiftsLine[12][i][2*k];
+                  if (shiftsLine[12][i][2*k+1]-shiftsLine[12][i][2*k]>=10) {lineVsLineShifts=lineVsLineShifts+1}}
+                  shiftsLine[13].push(lineVsLineTime, lineVsLineShifts)
                   } // end i loop
                     console.log(shiftsLine);
-                    return finalLineup[3-h][1]
+                    return shiftsLine[13];
                     } // end function lineByLine
                     lineByLine(0,0,0);
                    
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI sec'; headerHome3.innerHTML = 'shifts';
                     firstLine.innerHTML=homeF[1+3*finalLineup[2][0]]+' '+homeF[2+3*finalLineup[2][0]]+'<br>'+homeF[1+3*finalLineup[2][1]]+' '+homeF[2+3*finalLineup[2][1]]+'<br>'+homeF[1+3*finalLineup[2][2]]+' '+homeF[2+3*finalLineup[2][2]];
-                    // console.log(finalLineup[2][0],finalLineup[2][1],finalLineup[2][2],lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2]),finalLineup[2][3],finalLineup[2][4],finalLineup[2][5],lineNumber(0,finalLineup[2][3],finalLineup[2][4],finalLineup[2][5]),finalLineup[2][6],finalLineup[2][7],finalLineup[2][8],lineNumber(0,finalLineup[2][6],finalLineup[2][7],finalLineup[2][8]));
-                    // console.log(finalLineup[3][0],finalLineup[3][1],finalLineup[3][2],lineNumber(1,finalLineup[3][0],finalLineup[3][1],finalLineup[3][2]),finalLineup[3][3],finalLineup[3][4],finalLineup[3][5],lineNumber(1,finalLineup[3][3],finalLineup[3][4],finalLineup[3][5]),finalLineup[3][6],finalLineup[3][7],finalLineup[3][8],lineNumber(1,finalLineup[3][6],finalLineup[3][7],finalLineup[3][8]));
                     firstLineTime.innerHTML=linesArray[0][5*lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2])]+'<br>'+linesArray[1][5*lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2])]+'<br>'+linesArray[2][5*lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2])];
                     firstLineTime2.innerHTML=linesArray[0][1+5*lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2])]+'<br>'+linesArray[1][1+5*lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2])]+'<br>'+linesArray[2][1+5*lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2])];
-                    var firstF1 = document.createElement('p2'); var firstF2 = document.createElement('p2'); var firstF3 = document.createElement('p2'); var firstF4 = document.createElement('p2');
-                    firstF1.innerHTML = lineByLine(0,0,0); firstF2.innerHTML = lineByLine(0,1,0); firstF3.innerHTML = 'TBD3'; firstF4.innerHTML = 'TBD4';
-                    document.getElementById('firstLineTime2').appendChild(firstF1); document.getElementById('firstLineTime2').appendChild(firstF2); document.getElementById('firstLineTime2').appendChild(firstF3); document.getElementById('firstLineTime2').appendChild(firstF4);
+                    firstLineTime3.innerHTML=lineByLine(0,0,0)[0]+'s '+lineByLine(0,0,0)[1]+'sh/ '+lineByLine(0,0,0)[2]+'s '+lineByLine(0,0,0)[3]+'sh/ '+lineByLine(0,0,0)[4]+'s '+lineByLine(0,0,0)[5]+'sh/ '+'<br>'+lineByLine(0,0,1)[0]+'s'+lineByLine(0,0,1)[1]+'sh/ '+lineByLine(0,0,1)[2]+'s '+lineByLine(0,0,1)[3]+'sh/ '+lineByLine(0,0,1)[4]+'s '+lineByLine(0,0,1)[5]+'sh/ '+'<br>'+
+                    lineByLine(0,0,2)[0]+'s '+lineByLine(0,0,2)[1]+'sh/ '+lineByLine(0,0,2)[2]+'s '+lineByLine(0,0,2)[3]+'sh/ '+lineByLine(0,0,2)[3]+'sh/ '+lineByLine(0,0,2)[4]+'s '+lineByLine(0,0,2)[5]+'sh/ '+'<br>'+lineByLine(0,0,3)[0]+'s '+lineByLine(0,0,3)[1]+'sh/ '+lineByLine(0,0,3)[2]+'s '+lineByLine(0,0,3)[3]+'sh/ '+lineByLine(0,0,3)[3]+'sh/ '+lineByLine(0,0,3)[4]+'s '+lineByLine(0,0,3)[5]+'sh/ ';
+                    // var firstF1 = document.createElement('p2'); var firstF2 = document.createElement('p2'); var firstF3 = document.createElement('p2'); var firstF4 = document.createElement('p2');
+                    // firstF1.innerHTML = lineByLine(0,0,0); firstF2.innerHTML = lineByLine(0,1,0); firstF3.innerHTML = 'TBD3'; firstF4.innerHTML = 'TBD4';
+                    // document.getElementById('firstLineTime2').appendChild(firstF1); 
+                    // document.getElementById('firstLineTime2').appendChild(firstF2); document.getElementById('firstLineTime2').appendChild(firstF3); document.getElementById('firstLineTime2').appendChild(firstF4);
                     secondLine.innerHTML=homeF[1+3*finalLineup[2][3]]+' '+homeF[2+3*finalLineup[2][3]]+'<br>'+homeF[1+3*finalLineup[2][4]]+' '+homeF[2+3*finalLineup[2][4]]+'<br>'+homeF[1+3*finalLineup[2][5]]+' '+homeF[2+3*finalLineup[2][5]];
                     secondLineTime.innerHTML=linesArray[0][5*lineNumber(0,finalLineup[2][3],finalLineup[2][4],finalLineup[2][5])]+'<br>'+linesArray[1][5*lineNumber(0,finalLineup[2][3],finalLineup[2][4],finalLineup[2][5])]+'<br>'+linesArray[2][5*lineNumber(0,finalLineup[2][3],finalLineup[2][4],finalLineup[2][5])];
                     secondLineTime2.innerHTML=linesArray[0][1+5*lineNumber(0,finalLineup[2][3],finalLineup[2][4],finalLineup[2][5])]+'<br>'+linesArray[1][1+5*lineNumber(0,finalLineup[2][3],finalLineup[2][4],finalLineup[2][5])]+'<br>'+linesArray[2][1+5*lineNumber(0,finalLineup[2][3],finalLineup[2][4],finalLineup[2][5])];
@@ -442,15 +454,17 @@ function getInputValue() {
                     firstLineAway.innerHTML=awayF[1+3*finalLineup[3][0]]+' '+awayF[2+3*finalLineup[3][0]]+'<br>'+awayF[1+3*finalLineup[3][1]]+' '+awayF[2+3*finalLineup[3][1]]+'<br>'+awayF[1+3*finalLineup[3][2]]+' '+awayF[2+3*finalLineup[3][2]];
                     firstLineTimeAway.innerHTML=linesArray[3][5*lineNumber(1,finalLineup[3][0],finalLineup[3][1],finalLineup[3][2])]+'<br>'+linesArray[4][5*lineNumber(1,finalLineup[3][0],finalLineup[3][1],finalLineup[3][2])]+'<br>'+linesArray[5][5*lineNumber(1,finalLineup[3][0],finalLineup[3][1],finalLineup[3][2])];
                     firstLineTime2Away.innerHTML=linesArray[3][1+5*lineNumber(1,finalLineup[3][0],finalLineup[3][1],finalLineup[3][2])]+'<br>'+linesArray[4][1+5*lineNumber(1,finalLineup[3][0],finalLineup[3][1],finalLineup[3][2])]+'<br>'+linesArray[5][1+5*lineNumber(1,finalLineup[3][0],finalLineup[3][1],finalLineup[3][2])];
-                    var firstF1A = document.createElement('p2'); firstF1A.innerHTML = firstF1.innerHTML; document.getElementById('firstLineTime2Away').appendChild(firstF1A);
+                    firstLineTime3Away.innerHTML=lineByLine(1,0,0)[0]+'s '+lineByLine(1,0,0)[1]+'sh/ '+lineByLine(1,0,0)[2]+'s '+lineByLine(1,0,0)[3]+'sh/ '+lineByLine(1,0,0)[4]+'s '+lineByLine(1,0,0)[5]+'sh/ '+'<br>'+lineByLine(1,0,1)[0]+'s'+lineByLine(1,0,1)[1]+'sh/ '+lineByLine(1,0,1)[2]+'s '+lineByLine(1,0,1)[3]+'sh/ '+lineByLine(1,0,1)[4]+'s '+lineByLine(1,0,1)[5]+'sh/ '+'<br>'+
+                    lineByLine(1,0,2)[0]+'s '+lineByLine(1,0,2)[1]+'sh/ '+lineByLine(1,0,2)[2]+'s '+lineByLine(1,0,2)[3]+'sh/ '+lineByLine(1,0,2)[3]+'sh/ '+lineByLine(1,0,2)[4]+'s '+lineByLine(1,0,2)[5]+'sh/ '+'<br>'+lineByLine(1,0,3)[0]+'s '+lineByLine(1,0,3)[1]+'sh/ '+lineByLine(1,0,3)[2]+'s '+lineByLine(1,0,3)[3]+'sh/ '+lineByLine(1,0,3)[3]+'sh/ '+lineByLine(1,0,3)[4]+'s '+lineByLine(1,0,3)[5]+'sh/ ';
+                    // var firstF1A = document.createElement('p2'); firstF1A.innerHTML = firstF1.innerHTML; document.getElementById('firstLineTime2Away').appendChild(firstF1A);
                     secondLineAway.innerHTML=awayF[1+3*finalLineup[3][3]]+' '+awayF[2+3*finalLineup[3][3]]+'<br>'+awayF[1+3*finalLineup[3][4]]+' '+awayF[2+3*finalLineup[3][4]]+'<br>'+awayF[1+3*finalLineup[3][5]]+' '+awayF[2+3*finalLineup[3][5]];
                     secondLineTimeAway.innerHTML=linesArray[3][5*lineNumber(1,finalLineup[3][3],finalLineup[3][4],finalLineup[3][5])]+'<br>'+linesArray[4][5*lineNumber(1,finalLineup[3][3],finalLineup[3][4],finalLineup[3][5])]+'<br>'+linesArray[5][5*lineNumber(1,finalLineup[3][3],finalLineup[3][4],finalLineup[3][5])];
                     secondLineTime2Away.innerHTML=linesArray[3][1+5*lineNumber(1,finalLineup[3][3],finalLineup[3][4],finalLineup[3][5])]+'<br>'+linesArray[4][1+5*lineNumber(1,finalLineup[3][3],finalLineup[3][4],finalLineup[3][5])]+'<br>'+linesArray[5][1+5*lineNumber(1,finalLineup[3][3],finalLineup[3][4],finalLineup[3][5])];
-                    var secondF1A = document.createElement('p2'); secondF1A.innerHTML = firstF2.innerHTML; document.getElementById('secondLineTime2Away').appendChild(secondF1A);
+                    // var secondF1A = document.createElement('p2'); secondF1A.innerHTML = firstF2.innerHTML; document.getElementById('secondLineTime2Away').appendChild(secondF1A);
                     thirdLineAway.innerHTML=awayF[1+3*finalLineup[3][6]]+' '+awayF[2+3*finalLineup[3][6]]+'<br>'+awayF[1+3*finalLineup[3][7]]+' '+awayF[2+3*finalLineup[3][7]]+'<br>'+awayF[1+3*finalLineup[3][8]]+' '+awayF[2+3*finalLineup[3][8]];
                     thirdLineTimeAway.innerHTML=linesArray[3][5*lineNumber(1,finalLineup[3][6],finalLineup[3][7],finalLineup[3][8])]+'<br>'+linesArray[4][5*lineNumber(1,finalLineup[3][6],finalLineup[3][7],finalLineup[3][8])]+'<br>'+linesArray[5][5*lineNumber(1,finalLineup[3][6],finalLineup[3][7],finalLineup[3][8])];
                     thirdLineTime2Away.innerHTML=linesArray[3][1+5*lineNumber(1,finalLineup[3][6],finalLineup[3][7],finalLineup[3][8])]+'<br>'+linesArray[4][1+5*lineNumber(1,finalLineup[3][6],finalLineup[3][7],finalLineup[3][8])]+'<br>'+linesArray[5][1+5*lineNumber(1,finalLineup[3][6],finalLineup[3][7],finalLineup[3][8])];
-                    var thirdF1A = document.createElement('p3'); thirdF1A.innerHTML = firstF3.innerHTML; document.getElementById('thirdLineTime2Away').appendChild(thirdF1A);
+                    // var thirdF1A = document.createElement('p3'); thirdF1A.innerHTML = firstF3.innerHTML; document.getElementById('thirdLineTime2Away').appendChild(thirdF1A);
 
                     if (awayF.length/3>=12) {fourthLineAway.innerHTML=awayF[1+3*finalLineup[3][9]]+' '+awayF[2+3*finalLineup[3][9]]+'<br>'+awayF[1+3*finalLineup[3][10]]+' '+awayF[2+3*finalLineup[3][10]]+'<br>'+awayF[1+3*finalLineup[3][11]]+' '+awayF[2+3*finalLineup[3][11]];
                     fourthLineTimeAway.innerHTML=linesArray[3][5*lineNumber(1,finalLineup[3][9],finalLineup[3][10],finalLineup[3][11])]+'<br>'+linesArray[4][5*lineNumber(1,finalLineup[3][9],finalLineup[3][10],finalLineup[3][11])]+'<br>'+linesArray[5][5*lineNumber(1,finalLineup[3][9],finalLineup[3][10],finalLineup[3][11])];

@@ -149,11 +149,11 @@ function getInputValue() {
                        else if ((fiveOnFive[i][j][2*k]>=fiveOnFive3[i][j][2*l])&&(fiveOnFive[i][j][2*k+1]>=fiveOnFive3[i][j][2*l+1])&&(fiveOnFive[i][j][2*k]<fiveOnFive3[i][j][2*l+1])) {fiveOnFive5[i][j].push(fiveOnFive[i][j][2*k], fiveOnFive3[i][j][2*l+1])}
                        else if ((fiveOnFive[i][j][2*k]<=fiveOnFive3[i][j][2*l])&&(fiveOnFive[i][j][2*k+1]<=fiveOnFive3[i][j][2*l+1])&&(fiveOnFive[i][j][2*k+1]>fiveOnFive3[i][j][2*l])) {fiveOnFive5[i][j].push(fiveOnFive3[i][j][2*l], fiveOnFive[i][j][2*k+1])}
                      }}}} 
-                    console.log(fiveOnFive); console.log(fiveOnFive3); console.log(fiveOnFive5); 
+                    console.log('fiveOnFive', fiveOnFive, 'fiveOnFive3', fiveOnFive3, 'fiveOnFive5', fiveOnFive5); 
 
-                    for (h = 0; h < 2; h++) { // h = 0 home team D, h = 1 away team D 
-                      for (i = 0; i < 3; i++) { for (j = 0; j < dArray[h].length; j++) { for (k = j + 1; k < dArray[h].length; k++) {tempTime = []; tempTime2 = []; for (l = 0; l < dArray[h][j][i].length / 2; l++) {
-                              for (m = 0; m < dArray[h][k][i].length / 2; m++) { if ((dArray[h][k][i][2 * m] >= dArray[h][j][i][2 * l]) && (dArray[h][k][i][2 * m] <= dArray[h][j][i][2 * l + 1])) {
+                    for (h=0; h<2; h++) { // h = 0 home team D, h = 1 away team D 
+                      for (i=0; i<3; i++) { for (j = 0; j<dArray[h].length; j++) { for (k=j+1; k<dArray[h].length; k++) {tempTime=[]; tempTime2=[]; for (l=0; l<dArray[h][j][i].length/2; l++) {
+                              for (m=0; m<dArray[h][k][i].length/2; m++) { if ((dArray[h][k][i][2*m] >= dArray[h][j][i][2*l])&&(dArray[h][k][i][2*m] <= dArray[h][j][i][2 * l + 1])) {
                                   if (dArray[h][k][i][2 * m + 1] >= dArray[h][j][i][2 * l + 1]) { tempTime.push(dArray[h][k][i][2 * m], dArray[h][j][i][2 * l + 1]) }
                                   else { tempTime.push(dArray[h][k][i][2 * m], dArray[h][k][i][2 * m + 1]) }}
                                   else if ((dArray[h][k][i][2 * m] <= dArray[h][j][i][2 * l]) && (dArray[h][k][i][2 * m + 1] >= dArray[h][j][i][2 * l])) {
@@ -168,6 +168,7 @@ function getInputValue() {
                                   if (tempTime[2*m+1] >= fiveOnFive5[h][i][2*l+1]) {tempTime2.push(fiveOnFive5[h][i][2*l+1]-fiveOnFive5[h][i][2*l])}
                                   else {tempTime2.push(tempTime[2*m+1] - fiveOnFive5[h][i][2*l])}
                                 }}} // end second m,l loop to count only 5x5 plays
+                                console.log(h,i,j,k,tempTime);
                             shifts = 0; const sum = tempTime2.reduce((partialSum, a) => partialSum + a, 0);
                             for (n = 0; n < tempTime2.length; n++) { if (tempTime2[n] >= 10) { shifts = shifts + 1 } }
                             pairingsArray[i + 3 * h].push(sum); pairingsArray[i + 3 * h].push(shifts); // console.log(h, i, j, k, tempTime, tempTime2);
@@ -421,7 +422,6 @@ function getInputValue() {
                     // console.log(shiftsLine);
                     return shiftsLine[13];
                     } // end function lineByLine
-                   // lineByLine(0,0,0);
                    
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI sec'; headerHome3.innerHTML = 'shifts'; headerHome3.innerHTML = 'TBD';
                     firstLine.innerHTML=homeF[1+3*finalLineup[2][0]]+' '+homeF[2+3*finalLineup[2][0]]+'<br>'+homeF[1+3*finalLineup[2][1]]+' '+homeF[2+3*finalLineup[2][1]]+'<br>'+homeF[1+3*finalLineup[2][2]]+' '+homeF[2+3*finalLineup[2][2]];
@@ -437,7 +437,6 @@ function getInputValue() {
                   
                     // var secondF1 = document.createElement('p2'); var secondF2 = document.createElement('p2'); var secondF3 = document.createElement('p2'); var secondF4 = document.createElement('p2');
                     // secondF1.innerHTML = 'TBD21'; secondF2.innerHTML = 'TBD22'; secondF3.innerHTML = 'TBD2'; secondF4.innerHTML = 'TBD24';
-                    // document.getElementById('secondLineTime2').appendChild(secondF1); document.getElementById('secondLineTime2').appendChild(secondF2); document.getElementById('secondLineTime2').appendChild(secondF3); document.getElementById('secondLineTime2').appendChild(secondF4);
                     thirdLine.innerHTML=homeF[1+3*finalLineup[2][6]]+' '+homeF[2+3*finalLineup[2][6]]+'<br>'+homeF[1+3*finalLineup[2][7]]+' '+homeF[2+3*finalLineup[2][7]]+'<br>'+homeF[1+3*finalLineup[2][8]]+' '+homeF[2+3*finalLineup[2][8]];
                       thirdLineTime.innerHTML=linesArray[0][5*lineNumber(0,finalLineup[2][6],finalLineup[2][7],finalLineup[2][8])]+'<br>'+linesArray[1][5*lineNumber(0,finalLineup[2][6],finalLineup[2][7],finalLineup[2][8])]+'<br>'+linesArray[2][5*lineNumber(0,finalLineup[2][6],finalLineup[2][7],finalLineup[2][8])];
                       thirdLineTime2.innerHTML=linesArray[0][1+5*lineNumber(0,finalLineup[2][6],finalLineup[2][7],finalLineup[2][8])]+'<br>'+linesArray[1][1+5*lineNumber(0,finalLineup[2][6],finalLineup[2][7],finalLineup[2][8])]+'<br>'+linesArray[2][1+5*lineNumber(0,finalLineup[2][6],finalLineup[2][7],finalLineup[2][8])];
@@ -445,7 +444,6 @@ function getInputValue() {
                     lineByLine(0,2,2)[0]+'s '+lineByLine(0,2,2)[1]+'sh/ '+lineByLine(0,2,2)[2]+'s '+lineByLine(0,2,2)[3]+'sh/ '+lineByLine(0,2,2)[4]+'s '+lineByLine(0,2,2)[5]+'sh/ '+'<br>'+lineByLine(0,2,3)[0]+'s '+lineByLine(0,2,3)[1]+'sh/ '+lineByLine(0,2,3)[2]+'s '+lineByLine(0,2,3)[3]+'sh/ '+lineByLine(0,2,3)[4]+'s '+lineByLine(0,2,3)[5]+'sh/ ';
                       // var thirdF1 = document.createElement('p3'); var thirdF2 = document.createElement('p2'); var thirdF3 = document.createElement('p3'); var thirdF4 = document.createElement('p2');
                       // thirdF1.innerHTML = 'TBD31'; thirdF2.innerHTML = 'TBD32'; thirdF3.innerHTML = 'TBD33'; thirdF4.innerHTML = 'TBD34';
-                      // document.getElementById('thirdLineTime2').appendChild(thirdF1); document.getElementById('thirdLineTime2').appendChild(thirdF2); document.getElementById('thirdLineTime2').appendChild(thirdF3); document.getElementById('thirdLineTime2').appendChild(thirdF4);
                     if (homeF.length/3>=12) {fourthLine.innerHTML=homeF[1+3*finalLineup[2][9]]+' '+homeF[2+3*finalLineup[2][9]]+'<br>'+homeF[1+3*finalLineup[2][10]]+' '+homeF[2+3*finalLineup[2][10]]+'<br>'+homeF[1+3*finalLineup[2][11]]+' '+homeF[2+3*finalLineup[2][11]];
                     fourthLineTime.innerHTML=linesArray[0][5*lineNumber(0,finalLineup[2][9],finalLineup[2][10],finalLineup[2][11])]+'<br>'+linesArray[1][5*lineNumber(0,finalLineup[2][9],finalLineup[2][10],finalLineup[2][11])]+'<br>'+linesArray[2][5*lineNumber(0,finalLineup[2][9],finalLineup[2][10],finalLineup[2][11])];
                     fourthLineTime2.innerHTML=linesArray[0][1+5*lineNumber(0,finalLineup[2][9],finalLineup[2][10],finalLineup[2][11])]+'<br>'+linesArray[1][1+5*lineNumber(0,finalLineup[2][9],finalLineup[2][10],finalLineup[2][11])]+'<br>'+linesArray[2][1+5*lineNumber(0,finalLineup[2][9],finalLineup[2][10],finalLineup[2][11])];

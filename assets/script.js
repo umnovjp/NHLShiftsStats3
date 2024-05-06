@@ -427,10 +427,9 @@ function getInputValue() {
                   } // end i loop
                     return shiftsLine[13]} // end function lineByLine
 
-                    allLinesCombined = [[],[],[],[],[],[]]
+                    allLinesCombined = [[],[],[],[],[],[]] 
                     for (h=0;h<2;h++) {for (i=0;i<3;i++) {for (j=0;j<linesArray[3*h+i].length/5;j++) {if ((linesArray[3*h+i][5*j]>75)&&(linesArray[3*h+i][5*j+1]>3)){allLinesCombined[3*h+i].push(linesArray[3*h+i][5*j+2],linesArray[3*h+i][5*j+3],linesArray[3*h+i][5*j+4])}}
-                    if (i>0) {
-                    for (j=0;j<finalLineup[h+2].length/3;j++) {for (k=0;k<allLinesCombined[3*h+i].length/3;k++) {if ((finalLineup[h+2][3*j]===allLinesCombined[3*h+i][3*k])&&(finalLineup[h+2][3*j+1]===allLinesCombined[3*h+i][3*k+1])&&(finalLineup[h+2][3*j+2]===allLinesCombined[3*h+i][3*k+2])){}
+                    if (i>0) { for (j=0;j<finalLineup[h+2].length/3;j++) {for (k=0;k<allLinesCombined[3*h+i].length/3;k++) {if ((finalLineup[h+2][3*j]===allLinesCombined[3*h+i][3*k])&&(finalLineup[h+2][3*j+1]===allLinesCombined[3*h+i][3*k+1])&&(finalLineup[h+2][3*j+2]===allLinesCombined[3*h+i][3*k+2])){}
                 else (console.log(h, allLinesCombined[3*h+i][3*k], allLinesCombined[3*h+i][3*k+1], allLinesCombined[3*h+i][3*k+2], 'is the new line'))}}}
               }}
                     console.log(allLinesCombined);
@@ -442,8 +441,7 @@ function getInputValue() {
                     firstLineTime3.innerHTML=lineByLine(0,0,0)[0][0]+' '+lineByLine(0,0,0)[0][1]+' '+lineByLine(0,0,1)[0][0]+' '+lineByLine(0,0,1)[0][1]+' '+lineByLine(0,0,2)[0][0]+' '+lineByLine(0,0,2)[0][1]+' '+lineByLine(0,0,3)[0][0]+' '+lineByLine(0,0,3)[0][1]+' '+'<br>'+lineByLine(0,0,0)[0][2]+' '+lineByLine(0,0,0)[0][3]+' '+lineByLine(0,0,1)[0][2]+' '+lineByLine(0,0,1)[0][3]+' '+
                     lineByLine(0,0,2)[0][2]+' '+lineByLine(0,0,2)[0][3]+' '+lineByLine(0,0,3)[0][2]+' '+lineByLine(0,0,3)[0][3]+' '+'<br>'+lineByLine(0,0,0)[0][4]+' '+lineByLine(0,0,0)[0][5]+' '+lineByLine(0,0,1)[0][4]+' '+lineByLine(0,0,1)[0][5]+' '+lineByLine(0,0,2)[0][4]+' '+lineByLine(0,0,2)[0][5]+' '+lineByLine(0,0,3)[0][4]+' '+lineByLine(0,0,3)[0][5]+' ';
                     lineByLine20.innerHTML=homeF[1+3*finalLineup[2][0]]+' '+homeF[2+3*finalLineup[2][0]]+'<br>'+homeF[1+3*finalLineup[2][1]]+' '+homeF[2+3*finalLineup[2][1]]+'<br>'+homeF[1+3*finalLineup[2][2]]+' '+homeF[2+3*finalLineup[2][2]];
-                    // lineByLine21.innerHTML=linesArray[0][5*lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2])]+'<br>'+linesArray[1][5*lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2])]+'<br>'+linesArray[2][5*lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2])];
-                    // lineByLine22.innerHTML=linesArray[0][1+5*lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2])]+'<br>'+linesArray[1][1+5*lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2])]+'<br>'+linesArray[2][1+5*lineNumber(0,finalLineup[2][0],finalLineup[2][1],finalLineup[2][2])];
+
                     lineByLine22.innerHTML=lineByLine(0,0,0)[1][0]+' '+lineByLine(0,0,0)[1][1]+'<br>'+lineByLine(0,0,0)[1][2]+' '+lineByLine(0,0,0)[1][3]+'<br>'+lineByLine(0,0,0)[1][4]+' '+lineByLine(0,0,0)[1][5];
                     lineByLine24.innerHTML=lineByLine(0,0,0)[0][0]+' '+lineByLine(0,0,0)[0][1]+' '+lineByLine(1,0,0)[0][0]+' '+lineByLine(1,0,0)[0][1]+' '+'<br>'+lineByLine(0,0,0)[0][2]+' '+lineByLine(0,0,0)[0][3]+' '+lineByLine(1,0,0)[0][2]+' '+lineByLine(1,0,0)[0][3]+' '+'<br>'+lineByLine(0,0,0)[0][4]+' '+lineByLine(0,0,0)[0][5]+' '+lineByLine(1,0,0)[0][4]+' '+lineByLine(1,0,0)[0][5]+' ';
                     lineByLine25.innerHTML=lineByLine(0,0,1)[0][0]+' '+lineByLine(0,0,1)[0][1]+' '+lineByLine(1,1,0)[0][0]+' '+lineByLine(1,1,0)[0][1]+' '+'<br>'+lineByLine(0,0,1)[0][2]+' '+lineByLine(0,0,1)[0][3]+' '+lineByLine(1,1,0)[0][2]+' '+lineByLine(1,1,0)[0][3]+' '+'<br>'+lineByLine(0,0,1)[0][4]+' '+lineByLine(0,0,1)[0][5]+' '+lineByLine(1,1,0)[0][4]+' '+lineByLine(1,1,0)[0][5]+' ';

@@ -568,18 +568,14 @@ function getInputValue() {
                   if (shiftsLine[12][i][2*k+1]-shiftsLine[12][i][2*k]>=10) {lineVsLineShifts=lineVsLineShifts+1}
                   shiftsLine[13][0].push(lineVsLineTime, lineVsLineShifts)
                 }
-                 // shiftsLine[13][0].push(lineVsLineTime, lineVsLineShifts)
                   lineVsLineTime=0; lineVsLineShifts=0;
                   for (k=0;k<shiftsLine[3+i].length/2;k++) { lineVsLineTime=lineVsLineTime+shiftsLine[3+i][2*k+1]-shiftsLine[3+i][2*k];
                     if (shiftsLine[3+i][2*k+1]-shiftsLine[3+i][2*k]>=10) {lineVsLineShifts=lineVsLineShifts+1}}
                     shiftsLine[13][1].push(lineVsLineTime, lineVsLineShifts)
-                  // lineVsLineTime=0; lineVsLineShifts=0;
-                  // for (k=0;k<shiftsLine[9+i].length/2;k++) { lineVsLineTime=lineVsLineTime+shiftsLine[9+i][2*k+1]-shiftsLine[9+i][2*k];
                   } // end i loop
                   console.log(shiftsLine);
                     return shiftsLine[13]} // end function lineByLine
                     lineByLine2x(0,0,2);
-
                   }); // end second .then shifts
               }); // end second .then standings;
           }); // end second .then gamecenter;

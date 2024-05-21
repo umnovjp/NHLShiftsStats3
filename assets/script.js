@@ -433,10 +433,17 @@ function getInputValue() {
                       else {console.log(h, i, allLinesCombined[3*h+i][3*k], allLinesCombined[3*h+i][3*k+1], allLinesCombined[3*h+i][3*k+2],'is the new line', finalLineup[h+2][3*j], finalLineup[h+2][3*j+1], finalLineup[h+2][3*j+2], 'is the old line')}
                     }}}}
                     if (i>0) {for (j=0;j<finalLineup[h+2].length/3;j++) {for (k=0;k<allLinesCombined[3*h+i].length/3;k++) {
-                      if ((finalLineup[h+2][3*j]===allLinesCombined[3*h+i][3*k])&&(finalLineup[h+2][3*j+1]===allLinesCombined[3*h+i][3*k+1]))&&(finalLineup[h+2][3*j+2]===allLinesCombined[3*h+i][3*k+2]))) {}
+                      if (finalLineup[h+2][3*j]===allLinesCombined[3*h+i][3*k]) {if ((finalLineup[h+2][3*j+1]===allLinesCombined[3*h+i][3*k+1])&&(finalLineup[h+2][3*j+2]===allLinesCombined[3*h+i][3*k+2])) {
+                        console.log(h, i, finalLineup[h+2][3*j], finalLineup[h+2][3*j+1], finalLineup[h+2][3*j+2], 'is the new line again')
+                      }
+                    else {console.log(h, i, allLinesCombined[3*h+i][3*k], allLinesCombined[3*h+i][3*k+1], allLinesCombined[3*h+i][3*k+2], 'is the new line again')}
+                    }
+                      
+                      // if ((finalLineup[h+2][3*j]===allLinesCombined[3*h+i][3*k])&&(finalLineup[h+2][3*j+1]===allLinesCombined[3*h+i][3*k+1])&&(finalLineup[h+2][3*j+2]===allLinesCombined[3*h+i][3*k+2])) {}
+                      // else {}
                     }}}
               }}
-                    console.log(allLinesCombined);
+                    console.log(allLinesCombined); 
                     
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI s'; headerHome3.innerHTML = 'shifts'; // headerHome3.innerHTML = 'TBD';
                     firstLine.innerHTML=homeF[1+3*finalLineup[2][0]]+' '+homeF[2+3*finalLineup[2][0]]+'<br>'+homeF[1+3*finalLineup[2][1]]+' '+homeF[2+3*finalLineup[2][1]]+'<br>'+homeF[1+3*finalLineup[2][2]]+' '+homeF[2+3*finalLineup[2][2]];

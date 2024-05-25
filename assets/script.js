@@ -330,7 +330,7 @@ function getInputValue() {
                     for (i=0; i<awayF.length/3; i++) {if (linesArray2[3].includes(i)) {} else linesArray2[5].push(i)}
 
                     // finalLineup will be replaced with finalLineup2
-                    finalLineup =[[],[],[],[]]; tempArray3 = [homeF.length/3, awayF.length/3]; linesArray4 = [[],[]]; finalLineup2=[[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]];                  
+                    finalLineup =[[],[],[],[]]; tempArray3 = [homeF.length/3, awayF.length/3]; linesArray4 = [[],[]]; finalLineup2=[[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]];                  
                     for (i=2; i<4; i++) {for (j=0; j<linesArray2[i].length; j++) {for (k=j+1; k<linesArray2[i].length; k++) {if (linesArray2[i][j]===linesArray2[i][k]) {console.log(j,k)
                       if (finalLineup[i-2].includes(linesArray2[i][j])) {}
                   else {finalLineup[i-2].push(linesArray2[i][j])}
@@ -367,15 +367,14 @@ function getInputValue() {
         console.log(finalLineup, linesArray6[i-2][tempIndex+2], linesArray6[i-2][tempIndex+3], linesArray6[i-2][tempIndex+4]);
       } // end if 1 line loop      
           else {console.log('case to be added', 'i', i, linesArray2[i].length, finalLineup[i].length)}
-            } // end i 2,3 loop
+            } // end i 2,3 loop 
 
             // finalLineup2 loop
             for (h=0;h<2;h++) {for (i=0;i<3;i++) {for (j=0;j<linesArray7[h][i].length/5;j++) {finalLineup2[h][i].push(linesArray7[h][i][5*j+2], linesArray7[h][i][5*j+3], linesArray7[h][i][5*j+4])}}}
             for (h=0;h<2;h++) {for (i=0;i<3;i++) {for (j=0;j<finalLineup2[h][i].length;j++) {if (finalLineup2[h+2][i].includes(finalLineup2[h][i][j])) {}
           else {finalLineup2[h+2][i].push(finalLineup2[h][i][j])}}
-          // for (j=0;j<linesArray2[i].length/3;j++) {if ((finalLineup[i-2].includes(linesArray2[i][3*j]))||(finalLineup[i-2].includes(linesArray2[i][3*j+1]))||(finalLineup[i-2].includes(linesArray2[i][3*j+2]))){}
-          // else {finalLineup[i].push(linesArray2[i][3*j], linesArray2[i][3*j+1], linesArray2[i][3*j+2])}}
-          for (j=0;j<finalLineup2[h][i].length/3;j++) {if ((finalLineup2[h][i].includes())||()||())}
+            for (j=0;j<finalLineup2[h][i].length/3;j++) {if ((finalLineup2[h][i].includes(linesArray7[h][i][3*j]))||(finalLineup2[h][i].includes(linesArray7[h][i][3*j+1]))||(finalLineup2[h][i].includes(linesArray7[h][i][3*j+2])))  {}
+        else {finalLineup2[h+4][i].push(linesArray7[h][i][3*j], linesArray7[h][i][3*j+1], linesArray7[h][i][3*j+2])}}
         }}
             console.log(finalLineup2);
 
@@ -447,7 +446,7 @@ function getInputValue() {
                     }}}}
                     if (i>0) {for (j=0;j<finalLineup[h+2].length/3;j++) {for (k=0;k<allLinesCombined[3*h+i].length/3;k++) {
                       if (finalLineup[h+2][3*j]===allLinesCombined[3*h+i][3*k]) {if ((finalLineup[h+2][3*j+1]===allLinesCombined[3*h+i][3*k+1])&&(finalLineup[h+2][3*j+2]===allLinesCombined[3*h+i][3*k+2])) {
-                        console.log(h, i, finalLineup[h+2][3*j], finalLineup[h+2][3*j+1], finalLineup[h+2][3*j+2], 'is the new line again')
+                       //  console.log(h, i, finalLineup[h+2][3*j], finalLineup[h+2][3*j+1], finalLineup[h+2][3*j+2], 'is the new line again')
                       }
                     else {console.log(h, i, allLinesCombined[3*h+i][3*k], allLinesCombined[3*h+i][3*k+1], allLinesCombined[3*h+i][3*k+2], 'is the new line again')}
                     }

@@ -369,12 +369,17 @@ function getInputValue() {
           else {console.log('case to be added', 'i', i, linesArray2[i].length, finalLineup[i].length)}
             } // end i 2,3 loop 
 
-            // finalLineup2 loop; 0 and 1 are lines that spent 100s or more in a given period
+            // finalLineup2 loop; index 0 and 1 are lines that spent 100s or more in a given period index 2 and 3 are players that appeared more than once in index 0 or 1 
             for (h=0;h<2;h++) {for (i=0;i<3;i++) {for (j=0;j<linesArray7[h][i].length/5;j++) {finalLineup2[h][i].push(linesArray7[h][i][5*j+2], linesArray7[h][i][5*j+3], linesArray7[h][i][5*j+4])}}}
-            for (h=0;h<2;h++) {for (i=0;i<3;i++) {for (j=0;j<finalLineup2[h][i].length;j++) {if (finalLineup2[h+2][i].includes(finalLineup2[h][i][j])) {}
-          else {finalLineup2[h+2][i].push(finalLineup2[h][i][j])}}
-            for (j=0;j<finalLineup2[h][i].length/3;j++) {if ((finalLineup2[h][i].includes(linesArray7[h][i][3*j]))||(finalLineup2[h][i].includes(linesArray7[h][i][3*j+1]))||(finalLineup2[h][i].includes(linesArray7[h][i][3*j+2])))  {}
-        else {finalLineup2[h+4][i].push(linesArray7[h][i][3*j], linesArray7[h][i][3*j+1], linesArray7[h][i][3*j+2])}}
+            for (h=0;h<2;h++) {for (i=0;i<3;i++) {for (j=0;j<finalLineup2[h][i].length;j++) {for (k=j+1;k<finalLineup2[h][i].length;k++) {
+              if (finalLineup2[h+4][i].includes(finalLineup2[h][i][j])) {}
+            else {finalLineup2[h+4][i].push(finalLineup2[h][i][j])}
+              if (finalLineup2[h][i][j]===finalLineup2[h][i][k]) { if (finalLineup2[h+2][i].includes(finalLineup2[h][i][j])) {}
+            else {finalLineup2[h+2][i].push(finalLineup2[h][i][j])}}}}
+        //       for (j=0;j<finalLineup2[h][i].length;j++) {if (finalLineup2[h+2][i].includes(finalLineup2[h][i][j])) {}
+        //   else {finalLineup2[h+2][i].push(finalLineup2[h][i][j])}}
+        //     for (j=0;j<finalLineup2[h][i].length/3;j++) {if ((finalLineup2[h][i].includes(linesArray7[h][i][3*j]))||(finalLineup2[h][i].includes(linesArray7[h][i][3*j+1]))||(finalLineup2[h][i].includes(linesArray7[h][i][3*j+2])))  {}
+        // else {finalLineup2[h+4][i].push(linesArray7[h][i][3*j], linesArray7[h][i][3*j+1], linesArray7[h][i][3*j+2])}}
         }}
             console.log('finalLineup2', finalLineup2);
 

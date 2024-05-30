@@ -1,3 +1,56 @@
-for (h=0;h<2;h++) {for (i=0;i<3;i++) {for (j=0;j<linesArray[3*h].length/5;j++) {if (linesarray[3*h+i][5*j]>100) {console.log(h, i, linesarray[3*h+i][5*j+2], linesarray[3*h+i][5*j+3], linesarray[3*h+i][5*j+4]);
-  linesArray7[h][i].push(linesarray[3*h+i][5*j], linesarray[3*h+i][5*j+1], linesarray[3*h+i][5*j+2], linesarray[3*h+i][5*j+3], linesarray[3*h+i][5*j+4])}}}}
-  console.log(linesArray2, 'linesArray7', linesArray7);
+// linesArray2[i] -> finalLineup2[h][i] i=2,3 h=0,1
+// finalLineup[i-2] -> finalLineup2[h+4][i] i=2,3 h=0,1
+// finalLineup[i] => finalLineup2[h+2][i]
+
+
+finalLineup =[[],[],[],[]]; tempArray3 = [homeF.length/3, awayF.length/3]; linesArray4 = [[],[]]; finalLineup2=[[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]];                  
+for (i=2; i<4; i++) {for (j=0; j<linesArray2[i].length; j++) {for (k=j+1; k<linesArray2[i].length; k++) {if (linesArray2[i][j]===linesArray2[i][k]) {console.log(j,k)
+  if (finalLineup[i-2].includes(linesArray2[i][j])) {}
+else {finalLineup[i-2].push(linesArray2[i][j])}
+}}}
+
+// for (h=0;h<2;h++) {for (i=0;i<3;i++) {for (j=0;j<finalLineup2[h][i].length;j++) {for (k=j+1;k<finalLineup2[h][i].length;k++) {
+//   if (finalLineup2[h+4][i].includes(finalLineup2[h][i][j])) {}
+// else {finalLineup2[h+4][i].push(finalLineup2[h][i][j])}
+//   if (finalLineup2[h][i][j]===finalLineup2[h][i][k]) { if (finalLineup2[h+2][i].includes(finalLineup2[h][i][j])) {}
+// else {finalLineup2[h+2][i].push(finalLineup2[h][i][j])}}}}
+// }}
+
+for (j=0;j<finalLineup2[h][i].length/3;j++) {if ((finalLineup2[h+4][i].includes(finalLineup2[h][i][3*j]))||(finalLineup2[h+4][i].includes(finalLineup2[h][i][3*j+1]))||(finalLineup2[h+4][i].includes(finalLineup2[h][i][3*j+2]))){}
+else {finalLineup2[h+2][i].push(finalLineup2[h][i][3*j], finalLineup2[h][i][3*j+1], finalLineup2[h][i][3*j+2])}}
+
+for (j=0;j<linesArray2[i].length/3;j++) {if ((finalLineup[i-2].includes(linesArray2[i][3*j]))||(finalLineup[i-2].includes(linesArray2[i][3*j+1]))||(finalLineup[i-2].includes(linesArray2[i][3*j+2]))){}
+else {finalLineup[i].push(linesArray2[i][3*j], linesArray2[i][3*j+1], linesArray2[i][3*j+2])}}
+
+// stopped here
+  if (finalLineup[i].length===12) {}
+else if (finalLineup[i].length===9) {for (j=0;j<tempArray3[i-2];j++){if (linesArray2[i].includes(j)){}
+else finalLineup[i].push(j)}}
+else if (finalLineup[i].length===6) {console.log('Two lines', finalLineup); linesArray4 = [[],[]]
+for (j=3*(i-2);j<3+3*(i-2);j++) {for (k=0;k<linesArray[j].length/5;k++) {
+if((finalLineup[i].includes(linesArray[j][5*k+2]))||(finalLineup[i].includes(linesArray[j][5*k+3]))||(finalLineup[i].includes(linesArray[j][5*k+4]))) {}          
+else {linesArray4[i-2].push(linesArray[j][5*k], linesArray[j][5*k+1], linesArray[j][5*k+2], linesArray[j][5*k+3], linesArray[j][5*k+4])}
+}}
+tempIndex = linesArray4[i-2].indexOf(Math.max(...linesArray4[i-2])); tempIndex2 = tempIndex%(linesArray4[i-2].length/3);
+console.log(linesArray4, Math.max(...linesArray4[i-2]), tempIndex, tempIndex2);
+finalLineup[i].push(linesArray4[i-2][tempIndex+2], linesArray4[i-2][tempIndex+3], linesArray4[i-2][tempIndex+4]);
+for (j=0; j<tempArray3[i-2]; j++) {if (finalLineup[i].includes(j)){} else finalLineup[i].push(j)}
+} // end if loop 2 lines
+else if (finalLineup[i].length===3) {console.log('One line', finalLineup); linesArray5 = [[],[]]; linesArray6 = [[],[]]; for (j=3*(i-2);j<3+3*(i-2);j++) {
+for (k=0;k<linesArray[j].length/5;k++) {
+if((finalLineup[i].includes(linesArray[j][5*k+2]))||(finalLineup[i].includes(linesArray[j][5*k+3]))||(finalLineup[i].includes(linesArray[j][5*k+4]))) {}          
+else {linesArray5[i-2].push(linesArray[j][5*k], linesArray[j][5*k+1], linesArray[j][5*k+2], linesArray[j][5*k+3], linesArray[j][5*k+4])}
+}}
+tempIndex = linesArray5[i-2].indexOf(Math.max(...linesArray5[i-2])); tempIndex2 = tempIndex%(linesArray5[i-2].length/3); 
+console.log(linesArray5, Math.max(...linesArray5[i-2]), tempIndex, tempIndex2);
+finalLineup[i].push(linesArray5[i-2][tempIndex+2], linesArray5[i-2][tempIndex+3], linesArray5[i-2][tempIndex+4]);
+for (j=3*(i-2);j<3+3*(i-2);j++) {for (k=0;k<linesArray[j].length/5;k++) {if ((finalLineup[i].includes(linesArray[j][5*k+2]))||(finalLineup[i].includes(linesArray[j][5*k+3]))||(finalLineup[i].includes(linesArray[j][5*k+4]))){}
+else (linesArray6[i-2].push(linesArray[j][5*k], linesArray[j][5*k+1], linesArray[j][5*k+2], linesArray[j][5*k+3], linesArray[j][5*k+4]))}}
+tempIndex = linesArray6[i-2].indexOf(Math.max(...linesArray6[i-2])); tempIndex2 = tempIndex%(linesArray6[i-2].length/3); 
+console.log(linesArray6, Math.max(...linesArray6[i-2]), tempIndex, tempIndex2);
+finalLineup[i].push(linesArray6[i-2][tempIndex+2], linesArray6[i-2][tempIndex+3], linesArray6[i-2][tempIndex+4]);
+for (j=0; j<tempArray3[i-2]; j++) {if (finalLineup[i].includes(j)){} else finalLineup[i].push(j)}
+console.log(finalLineup, linesArray6[i-2][tempIndex+2], linesArray6[i-2][tempIndex+3], linesArray6[i-2][tempIndex+4]);
+} // end if 1 line loop      
+else {console.log('case to be added', 'i', i, linesArray2[i].length, finalLineup[i].length)}
+} // end i 2,3 loop 

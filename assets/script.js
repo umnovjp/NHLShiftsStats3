@@ -373,13 +373,13 @@ function getInputValue() {
             // and index 5 6 is to verify all players that actually played in lines from index 0 1 reason for that is PHI lines where #11 played on 2 lines leaving one partner behind...
             for (h=0;h<2;h++) {for (i=0;i<3;i++) {for (j=0;j<linesArray7[h][i].length/5;j++) {finalLineup2[h][i].push(linesArray7[h][i][5*j+2], linesArray7[h][i][5*j+3], linesArray7[h][i][5*j+4])}}}
             for (h=0;h<2;h++) {for (i=0;i<3;i++) {for (j=0;j<finalLineup2[h][i].length;j++) {for (k=j+1;k<finalLineup2[h][i].length;k++) {
-              if (finalLineup2[h+4][i].includes(finalLineup2[h][i][j])) {}
-            else {finalLineup2[h+4][i].push(finalLineup2[h][i][j])}
-            //   if (finalLineup2[h][i][j]===finalLineup2[h][i][k]) { if (finalLineup2[h+2][i].includes(finalLineup2[h][i][j])) {}
-            // else {finalLineup2[h+2][i].push(finalLineup2[h][i][j])}}
+              if (finalLineup2[h][i][j]===finalLineup2[h][i][k]) { if (finalLineup2[h+2][i].includes(finalLineup2[h][i][j])) {}
+            else {finalLineup2[h+2][i].push(finalLineup2[h][i][j])}}
           }}
-          for (j=0;j<finalLineup2[h][i].length/3;j++) {if ((finalLineup2[h+4][i].includes(finalLineup2[h][i][3*j]))||(finalLineup2[h+4][i].includes(finalLineup2[h][i][3*j+1]))||(finalLineup2[h+4][i].includes(finalLineup2[h][i][3*j+2]))){}
-          else {finalLineup2[h+2][i].push(finalLineup2[h][i][3*j], finalLineup2[h][i][3*j+1], finalLineup2[h][i][3*j+2])}}
+          for (j=0;j<finalLineup2[h][i].length/3;j++) {if ((finalLineup2[h+2][i].includes(finalLineup2[h][i][3*j]))||(finalLineup2[h+2][i].includes(finalLineup2[h][i][3*j+1]))||(finalLineup2[h+2][i].includes(finalLineup2[h][i][3*j+2]))){}
+          else {finalLineup2[h+4][i].push(finalLineup2[h][i][3*j], finalLineup2[h][i][3*j+1], finalLineup2[h][i][3*j+2])}}
+          if (finalLineup2[h+4].length===12) {}
+          else if (finalLineup2[h+4].length===9) {} // to add here
         //       for (j=0;j<finalLineup2[h][i].length;j++) {if (finalLineup2[h+2][i].includes(finalLineup2[h][i][j])) {}
         //   else {finalLineup2[h+2][i].push(finalLineup2[h][i][j])}}
         //     for (j=0;j<finalLineup2[h][i].length/3;j++) {if ((finalLineup2[h][i].includes(linesArray7[h][i][3*j]))||(finalLineup2[h][i].includes(linesArray7[h][i][3*j+1]))||(finalLineup2[h][i].includes(linesArray7[h][i][3*j+2])))  {}

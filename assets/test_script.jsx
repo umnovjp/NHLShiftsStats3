@@ -30,7 +30,7 @@ else {linesArray4[i-2].push(linesArray[j][5*k], linesArray[j][5*k+1], linesArray
 tempIndex = linesArray4[i-2].indexOf(Math.max(...linesArray4[i-2])); tempIndex2 = tempIndex%(linesArray4[i-2].length/3);
 console.log(linesArray4, Math.max(...linesArray4[i-2]), tempIndex, tempIndex2);
 finalLineup[i].push(linesArray4[i-2][tempIndex+2], linesArray4[i-2][tempIndex+3], linesArray4[i-2][tempIndex+4]);
-for (j=0; j<tempArray3[i-2]; j++) {if (finalLineup[i].includes(j)){} else finalLineup[i].push(j)}
+for (j=0; j<tempArray3[h]; j++) {if (finalLineup[i].includes(j)){} else finalLineup[i].push(j)}
 } // end if loop 2 lines
 else if (finalLineup[i].length===3) {console.log('One line', finalLineup); linesArray5 = [[],[]]; linesArray6 = [[],[]]; for (j=3*(i-2);j<3+3*(i-2);j++) {
 for (k=0;k<linesArray[j].length/5;k++) {

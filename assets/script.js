@@ -376,23 +376,18 @@ function getInputValue() {
               if (finalLineup2[h][i][j]===finalLineup2[h][i][k]) { if (finalLineup2[h+2][i].includes(finalLineup2[h][i][j])) {}
             else {finalLineup2[h+2][i].push(finalLineup2[h][i][j])}}
           }}
+          // next 2 lines of code determines if there are unique lines if finalLineup2[h+2] is not empty if there are they are pushed to linalLineup2[h+4]
           for (j=0;j<finalLineup2[h][i].length/3;j++) {if ((finalLineup2[h+2][i].includes(finalLineup2[h][i][3*j]))||(finalLineup2[h+2][i].includes(finalLineup2[h][i][3*j+1]))||(finalLineup2[h+2][i].includes(finalLineup2[h][i][3*j+2]))){}
           else {finalLineup2[h+4][i].push(finalLineup2[h][i][3*j], finalLineup2[h][i][3*j+1], finalLineup2[h][i][3*j+2])}}
           if (finalLineup2[h+4][i].length===12) {}
           else if (finalLineup2[h+4][i].length===9) {for (j=0;j<tempArray3[i-2];j++){if (finalLineup2[h][i].includes(j)){}
-          else finalLineup2[h+2][i].push(j)}} 
-          else if (finalLineup2[h+4][i].length===6) {console.log('Two lines', 'team', h, 'period', i); linesArray4 = [[[],[],[]],[[],[],[]]]
-        for (j=3*h;j<3+3*h;j++) {for (k=0;k<linesArray[j].length/5;k++) {
-          if((finalLineup2[h+2][i].includes(linesArray[j][5*k+2]))||(finalLineup2[h][i].includes(linesArray[j][5*k+3]))||(finalLineup2[h][i].includes(linesArray[j][5*k+4]))) {}
-          else {linesArray4[h][i].push(linesArray[j][5*k], linesArray[j][5*k+1], linesArray[j][5*k+2], linesArray[j][5*k+3], linesArray[j][5*k+4])
-         // console.log(h, i, k)
-        }
-        }}
-        tempIndex = linesArray4[h][i].indexOf(Math.max(...linesArray4[h][i])); tempIndex2 = tempIndex%(linesArray4[h][i].length/3);
+          else finalLineup2[h+2][i].push(j)}}
+          else if (finalLineup2[h+4][i].length===6) {console.log('Two lines', 'team', h, 'period', i, finalLineup2[h+4][i]); linesArray4 = [[[],[],[]],[[],[],[]]];
+          tempIndex = linesArray4[h][i].indexOf(Math.max(...linesArray4[h][i])); tempIndex2 = tempIndex%(linesArray4[h][i].length/3);
           console.log(linesArray4, Math.max(...linesArray4[h][i]), tempIndex, tempIndex2);
           finalLineup2[h+4][i].push(linesArray4[h][tempIndex+2], linesArray4[h][tempIndex+3], linesArray4[h][tempIndex+4]);
           for (j=0; j<tempArray3[h]; j++) {if (finalLineup2[h+4][i].includes(j)){} else {finalLineup2[h+4][i].push(j)}}
-        }}} // i, h loops end
+        }}} // i, h loops end 
             console.log('finalLineup2', finalLineup2);
 
                     function lineNumber(h,i,j,k) {topFLimit = (1-h)*(homeF.length)/3 + h*(awayF.length)/3; // h may be 0 or 1 only!
@@ -466,10 +461,7 @@ function getInputValue() {
                        //  console.log(h, i, finalLineup[h+2][3*j], finalLineup[h+2][3*j+1], finalLineup[h+2][3*j+2], 'is the new line again')
                       }
                     else {console.log(h, i, allLinesCombined[3*h+i][3*k], allLinesCombined[3*h+i][3*k+1], allLinesCombined[3*h+i][3*k+2], 'is the new line again')}
-                    }
-                      
-                      // if ((finalLineup[h+2][3*j]===allLinesCombined[3*h+i][3*k])&&(finalLineup[h+2][3*j+1]===allLinesCombined[3*h+i][3*k+1])&&(finalLineup[h+2][3*j+2]===allLinesCombined[3*h+i][3*k+2])) {}
-                      // else {}
+                      }
                     }}}
               }}
                     console.log(allLinesCombined); 

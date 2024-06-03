@@ -1,20 +1,11 @@
 // linesArray2[i] -> finalLineup2[h][i] i=2,3 h=0,1
 // finalLineup[i-2] -> finalLineup2[h+4][i] i=2,3 h=0,1
 // finalLineup[i] => finalLineup2[h+2][i]
-
-
 finalLineup =[[],[],[],[]]; tempArray3 = [homeF.length/3, awayF.length/3]; linesArray4 = [[],[]]; finalLineup2=[[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]];                  
 for (i=2; i<4; i++) {for (j=0; j<linesArray2[i].length; j++) {for (k=j+1; k<linesArray2[i].length; k++) {if (linesArray2[i][j]===linesArray2[i][k]) {console.log(j,k)
   if (finalLineup[i-2].includes(linesArray2[i][j])) {}
 else {finalLineup[i-2].push(linesArray2[i][j])}
 }}}
-
-// for (h=0;h<2;h++) {for (i=0;i<3;i++) {for (j=0;j<finalLineup2[h][i].length;j++) {for (k=j+1;k<finalLineup2[h][i].length;k++) {
-//   if (finalLineup2[h+4][i].includes(finalLineup2[h][i][j])) {}
-// else {finalLineup2[h+4][i].push(finalLineup2[h][i][j])}
-//   if (finalLineup2[h][i][j]===finalLineup2[h][i][k]) { if (finalLineup2[h+2][i].includes(finalLineup2[h][i][j])) {}
-// else {finalLineup2[h+2][i].push(finalLineup2[h][i][j])}}}}
-// }}
 
 for (j=0;j<linesArray2[i].length/3;j++) {if ((finalLineup[i-2].includes(linesArray2[i][3*j]))||(finalLineup[i-2].includes(linesArray2[i][3*j+1]))||(finalLineup[i-2].includes(linesArray2[i][3*j+2]))){}
 else {finalLineup[i].push(linesArray2[i][3*j], linesArray2[i][3*j+1], linesArray2[i][3*j+2])}}

@@ -391,7 +391,23 @@ function getInputValue() {
           console.log(h, i, linesArray4[h][i], Math.max(...linesArray4[h][i]), tempIndex, tempIndex2);
           // finalLineup2[h+4][i].push(linesArray4[h][tempIndex+2], linesArray4[h][tempIndex+3], linesArray4[h][tempIndex+4]);
           for (j=0; j<tempArray3[h]; j++) {if (finalLineup2[h+4][i].includes(j)){} else {finalLineup2[h+4][i].push(j)}}
-        }}} // i, h loops end 
+        }
+        else if (finalLineup2[h+4][i].length===3) {console.log('One line', 'team', h, 'period', i, finalLineup2[h+4][i]); linesArray5 = [[[],[],[]],[[],[],[]]]; linesArray6 = [[[],[],[]],[[],[],[]]];
+        for (j=3*h;j<3*h+3;j++) {for (k=0;k<linesArray[j].length/5;k++) {
+          if((finalLineup2[h+4][i].includes(linesArray[j][5*k+2]))||(finalLineup2[h+4][i].includes(linesArray[j][5*k+3]))||(finalLineup2[h+4][i].includes(linesArray[j][5*k+4]))) {}
+          else {linesArray5[h][i].push(linesArray[j][5*k], linesArray[j][5*k+1], linesArray[j][5*k+2], linesArray[j][5*k+3], linesArray[j][5*k+4])}
+        }}
+       // to start here line 31-33
+       tempIndex = linesArray5[h].indexOf(Math.max(...linesArray5[h][i])); tempIndex2 = tempIndex%(linesArray5[i-2].length/3); 
+        console.log(linesArray5[h][i], Math.max(...linesArray5[h][i]), tempIndex, tempIndex2);
+        finalLineup2[h][i].push(linesArray5[h][i][tempIndex+2], linesArray5[h][i][tempIndex+3], linesArray5[h][i][tempIndex+4]);
+        for (j=3*h;j<3+3*h;j++) {for (k=0;k<linesArray[j].length/5;k++) {if ((finalLineup2[h+4][i].includes(linesArray[j][5*k+2]))||(finalLineup2[h+4][i].includes(linesArray[j][5*k+3]))||(finalLineup2[h+4][i].includes(linesArray[j][5*k+4]))){}
+        else (linesArray6[h][i].push(linesArray[j][5*k], linesArray[j][5*k+1], linesArray[j][5*k+2], linesArray[j][5*k+3], linesArray[j][5*k+4]))}}
+        tempIndex = linesArray6[h][i].indexOf(Math.max(...linesArray6[h][i])); tempIndex2 = tempIndex%(linesArray6[h][i].length/3); 
+        console.log(linesArray6[h][h], Math.max(...linesArray6[h][i]), tempIndex, tempIndex2);
+        finalLineup2[h][i].push(linesArray6[h][i][tempIndex+2], linesArray6[h][i][tempIndex+3], linesArray6[h][i][tempIndex+4]);
+      }
+      }} // i, h loops end 
             console.log('finalLineup2', finalLineup2);
 
                     function lineNumber(h,i,j,k) {topFLimit = (1-h)*(homeF.length)/3 + h*(awayF.length)/3; // h may be 0 or 1 only!
@@ -454,21 +470,21 @@ function getInputValue() {
                   } // end i loop
                     return shiftsLine[13]} // end function lineByLine
 
-                    allLinesCombined = [[],[],[],[],[],[]];
-                    for (h=0;h<2;h++) {for (i=0;i<3;i++) {for (j=0;j<linesArray[3*h+i].length/5;j++) {if ((linesArray[3*h+i][5*j]>75)&&(linesArray[3*h+i][5*j+1]>3)){allLinesCombined[3*h+i].push(linesArray[3*h+i][5*j+2],linesArray[3*h+i][5*j+3],linesArray[3*h+i][5*j+4])}}
-                    if (i>0) { for (j=0;j<finalLineup[h+2].length/3;j++) {for (k=0;k<allLinesCombined[3*h+i].length/3;k++) {if (finalLineup[h+2][3*j]===allLinesCombined[3*h+i][3*k]) {
-                      if ((finalLineup[h+2][3*j+1]===allLinesCombined[3*h+i][3*k+1])&&(finalLineup[h+2][3*j+2]===allLinesCombined[3*h+i][3*k+2])) {}
-                      else {console.log(h, i, allLinesCombined[3*h+i][3*k], allLinesCombined[3*h+i][3*k+1], allLinesCombined[3*h+i][3*k+2],'is the new line', finalLineup[h+2][3*j], finalLineup[h+2][3*j+1], finalLineup[h+2][3*j+2], 'is the old line')}
-                    }}}}
-                    if (i>0) {for (j=0;j<finalLineup[h+2].length/3;j++) {for (k=0;k<allLinesCombined[3*h+i].length/3;k++) {
-                      if (finalLineup[h+2][3*j]===allLinesCombined[3*h+i][3*k]) {if ((finalLineup[h+2][3*j+1]===allLinesCombined[3*h+i][3*k+1])&&(finalLineup[h+2][3*j+2]===allLinesCombined[3*h+i][3*k+2])) {
-                       //  console.log(h, i, finalLineup[h+2][3*j], finalLineup[h+2][3*j+1], finalLineup[h+2][3*j+2], 'is the new line again')
-                      }
-                    else {console.log(h, i, allLinesCombined[3*h+i][3*k], allLinesCombined[3*h+i][3*k+1], allLinesCombined[3*h+i][3*k+2], 'is the new line again')}
-                      }
-                    }}}
-              }}
-                    console.log(allLinesCombined); 
+              //       allLinesCombined = [[],[],[],[],[],[]];
+              //       for (h=0;h<2;h++) {for (i=0;i<3;i++) {for (j=0;j<linesArray[3*h+i].length/5;j++) {if ((linesArray[3*h+i][5*j]>75)&&(linesArray[3*h+i][5*j+1]>3)){allLinesCombined[3*h+i].push(linesArray[3*h+i][5*j+2],linesArray[3*h+i][5*j+3],linesArray[3*h+i][5*j+4])}}
+              //       if (i>0) { for (j=0;j<finalLineup[h+2].length/3;j++) {for (k=0;k<allLinesCombined[3*h+i].length/3;k++) {if (finalLineup[h+2][3*j]===allLinesCombined[3*h+i][3*k]) {
+              //         if ((finalLineup[h+2][3*j+1]===allLinesCombined[3*h+i][3*k+1])&&(finalLineup[h+2][3*j+2]===allLinesCombined[3*h+i][3*k+2])) {}
+              //         else {console.log(h, i, allLinesCombined[3*h+i][3*k], allLinesCombined[3*h+i][3*k+1], allLinesCombined[3*h+i][3*k+2],'is the new line', finalLineup[h+2][3*j], finalLineup[h+2][3*j+1], finalLineup[h+2][3*j+2], 'is the old line')}
+              //       }}}}
+              //       if (i>0) {for (j=0;j<finalLineup[h+2].length/3;j++) {for (k=0;k<allLinesCombined[3*h+i].length/3;k++) {
+              //         if (finalLineup[h+2][3*j]===allLinesCombined[3*h+i][3*k]) {if ((finalLineup[h+2][3*j+1]===allLinesCombined[3*h+i][3*k+1])&&(finalLineup[h+2][3*j+2]===allLinesCombined[3*h+i][3*k+2])) {
+              //          //  console.log(h, i, finalLineup[h+2][3*j], finalLineup[h+2][3*j+1], finalLineup[h+2][3*j+2], 'is the new line again')
+              //         }
+              //       else {console.log(h, i, allLinesCombined[3*h+i][3*k], allLinesCombined[3*h+i][3*k+1], allLinesCombined[3*h+i][3*k+2], 'is the new line again')}
+              //         }
+              //       }}}
+              // }}
+              //       console.log(allLinesCombined); 
                     
                     headerHome.innerHTML = 'Players'; headerHome2.innerHTML = 'TOI s'; headerHome3.innerHTML = 'shifts'; // headerHome3.innerHTML = 'TBD';
                     firstLine.innerHTML=homeF[1+3*finalLineup[2][0]]+' '+homeF[2+3*finalLineup[2][0]]+'<br>'+homeF[1+3*finalLineup[2][1]]+' '+homeF[2+3*finalLineup[2][1]]+'<br>'+homeF[1+3*finalLineup[2][2]]+' '+homeF[2+3*finalLineup[2][2]];

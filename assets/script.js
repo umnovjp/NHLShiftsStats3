@@ -406,7 +406,10 @@ function getInputValue() {
         tempIndex = linesArray6[h][i].indexOf(Math.max(...linesArray6[h][i])); tempIndex2 = tempIndex%(linesArray6[h][i].length/3); 
         console.log(linesArray6[h][h], Math.max(...linesArray6[h][i]), tempIndex, tempIndex2);
         finalLineup2[h][i].push(linesArray6[h][i][tempIndex+2], linesArray6[h][i][tempIndex+3], linesArray6[h][i][tempIndex+4]);
+        for (j=0; j<tempArray3[h]; j++) {if (finalLineup2[h][i].includes(j)){} else finalLineup2[h][i].push(j)}
+        console.log(finalLineup2[h][i], linesArray6[h][i][tempIndex+2], linesArray6[h][i][tempIndex+3], linesArray6[h][i][tempIndex+4]);
       }
+      else {console.log('case to be added', 'h', h, 'i', i,)}
       }} // i, h loops end 
             console.log('finalLineup2', finalLineup2);
 
@@ -470,7 +473,15 @@ function getInputValue() {
                   } // end i loop
                     return shiftsLine[13]} // end function lineByLine
 
-              //       allLinesCombined = [[],[],[],[],[],[]];
+                    lineByLine301.innerHTML=homeF[1+3*finalLineup2[4][0][3]]+' '+homeF[2+3*finalLineup2[4][0][3]]+'<br>'+homeF[1+3*finalLineup2[4][0][4]]+' '+homeF[2+3*finalLineup2[4][0][4]]+'<br>'+homeF[1+3*finalLineup2[4][0][5]]+' '+homeF[2+3*finalLineup2[4][0][5]];
+                    lineByLine321.innerHTML=lineByLine(0,1,0)[1][0]+' '+lineByLine(0,1,0)[1][1]+'<br>'+lineByLine(0,1,0)[1][2]+' '+lineByLine(0,1,0)[1][3]+'<br>'+lineByLine(0,1,0)[1][4]+' '+lineByLine(0,1,0)[1][5];
+                    lineByLine341.innerHTML=lineByLine(0,1,0)[0][0]+' '+lineByLine(0,1,0)[0][1]+'<br>'+lineByLine(0,1,0)[0][2]+' '+lineByLine(0,1,0)[0][3]+' '+'<br>'+lineByLine(0,1,0)[0][4]+' '+lineByLine(0,1,0)[0][5];
+
+                    lineByLine401.innerHTML=homeF[1+3*finalLineup2[4][0][6]]+' '+homeF[2+3*finalLineup2[4][0][6]]+'<br>'+homeF[1+3*finalLineup2[4][0][7]]+' '+homeF[2+3*finalLineup2[4][0][7]]+'<br>'+homeF[1+3*finalLineup2[4][0][8]]+' '+homeF[2+3*finalLineup2[4][0][8]];
+                    lineByLine421.innerHTML=lineByLine(0,2,0)[1][0]+' '+lineByLine(0,2,0)[1][1]+'<br>'+lineByLine(0,2,0)[1][2]+' '+lineByLine(0,2,0)[1][3]+'<br>'+lineByLine(0,2,0)[1][4]+' '+lineByLine(0,2,0)[1][5];
+                    lineByLine441.innerHTML=lineByLine(0,2,0)[0][0]+' '+lineByLine(0,2,0)[0][1]+'<br>'+lineByLine(0,2,0)[0][2]+' '+lineByLine(0,2,0)[0][3]+' '+'<br>'+lineByLine(0,2,0)[0][4]+' '+lineByLine(0,2,0)[0][5];
+
+                    //       allLinesCombined = [[],[],[],[],[],[]];
               //       for (h=0;h<2;h++) {for (i=0;i<3;i++) {for (j=0;j<linesArray[3*h+i].length/5;j++) {if ((linesArray[3*h+i][5*j]>75)&&(linesArray[3*h+i][5*j+1]>3)){allLinesCombined[3*h+i].push(linesArray[3*h+i][5*j+2],linesArray[3*h+i][5*j+3],linesArray[3*h+i][5*j+4])}}
               //       if (i>0) { for (j=0;j<finalLineup[h+2].length/3;j++) {for (k=0;k<allLinesCombined[3*h+i].length/3;k++) {if (finalLineup[h+2][3*j]===allLinesCombined[3*h+i][3*k]) {
               //         if ((finalLineup[h+2][3*j+1]===allLinesCombined[3*h+i][3*k+1])&&(finalLineup[h+2][3*j+2]===allLinesCombined[3*h+i][3*k+2])) {}

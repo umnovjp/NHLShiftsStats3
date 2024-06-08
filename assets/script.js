@@ -376,12 +376,12 @@ function getInputValue() {
               if (finalLineup2[h][i][j]===finalLineup2[h][i][k]) { if (finalLineup2[h+2][i].includes(finalLineup2[h][i][j])) {}
             else {finalLineup2[h+2][i].push(finalLineup2[h][i][j])}}
           }}
-          // next 2 lines of code determines if there are unique lines if finalLineup2[h+2] is not empty if there are they are pushed to linalLineup2[h+4]
+          // next 2 lines of code determines if there are unique lines if finalLineup2[h+2] is not empty if it is, lines are pushed to finalLineup2[h+4]
           for (j=0;j<finalLineup2[h][i].length/3;j++) {if ((finalLineup2[h+2][i].includes(finalLineup2[h][i][3*j]))||(finalLineup2[h+2][i].includes(finalLineup2[h][i][3*j+1]))||(finalLineup2[h+2][i].includes(finalLineup2[h][i][3*j+2]))){}
           else {finalLineup2[h+4][i].push(finalLineup2[h][i][3*j], finalLineup2[h][i][3*j+1], finalLineup2[h][i][3*j+2])}}
           if (finalLineup2[h+4][i].length===12) {}
           else if (finalLineup2[h+4][i].length===9) {for (j=0;j<tempArray3[i-2];j++){if (finalLineup2[h][i].includes(j)){}
-          else finalLineup2[h+2][i].push(j)}}
+          else finalLineup2[h+4][i].push(j)}}
           else if (finalLineup2[h+4][i].length===6) {console.log('Two lines', 'team', h, 'period', i, finalLineup2[h+4][i]); linesArray4 = [[[],[],[]],[[],[],[]]];
           for (j=3*h;j<3+3*h;j++) {for (k=0;k<linesArray[j].length/5;k++) {
             if((finalLineup2[h+4][i].includes(linesArray[j][5*k+2]))||(finalLineup2[h+4][i].includes(linesArray[j][5*k+3]))||(finalLineup2[h+4][i].includes(linesArray[j][5*k+4]))) {}
@@ -389,6 +389,7 @@ function getInputValue() {
             }}
           tempIndex = linesArray4[h][i].indexOf(Math.max(...linesArray4[h][i])); tempIndex2 = tempIndex%(linesArray4[h][i].length/3);
           console.log(h, i, linesArray4[h][i], Math.max(...linesArray4[h][i]), tempIndex, tempIndex2);
+          finalLineup2[h+4][i].push(linesArray4[h][i][tempIndex+2], linesArray4[h][i][tempIndex+3], linesArray4[h][i][tempIndex+4]);
           // finalLineup2[h+4][i].push(linesArray4[h][tempIndex+2], linesArray4[h][tempIndex+3], linesArray4[h][tempIndex+4]);
           for (j=0; j<tempArray3[h]; j++) {if (finalLineup2[h+4][i].includes(j)){} else {finalLineup2[h+4][i].push(j)}}
         }
@@ -397,8 +398,7 @@ function getInputValue() {
           if((finalLineup2[h+4][i].includes(linesArray[j][5*k+2]))||(finalLineup2[h+4][i].includes(linesArray[j][5*k+3]))||(finalLineup2[h+4][i].includes(linesArray[j][5*k+4]))) {}
           else {linesArray5[h][i].push(linesArray[j][5*k], linesArray[j][5*k+1], linesArray[j][5*k+2], linesArray[j][5*k+3], linesArray[j][5*k+4])}
         }}
-       // to start here line 31-33
-       tempIndex = linesArray5[h].indexOf(Math.max(...linesArray5[h][i])); tempIndex2 = tempIndex%(linesArray5[i-2].length/3); 
+       tempIndex = linesArray5[h].indexOf(Math.max(...linesArray5[h][i])); tempIndex2 = tempIndex%(linesArray5[h][i].length/3); 
         console.log(linesArray5[h][i], Math.max(...linesArray5[h][i]), tempIndex, tempIndex2);
         finalLineup2[h][i].push(linesArray5[h][i][tempIndex+2], linesArray5[h][i][tempIndex+3], linesArray5[h][i][tempIndex+4]);
         for (j=3*h;j<3+3*h;j++) {for (k=0;k<linesArray[j].length/5;k++) {if ((finalLineup2[h+4][i].includes(linesArray[j][5*k+2]))||(finalLineup2[h+4][i].includes(linesArray[j][5*k+3]))||(finalLineup2[h+4][i].includes(linesArray[j][5*k+4]))){}
@@ -473,12 +473,24 @@ function getInputValue() {
                   } // end i loop
                     return shiftsLine[13]} // end function lineByLine
                     
-                    
+                    lineByLine041.innerHTML=awayF[1+3*finalLineup2[5][0][0]]+' '+awayF[2+3*finalLineup2[5][0][0]]+'<br>'+awayF[1+3*finalLineup2[5][0][1]]+' '+awayF[2+3*finalLineup2[5][0][1]]+'<br>'+awayF[1+3*finalLineup2[5][0][2]]+' '+awayF[2+3*finalLineup2[5][0][2]];
+                    lineByLine051.innerHTML=awayF[1+3*finalLineup2[5][0][3]]+' '+awayF[2+3*finalLineup2[5][0][3]]+'<br>'+awayF[1+3*finalLineup2[5][0][4]]+' '+awayF[2+3*finalLineup2[5][0][4]]+'<br>'+awayF[1+3*finalLineup2[5][0][5]]+' '+awayF[2+3*finalLineup2[5][0][5]];
+                    lineByLine061.innerHTML=awayF[1+3*finalLineup2[5][0][6]]+' '+awayF[2+3*finalLineup2[5][0][6]]+'<br>'+awayF[1+3*finalLineup2[5][0][7]]+' '+awayF[2+3*finalLineup2[5][0][7]]+'<br>'+awayF[1+3*finalLineup2[5][0][8]]+' '+awayF[2+3*finalLineup2[5][0][8]];
+                    if (finalLineup2[5][0].length>=12)  {lineByLine071.innerHTML=awayF[1+3*finalLineup2[5][0][9]]+' '+awayF[2+3*finalLineup2[5][0][9]]+'<br>'+awayF[1+3*finalLineup2[5][0][10]]+' '+awayF[2+3*finalLineup2[5][0][10]]+'<br>'+awayF[1+3*finalLineup2[5][0][11]]+' '+awayF[2+3*finalLineup2[5][0][11]];}
+                    else {lineByLine071.innerHTML=awayF[1+3*finalLineup2[5][0][9]]+' '+awayF[2+3*finalLineup2[5][0][9]]+'<br>'+awayF[1+3*finalLineup2[5][0][10]]+' '+awayF[2+3*finalLineup2[5][0][10]]}
                     lineByLine141.innerHTML=lineByLine(1,0,0)[1][0]+' '+lineByLine(1,0,0)[1][1]+'<br>'+lineByLine(1,0,0)[1][2]+' '+lineByLine(1,0,0)[1][3]+'<br>'+lineByLine(1,0,0)[1][4]+' '+lineByLine(1,0,0)[1][5];
                     lineByLine151.innerHTML=lineByLine(1,1,0)[1][0]+' '+lineByLine(1,1,0)[1][1]+'<br>'+lineByLine(1,1,0)[1][2]+' '+lineByLine(1,1,0)[1][3]+'<br>'+lineByLine(1,1,0)[1][4]+' '+lineByLine(1,1,0)[1][5];
                     lineByLine161.innerHTML=lineByLine(1,2,0)[1][0]+' '+lineByLine(1,2,0)[1][1]+'<br>'+lineByLine(1,2,0)[1][2]+' '+lineByLine(1,2,0)[1][3]+'<br>'+lineByLine(1,2,0)[1][4]+' '+lineByLine(1,2,0)[1][5];
-                    lineByLine171.innerHTML=lineByLine(1,3,0)[1][0]+' '+lineByLine(1,3,0)[1][1]+'<br>'+lineByLine(1,3,0)[1][2]+' '+lineByLine(1,3,0)[1][3]+'<br>'+lineByLine(1,3,0)[1][4]+' '+lineByLine(1,3,0)[1][5];
+                    
+                    if (finalLineup2[5][0].length>=12) {lineByLine171.innerHTML=lineByLine(1,3,0)[1][0]+' '+lineByLine(1,3,0)[1][1]+'<br>'+lineByLine(1,3,0)[1][2]+' '+lineByLine(1,3,0)[1][3]+'<br>'+lineByLine(1,3,0)[1][4]+' '+lineByLine(1,3,0)[1][5];}
+                    // else {lineByLine171.innerHTML=lineByLine(1,3,0)[1][0]+' '+lineByLine(1,3,0)[1][1]+'<br>'+lineByLine(1,3,0)[1][2]+' '+lineByLine(1,3,0)[1][3]+'<br>'+lineByLine(1,3,0)[1][4]+' '+lineByLine(1,3,0)[1][5];}
                     lineByLine201.innerHTML=homeF[1+3*finalLineup2[4][0][0]]+' '+homeF[2+3*finalLineup2[4][0][0]]+'<br>'+homeF[1+3*finalLineup2[4][0][1]]+' '+homeF[2+3*finalLineup2[4][0][1]]+'<br>'+homeF[1+3*finalLineup2[4][0][2]]+' '+homeF[2+3*finalLineup2[4][0][2]];
+
+                    lineByLine221.innerHTML=lineByLine(0,0,0)[1][0]+' '+lineByLine(0,0,0)[1][1]+'<br>'+lineByLine(0,0,0)[1][2]+' '+lineByLine(0,0,0)[1][3]+'<br>'+lineByLine(0,0,0)[1][4]+' '+lineByLine(0,0,0)[1][5];
+                    lineByLine241.innerHTML=lineByLine(0,0,0)[0][0]+' '+lineByLine(0,0,0)[0][1]+' '+'<br>'+lineByLine(0,0,0)[0][2]+' '+lineByLine(0,0,0)[0][3]+' '+'<br>'+lineByLine(0,0,0)[0][4]+' '+lineByLine(0,0,0)[0][5]+' ';
+                    lineByLine251.innerHTML=lineByLine(0,0,1)[0][0]+' '+lineByLine(0,0,1)[0][1]+' '+'<br>'+lineByLine(0,0,1)[0][2]+' '+lineByLine(0,0,1)[0][3]+' '+'<br>'+lineByLine(0,0,1)[0][4]+' '+lineByLine(0,0,1)[0][5]+' ';
+                    lineByLine261.innerHTML=lineByLine(0,0,2)[0][0]+' '+lineByLine(0,0,2)[0][1]+' '+'<br>'+lineByLine(0,0,2)[0][2]+' '+lineByLine(0,0,2)[0][3]+' '+'<br>'+lineByLine(0,0,2)[0][4]+' '+lineByLine(0,0,2)[0][5]+' ';
+                    if (finalLineup2[5][0].length>=12) {lineByLine271.innerHTML=lineByLine(0,0,3)[0][0]+' '+lineByLine(0,0,3)[0][1]+' '+'<br>'+lineByLine(0,0,3)[0][2]+' '+lineByLine(0,0,3)[0][3]+' '+'<br>'+lineByLine(0,0,3)[0][4]+' '+lineByLine(0,0,3)[0][5]+' '}
 
                     lineByLine301.innerHTML=homeF[1+3*finalLineup2[4][0][3]]+' '+homeF[2+3*finalLineup2[4][0][3]]+'<br>'+homeF[1+3*finalLineup2[4][0][4]]+' '+homeF[2+3*finalLineup2[4][0][4]]+'<br>'+homeF[1+3*finalLineup2[4][0][5]]+' '+homeF[2+3*finalLineup2[4][0][5]];
                     lineByLine321.innerHTML=lineByLine(0,1,0)[1][0]+' '+lineByLine(0,1,0)[1][1]+'<br>'+lineByLine(0,1,0)[1][2]+' '+lineByLine(0,1,0)[1][3]+'<br>'+lineByLine(0,1,0)[1][4]+' '+lineByLine(0,1,0)[1][5];
@@ -492,7 +504,14 @@ function getInputValue() {
                     lineByLine441.innerHTML=lineByLine(0,2,0)[0][0]+' '+lineByLine(0,2,0)[0][1]+'<br>'+lineByLine(0,2,0)[0][2]+' '+lineByLine(0,2,0)[0][3]+' '+'<br>'+lineByLine(0,2,0)[0][4]+' '+lineByLine(0,2,0)[0][5];
                     lineByLine451.innerHTML=lineByLine(0,2,1)[0][0]+' '+lineByLine(0,2,1)[0][1]+'<br>'+lineByLine(0,2,1)[0][2]+' '+lineByLine(0,2,1)[0][3]+' '+'<br>'+lineByLine(0,2,1)[0][4]+' '+lineByLine(0,2,1)[0][5];
                     lineByLine461.innerHTML=lineByLine(0,2,2)[0][0]+' '+lineByLine(0,2,2)[0][1]+'<br>'+lineByLine(0,2,2)[0][2]+' '+lineByLine(0,2,2)[0][3]+' '+'<br>'+lineByLine(0,2,2)[0][4]+' '+lineByLine(0,2,2)[0][5]+' ';
-                    if (finalLineup2[5].length>=12) {lineByLine471.innerHTML=lineByLine(0,2,3)[0][0]+' '+lineByLine(0,2,3)[0][1]+'<br>'+lineByLine(0,2,3)[0][2]+' '+lineByLine(0,2,3)[0][3]+' '+'<br>'+lineByLine(0,2,3)[0][4]+' '+lineByLine(0,2,3)[0][5]+' '}
+                    if (finalLineup2[5][0].length>=12) {lineByLine471.innerHTML=lineByLine(0,2,3)[0][0]+' '+lineByLine(0,2,3)[0][1]+'<br>'+lineByLine(0,2,3)[0][2]+' '+lineByLine(0,2,3)[0][3]+' '+'<br>'+lineByLine(0,2,3)[0][4]+' '+lineByLine(0,2,3)[0][5]+' '}
+
+                    lineByLine501.innerHTML=fourthLine.innerHTML=homeF[1+3*finalLineup2[4][0][9]]+' '+homeF[2+3*finalLineup2[4][0][9]]+'<br>'+homeF[1+3*finalLineup2[4][0][10]]+' '+homeF[2+3*finalLineup2[4][0][10]]+'<br>'+homeF[1+3*finalLineup2[4][0][11]]+' '+homeF[2+3*finalLineup2[4][0][11]];
+                    lineByLine521.innerHTML=lineByLine(0,3,0)[1][0]+' '+lineByLine(0,3,0)[1][1]+'<br>'+lineByLine(0,3,0)[1][2]+' '+lineByLine(0,3,0)[1][3]+'<br>'+lineByLine(0,3,0)[1][4]+' '+lineByLine(0,3,0)[1][5];
+                    lineByLine541.innerHTML=lineByLine(0,3,0)[0][0]+' '+lineByLine(0,3,0)[0][1]+'<br>'+lineByLine(0,3,0)[0][2]+' '+lineByLine(0,3,0)[0][3]+' '+'<br>'+lineByLine(0,3,0)[0][4]+' '+lineByLine(0,3,0)[0][5]+' ';
+                    lineByLine551.innerHTML=lineByLine(0,3,1)[0][0]+' '+lineByLine(0,3,1)[0][1]+'<br>'+lineByLine(0,3,1)[0][2]+' '+lineByLine(0,3,1)[0][3]+' '+'<br>'+lineByLine(0,3,1)[0][4]+' '+lineByLine(0,3,1)[0][5]+' ';
+                    lineByLine561.innerHTML=lineByLine(0,3,2)[0][0]+' '+lineByLine(0,3,2)[0][1]+'<br>'+lineByLine(0,3,2)[0][2]+' '+lineByLine(0,3,2)[0][3]+' '+'<br>'+lineByLine(0,3,2)[0][4]+' '+lineByLine(0,3,2)[0][5]+' ';
+                    if (finalLineup2[5][0].length>=12) {lineByLine571.innerHTML=lineByLine(0,3,3)[0][0]+' '+lineByLine(0,3,3)[0][1]+'<br>'+lineByLine(0,3,3)[0][2]+' '+lineByLine(0,3,3)[0][3]+' '+'<br>'+lineByLine(0,3,3)[0][4]+' '+lineByLine(0,3,3)[0][5]+' '}
                    
                    
                     //       allLinesCombined = [[],[],[],[],[],[]];

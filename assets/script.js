@@ -516,6 +516,12 @@ function getInputValue() {
                     lineByLine043.innerHTML=awayF[1+3*finalLineup2[5][2][0]]+' '+awayF[2+3*finalLineup2[5][2][0]]+'<br>'+awayF[1+3*finalLineup2[5][2][1]]+' '+awayF[2+3*finalLineup2[5][2][1]]+'<br>'+awayF[1+3*finalLineup2[5][2][2]]+' '+awayF[2+3*finalLineup2[5][2][2]];
                     lineByLine053.innerHTML=awayF[1+3*finalLineup2[5][2][3]]+' '+awayF[2+3*finalLineup2[5][2][3]]+'<br>'+awayF[1+3*finalLineup2[5][2][4]]+' '+awayF[2+3*finalLineup2[5][2][4]]+'<br>'+awayF[1+3*finalLineup2[5][2][5]]+' '+awayF[2+3*finalLineup2[5][2][5]];
                     lineByLine063.innerHTML=awayF[1+3*finalLineup2[5][2][6]]+' '+awayF[2+3*finalLineup2[5][2][6]]+'<br>'+awayF[1+3*finalLineup2[5][2][7]]+' '+awayF[2+3*finalLineup2[5][2][7]]+'<br>'+awayF[1+3*finalLineup2[5][2][8]]+' '+awayF[2+3*finalLineup2[5][2][8]];
+                    if (finalLineup2[5][2].length>=12)  {lineByLine073.innerHTML=awayF[1+3*finalLineup2[5][2][9]]+' '+awayF[2+3*finalLineup2[5][2][9]]+'<br>'+awayF[1+3*finalLineup2[5][2][10]]+' '+awayF[2+3*finalLineup2[5][2][10]]+'<br>'+awayF[1+3*finalLineup2[5][2][11]]+' '+awayF[2+3*finalLineup2[5][2][11]];}
+                    else {lineByLine073.innerHTML=awayF[1+3*finalLineup2[5][2][9]]+' '+awayF[2+3*finalLineup2[5][2][9]]+'<br>'+awayF[1+3*finalLineup2[5][2][10]]+' '+awayF[2+3*finalLineup2[5][2][10]]}
+                    lineByLine143.innerHTML=lineByLine(1,0,0)[1][0]+' '+lineByLine(1,0,0)[1][1]+'<br>'+lineByLine(1,0,0)[1][2]+' '+lineByLine(1,0,0)[1][3]+'<br>'+lineByLine(1,0,0)[1][4]+' '+lineByLine(1,0,0)[1][5];
+                    lineByLine153.innerHTML=lineByLine(1,1,0)[1][0]+' '+lineByLine(1,1,0)[1][1]+'<br>'+lineByLine(1,1,0)[1][2]+' '+lineByLine(1,1,0)[1][3]+'<br>'+lineByLine(1,1,0)[1][4]+' '+lineByLine(1,1,0)[1][5];
+                    lineByLine163.innerHTML=lineByLine(1,2,0)[1][0]+' '+lineByLine(1,2,0)[1][1]+'<br>'+lineByLine(1,2,0)[1][2]+' '+lineByLine(1,2,0)[1][3]+'<br>'+lineByLine(1,2,0)[1][4]+' '+lineByLine(1,2,0)[1][5];
+                    if (finalLineup2[5][0].length>=12) {lineByLine173.innerHTML=lineByLine(1,3,0)[1][0]+' '+lineByLine(1,3,0)[1][1]+'<br>'+lineByLine(1,3,0)[1][2]+' '+lineByLine(1,3,0)[1][3]+'<br>'+lineByLine(1,3,0)[1][4]+' '+lineByLine(1,3,0)[1][5];}
                    
                    
                     //       allLinesCombined = [[],[],[],[],[],[]];

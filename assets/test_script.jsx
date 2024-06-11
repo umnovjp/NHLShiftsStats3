@@ -1,6 +1,3 @@
-// linesArray2[i] -> finalLineup2[h][i] i=2,3 h=0,1
-// finalLineup[i-2] -> finalLineup2[h+4][i] i=2,3 h=0,1
-// finalLineup[i] => finalLineup2[h+2][i]
 finalLineup =[[],[],[],[]]; tempArray3 = [homeF.length/3, awayF.length/3]; linesArray4 = [[],[]]; finalLineup2=[[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]];                  
 for (i=2; i<4; i++) {for (j=0; j<linesArray2[i].length; j++) {for (k=j+1; k<linesArray2[i].length; k++) {if (linesArray2[i][j]===linesArray2[i][k]) {console.log(j,k)
   if (finalLineup[i-2].includes(linesArray2[i][j])) {}

@@ -413,7 +413,7 @@ function getInputValue() {
       }} // i, h loops end 
             console.log('finalLineup2', finalLineup2);
 
-            // to add another loop here
+            // will add another loop here to match lines between 1st and 3rd period lineups
 
                     function lineNumber(h,i,j,k) {topFLimit = (1-h)*(homeF.length)/3 + h*(awayF.length)/3; // h may be 0 or 1 only!
                     if (topFLimit===12) {firstPart=[0,55,100,136,164,185,200,210,216,219]}

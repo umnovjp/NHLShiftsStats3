@@ -35,3 +35,5 @@ game 7 03/09 13F time not displayed correctly; game 7 03/02 apparently incorrect
 tested 02/12-03/17 
 
 Game 1 04/24 and game DAL on 04/29 are examples of games with line changes and stars game on 05/07; stars game 1 5/17 changed lines in 3rd; game 0 3/12 game 3 3/16 failed because final lineup is empty. game 1 3/15 failed because final lineup is empty. game 3 3/14 failed because final lineup is empty. game 8 2/15 all lines changed in 2nd. game 6 2/20 4th line wrong.
+
+Checked games in May starting May 1. Game 1 05/08: 0 lines defined for H team also game 1 05/10 and game 1 5/12 same thing. game 0 5/12 H team 3rd period

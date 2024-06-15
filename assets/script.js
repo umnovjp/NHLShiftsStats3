@@ -447,7 +447,7 @@ function getInputValue() {
                         else if ((fArray[1-h][finalLineup[3-h][3*j+1]][i][2*m]<=fArray[1-h][finalLineup[3-h][3*j]][i][2*l])&&(fArray[1-h][finalLineup[3-h][3*j+1]][i][2*m+1]>=fArray[1-h][finalLineup[3-h][3*j]][i][2*l])) {
                           if (fArray[1-h][finalLineup[3-h][3*j+1]][i][2*m+1]>=fArray[1-h][finalLineup[3-h][3*j]][i][2*l+1]) { shiftsLine[6+i].push(fArray[1-h][finalLineup[3-h][3*j]][i][2*l], fArray[1-h][finalLineup[3-h][3*j]][i][2*l+1]) }
                           else {shiftsLine[6+i].push(fArray[1-h][finalLineup[3-h][3*j]][i][2*l], fArray[1-h][finalLineup[3-h][3*j+1]][i][2*m+1])}}
-                    }} // end first m,l loop
+                    }} // end first m,l loop 
                     // start second l,m loop 
                     for (l=0;l<shiftsLine[6+i].length/2;l++) { for (m=0;m<fArray[1-h][finalLineup[3-h][3*j+2]][i].length/2;m++) {if ((fArray[1-h][finalLineup[3-h][3*j+2]][i][2*m]>=shiftsLine[6+i][2*l]) && (fArray[1-h][finalLineup[3-h][3*j+2]][i][2*m]<=shiftsLine[6+i][2*l+1]))
                       {if (fArray[1-h][finalLineup[3-h][3*j+2]][i][2*m+1]>=shiftsLine[6+i][2*l+1]) {shiftsLine[9+i].push(fArray[1-h][finalLineup[3-h][3*j+2]][i][2*m], shiftsLine[6+i][2*l+1]) }
@@ -537,14 +537,12 @@ function getInputValue() {
                     lineByLine353.innerHTML=lineByLine(0,1,1)[0][0]+' '+lineByLine(0,1,1)[0][1]+'<br>'+lineByLine(0,1,1)[0][2]+' '+lineByLine(0,1,1)[0][3]+' '+'<br>'+lineByLine(0,1,1)[0][4]+' '+lineByLine(0,1,1)[0][5];
                     lineByLine363.innerHTML=lineByLine(0,1,2)[0][0]+' '+lineByLine(0,1,2)[0][1]+'<br>'+lineByLine(0,1,2)[0][2]+' '+lineByLine(0,1,2)[0][3]+' '+'<br>'+lineByLine(0,1,2)[0][4]+' '+lineByLine(0,1,2)[0][5];
                     if (finalLineup2[5][2].length>=12) {lineByLine373.innerHTML=lineByLine(0,1,3)[0][0]+' '+lineByLine(0,1,3)[0][1]+' '+'<br>'+lineByLine(0,1,3)[0][2]+' '+lineByLine(0,1,3)[0][3]+' '+'<br>'+lineByLine(0,1,3)[0][4]+' '+lineByLine(0,1,3)[0][5]+' '}
-
                     lineByLine403.innerHTML=homeF[1+3*finalLineup2[4][2][6]]+' '+homeF[2+3*finalLineup2[4][2][6]]+'<br>'+homeF[1+3*finalLineup2[4][2][7]]+' '+homeF[2+3*finalLineup2[4][2][7]]+'<br>'+homeF[1+3*finalLineup2[4][2][8]]+' '+homeF[2+3*finalLineup2[4][2][8]];
                     lineByLine423.innerHTML=lineByLine(0,2,0)[1][0]+' '+lineByLine(0,2,0)[1][1]+'<br>'+lineByLine(0,2,0)[1][2]+' '+lineByLine(0,2,0)[1][3]+'<br>'+lineByLine(0,2,0)[1][4]+' '+lineByLine(0,2,0)[1][5];
                     lineByLine443.innerHTML=lineByLine(0,2,0)[0][0]+' '+lineByLine(0,2,0)[0][1]+'<br>'+lineByLine(0,2,0)[0][2]+' '+lineByLine(0,2,0)[0][3]+' '+'<br>'+lineByLine(0,2,0)[0][4]+' '+lineByLine(0,2,0)[0][5];
                     lineByLine453.innerHTML=lineByLine(0,2,1)[0][0]+' '+lineByLine(0,2,1)[0][1]+'<br>'+lineByLine(0,2,1)[0][2]+' '+lineByLine(0,2,1)[0][3]+' '+'<br>'+lineByLine(0,2,1)[0][4]+' '+lineByLine(0,2,1)[0][5];
                     lineByLine463.innerHTML=lineByLine(0,2,2)[0][0]+' '+lineByLine(0,2,2)[0][1]+'<br>'+lineByLine(0,2,2)[0][2]+' '+lineByLine(0,2,2)[0][3]+' '+'<br>'+lineByLine(0,2,2)[0][4]+' '+lineByLine(0,2,2)[0][5]+' ';
                     if (finalLineup2[5][0].length>=12) {lineByLine473.innerHTML=lineByLine(0,2,3)[0][0]+' '+lineByLine(0,2,3)[0][1]+'<br>'+lineByLine(0,2,3)[0][2]+' '+lineByLine(0,2,3)[0][3]+' '+'<br>'+lineByLine(0,2,3)[0][4]+' '+lineByLine(0,2,3)[0][5]+' '}
-
                     lineByLine503.innerHTML=fourthLine.innerHTML=homeF[1+3*finalLineup2[4][2][9]]+' '+homeF[2+3*finalLineup2[4][2][9]]+'<br>'+homeF[1+3*finalLineup2[4][2][10]]+' '+homeF[2+3*finalLineup2[4][2][10]]+'<br>'+homeF[1+3*finalLineup2[4][2][11]]+' '+homeF[2+3*finalLineup2[4][2][11]];
                     lineByLine523.innerHTML=lineByLine(0,3,0)[1][0]+' '+lineByLine(0,3,0)[1][1]+'<br>'+lineByLine(0,3,0)[1][2]+' '+lineByLine(0,3,0)[1][3]+'<br>'+lineByLine(0,3,0)[1][4]+' '+lineByLine(0,3,0)[1][5];
                     lineByLine543.innerHTML=lineByLine(0,3,0)[0][0]+' '+lineByLine(0,3,0)[0][1]+'<br>'+lineByLine(0,3,0)[0][2]+' '+lineByLine(0,3,0)[0][3]+' '+'<br>'+lineByLine(0,3,0)[0][4]+' '+lineByLine(0,3,0)[0][5]+' ';
@@ -607,8 +605,7 @@ function getInputValue() {
                     if (finalLineup[3].length>=12) {lineByLine57.innerHTML=lineByLine(0,3,3)[0][0]+' '+lineByLine(0,3,3)[0][1]+'<br>'+lineByLine(0,3,3)[0][2]+' '+lineByLine(0,3,3)[0][3]+' '+'<br>'+lineByLine(0,3,3)[0][4]+' '+lineByLine(0,3,3)[0][5]+' '}
                   }
                     else if (homeF.length/3===11) {fourthLine.innerHTML=homeF[1+3*finalLineup[2][9]]+' '+homeF[2+3*finalLineup[2][9]]+'<br>'+homeF[1+3*finalLineup[2][10]]+' '+homeF[2+3*finalLineup[2][10]]
-                    lineByLine50.innerHTML=homeF[1+3*finalLineup[2][9]]+' '+homeF[2+3*finalLineup[2][9]]+'<br>'+homeF[1+3*finalLineup[2][10]]+' '+homeF[2+3*finalLineup[2][10]]
-                  }
+                    lineByLine50.innerHTML=homeF[1+3*finalLineup[2][9]]+' '+homeF[2+3*finalLineup[2][9]]+'<br>'+homeF[1+3*finalLineup[2][10]]+' '+homeF[2+3*finalLineup[2][10]]}
                     
                     headerAway.innerHTML = 'Players'; headerAway2.innerHTML = 'TOI s'; headerAway3.innerHTML = 'shifts'; headerAway4.innerHTML = 'shifts'; 
                     firstLineAway.innerHTML=awayF[1+3*finalLineup[3][0]]+' '+awayF[2+3*finalLineup[3][0]]+'<br>'+awayF[1+3*finalLineup[3][1]]+' '+awayF[2+3*finalLineup[3][1]]+'<br>'+awayF[1+3*finalLineup[3][2]]+' '+awayF[2+3*finalLineup[3][2]];
@@ -652,4 +649,3 @@ function getInputValue() {
     } // end second .then from getinputvalue
     ); 
 } // end getInput Value function 
-// private lender playbook

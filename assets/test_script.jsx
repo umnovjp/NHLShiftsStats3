@@ -8,7 +8,7 @@ else if ((fArray[h][finalLineup[2+h][3*f+1]][n][2*m]<=fArray[h][finalLineup[2+h]
   if (fArray[h][finalLineup[2+h][3*f+1]][n][2*m+1]>=fArray[h][finalLineup[2+h][3*f]][n][2*l+1]) { shiftsLine[n].push(fArray[h][finalLineup[2+h][3*f]][n][2*l], fArray[h][finalLineup[2+h][3*f]][n][2*l+1]) }
   else {shiftsLine[n].push(fArray[h][finalLineup[2+h][3*f]][n][2*l], fArray[h][finalLineup[2+h][3*f+1]][n][2*m+1])}}
 }} // end first m,l loop
-// start second l,m loop fArray[h][finalLineup[2+h][3*f]][n] = shiftsLine[n]
+// start second l,m loop 
 for (l=0;l<shiftsLine[n].length/2;l++) { for (m=0;m<fArray[h][finalLineup[2+h][3*f+2]][n].length/2;m++) {if ((fArray[h][finalLineup[2+h][3*f+2]][n][2*m]>=shiftsLine[n][2*l]) && (fArray[h][finalLineup[2+h][3*f+2]][n][2*m]<=shiftsLine[n][2*l+1]))
 {if (fArray[h][finalLineup[2+h][3*f+2]][n][2*m+1]>=shiftsLine[n][2*l+1]) {shiftsLine[n+3].push(fArray[h][finalLineup[2+h][3*f+2]][n][2*m], shiftsLine[n][2*l+1]) }
 else { shiftsLine[n+3].push(fArray[h][finalLineup[2+h][3*f+2]][n][2*m], fArray[h][finalLineup[2+h][3*f+2]][n][2*m+1]) }}

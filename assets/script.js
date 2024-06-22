@@ -521,14 +521,14 @@ function getInputValue() {
                     lineVsLineTime=0; lineVsLineShifts=0;
                     for (k=0;k<shiftsLine1[12][n].length/2;k++) { lineVsLineTime=lineVsLineTime+shiftsLine1[12][n][2*k+1]-shiftsLine1[12][n][2*k];
                     if (shiftsLine1[12][n][2*k+1]-shiftsLine1[12][n][2*k]>=10) {lineVsLineShifts=lineVsLineShifts+1}}
-                    shiftsLine1[13][0].push(lineVsLineTime, lineVsLineShifts);
-                    lineVsLineTime=0; lineVsLineShifts=0;
+                    shiftsLine1[13][0].push(lineVsLineTime, lineVsLineShifts); 
+                    lineVsLineTime=0; lineVsLineShifts=0; 
                     for (k=0;k<shiftsLine1[3+n].length/2;k++) { lineVsLineTime=lineVsLineTime+shiftsLine1[3+n][2*k+1]-shiftsLine1[3+n][2*k];
                     if (shiftsLine1[3+n][2*k+1]-shiftsLine1[3+n][2*k]>=10) {lineVsLineShifts=lineVsLineShifts+1}}
                     shiftsLine1[13][1].push(lineVsLineTime, lineVsLineShifts)
                     } // end n loop
                     return shiftsLine1[13]} // end function lineByLine1 
-                    console.log(lineByLine1(0,0,3,1))
+                    console.log(lineByLine1(0,0,3,1));
                     
                     lineByLine041.innerHTML=awayF[1+3*finalLineup2[5][0][0]]+' '+awayF[2+3*finalLineup2[5][0][0]]+'<br>'+awayF[1+3*finalLineup2[5][0][1]]+' '+awayF[2+3*finalLineup2[5][0][1]]+'<br>'+awayF[1+3*finalLineup2[5][0][2]]+' '+awayF[2+3*finalLineup2[5][0][2]];
                     lineByLine051.innerHTML=awayF[1+3*finalLineup2[5][0][3]]+' '+awayF[2+3*finalLineup2[5][0][3]]+'<br>'+awayF[1+3*finalLineup2[5][0][4]]+' '+awayF[2+3*finalLineup2[5][0][4]]+'<br>'+awayF[1+3*finalLineup2[5][0][5]]+' '+awayF[2+3*finalLineup2[5][0][5]];

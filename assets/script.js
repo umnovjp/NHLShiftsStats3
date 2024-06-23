@@ -2,7 +2,7 @@ var scheduleContent = document.getElementById('schedule'); var gameId; var input
 // lines below will allow user to select date then to select game on that date
 function getInputValue() {
   var inputVal = document.getElementById('datepicker').value; var date = inputVal.split('/');
-  var formatted = date[2] + '-' + date[0] + '-' + date[1]; console.log(formatted)
+  var formatted = date[2]+'-'+date[0]+'-'+date[1]; console.log(inputVal, formatted)
   var requestURL = 'https://cors-anywhere.herokuapp.com/https://api-web.nhle.com/v1/schedule/' + formatted;
   fetch(requestURL, {"method": "GET", "headers": {}
   })

@@ -37,3 +37,10 @@ tested 02/12-03/17
 Game 1 04/24 and game DAL on 04/29 are examples of games with line changes and stars game on 05/07; stars game 1 5/17 changed lines in 3rd; game 0 3/12 game 3 3/16 failed because final lineup is empty. game 1 3/15 failed because final lineup is empty. game 3 3/14 failed because final lineup is empty. game 8 2/15 all lines changed in 2nd. game 6 2/20 4th line wrong.
 
 Checked games in May starting May 1. Game 1 05/08: 0 lines defined for H team also game 1 05/10 and game 1 5/12 same thing game 1 5/14, 5/14 same thing because nhle web API does not have any data for those 3 games. game 0 5/12 H team 3rd period because no lines played 100s so far finished 05/19 trying to find that bug
+
+5/1 game 0,1 5/2 game 0, 5/7 game 0,1, 5/9 game 0 stops line 531 498:70
+5/3 game 0, 5/4 game 0 stops, 5/9 game 1, 5/11 game 0, 5/13 game 0,1 line 533 498:70 shiftsLine1[n][2*l], fArray[h][finalLineup2[h][i][3*f+2]][n][2*m+1]
+5/3 game 1, 5/11 game 1 stops line 584 483:60 [finalLineup2[h][i][3*f]][n]
+5/6 game 0, 5/8 game 0, 5/10 game 0, 5/12 game 0 stops line 532 498:70
+3/4 game 4 stops line 550 498:70
+3/4 game 2,3 stops line 584 483:60

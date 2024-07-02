@@ -478,8 +478,7 @@ function getInputValue() {
                     function lineByLine1(h,f,j,i) { shiftsLine1=[]; for (p=0;p<14;p++) {shiftsLine1.push([])} shiftsLine1[13]=[[],[]]
                     
                     for (n=0;n<3;n++) { // n is player in a line but i is period
-                     //f is line number 0,1,2,3, j is opposite team line number 0,1,2,3, h is 0 or 1 home away team
-                     
+                     //f is line number 0,1,2,3, j is opposite team line number 0,1,2,3, h is 0 or 1 home away team                     
                     for (l=0;l<fArray[h][finalLineup2[h][i][3*f]][n].length/2;l++) { for (m=0;m<fArray[h][finalLineup2[h][i][3*f+1]][n].length/2;m++) {if ((fArray[h][finalLineup2[h][i][3*f+1]][n][2*m]>=fArray[h][finalLineup2[h][i][3*f]][n][2*l]) && (fArray[h][finalLineup2[h][i][3*f+1]][n][2*m]<=fArray[h][finalLineup2[h][i][3*f]][n][2*l+1]))
                     {if (fArray[h][finalLineup2[h][i][3*f+1]][n][2*m+1]>=fArray[h][finalLineup2[h][i][3*f]][n][2*l+1]) {shiftsLine1[n].push(fArray[h][finalLineup2[h][i][3*f+1]][n][2*m], fArray[h][finalLineup2[h][i][3*f]][n][2*l+1]) }
                     else { shiftsLine1[n].push(fArray[h][finalLineup2[h][i][3*f+1]][n][2*m], fArray[h][finalLineup2[h][i][3*f+1]][n][2*m+1]) }}

@@ -493,7 +493,7 @@ function getInputValue() {
                       else if ((fArray[h][finalLineup2[h][i][3*f+2]][n][2*m]<=shiftsLine1[n][2*l])&&(fArray[h][finalLineup2[h][i][3*f+2]][n][2*m+1]>=shiftsLine1[n][2*l])) {
                       if (fArray[h][finalLineup2[h][i][3*f+2]][n][2*m+1]>=shiftsLine1[n][2*l+1]) { shiftsLine1[n+3].push(shiftsLine1[n][2*l], shiftsLine1[n][2*l+1]) }
                       else {shiftsLine1[n+3].push(shiftsLine1[n][2*l], fArray[h][finalLineup2[h][i][3*f+2]][n][2*m+1])}}
-                    }} // end second m,l loop
+                    }} // end second m,l loop 
                     for (l=0;l<fArray[1-h][finalLineup2[1-h][i][3*j]][n].length/2;l++) { for (m=0;m<fArray[1-h][finalLineup2[1-h][i][3*j+1]][n].length/2;m++) {if ((fArray[1-h][finalLineup2[1-h][i][3*j+1]][n][2*m]>=fArray[1-h][finalLineup2[1-h][i][3*j]][n][2*l]) && (fArray[1-h][finalLineup2[1-h][i][3*j+1]][n][2*m]<=fArray[1-h][finalLineup2[1-h][i][3*j]][n][2*l+1]))
                     {if (fArray[1-h][finalLineup2[1-h][i][3*j+1]][n][2*m+1]>=fArray[1-h][finalLineup2[1-h][i][3*j]][n][2*l+1]) {shiftsLine1[6+n].push(fArray[1-h][finalLineup2[1-h][i][3*j+1]][n][2*m], fArray[1-h][finalLineup2[1-h][i][3*j]][n][2*l+1]) }
                     else { shiftsLine1[6+n].push(fArray[1-h][finalLineup2[1-h][i][3*j+1]][n][2*m], fArray[1-h][finalLineup2[1-h][i][3*j+1]][n][2*m+1]) }}
@@ -520,16 +520,16 @@ function getInputValue() {
                     lineVsLineTime=0; lineVsLineShifts=0;
                     for (k=0;k<shiftsLine1[12][n].length/2;k++) { lineVsLineTime=lineVsLineTime+shiftsLine1[12][n][2*k+1]-shiftsLine1[12][n][2*k];
                     if (shiftsLine1[12][n][2*k+1]-shiftsLine1[12][n][2*k]>=10) {lineVsLineShifts=lineVsLineShifts+1}}
-                    shiftsLine1[13][0].push(lineVsLineTime, lineVsLineShifts); 
-                    lineVsLineTime=0; lineVsLineShifts=0; 
+                    shiftsLine1[13][0].push(lineVsLineTime, lineVsLineShifts);
+                    lineVsLineTime=0; lineVsLineShifts=0;
                     for (k=0;k<shiftsLine1[3+n].length/2;k++) { lineVsLineTime=lineVsLineTime+shiftsLine1[3+n][2*k+1]-shiftsLine1[3+n][2*k];
                     if (shiftsLine1[3+n][2*k+1]-shiftsLine1[3+n][2*k]>=10) {lineVsLineShifts=lineVsLineShifts+1}}
                     shiftsLine1[13][1].push(lineVsLineTime, lineVsLineShifts)
                     } // end n loop
                     return shiftsLine1[13]} // end function lineByLine1 
-                    console.log(lineByLine1(0,0,2,0), lineByLine1(0,0,2,1)); 
-                    console.log(lineByLine1(0,0,3,0)); 
-                    console.log(lineByLine1(0,0,3,1)); 
+                    console.log(lineByLine1(0,0,2,0), lineByLine1(0,0,2,1));
+                    console.log(lineByLine1(0,0,3,0));
+                    console.log(lineByLine1(0,0,3,1));
                     
                     lineByLine041.innerHTML=awayF[1+3*finalLineup2[5][0][0]]+' '+awayF[2+3*finalLineup2[5][0][0]]+'<br>'+awayF[1+3*finalLineup2[5][0][1]]+' '+awayF[2+3*finalLineup2[5][0][1]]+'<br>'+awayF[1+3*finalLineup2[5][0][2]]+' '+awayF[2+3*finalLineup2[5][0][2]];
                     lineByLine051.innerHTML=awayF[1+3*finalLineup2[5][0][3]]+' '+awayF[2+3*finalLineup2[5][0][3]]+'<br>'+awayF[1+3*finalLineup2[5][0][4]]+' '+awayF[2+3*finalLineup2[5][0][4]]+'<br>'+awayF[1+3*finalLineup2[5][0][5]]+' '+awayF[2+3*finalLineup2[5][0][5]];

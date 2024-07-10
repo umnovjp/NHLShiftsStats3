@@ -45,4 +45,4 @@ checked more games on 3/4
 5/3 game 1, 5/11 game 1 stops line 584 483:60 [finalLineup2[h][i][3*f]][n]
 5/6 game 0, 5/8 game 0, 5/10 game 0, 5/12 game 0 stops line 532 498:70
 3/4 game 4 stops line 550 498:70
-3/4 game 2,3 stops line 584 483:60 
+3/4 game 2,3 both work

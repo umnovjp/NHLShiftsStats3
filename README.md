@@ -44,5 +44,4 @@ checked more games on 3/4
 5/3 game 0, 5/4 game 0 stops, 5/9 game 1, 5/11 game 0, 5/13 game 0,1 line 533 498:70 shiftsLine1[n][2*l], fArray[h][finalLineup2[h][i][3*f+2]][n][2*m+1]
 5/3 game 1, 5/11 game 1 stops line 584 483:60 [finalLineup2[h][i][3*f]][n]
 5/6 game 0, 5/8 game 0, 5/10 game 0, 5/12 game 0 stops line 532 498:70
-3/4 game 4 stops line 550 498:70
-3/4 game 2,3 both work
+3/4 game 2 has 5 lines 2nd period A team

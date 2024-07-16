@@ -479,35 +479,35 @@ function getInputValue() {
                     
                     for (n=0;n<3;n++) { // n is player in a line but i is period
                      //f is line number 0,1,2,3, j is opposite team line number 0,1,2,3, h is 0 or 1 home away team                     
-                    for (l=0;l<fArray[h][finalLineup2[h][i][3*f]][n].length/2;l++) { for (m=0;m<fArray[h][finalLineup2[h][i][3*f+1]][n].length/2;m++) {if ((fArray[h][finalLineup2[h][i][3*f+1]][n][2*m]>=fArray[h][finalLineup2[h][i][3*f]][n][2*l]) && (fArray[h][finalLineup2[h][i][3*f+1]][n][2*m]<=fArray[h][finalLineup2[h][i][3*f]][n][2*l+1]))
-                    {if (fArray[h][finalLineup2[h][i][3*f+1]][n][2*m+1]>=fArray[h][finalLineup2[h][i][3*f]][n][2*l+1]) {shiftsLine1[n].push(fArray[h][finalLineup2[h][i][3*f+1]][n][2*m], fArray[h][finalLineup2[h][i][3*f]][n][2*l+1]) }
-                    else { shiftsLine1[n].push(fArray[h][finalLineup2[h][i][3*f+1]][n][2*m], fArray[h][finalLineup2[h][i][3*f+1]][n][2*m+1]) }}
-                    else if ((fArray[h][finalLineup2[h][i][3*f+1]][n][2*m]<=fArray[h][finalLineup2[h][i][3*f]][n][2*l])&&(fArray[h][finalLineup2[h][i][3*f+1]][n][2*m+1]>=fArray[h][finalLineup2[h][i][3*f]][n][2*l])) {
-                      if (fArray[h][finalLineup2[h][i][3*f+1]][n][2*m+1]>=fArray[h][finalLineup2[h][i][3*f]][n][2*l+1]) { shiftsLine1[n].push(fArray[h][finalLineup2[h][i][3*f]][n][2*l], fArray[h][finalLineup2[h][i][3*f]][n][2*l+1]) }
-                      else {shiftsLine1[n].push(fArray[h][finalLineup2[h][i][3*f]][n][2*l], fArray[h][finalLineup2[h][i][3*f+1]][n][2*m+1])}}
+                    for (l=0;l<fArray[h][finalLineup2[4+h][i][3*f]][n].length/2;l++) { for (m=0;m<fArray[h][finalLineup2[4+h][i][3*f+1]][n].length/2;m++) {if ((fArray[h][finalLineup2[4+h][i][3*f+1]][n][2*m]>=fArray[h][finalLineup2[4+h][i][3*f]][n][2*l]) && (fArray[h][finalLineup2[4+h][i][3*f+1]][n][2*m]<=fArray[h][finalLineup2[4+h][i][3*f]][n][2*l+1]))
+                    {if (fArray[h][finalLineup2[4+h][i][3*f+1]][n][2*m+1]>=fArray[h][finalLineup2[4+h][i][3*f]][n][2*l+1]) {shiftsLine1[n].push(fArray[h][finalLineup2[4+h][i][3*f+1]][n][2*m], fArray[h][finalLineup2[4+h][i][3*f]][n][2*l+1]) }
+                    else { shiftsLine1[n].push(fArray[h][finalLineup2[4+h][i][3*f+1]][n][2*m], fArray[h][finalLineup2[4+h][i][3*f+1]][n][2*m+1]) }}
+                    else if ((fArray[h][finalLineup2[4+h][i][3*f+1]][n][2*m]<=fArray[h][finalLineup2[4+h][i][3*f]][n][2*l])&&(fArray[h][finalLineup2[4+h][i][3*f+1]][n][2*m+1]>=fArray[h][finalLineup2[4+h][i][3*f]][n][2*l])) {
+                      if (fArray[h][finalLineup2[4+h][i][3*f+1]][n][2*m+1]>=fArray[h][finalLineup2[4+h][i][3*f]][n][2*l+1]) { shiftsLine1[n].push(fArray[h][finalLineup2[4+h][i][3*f]][n][2*l], fArray[h][finalLineup2[4+h][i][3*f]][n][2*l+1]) }
+                      else {shiftsLine1[n].push(fArray[h][finalLineup2[4+h][i][3*f]][n][2*l], fArray[h][finalLineup2[4+h][i][3*f+1]][n][2*m+1])}}
                     }} // end first m,l loop 
                     // start second l,m loop
-                    for (l=0;l<shiftsLine1[n].length/2;l++) { for (m=0;m<fArray[h][finalLineup2[h][i][3*f+2]][n].length/2;m++) {if ((fArray[h][finalLineup2[h][i][3*f+2]][n][2*m]>=shiftsLine1[n][2*l]) && (fArray[h][finalLineup2[h][i][3*f+2]][n][2*m]<=shiftsLine1[n][2*l+1]))
-                    {if (fArray[h][finalLineup2[h][i][3*f+2]][n][2*m+1]>=shiftsLine1[n][2*l+1]) {shiftsLine1[n+3].push(fArray[h][finalLineup2[h][i][3*f+2]][n][2*m], shiftsLine1[n][2*l+1]) }
-                      else { shiftsLine1[n+3].push(fArray[h][finalLineup2[h][i][3*f+2]][n][2*m], fArray[h][finalLineup2[h][i][3*f+2]][n][2*m+1]) }}
-                      else if ((fArray[h][finalLineup2[h][i][3*f+2]][n][2*m]<=shiftsLine1[n][2*l])&&(fArray[h][finalLineup2[h][i][3*f+2]][n][2*m+1]>=shiftsLine1[n][2*l])) {
-                      if (fArray[h][finalLineup2[h][i][3*f+2]][n][2*m+1]>=shiftsLine1[n][2*l+1]) { shiftsLine1[n+3].push(shiftsLine1[n][2*l], shiftsLine1[n][2*l+1]) }
-                      else {shiftsLine1[n+3].push(shiftsLine1[n][2*l], fArray[h][finalLineup2[h][i][3*f+2]][n][2*m+1])}}
+                    for (l=0;l<shiftsLine1[n].length/2;l++) { for (m=0;m<fArray[h][finalLineup2[4+h][i][3*f+2]][n].length/2;m++) {if ((fArray[h][finalLineup2[4+h][i][3*f+2]][n][2*m]>=shiftsLine1[n][2*l]) && (fArray[h][finalLineup2[4+h][i][3*f+2]][n][2*m]<=shiftsLine1[n][2*l+1]))
+                    {if (fArray[h][finalLineup2[4+h][i][3*f+2]][n][2*m+1]>=shiftsLine1[n][2*l+1]) {shiftsLine1[n+3].push(fArray[h][finalLineup2[4+h][i][3*f+2]][n][2*m], shiftsLine1[n][2*l+1]) }
+                      else { shiftsLine1[n+3].push(fArray[h][finalLineup2[4+h][i][3*f+2]][n][2*m], fArray[h][finalLineup2[4+h][i][3*f+2]][n][2*m+1]) }}
+                      else if ((fArray[h][finalLineup2[4+h][i][3*f+2]][n][2*m]<=shiftsLine1[n][2*l])&&(fArray[h][finalLineup2[4+h][i][3*f+2]][n][2*m+1]>=shiftsLine1[n][2*l])) {
+                      if (fArray[h][finalLineup2[4+h][i][3*f+2]][n][2*m+1]>=shiftsLine1[n][2*l+1]) { shiftsLine1[n+3].push(shiftsLine1[n][2*l], shiftsLine1[n][2*l+1]) }
+                      else {shiftsLine1[n+3].push(shiftsLine1[n][2*l], fArray[h][finalLineup2[4+h][i][3*f+2]][n][2*m+1])}}
                     }} // end second m,l loop 
-                    for (l=0;l<fArray[1-h][finalLineup2[5-h][i][3*j]][n].length/2;l++) { for (m=0;m<fArray[1-h][finalLineup2[5-h][i][3*j+1]][n].length/2;m++) {if ((fArray[1-h][finalLineup2[5-h][i][3*j+1]][n][2*m]>=fArray[5-h][finalLineup2[1-h][i][3*j]][n][2*l]) && (fArray[1-h][finalLineup2[5-h][i][3*j+1]][n][2*m]<=fArray[5-h][finalLineup2[1-h][i][3*j]][n][2*l+1]))
+                    for (l=0;l<fArray[1-h][finalLineup2[5-h][i][3*j]][n].length/2;l++) { for (m=0;m<fArray[1-h][finalLineup2[5-h][i][3*j+1]][n].length/2;m++) {if ((fArray[1-h][finalLineup2[5-h][i][3*j+1]][n][2*m]>=fArray[1-h][finalLineup2[5-h][i][3*j]][n][2*l]) && (fArray[1-h][finalLineup2[5-h][i][3*j+1]][n][2*m]<=fArray[1-h][finalLineup2[5-h][i][3*j]][n][2*l+1]))
                     {if (fArray[1-h][finalLineup2[5-h][i][3*j+1]][n][2*m+1]>=fArray[1-h][finalLineup2[5-h][i][3*j]][n][2*l+1]) {shiftsLine1[6+n].push(fArray[1-h][finalLineup2[5-h][i][3*j+1]][n][2*m], fArray[1-h][finalLineup2[5-h][i][3*j]][n][2*l+1]) }
                     else { shiftsLine1[6+n].push(fArray[1-h][finalLineup2[5-h][i][3*j+1]][n][2*m], fArray[1-h][finalLineup2[5-h][i][3*j+1]][n][2*m+1]) }}
-                    else if ((fArray[1-h][finalLineup2[5-h][i][3*j+1]][n][2*m]<=fArray[5-h][finalLineup2[5-h][i][3*j]][n][2*l])&&(fArray[1-h][finalLineup2[5-h][i][3*j+1]][n][2*m+1]>=fArray[1-h][finalLineup2[5-h][i][3*j]][n][2*l])) {
+                    else if ((fArray[1-h][finalLineup2[5-h][i][3*j+1]][n][2*m]<=fArray[1-h][finalLineup2[5-h][i][3*j]][n][2*l])&&(fArray[1-h][finalLineup2[5-h][i][3*j+1]][n][2*m+1]>=fArray[1-h][finalLineup2[5-h][i][3*j]][n][2*l])) {
                     if (fArray[1-h][finalLineup2[5-h][i][3*j+1]][n][2*m+1]>=fArray[1-h][finalLineup2[5-h][i][3*j]][n][2*l+1]) { shiftsLine1[6+n].push(fArray[1-h][finalLineup2[5-h][i][3*j]][n][2*l], fArray[1-h][finalLineup2[5-h][i][3*j]][n][2*l+1]) }
                      else {shiftsLine1[6+n].push(fArray[1-h][finalLineup2[5-h][i][3*j]][n][2*l], fArray[1-h][finalLineup2[5-h][i][3*j+1]][n][2*m+1])}}
                     }} // end first m,l loop
                     // start second l,m loop
-                    for (l=0;l<shiftsLine1[6+n].length/2;l++) { for (m=0;m<fArray[1-h][finalLineup2[1-h][i][3*j+2]][n].length/2;m++) {if ((fArray[1-h][finalLineup2[1-h][i][3*j+2]][n][2*m]>=shiftsLine1[6+n][2*l]) && (fArray[1-h][finalLineup2[1-h][i][3*j+2]][n][2*m]<=shiftsLine1[6+n][2*l+1]))
-                    {if (fArray[1-h][finalLineup2[1-h][i][3*j+2]][n][2*m+1]>=shiftsLine1[6+n][2*l+1]) {shiftsLine1[9+n].push(fArray[1-h][finalLineup2[1-h][i][3*j+2]][n][2*m], shiftsLine1[6+n][2*l+1]) }
-                    else { shiftsLine1[9+n].push(fArray[1-h][finalLineup2[1-h][i][3*j+2]][n][2*m], fArray[1-h][finalLineup2[1-h][i][3*j+2]][n][2*m+1]) }}
-                    else if ((fArray[1-h][finalLineup2[1-h][i][3*j+2]][n][2*m]<=shiftsLine1[6+n][2*l])&&(fArray[1-h][finalLineup2[1-h][i][3*j+2]][n][2*m+1]>=shiftsLine1[6+n][2*l])) {
-                    if (fArray[1-h][finalLineup2[1-h][i][3*j+2]][n][2*m+1]>=shiftsLine1[6+n][2*l+1]) { shiftsLine1[9+n].push(shiftsLine1[6+n][2*l], shiftsLine1[6+n][2*l+1]) }
-                      else {shiftsLine1[9+n].push(shiftsLine1[6+n][2*l], fArray[1-h][finalLineup2[1-h][i][3*j+2]][n][2*m+1])}}
+                    for (l=0;l<shiftsLine1[6+n].length/2;l++) { for (m=0;m<fArray[1-h][finalLineup2[5-h][i][3*j+2]][n].length/2;m++) {if ((fArray[1-h][finalLineup2[5-h][i][3*j+2]][n][2*m]>=shiftsLine1[6+n][2*l]) && (fArray[1-h][finalLineup2[5-h][i][3*j+2]][n][2*m]<=shiftsLine1[6+n][2*l+1]))
+                    {if (fArray[1-h][finalLineup2[5-h][i][3*j+2]][n][2*m+1]>=shiftsLine1[6+n][2*l+1]) {shiftsLine1[9+n].push(fArray[1-h][finalLineup2[5-h][i][3*j+2]][n][2*m], shiftsLine1[6+n][2*l+1]) }
+                    else { shiftsLine1[9+n].push(fArray[1-h][finalLineup2[5-h][i][3*j+2]][n][2*m], fArray[1-h][finalLineup2[5-h][i][3*j+2]][n][2*m+1]) }}
+                    else if ((fArray[1-h][finalLineup2[5-h][i][3*j+2]][n][2*m]<=shiftsLine1[6+n][2*l])&&(fArray[1-h][finalLineup2[5-h][i][3*j+2]][n][2*m+1]>=shiftsLine1[6+n][2*l])) {
+                    if (fArray[1-h][finalLineup2[5-h][i][3*j+2]][n][2*m+1]>=shiftsLine1[6+n][2*l+1]) { shiftsLine1[9+n].push(shiftsLine1[6+n][2*l], shiftsLine1[6+n][2*l+1]) }
+                      else {shiftsLine1[9+n].push(shiftsLine1[6+n][2*l], fArray[1-h][finalLineup2[5-h][i][3*j+2]][n][2*m+1])}}
                     }} // end second away m,l loop
                     shiftsLine1[12].push([]);
                     for (l=0;l<shiftsLine1[3+n].length/2;l++) {for (m=0;m<shiftsLine1[9+n].length/2;m++) {if ((shiftsLine1[9+n][2*m]>=shiftsLine1[3+n][2*l])&&(shiftsLine1[9+n][2*m]<=shiftsLine1[3+n][2*l+1])){
@@ -528,8 +528,8 @@ function getInputValue() {
                     } // end n loop
                     return shiftsLine1[13]} // end function lineByLine1 
                     console.log(lineByLine1(0,0,2,0), lineByLine1(0,0,2,1));
-                    console.log(lineByLine1(0,0,3,0));
-                    console.log(lineByLine1(0,0,3,1));
+                    // console.log(lineByLine1(0,0,3,0));
+                    // console.log(lineByLine1(0,0,3,1));
                     // console.log(lineByLine1(0,0,3,2));
                     
                     lineByLine041.innerHTML=awayF[1+3*finalLineup2[5][0][0]]+' '+awayF[2+3*finalLineup2[5][0][0]]+'<br>'+awayF[1+3*finalLineup2[5][0][1]]+' '+awayF[2+3*finalLineup2[5][0][1]]+'<br>'+awayF[1+3*finalLineup2[5][0][2]]+' '+awayF[2+3*finalLineup2[5][0][2]];

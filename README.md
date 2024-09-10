@@ -43,3 +43,5 @@ something wrong in data table 3/2 game 4
 5/1 game 0,1 5/2 game 0, 5/7 game 0,1, 5/9 game 0 stops line 531 498:70
 5/3 game 0, 5/4 game 0 stops, 5/9 game 1, 5/11 game 0, 5/13 game 0,1 line 533
 3/4 game 5 3rd period, 3/2 game 9 3rd period, 3/2 game 6, 3/2 game 0 2nd period 0 lines are games so far that fails checked 03/05
+
+OK started this script again on 9/9/2024. Game 0 03/02 case to be added. game 4 same day result looks wrong because tables 1,2,3 are not the same for away team line 23-36-90. also line 10-15-27 looks not the same

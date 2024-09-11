@@ -525,9 +525,6 @@ function getInputValue() {
                     } // end n loop
                     return shiftsLine1[13]} // end function lineByLine1 
                     // console.log(lineByLine1(0,0,2,0), lineByLine1(0,0,2,1));
-                    // console.log(lineByLine1(0,0,3,0));
-                    // console.log(lineByLine1(0,0,3,1));
-                    // console.log(lineByLine1(0,0,3,2));
                     
                     lineByLine041.innerHTML=awayF[1+3*finalLineup2[5][0][0]]+' '+awayF[2+3*finalLineup2[5][0][0]]+'<br>'+awayF[1+3*finalLineup2[5][0][1]]+' '+awayF[2+3*finalLineup2[5][0][1]]+'<br>'+awayF[1+3*finalLineup2[5][0][2]]+' '+awayF[2+3*finalLineup2[5][0][2]];
                     lineByLine051.innerHTML=awayF[1+3*finalLineup2[5][0][3]]+' '+awayF[2+3*finalLineup2[5][0][3]]+'<br>'+awayF[1+3*finalLineup2[5][0][4]]+' '+awayF[2+3*finalLineup2[5][0][4]]+'<br>'+awayF[1+3*finalLineup2[5][0][5]]+' '+awayF[2+3*finalLineup2[5][0][5]];

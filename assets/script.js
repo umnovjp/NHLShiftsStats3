@@ -103,8 +103,7 @@ function getInputValue() {
                         
                         fArray = [[], []];
                     for (i = 0; i < playerIdArray.length / 2; i++) {for (j = 0; j < homeF.length / 3; j++) { if (playerIdArray[2 * i] === homeF[3 * j]) { fArray[0].push(playerIdArray[2 * i + 1]) } }
-                      for (j = 0; j < awayF.length / 3; j++) { if (playerIdArray[2 * i] === awayF[3 * j]) { fArray[1].push(playerIdArray[2 * i + 1]) }}}
-                    
+                      for (j = 0; j < awayF.length / 3; j++) { if (playerIdArray[2 * i] === awayF[3 * j]) { fArray[1].push(playerIdArray[2 * i + 1]) }}}                    
                     console.log('dArray', dArray, 'dArray2', dArray2, 'fArray', fArray); pairingsArray = [[], [], [], [], [], []]; linesArray = [[], [], [], [], [], []];
                     
                     dArrayTemp = [[[],[],[]],[[],[],[]]]; fArrayTemp = [[[],[],[]],[[],[],[]]];
@@ -173,7 +172,6 @@ function getInputValue() {
                     console.log(pairingsArray); tempTime2 = [];
                     
                      dArrayTemp2 = [[[],[],[]],[[],[],[]]]; dArrayTemp3 = [[[],[],[]],[[],[],[]]]; fArrayTemp2 = [[[],[],[]],[[],[],[]]]; fArrayTemp3 = [[[],[],[]],[[],[],[]]];
-                // fiveOnFive2 and fiveOnFive4 are used for comparison only not for script should be deleted later
 
                     for (h = 0; h < 2; h++) {// h = 0 home team F, h = 1 away team F
                       for (i = 0; i < 3; i++) { for (j = 0; j < fArray[h].length; j++) { // i loop for 3 periods
@@ -328,7 +326,7 @@ function getInputValue() {
 
                     // finalLineup will be replaced with finalLineup2
                     finalLineup =[[],[],[],[]]; tempArray3 = [homeF.length/3, awayF.length/3]; linesArray4 = [[],[]]; finalLineup2=[[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]];                  
-                    for (i=2; i<4; i++) {for (j=0; j<linesArray2[i].length; j++) {for (k=j+1; k<linesArray2[i].length; k++) {if (linesArray2[i][j]===linesArray2[i][k]) { //console.log(j,k)
+                    for (i=2; i<4; i++) {for (j=0; j<linesArray2[i].length; j++) {for (k=j+1; k<linesArray2[i].length; k++) {if (linesArray2[i][j]===linesArray2[i][k]) {
                       if (finalLineup[i-2].includes(linesArray2[i][j])) {}
                   else {finalLineup[i-2].push(linesArray2[i][j])}
                 }}}
@@ -411,6 +409,7 @@ function getInputValue() {
             console.log('finalLineup2', finalLineup2);
 
             // will add another loop here to match lines between 1st and 3rd period lineups
+            // to be added for (i=0;i<4;i++)
 
                     function lineNumber(h,i,j,k) {topFLimit = (1-h)*(homeF.length)/3 + h*(awayF.length)/3; // h may be 0 or 1 only!
                     if (topFLimit===12) {firstPart=[0,55,100,136,164,185,200,210,216,219]}

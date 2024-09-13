@@ -404,13 +404,21 @@ function getInputValue() {
         for (j=0; j<tempArray3[h]; j++) {if (finalLineup2[h+4][i].includes(j)){} else finalLineup2[h+4][i].push(j)}
         console.log(finalLineup2[h][i], linesArray6[h][i][tempIndex+2], linesArray6[h][i][tempIndex+3], linesArray6[h][i][tempIndex+4]);
       }
-      else {console.log('case to be added', 'h', h, 'i', i,)}
+      else {console.log('case to be added as no line played for more than 100 seconds together', 'h', h, 'i', i,)}
       }} // i, h loops end finalLineup2
             console.log('finalLineup2', finalLineup2);
 
             // will add another loop here to match lines between 1st and 3rd period lineups
-            // to be added for (i=0;i<4;i++)
+            // to be added 
+            for (i=0;i<finalLineup2[4][0].length/3;i++) {
+              if (finalLineup2[4][2].includes(finalLineup2[4][0][i])) {   }
+              else {console.log ('new line home team')}
+            }
 
+            for (i=0;i<finalLineup2[5][0].length/3;i++) {
+              if (finalLineup2[5][2].includes(finalLineup2[5][0][i])) {   }
+              else {console.log ('new line away team')}
+            }
                     function lineNumber(h,i,j,k) {topFLimit = (1-h)*(homeF.length)/3 + h*(awayF.length)/3; // h may be 0 or 1 only!
                     if (topFLimit===12) {firstPart=[0,55,100,136,164,185,200,210,216,219]}
                     else if (topFLimit===11) {firstPart=[0,45,81,109,130,145,155,161,164]}

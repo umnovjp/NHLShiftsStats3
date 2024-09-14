@@ -408,11 +408,13 @@ function getInputValue() {
       }} // i, h loops end finalLineup2
             console.log('finalLineup2', finalLineup2);
 
-            // will add another loop here to match lines between 1st and 3rd period lineups
             // to be added 
             for (i=0;i<finalLineup2[4][0].length/3;i++) {
-              if (finalLineup2[4][2].includes(finalLineup2[4][0][i])) {   }
-              else {console.log ('new line home team')}
+              for (j=i+1;j<finalLineup2[4][0].length/3;j++) {
+                if ((finalLineup2[4][0][3*i]===finalLineup2[4][2][3*j])&&(finalLineup2[4][0][3*i+1]===finalLineup2[4][2][3*j+1])&&(finalLineup2[4][0][3*i+2]===finalLineup2[4][2][3*j+2])) {}
+                else {console.log ('new line home team', finalLineup2[4][2][3*j], finalLineup2[4][2][3*j+1], finalLineup2[4][2][3*j+2])}
+              }              
+            
             }
 
             for (i=0;i<finalLineup2[5][0].length/3;i++) {

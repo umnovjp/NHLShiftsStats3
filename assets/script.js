@@ -410,15 +410,14 @@ function getInputValue() {
 
             // to be added 
             for (i=0;i<finalLineup2[4][0].length/3;i++) {
-              for (j=i+1;j<finalLineup2[4][0].length/3;j++) {
-                if ((finalLineup2[4][0][3*i]===finalLineup2[4][2][3*j])&&(finalLineup2[4][0][3*i+1]===finalLineup2[4][2][3*j+1])&&(finalLineup2[4][0][3*i+2]===finalLineup2[4][2][3*j+2])) {}
-                else {console.log ('new line home team', finalLineup2[4][2][3*j], finalLineup2[4][2][3*j+1], finalLineup2[4][2][3*j+2])}
-              }              
-            
+              for (j=0;j<finalLineup2[4][0].length/3;j++) {
+                if (finalLineup2[4][0][3*i]===finalLineup2[4][2][3*j]) {if ((finalLineup2[4][0][3*i+1]===finalLineup2[4][2][3*j+1])&&(finalLineup2[4][0][3*i+2]===finalLineup2[4][2][3*j+2])) {}
+                else {console.log ('new line home team', finalLineup2[4][2][3*j], finalLineup2[4][2][3*j+1], finalLineup2[4][2][3*j+2])} }
+              }
             }
 
             for (i=0;i<finalLineup2[5][0].length/3;i++) {
-              if (finalLineup2[5][2].includes(finalLineup2[5][0][i])) {   }
+              if (finalLineup2[5][2].includes(finalLineup2[5][0][i])) { }
               else {console.log ('new line away team')}
             }
                     function lineNumber(h,i,j,k) {topFLimit = (1-h)*(homeF.length)/3 + h*(awayF.length)/3; // h may be 0 or 1 only!

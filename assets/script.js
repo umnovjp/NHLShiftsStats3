@@ -409,11 +409,15 @@ function getInputValue() {
             console.log('finalLineup2', finalLineup2);
 
             // to be added 
+            
+            tempArray3=[]
+            for (i=0;i<finalLineup2[4][0].length/3;i++) {tempArray3.push(finalLineup2[4][0][3*i])}
             for (i=0;i<finalLineup2[4][0].length/3;i++) {
-              for (j=0;j<finalLineup2[4][0].length/3;j++) {
-                if (finalLineup2[4][0][3*i]===finalLineup2[4][2][3*j]) {if ((finalLineup2[4][0][3*i+1]===finalLineup2[4][2][3*j+1])&&(finalLineup2[4][0][3*i+2]===finalLineup2[4][2][3*j+2])) {}
-                else {console.log ('new line home team', finalLineup2[4][2][3*j], finalLineup2[4][2][3*j+1], finalLineup2[4][2][3*j+2])} }
-              }
+             if (tempArray3.includes(finalLineup2[4][2][3*i])) {
+              if ((finalLineup2[4][2][3*i+1]===finalLineup2[4][0][3*i+1])&&(finalLineup2[4][2][3*i+2]===finalLineup2[4][0][3*i+2])) {}
+              else (console.log('new line',finalLineup2[4][2][3*i], finalLineup2[4][2][3*i+1], finalLineup2[4][2][3*i+2]))
+             }
+             else (console.log('new line as well', finalLineup2[4][2][3*i], finalLineup2[4][2][3*i+1], finalLineup2[4][2][3*i+2]))
             }
 
             for (i=0;i<finalLineup2[5][0].length/3;i++) {

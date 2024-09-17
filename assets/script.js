@@ -414,16 +414,22 @@ function getInputValue() {
             for (i=0;i<finalLineup2[4][0].length/3;i++) {tempArray3.push(finalLineup2[4][0][3*i])}
             for (i=0;i<finalLineup2[4][0].length/3;i++) {
              if (tempArray3.includes(finalLineup2[4][2][3*i])) {
-              if ((finalLineup2[4][2][3*i+1]===finalLineup2[4][0][3*i+1])&&(finalLineup2[4][2][3*i+2]===finalLineup2[4][0][3*i+2])) {}
-              else (console.log('new line',finalLineup2[4][2][3*i], finalLineup2[4][2][3*i+1], finalLineup2[4][2][3*i+2]))
+              if ((finalLineup2[4][2][3*i+1]===finalLineup2[4][0][3*i+1])&&(finalLineup2[4][2][3*i+2]===finalLineup2[4][0][3*i+2])) {console.log('old line home', finalLineup2[4].indexOf(finalLineup2[5][2][3*i]))}
+              else (console.log('new line home',finalLineup2[4][2][3*i], finalLineup2[4][2][3*i+1], finalLineup2[4][2][3*i+2]))
              }
-             else (console.log('new line as well', finalLineup2[4][2][3*i], finalLineup2[4][2][3*i+1], finalLineup2[4][2][3*i+2]))
+             else (console.log('new line home as well', finalLineup2[4][2][3*i], finalLineup2[4][2][3*i+1], finalLineup2[4][2][3*i+2]))
             }
 
+            tempArray3=[]
+            for (i=0;i<finalLineup2[5][0].length/3;i++) {tempArray3.push(finalLineup2[5][0][3*i])}
             for (i=0;i<finalLineup2[5][0].length/3;i++) {
-              if (finalLineup2[5][2].includes(finalLineup2[5][0][i])) { }
-              else {console.log ('new line away team')}
+             if (tempArray3.includes(finalLineup2[5][2][3*i])) {
+              if ((finalLineup2[5][2][3*i+1]===finalLineup2[5][0][3*i+1])&&(finalLineup2[5][2][3*i+2]===finalLineup2[5][0][3*i+2])) {console.log('old line away', finalLineup2[5].indexOf(finalLineup2[5][2][3*i]))}
+              else (console.log('new line away',finalLineup2[5][2][3*i], finalLineup2[5][2][3*i+1], finalLineup2[5][2][3*i+2]))
+             }
+             else (console.log('new line away as well', finalLineup2[5][2][3*i], finalLineup2[5][2][3*i+1], finalLineup2[5][2][3*i+2]))
             }
+
                     function lineNumber(h,i,j,k) {topFLimit = (1-h)*(homeF.length)/3 + h*(awayF.length)/3; // h may be 0 or 1 only!
                     if (topFLimit===12) {firstPart=[0,55,100,136,164,185,200,210,216,219]}
                     else if (topFLimit===11) {firstPart=[0,45,81,109,130,145,155,161,164]}

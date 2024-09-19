@@ -407,16 +407,13 @@ function getInputValue() {
       else {console.log('case to be added as no line played for more than 100 seconds together', 'h', h, 'i', i,)}
       }} // i, h loops end finalLineup2
             console.log('finalLineup2', finalLineup2);
-
-            // to be added 
             
             tempArray3=[]
             for (i=0;i<finalLineup2[4][0].length/3;i++) {tempArray3.push(finalLineup2[4][0][3*i])}
             for (i=0;i<finalLineup2[4][0].length/3;i++) {
              if (tempArray3.includes(finalLineup2[4][2][3*i])) {
               if ((finalLineup2[4][2][3*i+1]===finalLineup2[4][0][3*i+1])&&(finalLineup2[4][2][3*i+2]===finalLineup2[4][0][3*i+2])) {console.log('old line home', i, finalLineup2[4][2].indexOf(finalLineup2[4][2][3*i]))}
-              else (console.log('new line home',finalLineup2[4][2][3*i], finalLineup2[4][2][3*i+1], finalLineup2[4][2][3*i+2]))
-             }
+              else (console.log('new line home',finalLineup2[4][2][3*i], finalLineup2[4][2][3*i+1], finalLineup2[4][2][3*i+2]))  }
              else (console.log('new line home as well', finalLineup2[4][2][3*i], finalLineup2[4][2][3*i+1], finalLineup2[4][2][3*i+2]))
             }
 
@@ -425,13 +422,11 @@ function getInputValue() {
             for (i=0;i<finalLineup2[5][0].length/3;i++) {
              if (tempArray3.includes(finalLineup2[5][2][3*i])) {
               if ((finalLineup2[5][2][3*i+1]===finalLineup2[5][0][3*i+1])&&(finalLineup2[5][2][3*i+2]===finalLineup2[5][0][3*i+2])) {console.log('old line away', i, finalLineup2[5][2].indexOf(finalLineup2[5][2][3*i]))}
-              else (console.log('new line away',finalLineup2[5][2][3*i], finalLineup2[5][2][3*i+1], finalLineup2[5][2][3*i+2]))
-             }
+              else (console.log('new line away',finalLineup2[5][2][3*i], finalLineup2[5][2][3*i+1], finalLineup2[5][2][3*i+2]))  }
              else (console.log('new line away as well', finalLineup2[5][2][3*i], finalLineup2[5][2][3*i+1], finalLineup2[5][2][3*i+2]))
             }
 
-            // script to be added here
-
+            // script to be added here to plot only new lines in 3rd to monitor 
                     function lineNumber(h,i,j,k) {topFLimit = (1-h)*(homeF.length)/3 + h*(awayF.length)/3; // h may be 0 or 1 only!
                     if (topFLimit===12) {firstPart=[0,55,100,136,164,185,200,210,216,219]}
                     else if (topFLimit===11) {firstPart=[0,45,81,109,130,145,155,161,164]}

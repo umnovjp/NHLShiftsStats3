@@ -404,6 +404,7 @@ function getInputValue() {
         for (j=0; j<tempArray3[h]; j++) {if (finalLineup2[h+4][i].includes(j)){} else finalLineup2[h+4][i].push(j)}
         console.log(finalLineup2[h][i], linesArray6[h][i][tempIndex+2], linesArray6[h][i][tempIndex+3], linesArray6[h][i][tempIndex+4]);
       }
+      else if (finalLineup2[h+4][i].length===0) {console.log('will add tomorrow')}
       else {console.log('case to be added as no line played for more than 100 seconds together', 'h', h, 'i', i,)}
       }} // i, h loops end finalLineup2
             console.log('finalLineup2', finalLineup2);
@@ -425,6 +426,7 @@ function getInputValue() {
             }
 
             // script to be added here to plot only new lines in 3rd to monitor 
+
                     function lineNumber(h,i,j,k) {topFLimit = (1-h)*(homeF.length)/3 + h*(awayF.length)/3; // h may be 0 or 1 only!
                     if (topFLimit===12) {firstPart=[0,55,100,136,164,185,200,210,216,219]}
                     else if (topFLimit===11) {firstPart=[0,45,81,109,130,145,155,161,164]}

@@ -404,7 +404,9 @@ function getInputValue() {
         for (j=0; j<tempArray3[h]; j++) {if (finalLineup2[h+4][i].includes(j)){} else finalLineup2[h+4][i].push(j)}
         console.log(finalLineup2[h][i], linesArray6[h][i][tempIndex+2], linesArray6[h][i][tempIndex+3], linesArray6[h][i][tempIndex+4]);
       }
-      else if (finalLineup2[h+4][i].length===0) {console.log('will add tomorrow')}
+      else if (finalLineup2[h+4][i].length===0) {console.log('will add tomorrow')
+    
+    }
       else {console.log('case to be added as no line played for more than 100 seconds together', 'h', h, 'i', i,)}
       }} // i, h loops end finalLineup2
             console.log('finalLineup2', finalLineup2);
@@ -486,6 +488,8 @@ function getInputValue() {
                     shiftsLine[13][1].push(lineVsLineTime, lineVsLineShifts)
                   } // end i loop
                     return shiftsLine[13]} //end function lineByLine 
+
+                    console.log()
 
                     function lineByLine1(h,f,j,i) {shiftsLine1=[]; for (p=0;p<14;p++) {shiftsLine1.push([])} shiftsLine1[13]=[[],[]]
                     

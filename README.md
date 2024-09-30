@@ -38,12 +38,10 @@ Game 1 04/24 and game DAL on 04/29 are examples of games with line changes and s
 
 Checked games in May starting May 1. Game 1 05/08: 0 lines defined for H team also game 1 05/10 and game 1 5/12 same thing game 1 5/14, 5/14 same thing because nhle web API does not have any data for those 3 games. game 0 5/12 H team 3rd period because no lines played 100s so far finished 05/19 trying to find that bug
 
-something wrong in data table 3/2 game 4
-
 5/1 game 0,1 5/2 game 0, 5/7 game 0,1, 5/9 game 0 stops line 531 498:70
 5/3 game 0, 5/4 game 0 stops, 5/9 game 1, 5/11 game 0, 5/13 game 0,1 line 533
 3/4 game 5 3rd period, 3/2 game 9 3rd period, 3/2 game 6, 3/2 game 0 2nd period 0 lines are games so far that fails checked 03/05
 
 game 11 03/02 incorrect data for 16-21-24 line. all games 03/03 are correct
 
-OK started this script again on 9/9/2024. Game 0 03/02 case to be added. game 4 same day result looks wrong because tables 1,2,3 are not the same for away team line 23-36-90. also line 10-15-27 does not look the same. game 6 finalArray2[5][1] is [] because no line is unique, same game 0 03/02. game 2 03/04 lines change from 1st to 3rd. checked another game with line change 03/01 game 0. game 4 03/02 incorrect data for 10-63-76 line in 3 periods, game 8 03/02 finanlineup2[5][2] is []. 
+OK started this script again on 9/9/2024. Game 0 03/02 case to be added. game 4 same day result looks wrong because tables 1,2,3 are not the same for away team line 23-36-90. also line 10-15-27 does not look the same. game 6 finalArray2[5][1] is [] because no line is unique, same game 0 03/02. game 2 03/04 lines change from 1st to 3rd. checked another game with line change 03/01 game 0. game 4 03/02 incorrect data for 10-63-76 line in 3 periods, game 9 03/02 finanlineup2[5][2] is []. 

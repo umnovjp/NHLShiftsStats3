@@ -218,8 +218,14 @@ function getInputValue() {
                         for (j = 3; j < 6; j++) {linesArray2[1].push(linesArray[j][5*i], linesArray[j][5*i+1], linesArray[j][5*i+2], linesArray[j][5*i+3], linesArray[j][5*i+4])
                           }
                           linesArray2[3].push(linesArray[3][5*i+2], linesArray[3][5*i+3], linesArray[3][5*i+4])}}
+
+                          // h is team i is period
                           for (h=0;h<2;h++) {for (i=0;i<3;i++) {for (j=0;j<linesArray[3*h].length/5;j++) {if (linesArray[3*h+i][5*j]>100) {
-                          linesArray7[h][i].push(linesArray[3*h+i][5*j], linesArray[3*h+i][5*j+1], linesArray[3*h+i][5*j+2], linesArray[3*h+i][5*j+3], linesArray[3*h+i][5*j+4])}}}}
+                          linesArray7[h][i].push(linesArray[3*h+i][5*j], linesArray[3*h+i][5*j+1], linesArray[3*h+i][5*j+2], linesArray[3*h+i][5*j+3], linesArray[3*h+i][5*j+4])
+                          }}
+                      if ((j=linesArray[3*h].length/5-1)&&(linesArray7[h][i].length===0)) {tempIndex=Math.max(...linesArray[3*h+i])
+                        console.log('linesarray7 is empty', 'h', h, 'i', i, 'j', j, linesArray7[h][i], tempIndex)}
+                      }}
                           console.log(linesArray2, 'linesArray7', linesArray7);
                           // to add condition above to make sure linesarray7 has something
 

@@ -46,5 +46,5 @@ game 11 03/02 incorrect data for 16-21-24 line found error. all games 03/03 are 
 
 OK started this script again on 9/9/2024. games 03/01...03/10. 
 
-Game 0 03/02 case to be added no unique line, same as game 6 finalArray2[5][1] is [] because no line is unique. game 2 03/04 lines change from 1st to 3rd. game 2 03/10 definitely wrong playing time is displayed between lines. checked another game with line change 03/01 game 0. game 9 03/02 finanlineup2[5][2] is [] because no line played more than 100s, same as game 5 03/04, same as game 0 03/07, same as game 2 03/09. 
+Game 0 03/02 case to be added no unique line, same as game 6 finalArray2[5][1] is [] because no line is unique. game 2 03/04 lines change from 1st to 3rd. game 2 03/10 definitely wrong playing time is displayed between lines. checked another game with line change 03/01 game 0. game 9 03/02 finanlineup2[5][2] is [] because no line played more than 100s, same as game 5 03/04, same as game 0 03/07, same as game 2 03/09. second part works now only no unique lines case is missing
 

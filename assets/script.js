@@ -416,12 +416,9 @@ function getInputValue() {
       }
       else if (finalLineup2[h+4][i].length===0) {
       linesArray5 = [[[],[],[]],[[],[],[]]]; linesArray6 = [[[],[],[]],[[],[],[]]];
-     //tempIndex = linesArray[h][i].indexOf(Math.max(linesArray[h][i]));
      tempIndex=Math.max(...linesArray[3*h+i])
-      console.log('Zero lines', 'team', h, 'period', i, linesArray[3*h+i], tempIndex)
-    
-    }
-      else {console.log('case to be added as no line played for more than 100 seconds together', 'h', h, 'i', i,)}
+      console.log('Zero lines', 'team', h, 'period', i, linesArray[3*h+i], tempIndex)}
+      else {console.log('case to be added as no line played for more than 100 seconds', 'h', h, 'i', i,)}
       }} // i, h loops end finalLineup2
             console.log('finalLineup2', finalLineup2);
             

@@ -42,9 +42,9 @@ Checked games in May starting May 1. Game 1 05/08: 0 lines defined for H team al
 5/3 game 0, 5/4 game 0 stops, 5/9 game 1, 5/11 game 0, 5/13 game 0,1 line 533
 3/4 game 5 3rd period, 3/2 game 9 3rd period, 3/2 game 6, 3/2 game 0 2nd period 0 lines are games so far that fails checked 03/05
 
-OK started this script again on 9/9/2024. games 03/01...03/24 game middle. 
+OK started this script again on 9/9/2024. games 03/01...03/27
 
-game 3 03/14 shows error in finallineup, same game 3 03/16, game 4 03/23 finallineup2 is [] which should not happen anymore, same game 5 03/23
+game 3 03/14 shows error in finallineup, same game 3 03/16
 
-Game 0 03/02 case to be added no unique line, same as game 6 finalArray2[5][1] is [] because no line is unique, same as game 2 03/11. game 2 03/04 lines change from 1st to 3rd, same game 0 3/19, probably same game 0 03/20 probably same game 4 03/21. game 2 03/10 definitely wrong playing time is displayed between lines. checked another game with line change 03/01 game 0. Game 2 03/12 wrong times away team.  wrong times game 6 03/17
+Game 0 03/02 case to be added no unique line, same as game 6 finalArray2[5][1] is [] because no line is unique, same as game 2 03/11, same game 5 03/23, same game 4 03/23, same game 1 03/25, same game 7 3/26. game 2 03/04 lines change from 1st to 3rd, same game 0 3/19, probably same game 0 03/20 probably same game 4 03/21. game 2 03/10 definitely wrong playing time is displayed between lines. checked another game with line change 03/01 game 0. Game 2 03/12 wrong times away team.  wrong times game 6 03/17
 

@@ -42,7 +42,7 @@ Checked games in May starting May 1. Game 1 05/08: 0 lines defined for H team al
 5/3 game 0, 5/4 game 0 stops, 5/9 game 1, 5/11 game 0, 5/13 game 0,1 line 533
 3/4 game 5 3rd period, 3/2 game 9 3rd period, 3/2 game 6, 3/2 game 0 2nd period 0 lines are games so far that fails checked 03/05
 
-OK started this script again on 9/9/2024. games 03/01...03/28
+OK started this script again on 9/9/2024. games 03/01...04/01
 
 game 3 03/14 shows error in finallineup, same game 3 03/16
 

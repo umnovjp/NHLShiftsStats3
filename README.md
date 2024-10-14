@@ -46,5 +46,7 @@ OK started this script again on 9/9/2024. games 03/01...04/01
 
 game 3 03/14 shows error in finallineup, same game 3 03/16
 
+After deleting staff: last game 04/03, ;ast game 03/01
+
 Game 0 03/02 case to be added no unique line, same as game 6 finalArray2[5][1] is [] because no line is unique, same as game 2 03/11, same game 5 03/23, same game 4 03/23, same game 1 03/25, same game 7 3/26, same game 5 03/28. game 2 03/04 lines change from 1st to 3rd, same game 0 3/19, probably same game 0 03/20 probably same game 4 03/21. game 2 03/10 definitely wrong playing time is displayed between lines. checked another game with line change 03/01 game 0. Game 2 03/12 wrong times away team.  wrong times game 6 03/17
 

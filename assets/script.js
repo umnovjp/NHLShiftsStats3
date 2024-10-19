@@ -335,7 +335,8 @@ function getInputValue() {
                     for (i=0; i<awayF.length/3; i++) {if (linesArray2[3].includes(i)) {} else linesArray2[5].push(i)}
 
                     // finalLineup will be replaced with finalLineup2
-                     finalLineup =[[],[],[],[]]; tempArray3 = [homeF.length/3, awayF.length/3]; linesArray4 = [[],[]]; finalLineup2=[[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]];                  
+                    // finalLineup =[[],[],[],[]]; 
+                     tempArray3 = [homeF.length/3, awayF.length/3]; linesArray4 = [[],[]]; finalLineup2=[[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]];                  
       //               for (i=2; i<4; i++) {for (j=0; j<linesArray2[i].length; j++) {for (k=j+1; k<linesArray2[i].length; k++) {if (linesArray2[i][j]===linesArray2[i][k]) {
       //                 if (finalLineup[i-2].includes(linesArray2[i][j])) {}
       //             else {finalLineup[i-2].push(linesArray2[i][j])}
@@ -421,6 +422,14 @@ function getInputValue() {
       else {console.log('case to be added as no line played for more than 100 seconds', 'h', h, 'i', i,)}
       }} // i, h loops end finalLineup2
             console.log('finalLineup2', finalLineup2);
+            tempArray3=[]
+            for (h=4;h<6;h++) {for (i=0;i<3;i++) {if (finalLineup2[h][i].length===0) { console.log('loop ', 'h ', h, 'i ', i);
+              for (j=0;j<linesArray7[h-4][i].length/5;j++)
+              {tempArray3.push(linesArray7[h-4][i][5*j])}
+              //tempArray3.push
+              //Math.max(...linesArray[3*h+i]
+            }}}
+            console.log('tempArray3', tempArray3)
             
             tempArray3=[];
             for (i=0;i<finalLineup2[4][0].length/3;i++) {tempArray3.push(finalLineup2[4][0][3*i])}

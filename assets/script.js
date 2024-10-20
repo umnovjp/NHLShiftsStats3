@@ -416,20 +416,32 @@ function getInputValue() {
         console.log(finalLineup2[h][i], linesArray6[h][i][tempIndex+2], linesArray6[h][i][tempIndex+3], linesArray6[h][i][tempIndex+4]);
       }
       else if (finalLineup2[h+4][i].length===0) {
-      linesArray5 = [[[],[],[]],[[],[],[]]]; linesArray6 = [[[],[],[]],[[],[],[]]];
+      // linesArray5 = [[[],[],[]],[[],[],[]]]; linesArray6 = [[[],[],[]],[[],[],[]]];
      tempIndex=Math.max(...linesArray[3*h+i])
       console.log('Zero lines', 'team', h, 'period', i, linesArray[3*h+i], tempIndex)}
       else {console.log('case to be added as no line played for more than 100 seconds', 'h', h, 'i', i,)}
+      if (finalLineup2[h+4][i].length===0) {console.log('array is empty', 'h ', h, 'i ', i)
+      tempArray3=[]
+      console.log(linesArray7[h][i])
+      for (j=0;j<linesArray7[h][i].length/5;j++)
+              {tempArray3.push(linesArray7[h][i][5*j])}
+              tempIndex=Math.max(...tempArray3)
+              tempIndex2=tempArray3.indexOf(tempIndex)
+    }
+    
       }} // i, h loops end finalLineup2
+      console.log('tempArray3 ', tempArray3, 'tempIndex ', tempIndex, 'tempIndex2 ', tempIndex2)
             console.log('finalLineup2', finalLineup2);
-            tempArray3=[]
-            for (h=4;h<6;h++) {for (i=0;i<3;i++) {if (finalLineup2[h][i].length===0) { console.log('loop ', 'h ', h, 'i ', i);
-              for (j=0;j<linesArray7[h-4][i].length/5;j++)
-              {tempArray3.push(linesArray7[h-4][i][5*j])}
-              //tempArray3.push
-              //Math.max(...linesArray[3*h+i]
-            }}}
-            console.log('tempArray3', tempArray3)
+
+            // tempArray3=[]
+            // for (h=4;h<6;h++) {for (i=0;i<3;i++) {if (finalLineup2[h][i].length===0) { console.log('loop ', 'h ', h, 'i ', i);
+            //   for (j=0;j<linesArray7[h-4][i].length/5;j++)
+            //   {tempArray3.push(linesArray7[h-4][i][5*j])
+            //   }
+            //   //tempArray3.push
+            //   //Math.max(...linesArray[3*h+i]
+            // }}}
+            // console.log('tempArray3', tempArray3)
             
             tempArray3=[];
             for (i=0;i<finalLineup2[4][0].length/3;i++) {tempArray3.push(finalLineup2[4][0][3*i])}

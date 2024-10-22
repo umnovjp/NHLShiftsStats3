@@ -38,9 +38,5 @@ Game 1 04/24 and game DAL on 04/29 are examples of games with line changes and s
 
 Checked games in May starting May 1. Game 1 05/08: 0 lines defined for H team also game 1 05/10 and game 1 5/12 same thing game 1 5/14, 5/14 same thing because nhle web API does not have any data for those 3 games. game 0 5/12 H team 3rd period because no lines played 100s so far finished 05/19 trying to find that bug
 
-3/4 game 5 3rd period, 3/2 game 9 3rd period, 3/2 game 6, 3/2 game 0 2nd period 0 lines are games so far that fails checked 03/05
-
 Game 0 03/02 case to be added no unique line, same as game 6 finalArray2[5][1] is [] because no line is unique, same as game 2 03/11, same game 3 03/16, same game 5 03/23, same game 4 03/23, same game 1 03/25, same game 7 3/26, same game 5 03/28, same game 0 10/15. game 2 03/04 lines change from 1st to 3rd home team, same game 0 3/19, probably same game 0 03/20 probably same game 4 03/21. game 2 03/10 definitely wrong playing time is displayed between lines. checked another game with line change 03/01 game 0. Game 2 03/12 unusual times away team, same game 6 03/17
-
-line zero lines and line array is empty 03/02 0 [114, 170, 125, 127] tempIndex  170 tempIndex2  1, 03/02 6 [114, 213, 117, 191] tempIndex  10 tempIndex2  10 WRONG, 03/11 2 [133, 188, 139, 186, 132, 107] tempIndex  188 tempIndex2  1, 03/16 3 [123, 104, 131] tempIndex  131 tempIndex2  2, 03/23 5 [120, 137, 104, 101, 102] tempIndex  190 tempIndex2  90 WRONG, 03/23 4 [197, 151, 180, 141] tempIndex  197 tempIndex2  0, 03/25 1 [143, 125] tempIndex  143 tempIndex2  0, 03/26 7 [189, 107, 144, 143, 117, 116] tempIndex  189 tempIndex2  0, 03/28 5 [120, 225, 116, 124] tempIndex  130 tempIndex2  30 WRONG, 10/15 0 [125, 136] tempIndex  136 tempIndex2  1
  

@@ -421,8 +421,8 @@ function getInputValue() {
       console.log('Zero lines', 'team', h, 'period', i, linesArray[3*h+i], tempIndex)}
       else {console.log('case to be added as no line played for more than 100 seconds', 'h', h, 'i', i,)}
       if (finalLineup2[h+4][i].length===0) {console.log('array is empty', 'h ', h, 'i ', i);
-      tempArray3=[]
-      console.log(linesArray7[h][i])
+      tempArray3=[];
+      console.log(linesArray7[h][i]);
       for (j=0;j<linesArray7[h][i].length/5;j++)
               {tempArray3.push(linesArray7[h][i][5*j])}
               tempIndex3=Math.max(...tempArray3);
@@ -432,7 +432,7 @@ function getInputValue() {
               linesArray5 = [[[],[],[]],[[],[],[]]]; linesArray6 = [[[],[],[]],[[],[],[]]];
         for (j=3*h;j<3*h+3;j++) {for (k=0;k<linesArray[j].length/5;k++) {
           if((finalLineup2[h+4][i].includes(linesArray[j][5*k+2]))||(finalLineup2[h+4][i].includes(linesArray[j][5*k+3]))||(finalLineup2[h+4][i].includes(linesArray[j][5*k+4]))) {}
-          else {linesArray5[h][i].push(linesArray[j][5*k], linesArray[j][5*k+1], linesArray[j][5*k+2], linesArray[j][5*k+3], linesArray[j][5*k+4])}
+          // else {linesArray5[h][i].push(linesArray[j][5*k], linesArray[j][5*k+1], linesArray[j][5*k+2], linesArray[j][5*k+3], linesArray[j][5*k+4])}
                   // finalLineup2[h+4][i].push(linesArray5[h][i][tempIndex+2], linesArray5[h][i][tempIndex+3], linesArray5[h][i][tempIndex+4]);
         }
         tempIndex = linesArray5[h][i].indexOf(Math.max(...linesArray5[h][i])); tempIndex2 = tempIndex%(linesArray5[h][i].length/3);

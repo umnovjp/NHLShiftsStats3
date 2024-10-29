@@ -428,7 +428,7 @@ function getInputValue() {
       for (j=0;j<linesArray7[h][i].length/5;j++)
               {tempArray4.push(linesArray7[h][i][5*j])}
               tempIndex3=Math.max(...tempArray4);
-              tempIndex4=tempArray4.indexOf(tempIndex);
+              tempIndex4=tempArray4.indexOf(tempIndex); 
               console.log('tempArray4 ', tempArray4, 'tempIndex3 ', tempIndex3, 'tempIndex4 ', tempIndex4);
               finalLineup2[h+4][i].push(linesArray7[h][i][5*tempIndex4+2], linesArray7[h][i][5*tempIndex4+3], linesArray7[h][i][5*tempIndex4+4])
               linesArray5 = [[[],[],[]],[[],[],[]]]; linesArray6 = [[[],[],[]],[[],[],[]]];
@@ -440,11 +440,11 @@ function getInputValue() {
         }
         tempIndex = linesArray5[h][i].indexOf(Math.max(...linesArray5[h][i])); tempIndex2 = tempIndex%(linesArray5[h][i].length/3);
           console.log(linesArray5, 'tempIndex', tempIndex, 'tempIndex2', tempIndex2)
-          console.log(i, linesArray5[h][i])
+          console.log(i, linesArray5[h][i]);
       }
     }  // end if (finalLineup2[h+4][i].length===0) 
     
-      }} // i, h loops end finalLineup2
+      }} // i, h loops end finalLineup2 
      
             console.log('finalLineup2', finalLineup2);
 

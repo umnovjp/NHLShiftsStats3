@@ -44,3 +44,7 @@ game 3 03/19 one F undefined; game 1 03/25 same
 
 03/02 0 11 [5][2]170; 03/02 6 11 [5][2]213 away team 7D; 03/11 2 11 [5][2]188; 03/16 3 10 [5][1] 104 [5][2] 104; 03/23 5 10 [5][2]137; 03/23 4 02 [5][1]151 11F; 03/25 1 02 [5][1]125; game 7 03/26 12 OK; game 5 03/28 10 [5][2]225 [5][1]225 two teams 11F
 10/19 7 01 [5][2]144; 10/15 0 12 OK
+
+game 1 11/3 special case because it says team 1 period 1 is zero lines but line 7,10,11 played 177 seconds index 1075. Also line 017 played 24 sec for 4 shifts which could not happen. Game 0 10/15 same. 
+
+DELETE linesarray2!

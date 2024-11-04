@@ -220,6 +220,7 @@ function getInputValue() {
                           linesArray2[3].push(linesArray[3][5*i+2], linesArray[3][5*i+3], linesArray[3][5*i+4])}}
 
                           // h is team i is period
+                          // linesArray2 was for 1st period only but linesArray7 for 3 periods line 232 or 233 has console
                           for (h=0;h<2;h++) {for (i=0;i<3;i++) {for (j=0;j<linesArray[3*h].length/5;j++) {if (linesArray[3*h+i][5*j]>100) {
                           linesArray7[h][i].push(linesArray[3*h+i][5*j], linesArray[3*h+i][5*j+1], linesArray[3*h+i][5*j+2], linesArray[3*h+i][5*j+3], linesArray[3*h+i][5*j+4])
                           }}
@@ -380,14 +381,14 @@ function getInputValue() {
             for (h=0;h<2;h++) {for (i=0;i<3;i++) {for (j=0;j<linesArray7[h][i].length/5;j++) {finalLineup2[h][i].push(linesArray7[h][i][5*j+2], linesArray7[h][i][5*j+3], linesArray7[h][i][5*j+4])}}}
             for (h=0;h<2;h++) {for (i=0;i<3;i++) {for (j=0;j<finalLineup2[h][i].length;j++) {for (k=j+1;k<finalLineup2[h][i].length;k++) {
               if (finalLineup2[h][i][j]===finalLineup2[h][i][k]) { if (finalLineup2[h+2][i].includes(finalLineup2[h][i][j])) {}
-            else {finalLineup2[h+2][i].push(finalLineup2[h][i][j])}} 
+            else {finalLineup2[h+2][i].push(finalLineup2[h][i][j])}}
           }}
           // next 2 lines of code determines if there are unique lines if finalLineup2[h+2] is not empty if it is, lines are pushed to finalLineup2[h+4]
           for (j=0;j<finalLineup2[h][i].length/3;j++) {if ((finalLineup2[h+2][i].includes(finalLineup2[h][i][3*j]))||(finalLineup2[h+2][i].includes(finalLineup2[h][i][3*j+1]))||(finalLineup2[h+2][i].includes(finalLineup2[h][i][3*j+2]))){}
           else {finalLineup2[h+4][i].push(finalLineup2[h][i][3*j], finalLineup2[h][i][3*j+1], finalLineup2[h][i][3*j+2])}}
           if (finalLineup2[h+4][i].length===12) {}
           // .length?          
-          else if (finalLineup2[h+4][i].length===9) {for (j=0;j<tempArray3[h];j++){console.log(tempArray3)
+          else if (finalLineup2[h+4][i].length===9) {for (j=0;j<tempArray3[h];j++){// console.log(tempArray3)
             if (finalLineup2[h][i].includes(j)){}
           else finalLineup2[h+4][i].push(j)}}
           else if (finalLineup2[h+4][i].length===6) {console.log('Two lines', 'team', h, 'period', i, finalLineup2[h+4][i]); linesArray4 = [[[],[],[]],[[],[],[]]];
@@ -419,9 +420,9 @@ function getInputValue() {
       }
       else if (finalLineup2[h+4][i].length===0) {
       // linesArray5 = [[[],[],[]],[[],[],[]]]; linesArray6 = [[[],[],[]],[[],[],[]]];
-     tempIndex=Math.max(...linesArray[3*h+i])
-      console.log('Zero lines', 'team', h, 'period', i, linesArray[3*h+i], tempIndex)}
-      else {console.log('case to be added as no line played for more than 100 seconds', 'h', h, 'i', i,)}
+     tempIndex=Math.max(...linesArray[3*h+i]); tempIndex2=linesArray[3*h+i].indexOf(tempIndex)
+      console.log('Zero lines', 'team', h, 'period', i, linesArray[3*h+i], 'tempIndex ', tempIndex, 'tempIndex2 ', tempIndex2)}
+      else {console.log('case to be added it is not 0 or 1 or 2 or 3 or 4 lines', 'h', h, 'i', i,)}
       if (finalLineup2[h+4][i].length===0) {console.log('array is empty', 'h ', h, 'i ', i);
       tempArray4=[];
       console.log(linesArray7[h][i]);
@@ -442,7 +443,7 @@ function getInputValue() {
           console.log(linesArray5, 'tempIndex', tempIndex, 'tempIndex2', tempIndex2)
           console.log(i, linesArray5[h][i]);
       }
-    }  // end if (finalLineup2[h+4][i].length===0) 
+    }  // end if (finalLineup2[h+4][i].length===0) temporary it will stay in the loop
     
       }} // i, h loops end finalLineup2 
      

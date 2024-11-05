@@ -220,7 +220,7 @@ function getInputValue() {
                           linesArray2[3].push(linesArray[3][5*i+2], linesArray[3][5*i+3], linesArray[3][5*i+4])}}
 
                           // h is team i is period
-                          // linesArray2 was for 1st period only but linesArray7 for 3 periods line 232 or 233 has console
+                          // linesArray2 was for 1st period only but linesArray7 for 3 periods line 232 or 233 has console. If statement makes sure that linesArray7[h][i] is not empty even if no line played together for 101s or more
                           for (h=0;h<2;h++) {for (i=0;i<3;i++) {for (j=0;j<linesArray[3*h].length/5;j++) {if (linesArray[3*h+i][5*j]>100) {
                           linesArray7[h][i].push(linesArray[3*h+i][5*j], linesArray[3*h+i][5*j+1], linesArray[3*h+i][5*j+2], linesArray[3*h+i][5*j+3], linesArray[3*h+i][5*j+4])
                           }}
@@ -332,8 +332,8 @@ function getInputValue() {
                       document.getElementById('firstD7A').appendChild(firstD7A); document.getElementById('secondD7A').appendChild(secondD7A); document.getElementById('thirdD7A').appendChild(thirdD7A); document.getElementById('forthD7A').appendChild(forthD7A); document.getElementById('fifthD7A').appendChild(fifthD7A); document.getElementById('sixthD7A').appendChild(sixthD7A);
                     } // end if seven D men away and end of adding DMen to display cycles
                     
-                    for (i=0; i<homeF.length/3; i++) {if (linesArray2[2].includes(i)) {} else linesArray2[4].push(i)}                                     
-                    for (i=0; i<awayF.length/3; i++) {if (linesArray2[3].includes(i)) {} else linesArray2[5].push(i)}
+                    // for (i=0; i<homeF.length/3; i++) {if (linesArray2[2].includes(i)) {} else linesArray2[4].push(i)}                                     
+                    // for (i=0; i<awayF.length/3; i++) {if (linesArray2[3].includes(i)) {} else linesArray2[5].push(i)}
 
                     // finalLineup will be replaced with finalLineup2
                     // finalLineup =[[],[],[],[]]; 
@@ -419,12 +419,9 @@ function getInputValue() {
         console.log(finalLineup2[h][i], linesArray6[h][i][tempIndex+2], linesArray6[h][i][tempIndex+3], linesArray6[h][i][tempIndex+4]);
       }
       else if (finalLineup2[h+4][i].length===0) {
-      // linesArray5 = [[[],[],[]],[[],[],[]]]; linesArray6 = [[[],[],[]],[[],[],[]]];
      tempIndex=Math.max(...linesArray[3*h+i]); tempIndex2=linesArray[3*h+i].indexOf(tempIndex)
-      console.log('Zero lines', 'team', h, 'period', i, linesArray[3*h+i], 'tempIndex ', tempIndex, 'tempIndex2 ', tempIndex2)}
-      else {console.log('case to be added it is not 0 or 1 or 2 or 3 or 4 lines', 'h', h, 'i', i,)}
-      if (finalLineup2[h+4][i].length===0) {console.log('array is empty', 'h ', h, 'i ', i);
-      tempArray4=[];
+      console.log('Zero lines', 'team', h, 'period', i, linesArray[3*h+i], 'tempIndex ', tempIndex, 'tempIndex2 ', tempIndex2)
+    tempArray4=[];
       console.log(linesArray7[h][i]);
       for (j=0;j<linesArray7[h][i].length/5;j++)
               {tempArray4.push(linesArray7[h][i][5*j])}
@@ -432,21 +429,23 @@ function getInputValue() {
               tempIndex4=tempArray4.indexOf(tempIndex); 
               console.log('tempArray4 ', tempArray4, 'tempIndex3 ', tempIndex3, 'tempIndex4 ', tempIndex4);
               finalLineup2[h+4][i].push(linesArray7[h][i][5*tempIndex4+2], linesArray7[h][i][5*tempIndex4+3], linesArray7[h][i][5*tempIndex4+4])
-              linesArray5 = [[[],[],[]],[[],[],[]]]; linesArray6 = [[[],[],[]],[[],[],[]]];
+               linesArray5 = []; linesArray6 = [];
         for (j=3*h;j<3*h+3;j++) {for (k=0;k<linesArray[j].length/5;k++) {
           if((finalLineup2[h+4][i].includes(linesArray[j][5*k+2]))||(finalLineup2[h+4][i].includes(linesArray[j][5*k+3]))||(finalLineup2[h+4][i].includes(linesArray[j][5*k+4]))) {}
-          else {linesArray5[h][i].push(linesArray[j][5*k], linesArray[j][5*k+1], linesArray[j][5*k+2], linesArray[j][5*k+3], linesArray[j][5*k+4])}
-          
-          // finalLineup2[h+4][i].push(linesArray5[h][i][tempIndex+2], linesArray5[h][i][tempIndex+3], linesArray5[h][i][tempIndex+4]);
+          else {
+            linesArray5.push(linesArray[j][5*k], linesArray[j][5*k+1], linesArray[j][5*k+2], linesArray[j][5*k+3], linesArray[j][5*k+4])}
+            
         }
-        tempIndex = linesArray5[h][i].indexOf(Math.max(...linesArray5[h][i])); tempIndex2 = tempIndex%(linesArray5[h][i].length/3);
+        // to add tomorrow: const max = Math.max(...array.slice(start, end));
+        tempIndex = linesArray5.indexOf(Math.max(...linesArray5.slice(linesArray5))); tempIndex2 = tempIndex%(linesArray5.length/3);
           console.log(linesArray5, 'tempIndex', tempIndex, 'tempIndex2', tempIndex2)
-          console.log(i, linesArray5[h][i]);
-      }
-    }  // end if (finalLineup2[h+4][i].length===0) temporary it will stay in the loop
     
-      }} // i, h loops end finalLineup2 
-     
+      }
+    }
+      else {console.log('case to be added it is not 0 or 1 or 2 or 3 or 4 lines', 'h', h, 'i', i,)}
+
+    
+      }} // i, h loops end finalLineup2     
             console.log('finalLineup2', finalLineup2);
 
             // tempArray3=[]

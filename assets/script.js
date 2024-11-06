@@ -421,7 +421,7 @@ function getInputValue() {
       else if (finalLineup2[h+4][i].length===0) {
      tempIndex=Math.max(...linesArray[3*h+i]); tempIndex2=linesArray[3*h+i].indexOf(tempIndex)
       console.log('Zero lines', 'team', h, 'period', i, linesArray[3*h+i], 'tempIndex ', tempIndex, 'tempIndex2 ', tempIndex2)
-    tempArray4=[];
+    tempArray4=[]; tempIndex5=i
       console.log(linesArray7[h][i]);
       for (j=0;j<linesArray7[h][i].length/5;j++)
               {tempArray4.push(linesArray7[h][i][5*j])}
@@ -437,8 +437,9 @@ function getInputValue() {
             
         }
         // to add tomorrow: const max = Math.max(...array.slice(start, end));
-        tempIndex = linesArray5.indexOf(Math.max(...linesArray5.slice(linesArray5))); tempIndex2 = tempIndex%(linesArray5.length/3);
-          console.log(linesArray5, 'tempIndex', tempIndex, 'tempIndex2', tempIndex2)
+        const start = tempIndex5*linesArray5.length/3; const end = (tempIndex5+1)*linesArray5.length/3;
+        tempIndex = Math.max(...linesArray5.slice(start, end)); tempIndex2 =linesArray5.indexOf(Math.max(...linesArray5.slice(start, end)));
+          console.log(linesArray5, 'tempIndex', tempIndex, 'tempIndex2', tempIndex2, 'tempIndex5', tempIndex5)
     
       }
     }

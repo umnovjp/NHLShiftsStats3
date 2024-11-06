@@ -46,6 +46,6 @@ game 3 03/19 one F undefined; game 1 03/25 same
 10/19 7 01 [5][2]144; 10/15 0 12 OK
 
 game 1 11/3. Also line 017 played 24 sec for 4 shifts which could not happen. Game 0 10/15 same. 
-Game 7 10/19 is empty
+Game 7 10/19 is empty intra Canada? 
 
 DELETE linesarray2!

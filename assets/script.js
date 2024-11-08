@@ -207,17 +207,18 @@ function getInputValue() {
                           }} // temp end k, j loops
                         }} // end k, j, i and h loop periods
 
-                        console.log('shiftsPair', shiftsPair, 'linesArray', linesArray); linesArray2 = [[],[],[],[],[],[]]; linesArray7 = [[[],[],[]],[[],[],[]],[],[],[],[]]
+                        console.log('shiftsPair', shiftsPair, 'linesArray', linesArray); // linesArray2 = [[],[],[],[],[],[]]; 
+                        linesArray7 = [[[],[],[]],[[],[],[]],[],[],[],[]]
                         // create linesArray2 this is an array of lines where line is defined as 3F which spent 100s in a period playing 3F and 2D
                         // linesArray2 will be deleted to be replaced with linesArray7
-                        for (i=0;i<linesArray[0].length/5;i++) {if (linesArray[0][5*i]>100) {console.log('home F', linesArray[0][5*i], linesArray[0][5*i+1], linesArray[0][5*i+2], linesArray[0][5*i+3], linesArray[0][5*i + 4]); 
-                        for (j=0;j<3;j++) {linesArray2[0].push(linesArray[j][5*i], linesArray[j][5*i+1], linesArray[j][5*i+2], linesArray[j][5*i+3], linesArray[j][5*i+4]);
-                        }
-                        linesArray2[2].push(linesArray[0][5*i+2], linesArray[0][5*i+3], linesArray[0][5*i+4])}}
-                        for (i = 0; i<linesArray[3].length/5; i++) {if (linesArray[3][5*i]>100) {console.log('away F', linesArray[3][5*i], linesArray[3][5*i+1], linesArray[3][5*i+2], linesArray[3][5*i+3], linesArray[3][5*i + 4]); 
-                        for (j = 3; j < 6; j++) {linesArray2[1].push(linesArray[j][5*i], linesArray[j][5*i+1], linesArray[j][5*i+2], linesArray[j][5*i+3], linesArray[j][5*i+4])
-                          }
-                          linesArray2[3].push(linesArray[3][5*i+2], linesArray[3][5*i+3], linesArray[3][5*i+4])}}
+                        // for (i=0;i<linesArray[0].length/5;i++) {if (linesArray[0][5*i]>100) {console.log('home F', linesArray[0][5*i], linesArray[0][5*i+1], linesArray[0][5*i+2], linesArray[0][5*i+3], linesArray[0][5*i + 4]); 
+                        // for (j=0;j<3;j++) {linesArray2[0].push(linesArray[j][5*i], linesArray[j][5*i+1], linesArray[j][5*i+2], linesArray[j][5*i+3], linesArray[j][5*i+4]);
+                        // }
+                        // linesArray2[2].push(linesArray[0][5*i+2], linesArray[0][5*i+3], linesArray[0][5*i+4])}}
+                        // for (i = 0; i<linesArray[3].length/5; i++) {if (linesArray[3][5*i]>100) {console.log('away F', linesArray[3][5*i], linesArray[3][5*i+1], linesArray[3][5*i+2], linesArray[3][5*i+3], linesArray[3][5*i + 4]); 
+                        // for (j = 3; j < 6; j++) {linesArray2[1].push(linesArray[j][5*i], linesArray[j][5*i+1], linesArray[j][5*i+2], linesArray[j][5*i+3], linesArray[j][5*i+4])
+                        //   }
+                        //   linesArray2[3].push(linesArray[3][5*i+2], linesArray[3][5*i+3], linesArray[3][5*i+4])}}
 
                           // h is team i is period
                           // linesArray2 was for 1st period only but linesArray7 for 3 periods line 232 or 233 has console. If statement makes sure that linesArray7[h][i] is not empty even if no line played together for 101s or more
@@ -230,7 +231,7 @@ function getInputValue() {
                         linesArray7[h][i].push(linesArray[3*h+i][tempIndex2],linesArray[3*h+i][tempIndex2+1],linesArray[3*h+i][tempIndex2+2],linesArray[3*h+i][tempIndex2+3],linesArray[3*h+i][tempIndex2+4])
                       }
                       }}
-                          console.log(linesArray2, 'linesArray7', linesArray7);
+                          console.log('linesArray7', linesArray7);
                           // to add condition above to make sure linesarray7 has something
 
                     // adding home team defense to screen 
@@ -429,26 +430,21 @@ function getInputValue() {
               tempIndex4=tempArray4.indexOf(tempIndex); 
               console.log('tempArray4 ', tempArray4, 'tempIndex3 ', tempIndex3, 'tempIndex4 ', tempIndex4);
               finalLineup2[h+4][i].push(linesArray7[h][i][5*tempIndex4+2], linesArray7[h][i][5*tempIndex4+3], linesArray7[h][i][5*tempIndex4+4])
-               linesArray5 = []; linesArray6 = [];
+               linesArray8 = []; linesArray6 = [];
         for (j=3*h;j<3*h+3;j++) {for (k=0;k<linesArray[j].length/5;k++) {
           if((finalLineup2[h+4][i].includes(linesArray[j][5*k+2]))||(finalLineup2[h+4][i].includes(linesArray[j][5*k+3]))||(finalLineup2[h+4][i].includes(linesArray[j][5*k+4]))) {}
           else {
-            linesArray5.push(linesArray[j][5*k], linesArray[j][5*k+1], linesArray[j][5*k+2], linesArray[j][5*k+3], linesArray[j][5*k+4])}
-            
-        }
-        // to add tomorrow: const max = Math.max(...array.slice(start, end));
-        const start = tempIndex5*linesArray5.length/3; const end = (tempIndex5+1)*linesArray5.length/3;
-        tempIndex = Math.max(...linesArray5.slice(start, end)); tempIndex2 =linesArray5.indexOf(Math.max(...linesArray5.slice(start, end)));
-          console.log(linesArray5, 'tempIndex', tempIndex, 'tempIndex2', tempIndex2, 'tempIndex5', tempIndex5)
-    
-      }
-    }
-      else {console.log('case to be added it is not 0 or 1 or 2 or 3 or 4 lines', 'h', h, 'i', i,)}
-
-    
+            linesArray8.push(linesArray[j][5*k], linesArray[j][5*k+1], linesArray[j][5*k+2], linesArray[j][5*k+3], linesArray[j][5*k+4])}
+        }        
+        
+      }}
+      else {console.log('case to be added it is not 0 or 1 or 2 or 3 or 4 lines', 'h', h, 'i', i,)}    
       }} // i, h loops end finalLineup2     
             console.log('finalLineup2', finalLineup2);
-
+            // to add tomorrow: const max = Math.max(...array.slice(start, end));
+        const start = tempIndex5*linesArray8.length/3; const end = (tempIndex5+1)*linesArray8.length/3;
+            tempIndex = Math.max(...linesArray8.slice(start,end)); tempIndex2 =linesArray8.indexOf(Math.max(...linesArray8.slice(start,end)));
+            console.log(linesArray8, 'tempIndex', tempIndex, 'tempIndex2', tempIndex2, 'tempIndex5', tempIndex5)
             // tempArray3=[]
             // for (h=4;h<6;h++) {for (i=0;i<3;i++) {if (finalLineup2[h][i].length===0) { console.log('loop ', 'h ', h, 'i ', i);
             //   for (j=0;j<linesArray7[h-4][i].length/5;j++)

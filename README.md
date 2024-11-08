@@ -42,10 +42,9 @@ Game 0 03/02 case to be added no unique line, same as game 6 finalArray2[5][1] i
  
 game 3 03/19 one F undefined; game 1 03/25 same 
 
-03/02 0 11 [5][2]170; 03/02 6 11 [5][2]213 away team 7D; 03/11 2 11 [5][2]188; 03/16 3 10 [5][1] 104 [5][2] 104; 03/23 5 10 [5][2]137; 03/23 4 02 [5][1]151 11F; 03/25 1 02 [5][1]125; game 7 03/26 12 OK; game 5 03/28 10 [5][2]225 [5][1]225 two teams 11F
-10/19 7 01 [5][2]144; 10/15 0 12 OK
+03/02 0 11 [5][2]170; 03/02 6 11 [5][2]213 away team 7D; 03/11 2 11 [5][2]188; 03/16 3 10 [5][1] 104 [5][2] 104; 03/23 5 10 [5][2]137; 03/23 4 02 [5][1]151 11F; 03/25 1; game 7 03/26 12 OK; game 5 03/28 10 two teams 11F
+
+10/19 7 empty; 10/15 0 94 840 2 3/28 120 180 0 840; game 7 3/26 144 885 2 1260 (0211 144 12 147); game 1 3/25 88 1025 2 1260 ( 027 or 247 88 5 389); game 4 3/23 141 380 0 1260 (034 141 6 7811)
 
 game 1 11/3. Also line 017 played 24 sec for 4 shifts which could not happen. Game 0 10/15 same. 
-Game 7 10/19 is empty intra Canada? 
-
-DELETE linesarray2!
+Game 7 10/19 is empty 

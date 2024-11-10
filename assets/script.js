@@ -397,10 +397,10 @@ function getInputValue() {
             if((finalLineup2[h+4][i].includes(linesArray[j][5*k+2]))||(finalLineup2[h+4][i].includes(linesArray[j][5*k+3]))||(finalLineup2[h+4][i].includes(linesArray[j][5*k+4]))) {}
             else {linesArray4[h][i].push(linesArray[j][5*k], linesArray[j][5*k+1], linesArray[j][5*k+2], linesArray[j][5*k+3], linesArray[j][5*k+4])}
             }}
-          tempIndex = linesArray4[h][i].indexOf(Math.max(...linesArray4[h][i])); tempIndex2 = tempIndex%(linesArray4[h][i].length/3);
-          console.log(h, i, linesArray4[h][i], Math.max(...linesArray4[h][i]), tempIndex, tempIndex2);
-          finalLineup2[h+4][i].push(linesArray4[h][i][tempIndex+2], linesArray4[h][i][tempIndex+3], linesArray4[h][i][tempIndex+4]);
-          finalLineup2[h+4][i].push(linesArray4[h][tempIndex+2], linesArray4[h][tempIndex+3], linesArray4[h][tempIndex+4]);
+          tempIndex6 = linesArray4[h][i].indexOf(Math.max(...linesArray4[h][i])); tempIndex2 = tempIndex6%(linesArray4[h][i].length/3);
+          console.log(h, i, linesArray4[h][i], Math.max(...linesArray4[h][i]), tempIndex6, tempIndex2);
+          finalLineup2[h+4][i].push(linesArray4[h][i][tempIndex6+2], linesArray4[h][i][tempIndex6+3], linesArray4[h][i][tempIndex6+4]);
+          //finalLineup2[h+4][i].push(linesArray4[h][tempIndex6+2], linesArray4[h][tempIndex6+3], linesArray4[h][tempIndex6+4]);
           for (j=0; j<tempArray3[h]; j++) {if (finalLineup2[h+4][i].includes(j)){} else {finalLineup2[h+4][i].push(j)}}
         }
         else if (finalLineup2[h+4][i].length===3) {console.log('One line', 'team', h, 'period', i, finalLineup2[h+4][i]); linesArray5 = [[[],[],[]],[[],[],[]]]; linesArray6 = [[[],[],[]],[[],[],[]]];
@@ -422,7 +422,7 @@ function getInputValue() {
       else if (finalLineup2[h+4][i].length===0) {
      tempIndex=Math.max(...linesArray[3*h+i]); tempIndex2=linesArray[3*h+i].indexOf(tempIndex)
       console.log('Zero lines', 'team', h, 'period', i, linesArray[3*h+i], 'tempIndex ', tempIndex, 'tempIndex2 ', tempIndex2)
-    tempArray4=[]; tempIndex5=i; tempIndex6=h;
+    tempArray4=[]; // tempIndex5=i; tempIndex6=h;
       console.log(linesArray7[h][i]);
       for (j=0;j<linesArray7[h][i].length/5;j++)
               {tempArray4.push(linesArray7[h][i][5*j])}
@@ -434,16 +434,22 @@ function getInputValue() {
         for (j=3*h;j<3*h+3;j++) {for (k=0;k<linesArray[j].length/5;k++) {
           if((finalLineup2[h+4][i].includes(linesArray[j][5*k+2]))||(finalLineup2[h+4][i].includes(linesArray[j][5*k+3]))||(finalLineup2[h+4][i].includes(linesArray[j][5*k+4]))) {}
           else {linesArray8.push(linesArray[j][5*k], linesArray[j][5*k+1], linesArray[j][5*k+2], linesArray[j][5*k+3], linesArray[j][5*k+4])}
-        }        
-      }}
+        }
+      }
+      const start = i*linesArray8.length/3; const end = (i+1)*linesArray8.length/3;
+      tempIndex = Math.max(...linesArray8.slice(start,end)); tempIndex2 =linesArray8.indexOf(Math.max(...linesArray8.slice(start,end)));
+      console.log(linesArray8, 'tempIndex', tempIndex, 'tempIndex2', tempIndex2, 'i', i, 'h', h);
+      finalLineup2[4+h][i].push(linesArray8[tempIndex2+2],linesArray8[tempIndex2+3],linesArray8[tempIndex2+4])
+    
+    }
       else {console.log('case to be added it is not 0 or 1 or 2 or 3 or 4 lines', 'h', h, 'i', i,)}    
-      }} // i, h loops end finalLineup2     
+      }} // i, h loops end finalLineup2
             
             // to add tomorrow: const max = Math.max(...array.slice(start, end));
-        const start = tempIndex5*linesArray8.length/3; const end = (tempIndex5+1)*linesArray8.length/3;
-            tempIndex = Math.max(...linesArray8.slice(start,end)); tempIndex2 =linesArray8.indexOf(Math.max(...linesArray8.slice(start,end)));
-            console.log(linesArray8, 'tempIndex', tempIndex, 'tempIndex2', tempIndex2, 'tempIndex5', tempIndex5, 'tempIndex6', tempIndex6);
-            finalLineup2[4+tempIndex6][tempIndex5].push(linesArray8[tempIndex2+2],linesArray8[tempIndex2+3],linesArray8[tempIndex2+4])
+        // const start = tempIndex5*linesArray8.length/3; const end = (tempIndex5+1)*linesArray8.length/3;
+        //     tempIndex = Math.max(...linesArray8.slice(start,end)); tempIndex2 =linesArray8.indexOf(Math.max(...linesArray8.slice(start,end)));
+        //     console.log(linesArray8, 'tempIndex', tempIndex, 'tempIndex2', tempIndex2, 'tempIndex5', tempIndex5, 'tempIndex6', tempIndex6);
+        //     finalLineup2[4+tempIndex6][tempIndex5].push(linesArray8[tempIndex2+2],linesArray8[tempIndex2+3],linesArray8[tempIndex2+4])
             console.log('finalLineup2', finalLineup2);
             // tempArray3=[]
             // for (h=4;h<6;h++) {for (i=0;i<3;i++) {if (finalLineup2[h][i].length===0) { console.log('loop ', 'h ', h, 'i ', i);
@@ -587,7 +593,8 @@ function getInputValue() {
                     shiftsLine1[13][1].push(lineVsLineTime, lineVsLineShifts)
                     } // end n loop
                     return shiftsLine1[13]} // end function lineByLine1
-                    // console.log(lineByLine1(0,0,2,0), lineByLine1(0,0,2,1));
+                    console.log(lineByLine1(0,0,2,1));
+                    console.log(lineByLine1(0,0,2,2));
 
                     lineByLine001.innerHTML='\\ '+'Away Team ->' +'<br>'+ 'Home Team'+'<br>'+'    |'
                     lineByLine041.innerHTML=awayF[1+3*finalLineup2[5][0][0]]+' '+awayF[2+3*finalLineup2[5][0][0]]+'<br>'+awayF[1+3*finalLineup2[5][0][1]]+' '+awayF[2+3*finalLineup2[5][0][1]]+'<br>'+awayF[1+3*finalLineup2[5][0][2]]+' '+awayF[2+3*finalLineup2[5][0][2]];

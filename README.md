@@ -44,9 +44,11 @@ game 3 03/19 one F undefined; game 1 03/25 same
 
 03/02 0; 03/02 6; 03/11 2; 03/16 3; 03/23 5; 03/23 4; 03/25 1; game 7 03/26 12 OK; game 5 03/28 10 two teams 11F
 
-10/19 7 empty; 10/15 0022 52; game 5 1200 50; game 7 3/26 0022 52; game 1 3/25 0202 40; game 4 3/23 1200 50; game 5 3/23 0202 40; game 3 3/16 40; game 2 3/11 0021 51; 3/2 game 6 51; game 0 3/2 127 51
+10/19 7 empty; 10/15 0022 52; 03/28 game 5 1200 50; game 7 3/26 0022 52; game 1 3/25 0202 40; game 4 3/23 1200 50; game 5 3/23 0202 40; game 3 3/16 40; game 2 3/11 0021 51; 3/2 game 6 51; game 0 3/2 127 51
 
-game 1 11/3. Also line 017 played 24 sec for 4 shifts which could not happen. Game 0 10/15 same. 
-Game 7 10/19 is empty
+game 1 11/3. Also line 017 played 24 sec for 4 shifts which could not happen
 
-FinalLineup2 91011 errors: game 0 11/08 a[]uu 2nd 2 lines, game 1 11/08 huuu 1st 2 lines both, auuu 1st, game 1 11/09 huuu 3rd, auuu 3rd 2 lines both
+52 0022
+50 1200
+40 0202
+51 0021

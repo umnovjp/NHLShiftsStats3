@@ -398,7 +398,7 @@ function getInputValue() {
             else {linesArray4[h][i].push(linesArray[j][5*k], linesArray[j][5*k+1], linesArray[j][5*k+2], linesArray[j][5*k+3], linesArray[j][5*k+4])}
             }}
           tempIndex6 = linesArray4[h][i].indexOf(Math.max(...linesArray4[h][i])); tempIndex2 = tempIndex6%(linesArray4[h][i].length/3);
-          console.log(h, i, linesArray4[h][i], Math.max(...linesArray4[h][i]), tempIndex6, tempIndex2);
+          // console.log(h, i, linesArray4[h][i], Math.max(...linesArray4[h][i]), tempIndex6, tempIndex2);
           finalLineup2[h+4][i].push(linesArray4[h][i][tempIndex6+2], linesArray4[h][i][tempIndex6+3], linesArray4[h][i][tempIndex6+4]);
           //finalLineup2[h+4][i].push(linesArray4[h][tempIndex6+2], linesArray4[h][tempIndex6+3], linesArray4[h][tempIndex6+4]);
           for (j=0; j<tempArray3[h]; j++) {if (finalLineup2[h+4][i].includes(j)){} else {finalLineup2[h+4][i].push(j)}}
@@ -445,9 +445,9 @@ function getInputValue() {
         else {linesArray9.push(linesArray[j][5*k], linesArray[j][5*k+1], linesArray[j][5*k+2], linesArray[j][5*k+3], linesArray[j][5*k+4])}
       }
       const start = i*linesArray9.length/3; const end = (i+1)*linesArray9.length/3;
-      tempIndex = Math.max(...linesArray9.slice(start,end)); tempIndex2 =linesArray9.indexOf(Math.max(...linesArray8.slice(start,end)));
+      tempIndex = Math.max(...linesArray9.slice(start,end)); tempIndex2 =linesArray9.indexOf(Math.max(...linesArray9.slice(start,end)));
       console.log('linesArray9', linesArray9, 'tempIndex', tempIndex, 'tempIndex2', tempIndex2, 'i', i, 'h', h, 'start', start, 'end', end);
-      finalLineup2[4+h][i].push(linesArray9[tempIndex2+2],linesArray9[tempIndex2+3],linesArray9[tempIndex2+4])
+      // finalLineup2[4+h][i].push(linesArray9[tempIndex2+2],linesArray9[tempIndex2+3],linesArray9[tempIndex2+4])
     }
     } // end if length === 0 
       else {console.log('case to be added it is not 0 or 1 or 2 or 3 or 4 lines', 'h', h, 'i', i,)}    
@@ -458,7 +458,7 @@ function getInputValue() {
         //     tempIndex = Math.max(...linesArray8.slice(start,end)); tempIndex2 =linesArray8.indexOf(Math.max(...linesArray8.slice(start,end)));
         //     console.log(linesArray8, 'tempIndex', tempIndex, 'tempIndex2', tempIndex2, 'tempIndex5', tempIndex5, 'tempIndex6', tempIndex6);
         //     finalLineup2[4+tempIndex6][tempIndex5].push(linesArray8[tempIndex2+2],linesArray8[tempIndex2+3],linesArray8[tempIndex2+4])
-        console.log(linesArray9);
+        // console.log(linesArray9);
         console.log('finalLineup2', finalLineup2);
             // tempArray3=[]
             // for (h=4;h<6;h++) {for (i=0;i<3;i++) {if (finalLineup2[h][i].length===0) { console.log('loop ', 'h ', h, 'i ', i);

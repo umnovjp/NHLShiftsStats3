@@ -447,10 +447,10 @@ function getInputValue() {
       const start = i*linesArray9.length/3; const end = (i+1)*linesArray9.length/3;
       tempIndex = Math.max(...linesArray9.slice(start,end)); tempIndex2 =linesArray9.indexOf(Math.max(...linesArray9.slice(start,end)));
       console.log('linesArray9', linesArray9, 'tempIndex', tempIndex, 'tempIndex2', tempIndex2, 'i', i, 'h', h, 'start', start, 'end', end);
-      // finalLineup2[4+h][i].push(linesArray9[tempIndex2+2],linesArray9[tempIndex2+3],linesArray9[tempIndex2+4])
+      // finalLineup2[4+h][i].push(linesArray9[tempIndex2+2],linesArray9[tempIndex2+3],linesArray9[tempIndex2+4]);
     }
-    } // end if length === 0 
-      else {console.log('case to be added it is not 0 or 1 or 2 or 3 or 4 lines', 'h', h, 'i', i,)}    
+    } // end if length === 0
+      else {console.log('case to be added it is not 0 or 1 or 2 or 3 or 4 lines', 'h', h, 'i', i)}    
       }} // i, h loops end finalLineup2
             
             // to add tomorrow: const max = Math.max(...array.slice(start, end));
@@ -485,8 +485,7 @@ function getInputValue() {
               else (console.log('new line away',finalLineup2[5][2][3*i], finalLineup2[5][2][3*i+1], finalLineup2[5][2][3*i+2]))  }
              else (console.log('new line away as well', finalLineup2[5][2][3*i], finalLineup2[5][2][3*i+1], finalLineup2[5][2][3*i+2]))
             }
-
-            // script to be added here to plot only new lines in 3rd to monitor 
+            // script to be added here to plot only new lines in 3rd to monitor
 
                     function lineNumber(h,i,j,k) {topFLimit = (1-h)*(homeF.length)/3 + h*(awayF.length)/3; // h may be 0 or 1 only!
                     if (topFLimit===12) {firstPart=[0,55,100,136,164,185,200,210,216,219]}

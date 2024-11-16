@@ -1,4 +1,4 @@
-var scheduleContent = document.getElementById('schedule'); var gameId; var inputVal = '2021'; standingsArray = [];
+var scheduleContent = document.getElementById('schedule'); var gameId; var inputVal = '2021'; standingsArray = []; linesArray10=[[],[],[],[],[],[]]
 // lines below will allow user to select date then to select game on that date
 function getInputValue() {
   var inputVal = document.getElementById('datepicker').value; var date = inputVal.split('/');
@@ -430,7 +430,7 @@ function getInputValue() {
               tempIndex4=tempArray4.indexOf(tempIndex); 
               console.log('tempArray4 ', tempArray4, 'tempIndex3 ', tempIndex3, 'tempIndex4 ', tempIndex4);
               finalLineup2[h+4][i].push(linesArray7[h][i][5*tempIndex4+2], linesArray7[h][i][5*tempIndex4+3], linesArray7[h][i][5*tempIndex4+4])
-               linesArray8 = []; linesArray9 = []; linesArray10=[[],[],[]],[[],[],[]]
+               linesArray8 = []; linesArray9 = []; 
         for (j=3*h;j<3*h+3;j++) {for (k=0;k<linesArray[j].length/5;k++) {
           if((finalLineup2[h+4][i].includes(linesArray[j][5*k+2]))||(finalLineup2[h+4][i].includes(linesArray[j][5*k+3]))||(finalLineup2[h+4][i].includes(linesArray[j][5*k+4]))) {}
           else {linesArray8.push(linesArray[j][5*k], linesArray[j][5*k+1], linesArray[j][5*k+2], linesArray[j][5*k+3], linesArray[j][5*k+4])}
@@ -453,7 +453,7 @@ function getInputValue() {
     } // end if length === 0
       else {console.log('case to be added it is not 0 or 1 or 2 or 3 or 4 lines', 'h', h, 'i', i)}    
       }} // i, h loops end finalLineup2
-      // console.log(linesArray10)
+      console.log(linesArray10)
         console.log('finalLineup2', finalLineup2);
             
             tempArray3=[];
@@ -479,7 +479,6 @@ function getInputValue() {
                     secondPart = (topFLimit-1-i)*(j-1-i); sum=0;
                     for (l=0;l<j-i;l++) {sum=sum+l}
                       return firstPart[i]+secondPart-sum+k-1-j} // end function lineNumber it is never used but planned to check is line is new
-                  //  console.log('final lineup', finalLineup); // to be deleted
                   //   // shiftsLine structure: index 0,1,2 is for two players out of line for h team, 3,4,5 is entire line together for this line; 6,7,8 is for two players then 9,10,11 for entire line of 1-h team 
 
                     function lineByLine1(h,f,j,i) {shiftsLine1=[]; for (p=0;p<14;p++) {shiftsLine1.push([])} shiftsLine1[13]=[[],[]]

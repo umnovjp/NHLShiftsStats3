@@ -1,4 +1,4 @@
-var scheduleContent = document.getElementById('schedule'); var gameId; var inputVal = '2021'; standingsArray = []; linesArray10=[[],[],[],[],[],[]]
+var scheduleContent = document.getElementById('schedule'); var gameId; var inputVal = '2021'; standingsArray = []; linesArray10=[]
 // lines below will allow user to select date then to select game on that date
 function getInputValue() {
   var inputVal = document.getElementById('datepicker').value; var date = inputVal.split('/');
@@ -389,7 +389,7 @@ function getInputValue() {
           else {finalLineup2[h+4][i].push(finalLineup2[h][i][3*j], finalLineup2[h][i][3*j+1], finalLineup2[h][i][3*j+2])}}
           if (finalLineup2[h+4][i].length===12) {}
           // .length?          
-          else if (finalLineup2[h+4][i].length===9) {for (j=0;j<tempArray3[h];j++){// console.log(tempArray3)
+          else if (finalLineup2[h+4][i].length===9) {for (j=0;j<tempArray3[h];j++){
             if (finalLineup2[h][i].includes(j)){}
           else finalLineup2[h+4][i].push(j)}}
           else if (finalLineup2[h+4][i].length===6) {console.log('Two lines', 'team', h, 'period', i, finalLineup2[h+4][i]); linesArray4 = [[[],[],[]],[[],[],[]]];
@@ -419,7 +419,7 @@ function getInputValue() {
         for (j=0; j<tempArray3[h]; j++) {if (finalLineup2[h+4][i].includes(j)){} else finalLineup2[h+4][i].push(j)}
         console.log(finalLineup2[h][i], linesArray6[h][i][tempIndex+2], linesArray6[h][i][tempIndex+3], linesArray6[h][i][tempIndex+4]);
       }
-      else if (finalLineup2[h+4][i].length===0) {
+      else if (finalLineup2[h+4][i].length===0) {  tempIndex9=h; tempIndex10=h;
      tempIndex=Math.max(...linesArray[3*h+i]); tempIndex2=linesArray[3*h+i].indexOf(tempIndex)
       console.log('Zero lines', 'team', h, 'period', i, linesArray[3*h+i], 'tempIndex ', tempIndex, 'tempIndex2 ', tempIndex2)
     tempArray4=[]; // tempIndex5=i; tempIndex6=h;
@@ -444,17 +444,25 @@ function getInputValue() {
         if((finalLineup2[h+4][i].includes(linesArray[j][5*k+2]))||(finalLineup2[h+4][i].includes(linesArray[j][5*k+3]))||(finalLineup2[h+4][i].includes(linesArray[j][5*k+4]))) {}
         else {linesArray9.push(linesArray[j][5*k], linesArray[j][5*k+1], linesArray[j][5*k+2], linesArray[j][5*k+3], linesArray[j][5*k+4])}
       }
-      const start = i*linesArray9.length/3; const end = (i+1)*linesArray9.length/3;
-      tempIndex = Math.max(...linesArray9.slice(start,end)); tempIndex2 =linesArray9.indexOf(Math.max(...linesArray9.slice(start,end)));
-      console.log('linesArray9', linesArray9, 'tempIndex', tempIndex, 'tempIndex2', tempIndex2, 'i', i, 'h', h, 'start', start, 'end', end);
-      linesArray10[3*h+i].push(tempIndex2+1,tempIndex2+2,tempIndex2+3)
+     // const start = i*linesArray9.length/3; const end = (i+1)*linesArray9.length/3;
+
       // finalLineup2[4+h][i].push(linesArray9[tempIndex2+2],linesArray9[tempIndex2+3],linesArray9[tempIndex2+4]);
     }
+    linesArray9=linesArray9.slice(i*linesArray9.length/3, (i+1)*linesArray9.length/3);
     } // end if length === 0
-      else {console.log('case to be added it is not 0 or 1 or 2 or 3 or 4 lines', 'h', h, 'i', i)}    
-      }} // i, h loops end finalLineup2
-      console.log(linesArray10)
-        console.log('finalLineup2', finalLineup2);
+      else {console.log('case to be added it is not 0 or 1 or 2 or 3 or 4 lines', 'h', i, 'i', tempIndex10)}
+      }} // i, h loops end finalLineup2      
+      tempIndex7 = Math.max(...linesArray9); tempIndex8 =linesArray9.indexOf(Math.max(...linesArray9));
+      console.log('linesArray9', linesArray9, 'tempIndex7', tempIndex7, 'tempIndex8', tempIndex8, 'i', tempIndex9, 'h', tempIndex10);
+      linesArray10.push(linesArray9[tempIndex8+2],linesArray9[tempIndex8+3],linesArray9[tempIndex8+4]);
+      console.log(linesArray10,linesArray9);
+      if (finalLineup2[tempIndex10+4][tempIndex9].length===6) {finalLineup2[tempIndex10+4][tempIndex9].push(linesArray9[tempIndex8+2],linesArray9[tempIndex8+3],linesArray9[tempIndex8+4])}
+      if (finalLineup2[tempIndex10+4][tempIndex9].length===9) {
+        for (i=0;i<tempArray3[tempIndex9];i++) {if (finalLineup2[tempIndex10+4][tempIndex9].includes(i)) {}
+        else  {
+        finalLineup2[tempIndex10+4][tempIndex9].push(i)}}
+      }
+      console.log('finalLineup2', finalLineup2);
             
             tempArray3=[];
             for (i=0;i<finalLineup2[4][0].length/3;i++) {tempArray3.push(finalLineup2[4][0][3*i])}

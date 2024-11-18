@@ -459,9 +459,7 @@ function getInputValue() {
       if (finalLineup2[tempIndex10+4][tempIndex9].length===6) {finalLineup2[tempIndex10+4][tempIndex9].push(linesArray9[tempIndex8+2],linesArray9[tempIndex8+3],linesArray9[tempIndex8+4])}
       if (finalLineup2[tempIndex10+4][tempIndex9].length===9) {
         for (i=0;i<tempArray3[tempIndex9];i++) {if (finalLineup2[tempIndex10+4][tempIndex9].includes(i)) {}
-        else  {
-        finalLineup2[tempIndex10+4][tempIndex9].push(i)}}
-      }
+        else  {finalLineup2[tempIndex10+4][tempIndex9].push(i)}}}
       console.log('finalLineup2', finalLineup2);
             
             tempArray3=[];

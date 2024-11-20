@@ -419,7 +419,7 @@ function getInputValue() {
         for (j=0; j<tempArray3[h]; j++) {if (finalLineup2[h+4][i].includes(j)){} else finalLineup2[h+4][i].push(j)}
         console.log(finalLineup2[h][i], linesArray6[h][i][tempIndex+2], linesArray6[h][i][tempIndex+3], linesArray6[h][i][tempIndex+4]);
       }
-      else if (finalLineup2[h+4][i].length===0) {  tempIndex9=h; tempIndex10=h;
+      else if (finalLineup2[h+4][i].length===0) {  tempIndex9=i; tempIndex10=h;
      tempIndex=Math.max(...linesArray[3*h+i]); tempIndex2=linesArray[3*h+i].indexOf(tempIndex)
       console.log('Zero lines', 'team', h, 'period', i, linesArray[3*h+i], 'tempIndex ', tempIndex, 'tempIndex2 ', tempIndex2)
     tempArray4=[]; // tempIndex5=i; tempIndex6=h;
@@ -450,16 +450,19 @@ function getInputValue() {
     }
     linesArray9=linesArray9.slice(i*linesArray9.length/3, (i+1)*linesArray9.length/3);
     } // end if length === 0
-      else {console.log('case to be added it is not 0 or 1 or 2 or 3 or 4 lines', 'h', i, 'i', tempIndex10)}
+      else {console.log('case to be added it is not 0 or 1 or 2 or 3 or 4 lines', 'h', h, 'i', i)}
       }} // i, h loops end finalLineup2      
+      // console.log(typeof linesArray9);
+      if (typeof linesArray9 != 'undefined') {
       tempIndex7 = Math.max(...linesArray9); tempIndex8 =linesArray9.indexOf(Math.max(...linesArray9));
       console.log('linesArray9', linesArray9, 'tempIndex7', tempIndex7, 'tempIndex8', tempIndex8, 'i', tempIndex9, 'h', tempIndex10);
       linesArray10.push(linesArray9[tempIndex8+2],linesArray9[tempIndex8+3],linesArray9[tempIndex8+4]);
-      console.log(linesArray10,linesArray9);
+      console.log(linesArray10);
       if (finalLineup2[tempIndex10+4][tempIndex9].length===6) {finalLineup2[tempIndex10+4][tempIndex9].push(linesArray9[tempIndex8+2],linesArray9[tempIndex8+3],linesArray9[tempIndex8+4])}
       if (finalLineup2[tempIndex10+4][tempIndex9].length===9) {
         for (i=0;i<tempArray3[tempIndex9];i++) {if (finalLineup2[tempIndex10+4][tempIndex9].includes(i)) {}
         else  {finalLineup2[tempIndex10+4][tempIndex9].push(i)}}}
+      }
       console.log('finalLineup2', finalLineup2);
             
             tempArray3=[];

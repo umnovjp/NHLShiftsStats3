@@ -44,10 +44,12 @@ game 3 03/19 one F undefined; game 1 03/25 same
 
 03/02 0 125 60 h1 i1 must be 125 135 line 167; 03/02 6 all should be 0s i1 h1; 03/11 2 139 105 h1 i1 line 128; 03/16 3 62 5 i0 h1 line 014; 03/23 5 92 270 i2 h0 line 679; 03/23 4 92 5 i0 h1 line 126; 03/25 1; game 7 03/26 12 OK; game 5 03/28 10 two teams 11F
 
-10/19 7 empty; 10/15 0022 52; 03/28 game 5 1200 50; game 7 3/26 0022 52; game 1 3/25 0202 40; game 4 3/23 1200 50; game 5 3/23 0202 40; game 3 3/16 40; game 2 3/11 0021 51; 3/2 game 6 51; game 0 3/2 127 51; game 11 10/26 team 1 period 2; game 3 10/28 team 0 period 1 2810 459, game 7 10/28 team 1 period 1 059 21011 136 478, game 1 10/29 team 0 period 0 1210 049 357; game 2 10/29 team 1 period 1 0511 1710 238
+10/19 7 empty; 10/15 0022 52; 03/28 game 5 1200 50; game 7 3/26 0022 52; game 1 3/25 0202 40; game 4 3/23 1200 50; game 5 3/23 0202 40 3 lines detected; game 3 3/16 4 check; game 2 3/11 0021 51 check; 3/2 game 6 51 check; game 0 3/2 127 51 check; game 11 10/26 team 1 period 2 8911 045 267 3 lines detected; game 3 10/28 team 0 period 1 2810 459 017 check, game 7 10/28 team 1 period 1 059 21011 136 478 check, game 1 10/29 team 0 period 0 1210 049 357 check; game 2 10/29 team 1 period 1 0511 1710 238 check; game 1 11/19 team 1 period 2 3 lines detected but not 4th all thre resolved
 
 game 1 11/3. Also line 017 played 24 sec for 4 shifts which could not happen, game 1 10/29 70 sec played 14 shifts
 
 game 0,1,2 10/20 all empty games 10/21, 10/22 as well it works again 10/24
 
 game 3 10/28 script did not work
+
+WPG lines: 10/30, 11/01, 11/03, 11/05, 11/14, 11/16, 11/19, 7-27-91 9-15-36 13-55-81 17-22-62, data missing 11/07, 11/09,11/12, 

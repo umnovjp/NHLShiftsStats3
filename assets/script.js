@@ -457,10 +457,11 @@ function getInputValue() {
       tempIndex7 = Math.max(...linesArray9); tempIndex8 =linesArray9.indexOf(Math.max(...linesArray9));
       console.log('linesArray9', linesArray9, 'tempIndex7', tempIndex7, 'tempIndex8', tempIndex8, 'i', tempIndex9, 'h', tempIndex10);
       linesArray10.push(linesArray9[tempIndex8+2],linesArray9[tempIndex8+3],linesArray9[tempIndex8+4]);
-      console.log(linesArray10);
+      console.log(linesArray10, 'finallineup6', finalLineup2[tempIndex10+4][tempIndex9]);
       if (finalLineup2[tempIndex10+4][tempIndex9].length===6) {finalLineup2[tempIndex10+4][tempIndex9].push(linesArray9[tempIndex8+2],linesArray9[tempIndex8+3],linesArray9[tempIndex8+4])}
+      console.log('finallineup9', finalLineup2[tempIndex10+4][tempIndex9], finalLineup2[tempIndex10+4][tempIndex9].length, tempArray3);
       if (finalLineup2[tempIndex10+4][tempIndex9].length===9) {
-        for (i=0;i<tempArray3[tempIndex9];i++) {if (finalLineup2[tempIndex10+4][tempIndex9].includes(i)) {}
+        for (i=0;i<tempArray3[tempIndex10];i++) {if (finalLineup2[tempIndex10+4][tempIndex9].includes(i)) {}
         else  {finalLineup2[tempIndex10+4][tempIndex9].push(i)}}}
       }
       console.log('finalLineup2', finalLineup2);

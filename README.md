@@ -46,4 +46,4 @@ game 0,1,2 10/20 all empty games 10/21, 10/22 as well it works again 10/24 teste
 
 game 6 12/14 away team has lines changing. but home team has order of lines changing
 
-to delete 631-744, 342-378, 212-224
+to delete 342-378, 212-224

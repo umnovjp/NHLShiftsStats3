@@ -335,47 +335,7 @@ function getInputValue() {
                     
                     // for (i=0; i<homeF.length/3; i++) {if (linesArray2[2].includes(i)) {} else linesArray2[4].push(i)}                                     
                     // for (i=0; i<awayF.length/3; i++) {if (linesArray2[3].includes(i)) {} else linesArray2[5].push(i)}
-
-                    // finalLineup will be replaced with finalLineup2
-                    // finalLineup =[[],[],[],[]];
                      tempArray3 = [homeF.length/3, awayF.length/3]; linesArray4 = [[],[]]; finalLineup2=[[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]];                  
-      //               for (i=2; i<4; i++) {for (j=0; j<linesArray2[i].length; j++) {for (k=j+1; k<linesArray2[i].length; k++) {if (linesArray2[i][j]===linesArray2[i][k]) {
-      //                 if (finalLineup[i-2].includes(linesArray2[i][j])) {}
-      //             else {finalLineup[i-2].push(linesArray2[i][j])}
-      //           }}}
-      //             for (j=0;j<linesArray2[i].length/3;j++) {if ((finalLineup[i-2].includes(linesArray2[i][3*j]))||(finalLineup[i-2].includes(linesArray2[i][3*j+1]))||(finalLineup[i-2].includes(linesArray2[i][3*j+2]))){}
-      //             else {finalLineup[i].push(linesArray2[i][3*j], linesArray2[i][3*j+1], linesArray2[i][3*j+2])}}
-      //                 if (finalLineup[i].length===12) {}
-      //             else if (finalLineup[i].length===9) {for (j=0;j<tempArray3[i-2];j++){if (linesArray2[i].includes(j)){}
-      //           else finalLineup[i].push(j)}}
-      //           else if (finalLineup[i].length===6) {console.log('Two lines', finalLineup); linesArray4 = [[],[]]
-      //           for (j=3*(i-2);j<3+3*(i-2);j++) {for (k=0;k<linesArray[j].length/5;k++) {
-      //             if((finalLineup[i].includes(linesArray[j][5*k+2]))||(finalLineup[i].includes(linesArray[j][5*k+3]))||(finalLineup[i].includes(linesArray[j][5*k+4]))) {}          
-      //             else {linesArray4[i-2].push(linesArray[j][5*k], linesArray[j][5*k+1], linesArray[j][5*k+2], linesArray[j][5*k+3], linesArray[j][5*k+4])}
-      //           }}
-      //       tempIndex = linesArray4[i-2].indexOf(Math.max(...linesArray4[i-2])); tempIndex2 = tempIndex%(linesArray4[i-2].length/3);
-      //     console.log(linesArray4, Math.max(...linesArray4[i-2]), tempIndex, tempIndex2);
-      //     finalLineup[i].push(linesArray4[i-2][tempIndex+2], linesArray4[i-2][tempIndex+3], linesArray4[i-2][tempIndex+4]);
-      //     for (j=0; j<tempArray3[i-2]; j++) {if (finalLineup[i].includes(j)){} else finalLineup[i].push(j)}
-      //     } // end if loop 2 lines
-      //     else if (finalLineup[i].length===3) {console.log('One line', finalLineup); linesArray5 = [[],[]]; linesArray6 = [[],[]]; for (j=3*(i-2);j<3+3*(i-2);j++) {
-      //     for (k=0;k<linesArray[j].length/5;k++) {
-      //       if((finalLineup[i].includes(linesArray[j][5*k+2]))||(finalLineup[i].includes(linesArray[j][5*k+3]))||(finalLineup[i].includes(linesArray[j][5*k+4]))) {}          
-      //       else {linesArray5[i-2].push(linesArray[j][5*k], linesArray[j][5*k+1], linesArray[j][5*k+2], linesArray[j][5*k+3], linesArray[j][5*k+4])}
-      //     }}
-      //   tempIndex = linesArray5[i-2].indexOf(Math.max(...linesArray5[i-2])); tempIndex2 = tempIndex%(linesArray5[i-2].length/3); 
-      //   console.log(linesArray5, Math.max(...linesArray5[i-2]), tempIndex, tempIndex2);
-      //   finalLineup[i].push(linesArray5[i-2][tempIndex+2], linesArray5[i-2][tempIndex+3], linesArray5[i-2][tempIndex+4]);
-      //   for (j=3*(i-2);j<3+3*(i-2);j++) {for (k=0;k<linesArray[j].length/5;k++) {if ((finalLineup[i].includes(linesArray[j][5*k+2]))||(finalLineup[i].includes(linesArray[j][5*k+3]))||(finalLineup[i].includes(linesArray[j][5*k+4]))){}
-      // else (linesArray6[i-2].push(linesArray[j][5*k], linesArray[j][5*k+1], linesArray[j][5*k+2], linesArray[j][5*k+3], linesArray[j][5*k+4]))}}
-      // tempIndex = linesArray6[i-2].indexOf(Math.max(...linesArray6[i-2])); tempIndex2 = tempIndex%(linesArray6[i-2].length/3); 
-      //   console.log(linesArray6, Math.max(...linesArray6[i-2]), tempIndex, tempIndex2);
-      //   finalLineup[i].push(linesArray6[i-2][tempIndex+2], linesArray6[i-2][tempIndex+3], linesArray6[i-2][tempIndex+4]);
-      //   for (j=0; j<tempArray3[i-2]; j++) {if (finalLineup[i].includes(j)){} else finalLineup[i].push(j)}
-      //   console.log(finalLineup, linesArray6[i-2][tempIndex+2], linesArray6[i-2][tempIndex+3], linesArray6[i-2][tempIndex+4]);
-      // } // end if 1 line loop      
-      //     else {console.log('case to be added', 'i', i, linesArray2[i].length, finalLineup[i].length)}
-      //       } // end i 2,3 loop 
 
             // finalLineup2 loop; index 0 and 1 are lines that spent 100s or more in a given period index 2 and 3 are players that appeared more than once in index 0 or 1 
             // and index 5 6 is to verify all players that actually played in lines from index 0 1 reason for that is PHI lines where #11 played on 2 lines leaving one partner behind...
@@ -495,6 +455,10 @@ function getInputValue() {
              else (console.log('new line away as well', finalLineup2[5][2][3*i], finalLineup2[5][2][3*i+1], finalLineup2[5][2][3*i+2]))
             }
             // script to be added here to plot only new lines in 3rd to monitor
+            for (i=0;i<finalLineup2[5][0].length/3;i++) {for (j=0;j<finalLineup2[5][0].length/3;j++) {if((finalLineup2[5][0][3*i]===finalLineup2[5][0][3*j])&&(finalLineup2[5][0][3*i+1]===finalLineup2[5][0][3*j+1])&&(finalLineup2[5][0][3*i+2]===finalLineup2[5][0][3*j+2])) {}
+          else (console.log('to update line away'))}}
+          for (i=0;i<finalLineup2[4][0].length/3;i++) {for (j=0;j<finalLineup2[4][0].length/3;j++) {if((finalLineup2[4][0][3*i]===finalLineup2[4][0][3*j])&&(finalLineup2[4][0][3*i+1]===finalLineup2[4][0][3*j+1])&&(finalLineup2[4][0][3*i+2]===finalLineup2[4][0][3*j+2])) {}
+          else (console.log('to update line home'))}}
 
                     function lineNumber(h,i,j,k) {topFLimit = (1-h)*(homeF.length)/3 + h*(awayF.length)/3; // h may be 0 or 1 only!
                     if (topFLimit===12) {firstPart=[0,55,100,136,164,185,200,210,216,219]}
@@ -502,14 +466,13 @@ function getInputValue() {
                     secondPart = (topFLimit-1-i)*(j-1-i); sum=0;
                     for (l=0;l<j-i;l++) {sum=sum+l}
                       return firstPart[i]+secondPart-sum+k-1-j} // end function lineNumber it is never used but planned to check is line is new
-                  //   // shiftsLine structure: index 0,1,2 is for two players out of line for h team, 3,4,5 is entire line together for this line; 6,7,8 is for two players then 9,10,11 for entire line of 1-h team 
-
+                  
+                      // shiftsLine1 structure: index 0,1,2 is for two players out of line for h team, 3,4,5 is entire line together for this line; 6,7,8 is for two players then 9,10,11 for entire line of 1-h team 
                     function lineByLine1(h,f,j,i) {shiftsLine1=[]; for (p=0;p<14;p++) {shiftsLine1.push([])} shiftsLine1[13]=[[],[]]
                     
                     for (n=0;n<3;n++) {// n is player in a line but i is period
                      //f is line number 0,1,2,3, j is opposite team line number 0,1,2,3, h is 0 or 1 home away team 
-                    // console.log(finalLineup2[4+h][i][3*f])  
-                    // console.log('h ', h, 'i ', i, 'f ', f, 'finallineup2', finalLineup2, finalLineup2[4+h][i][3*f])                  
+                    // console.log(finalLineup2[4+h][i][3*f])
                     for (l=0;l<fArray[h][finalLineup2[4+h][i][3*f]][n].length/2;l++) { for (m=0;m<fArray[h][finalLineup2[4+h][i][3*f+1]][n].length/2;m++) {if ((fArray[h][finalLineup2[4+h][i][3*f+1]][n][2*m]>=fArray[h][finalLineup2[4+h][i][3*f]][n][2*l]) && (fArray[h][finalLineup2[4+h][i][3*f+1]][n][2*m]<=fArray[h][finalLineup2[4+h][i][3*f]][n][2*l+1]))
                     {if (fArray[h][finalLineup2[4+h][i][3*f+1]][n][2*m+1]>=fArray[h][finalLineup2[4+h][i][3*f]][n][2*l+1]) {shiftsLine1[n].push(fArray[h][finalLineup2[4+h][i][3*f+1]][n][2*m], fArray[h][finalLineup2[4+h][i][3*f]][n][2*l+1]) }
                     else { shiftsLine1[n].push(fArray[h][finalLineup2[4+h][i][3*f+1]][n][2*m], fArray[h][finalLineup2[4+h][i][3*f+1]][n][2*m+1]) }}
@@ -558,8 +521,6 @@ function getInputValue() {
                     shiftsLine1[13][1].push(lineVsLineTime, lineVsLineShifts)
                     } // end n loop
                     return shiftsLine1[13]} // end function lineByLine1
-                    // console.log(lineByLine1(0,0,2,1));
-                    // console.log(lineByLine1(0,0,2,2));
 
                     lineByLine001.innerHTML='\\ '+'Away Team ->' +'<br>'+ 'Home Team'+'<br>'+'    |'
                     lineByLine041.innerHTML=awayF[1+3*finalLineup2[5][0][0]]+' '+awayF[2+3*finalLineup2[5][0][0]]+'<br>'+awayF[1+3*finalLineup2[5][0][1]]+' '+awayF[2+3*finalLineup2[5][0][1]]+'<br>'+awayF[1+3*finalLineup2[5][0][2]]+' '+awayF[2+3*finalLineup2[5][0][2]];

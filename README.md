@@ -44,6 +44,6 @@ game 1 11/3 4th line all zeros. Also line 017 played 24 sec for 4 shifts which c
 
 game 0,1,2 10/20 all empty games 10/21, 10/22 as well it works again 10/24 tested up to end of 11/3 all works
 
-game 6 12/14 away team has lines changing. but home team has order of lines changing
+game 6 12/14 away team has lines changing. but home team has order of lines changing. Game 3 1/25 away team lines change
 
 to delete 342-378, 212-224

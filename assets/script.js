@@ -209,17 +209,7 @@ function getInputValue() {
 
                         console.log('shiftsPair', shiftsPair, 'linesArray', linesArray); // linesArray2 = [[],[],[],[],[],[]]; 
                         linesArray7 = [[[],[],[]],[[],[],[]],[],[],[],[]]
-                        // create linesArray2 this is an array of lines where line is defined as 3F which spent 100s in a period playing 3F and 2D
-                        // linesArray2 will be deleted to be replaced with linesArray7
-                        // for (i=0;i<linesArray[0].length/5;i++) {if (linesArray[0][5*i]>100) {console.log('home F', linesArray[0][5*i], linesArray[0][5*i+1], linesArray[0][5*i+2], linesArray[0][5*i+3], linesArray[0][5*i + 4]); 
-                        // for (j=0;j<3;j++) {linesArray2[0].push(linesArray[j][5*i], linesArray[j][5*i+1], linesArray[j][5*i+2], linesArray[j][5*i+3], linesArray[j][5*i+4]);
-                        // }
-                        // linesArray2[2].push(linesArray[0][5*i+2], linesArray[0][5*i+3], linesArray[0][5*i+4])}}
-                        // for (i = 0; i<linesArray[3].length/5; i++) {if (linesArray[3][5*i]>100) {console.log('away F', linesArray[3][5*i], linesArray[3][5*i+1], linesArray[3][5*i+2], linesArray[3][5*i+3], linesArray[3][5*i + 4]); 
-                        // for (j = 3; j < 6; j++) {linesArray2[1].push(linesArray[j][5*i], linesArray[j][5*i+1], linesArray[j][5*i+2], linesArray[j][5*i+3], linesArray[j][5*i+4])
-                        //   }
-                        //   linesArray2[3].push(linesArray[3][5*i+2], linesArray[3][5*i+3], linesArray[3][5*i+4])}}
-
+      
                           // h is team i is period
                           // linesArray2 was for 1st period only but linesArray7 for 3 periods line 232 or 233 has console. If statement makes sure that linesArray7[h][i] is not empty even if no line played together for 101s or more
                           for (h=0;h<2;h++) {for (i=0;i<3;i++) {for (j=0;j<linesArray[3*h].length/5;j++) {if (linesArray[3*h+i][5*j]>100) {
@@ -440,8 +430,8 @@ function getInputValue() {
             tempArray3=[];
             for (i=0;i<finalLineup2[4][0].length/3;i++) {tempArray3.push(finalLineup2[4][0][3*i])}
             console.log('tempArray3 home', tempArray3);
-            for (i=0;i<finalLineup2[4][0].length/3;i++) {if (tempArray3.includes(finalLineup2[4][2][3*i])) {
-              if ((finalLineup2[4][2][3*i+1]===finalLineup2[4][0][3*i+1])&&(finalLineup2[4][2][3*i+2]===finalLineup2[4][0][3*i+2])) {console.log('old line home', i, finalLineup2[4][2].indexOf(finalLineup2[4][2][3*i]))}
+            for (i=0;i<finalLineup2[4][0].length/3;i++) {if (tempArray3.includes(finalLineup2[4][2][3*i])) { console.log(tempArray3.indexOf(finalLineup2[4][2][3*i]))
+              if ((finalLineup2[4][2][3*i+1]===finalLineup2[4][0][tempArray3.indexOf(finalLineup2[4][2][3*i])+1])&&(finalLineup2[4][2][3*i+2]===finalLineup2[4][0][tempArray3.indexOf(finalLineup2[4][2][3*i])+2])) {console.log('old line home', i, finalLineup2[4][2].indexOf(finalLineup2[4][2][3*i]))}
               else (console.log('new line home',finalLineup2[4][2][3*i], finalLineup2[4][2][3*i+1], finalLineup2[4][2][3*i+2]))  }
              else (console.log('new line home as well', finalLineup2[4][2][3*i], finalLineup2[4][2][3*i+1], finalLineup2[4][2][3*i+2]))
             }
@@ -450,11 +440,11 @@ function getInputValue() {
             for (i=0;i<finalLineup2[5][0].length/3;i++) {tempArray3.push(finalLineup2[5][0][3*i])}
             console.log('tempArray3 away', tempArray3);
             for (i=0;i<finalLineup2[5][0].length/3;i++) {if (tempArray3.includes(finalLineup2[5][2][3*i])) {
-              if ((finalLineup2[5][2][3*i+1]===finalLineup2[5][0][3*i+1])&&(finalLineup2[5][2][3*i+2]===finalLineup2[5][0][3*i+2])) {console.log('old line away', i, finalLineup2[5][2].indexOf(finalLineup2[5][2][3*i]))}
+              if ((finalLineup2[5][2][3*i+1]===finalLineup2[5][0][tempArray3.indexOf(finalLineup2[5][2][3*i])+1])&&(finalLineup2[5][2][3*i+2]===finalLineup2[5][0][tempArray3.indexOf(finalLineup2[4][2][3*i])+2])) {console.log('old line away', i, finalLineup2[5][2].indexOf(finalLineup2[5][2][3*i]))}
               else (console.log('new line away',finalLineup2[5][2][3*i], finalLineup2[5][2][3*i+1], finalLineup2[5][2][3*i+2]))  }
              else (console.log('new line away as well', finalLineup2[5][2][3*i], finalLineup2[5][2][3*i+1], finalLineup2[5][2][3*i+2]))
             }
-            // script to be added here to plot only new lines in 3rd to monitor
+            // script to be added here to plot only new lines in 3rd to monitor 5 is away team 4 is home team
             for (i=0;i<finalLineup2[5][0].length/3;i++) {for (j=0;j<finalLineup2[5][0].length/3;j++) {if((finalLineup2[5][0][3*i]===finalLineup2[5][0][3*j])&&(finalLineup2[5][0][3*i+1]===finalLineup2[5][0][3*j+1])&&(finalLineup2[5][0][3*i+2]===finalLineup2[5][0][3*j+2])) {}
           else (console.log('to update line away'))}}
           for (i=0;i<finalLineup2[4][0].length/3;i++) {for (j=0;j<finalLineup2[4][0].length/3;j++) {if((finalLineup2[4][0][3*i]===finalLineup2[4][0][3*j])&&(finalLineup2[4][0][3*i+1]===finalLineup2[4][0][3*j+1])&&(finalLineup2[4][0][3*i+2]===finalLineup2[4][0][3*j+2])) {}

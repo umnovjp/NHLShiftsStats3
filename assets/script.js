@@ -420,25 +420,22 @@ function getInputValue() {
         }
       }
       }
-    }
-        
-       
-    }
+    }}
 
       console.log(oldLines, newLines)
             
             tempArray3=[];
             for (i=0;i<finalLineup2[4][0].length/3;i++) {tempArray3.push(finalLineup2[4][0][3*i])}
-            console.log('tempArray3 home', tempArray3);
-            for (i=0;i<finalLineup2[4][0].length/3;i++) {if (tempArray3.includes(finalLineup2[4][2][3*i])) { console.log(tempArray3.indexOf(finalLineup2[4][2][3*i]))
-              if ((finalLineup2[4][2][3*i+1]===finalLineup2[4][0][tempArray3.indexOf(finalLineup2[4][2][3*i])+1])&&(finalLineup2[4][2][3*i+2]===finalLineup2[4][0][tempArray3.indexOf(finalLineup2[4][2][3*i])+2])) {console.log('old line home', i, finalLineup2[4][2].indexOf(finalLineup2[4][2][3*i]))}
+            console.log('tempArray3 home', tempArray3)
+            for (i=0;i<finalLineup2[4][0].length/3;i++) {if (tempArray3.includes(finalLineup2[4][2][3*i])) { console.log(tempArray3.indexOf(finalLineup2[4][2][3*i]), finalLineup2[4][0][3*i])
+              if ((finalLineup2[4][2][3*i+1]===finalLineup2[4][0][tempArray3.indexOf(finalLineup2[4][2][3*i])+1])&&(finalLineup2[4][2][3*i+2]===finalLineup2[4][0][tempArray3.indexOf(finalLineup2[4][0][3*i])+2])) {console.log('old line home', i, finalLineup2[4][2].indexOf(finalLineup2[4][2][3*i]))}
               else (console.log('new line home',finalLineup2[4][2][3*i], finalLineup2[4][2][3*i+1], finalLineup2[4][2][3*i+2]))  }
              else (console.log('new line home as well', finalLineup2[4][2][3*i], finalLineup2[4][2][3*i+1], finalLineup2[4][2][3*i+2]))
             }
 
             tempArray3=[];
             for (i=0;i<finalLineup2[5][0].length/3;i++) {tempArray3.push(finalLineup2[5][0][3*i])}
-            console.log('tempArray3 away', tempArray3);
+            console.log('tempArray3 away', tempArray3)
             for (i=0;i<finalLineup2[5][0].length/3;i++) {if (tempArray3.includes(finalLineup2[5][2][3*i])) {
               if ((finalLineup2[5][2][3*i+1]===finalLineup2[5][0][tempArray3.indexOf(finalLineup2[5][2][3*i])+1])&&(finalLineup2[5][2][3*i+2]===finalLineup2[5][0][tempArray3.indexOf(finalLineup2[4][2][3*i])+2])) {console.log('old line away', i, finalLineup2[5][2].indexOf(finalLineup2[5][2][3*i]))}
               else (console.log('new line away',finalLineup2[5][2][3*i], finalLineup2[5][2][3*i+1], finalLineup2[5][2][3*i+2]))  }

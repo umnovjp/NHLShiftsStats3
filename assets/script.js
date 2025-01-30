@@ -424,23 +424,40 @@ function getInputValue() {
 
       console.log(oldLines, newLines)
             
-            tempArray3=[];
+            tempArray3=[]; // home
             for (i=0;i<finalLineup2[4][0].length/3;i++) {tempArray3.push(finalLineup2[4][0][3*i])}
             console.log('tempArray3 home', tempArray3)
-            for (i=0;i<finalLineup2[4][0].length/3;i++) {if (tempArray3.includes(finalLineup2[4][2][3*i])) { console.log(tempArray3.indexOf(finalLineup2[4][2][3*i]), finalLineup2[4][0][3*i])
-              if ((finalLineup2[4][2][3*i+1]===finalLineup2[4][0][tempArray3.indexOf(finalLineup2[4][2][3*i])+1])&&(finalLineup2[4][2][3*i+2]===finalLineup2[4][0][tempArray3.indexOf(finalLineup2[4][0][3*i])+2])) {console.log('old line home', i, finalLineup2[4][2].indexOf(finalLineup2[4][2][3*i]))}
-              else (console.log('new line home',finalLineup2[4][2][3*i], finalLineup2[4][2][3*i+1], finalLineup2[4][2][3*i+2]))  }
-             else (console.log('new line home as well', finalLineup2[4][2][3*i], finalLineup2[4][2][3*i+1], finalLineup2[4][2][3*i+2]))
+            for (i=0;i<finalLineup2[4][0].length/3;i++) {if (tempArray3.includes(finalLineup2[4][2][3*i])) { tempIndex5=finalLineup2[4][0].indexOf(finalLineup2[4][2][3*i]);
+              console.log(tempIndex5, finalLineup2[4][2][3*i]);
+              if ((finalLineup2[4][2][3*i+1]===finalLineup2[4][0][tempIndex5+1])&&(finalLineup2[4][2][3*i+2]===finalLineup2[4][0][tempIndex5+2])) {console.log('old line home', i, finalLineup2[4][2].indexOf(finalLineup2[4][2][3*i]))}
+              else {console.log('new line home',finalLineup2[4][2][3*i], finalLineup2[4][2][3*i+1], finalLineup2[4][2][3*i+2])}  }
+             else {console.log('new line home as well', finalLineup2[4][2][3*i], finalLineup2[4][2][3*i+1], finalLineup2[4][2][3*i+2])}
             }
 
-            tempArray3=[];
+            tempArray3=[]; const newLines1=[]; // away
             for (i=0;i<finalLineup2[5][0].length/3;i++) {tempArray3.push(finalLineup2[5][0][3*i])}
             console.log('tempArray3 away', tempArray3)
-            for (i=0;i<finalLineup2[5][0].length/3;i++) {if (tempArray3.includes(finalLineup2[5][2][3*i])) {
-              if ((finalLineup2[5][2][3*i+1]===finalLineup2[5][0][tempArray3.indexOf(finalLineup2[5][2][3*i])+1])&&(finalLineup2[5][2][3*i+2]===finalLineup2[5][0][tempArray3.indexOf(finalLineup2[4][2][3*i])+2])) {console.log('old line away', i, finalLineup2[5][2].indexOf(finalLineup2[5][2][3*i]))}
-              else (console.log('new line away',finalLineup2[5][2][3*i], finalLineup2[5][2][3*i+1], finalLineup2[5][2][3*i+2]))  }
-             else (console.log('new line away as well', finalLineup2[5][2][3*i], finalLineup2[5][2][3*i+1], finalLineup2[5][2][3*i+2]))
+            for (i=0;i<finalLineup2[5][0].length/3;i++) {if (tempArray3.includes(finalLineup2[5][2][3*i])) { tempIndex55=finalLineup2[5][0].indexOf(finalLineup2[5][2][3*i]);
+              if ((finalLineup2[5][2][3*i+1]===finalLineup2[5][0][tempIndex55+1])&&(finalLineup2[5][2][3*i+2]===finalLineup2[5][0][tempIndex55+2])) {console.log('old line away', i, finalLineup2[5][2].indexOf(finalLineup2[5][2][3*i]))}
+              else {console.log('new line away',finalLineup2[5][2][3*i], finalLineup2[5][2][3*i+1], finalLineup2[5][2][3*i+2])
+            newLines1[i]=new Object();
+              newLines1[i].lineNumber=i;
+            newLines1[i].line=[finalLineup2[5][2][3*i], finalLineup2[5][2][3*i+1], finalLineup2[5][2][3*i+2]]}  }
+             else {console.log('new line away as well', finalLineup2[5][2][3*i], finalLineup2[5][2][3*i+1], finalLineup2[5][2][3*i+2])
+             newLines1[i]=new Object();
+             newLines1[i].lineNumber=i;
+             newLines1[i].line=[finalLineup2[5][2][3*i], finalLineup2[5][2][3*i+1], finalLineup2[5][2][3*i+2]]
             }
+            console.log(newLines1)
+            if (typeof newLines1[i]==='object') {
+              if (i===0) { lineByLine081.innerHTML=awayF[1+3*finalLineup2[5][2][0]]+' '+awayF[2+3*finalLineup2[5][2][0]]+'<br>'+awayF[1+3*finalLineup2[5][2][1]]+' '+awayF[2+3*finalLineup2[5][2][1]]+'<br>'+awayF[1+3*finalLineup2[5][2][2]]+' '+awayF[2+3*finalLineup2[5][2][2]]}
+              else if (i===1) { lineByLine091.innerHTML=awayF[1+3*finalLineup2[5][2][3]]+' '+awayF[2+3*finalLineup2[5][2][3]]+'<br>'+awayF[1+3*finalLineup2[5][2][4]]+' '+awayF[2+3*finalLineup2[5][2][4]]+'<br>'+awayF[1+3*finalLineup2[5][2][5]]+' '+awayF[2+3*finalLineup2[5][2][5]]}
+              else if (i===2) { lineByLine091a.innerHTML=awayF[1+3*finalLineup2[5][2][6]]+' '+awayF[2+3*finalLineup2[5][2][6]]+'<br>'+awayF[1+3*finalLineup2[5][2][7]]+' '+awayF[2+3*finalLineup2[5][2][7]]+'<br>'+awayF[1+3*finalLineup2[5][2][8]]+' '+awayF[2+3*finalLineup2[5][2][8]]}
+              else if (i===3) {lineByLine091b.innerHTML=awayF[1+3*finalLineup2[5][2][9]]+' '+awayF[2+3*finalLineup2[5][2][9]]+'<br>'+awayF[1+3*finalLineup2[5][2][10]]+' '+awayF[2+3*finalLineup2[5][2][10]]+'<br>'+awayF[1+3*finalLineup2[5][2][11]]+' '+awayF[2+3*finalLineup2[5][2][11]]}
+            }
+          }
+          for (i=0;i<finalLineup2[5][0].length/3;i++) {console.log(newLines1[i], typeof newLines1[i])}
+            
             // script to be added here to plot only new lines in 3rd to monitor 5 is away team 4 is home team
             for (i=0;i<finalLineup2[5][0].length/3;i++) {for (j=0;j<finalLineup2[5][0].length/3;j++) {if((finalLineup2[5][0][3*i]===finalLineup2[5][0][3*j])&&(finalLineup2[5][0][3*i+1]===finalLineup2[5][0][3*j+1])&&(finalLineup2[5][0][3*i+2]===finalLineup2[5][0][3*j+2])) {}
           else (console.log('to update line away'))}}

@@ -524,6 +524,7 @@ function getInputValue() {
                     } // end n loop
                     return shiftsLine1[13]} // end function lineByLine1
                     console.log(lineByLine1(1,0,0,0))
+                    console.log(lineByLine1(1,0,0,2))
 
                     // h is team, i is period number qrs are players on h team tuv are players on 1-h team
                     function lineByLine2(h,q,r,s,t,u,v,i) {shiftsLine2=[]; for (p=0;p<14;p++) {shiftsLine2.push([])} shiftsLine2[13]=[[],[]]
@@ -582,6 +583,10 @@ function getInputValue() {
                     return shiftsLine2[13]} // end function lineByLine2
                     // finalLineup2[4+h][i][3*f]
                     console.log(lineByLine2(1,finalLineup2[5][0][0],finalLineup2[5][0][1],finalLineup2[5][0][2],finalLineup2[4][0][0],finalLineup2[5][0][1],finalLineup2[5][0][2],0))
+                    console.log(shiftsLine2)
+                    console.log(lineByLine2(1,finalLineup2[5][1][0],finalLineup2[5][1][1],finalLineup2[5][1][2],finalLineup2[4][1][0],finalLineup2[5][1][1],finalLineup2[5][1][2],0))
+                    console.log(shiftsLine2)
+                    console.log(lineByLine2(1,finalLineup2[5][2][0],finalLineup2[5][2][1],finalLineup2[5][2][2],finalLineup2[4][2][0],finalLineup2[5][2][1],finalLineup2[5][2][2],0))
                     console.log(shiftsLine2)
 
                     lineByLine001.innerHTML='\\ '+'Away Team ->' +'<br>'+ 'Home Team'+'<br>'+'    |'

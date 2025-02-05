@@ -524,9 +524,11 @@ function getInputValue() {
                     } // end n loop
                     return shiftsLine1[13]} // end function lineByLine1
                     console.log(lineByLine1(1,0,0,0))
+                    console.log(lineByLine1(1,0,0,1))
                     console.log(lineByLine1(1,0,0,2))
 
                     // h is team, i is period number qrs are players on h team tuv are players on 1-h team
+                    // shiftsLine2 structure: 
                     function lineByLine2(h,q,r,s,t,u,v,i) {shiftsLine2=[]; for (p=0;p<14;p++) {shiftsLine2.push([])} shiftsLine2[13]=[[],[]]
                     
                     for (n=0;n<3;n++) {// n is the period but i is period
@@ -539,7 +541,6 @@ function getInputValue() {
                       if (fArray[h][r][n][2*m+1]>=fArray[h][q][n][2*l+1]) { shiftsLine2[n].push(fArray[h][q][n][2*l], fArray[h][q][n][2*l+1]) }
                       else {shiftsLine2[n].push(fArray[h][q][n][2*l], fArray[h][r][n][2*m+1])}}
                     }} // end first m,l loop 
-                    // console.log(shiftsLine2)
                     // start second l,m loop
                     for (l=0;l<shiftsLine2[n].length/2;l++) { for (m=0;m<fArray[h][s][n].length/2;m++) {if ((fArray[h][s][n][2*m]>=shiftsLine2[n][2*l])&&(fArray[h][s][n][2*m]<=shiftsLine2[n][2*l+1]))
                     {if (fArray[h][s][n][2*m+1]>=shiftsLine2[n][2*l+1]) {shiftsLine2[n+3].push(fArray[h][s][n][2*m], shiftsLine2[n][2*l+1]) }
@@ -581,7 +582,6 @@ function getInputValue() {
                     shiftsLine2[13][1].push(lineVsLineTime, lineVsLineShifts)
                     } // end n loop
                     return shiftsLine2[13]} // end function lineByLine2
-                    // finalLineup2[4+h][i][3*f]
                     console.log(lineByLine2(1,finalLineup2[5][0][0],finalLineup2[5][0][1],finalLineup2[5][0][2],finalLineup2[4][0][0],finalLineup2[5][0][1],finalLineup2[5][0][2],0))
                     console.log(shiftsLine2)
                     console.log(lineByLine2(1,finalLineup2[5][1][0],finalLineup2[5][1][1],finalLineup2[5][1][2],finalLineup2[4][1][0],finalLineup2[5][1][1],finalLineup2[5][1][2],0))

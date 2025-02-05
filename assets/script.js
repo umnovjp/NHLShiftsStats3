@@ -582,6 +582,7 @@ function getInputValue() {
                     shiftsLine2[13][1].push(lineVsLineTime, lineVsLineShifts)
                     } // end n loop
                     return shiftsLine2[13]} // end function lineByLine2
+                    console.log(finalLineup2[5][0][0],finalLineup2[5][0][1],finalLineup2[5][0][2])
                     console.log(lineByLine2(1,finalLineup2[5][0][0],finalLineup2[5][0][1],finalLineup2[5][0][2],finalLineup2[4][0][0],finalLineup2[5][0][1],finalLineup2[5][0][2],0))
                     console.log(shiftsLine2)
                     console.log(lineByLine2(1,finalLineup2[5][1][0],finalLineup2[5][1][1],finalLineup2[5][1][2],finalLineup2[4][1][0],finalLineup2[5][1][1],finalLineup2[5][1][2],0))

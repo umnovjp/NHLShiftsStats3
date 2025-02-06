@@ -408,17 +408,14 @@ function getInputValue() {
       }
       console.log('finalLineup2', finalLineup2);
 
-      // did not use i because i is for periods
-      oldLines=[[],[]]; newLines=[[],[]]
+      // did not use i because i is for periods not currently used
+      oldLines=[[],[]]; newLines=[[],[]];
       for (h=4;h<6;h++) {for (j=0;j<finalLineup2[h][0].length/3;j++) 
         {for(k=j;k<finalLineup2[h][0].length/3;k++) {if(finalLineup2[h][0][3*j]===finalLineup2[h][2][3*j])
           { if(finalLineup2[h][0][3*j]===finalLineup2[h][2][3*k]) { if ((finalLineup2[h][0][3*j+1]===finalLineup2[h][2][3*k+1])&&(finalLineup2[h][0][3*j+2]===finalLineup2[h][2][3*k+2])) {oldLines[h-4].push(finalLineup2[h][0][3*j])}
           else {newLines[h-4].push(finalLineup2[h][2][3*k], finalLineup2[h][2][3*k+1], finalLineup2[h][2][3*k+2])}
-        }
-      }
-      }
+        }}}
     }}
-
       console.log(oldLines, newLines)
             
             tempArray3=[]; // home
@@ -533,7 +530,6 @@ function getInputValue() {
                     
                     for (n=0;n<3;n++) {// n is the period but i is period
                      //f is line number 0,1,2,3, j is opposite team line number 0,1,2,3, h is 0 or 1 home away team 
-                    // console.log(finalLineup2[4+h][i][3*f])
                     for (l=0;l<fArray[h][q][n].length/2;l++) { for (m=0;m<fArray[h][r][n].length/2;m++) {if ((fArray[h][r][n][2*m]>=fArray[h][q][n][2*l])&&(fArray[h][r][n][2*m]<=fArray[h][q][n][2*l+1]))
                     {if (fArray[h][r][n][2*m+1]>=fArray[h][q][n][2*l+1]) {shiftsLine2[n].push(fArray[h][r][n][2*m], fArray[h][q][n][2*l+1]) }
                     else { shiftsLine2[n].push(fArray[h][r][n][2*m], fArray[h][r][n][2*m+1]) }}
@@ -582,7 +578,7 @@ function getInputValue() {
                     shiftsLine2[13][1].push(lineVsLineTime, lineVsLineShifts)
                     } // end n loop
                     return shiftsLine2[13]} // end function lineByLine2
-                    console.log(finalLineup2[5][0][0],finalLineup2[5][0][1],finalLineup2[5][0][2])
+                    console.log(finalLineup2[5][0][0],finalLineup2[5][0][1],finalLineup2[5][0][2], fArray[0])
                     console.log(lineByLine2(1,finalLineup2[5][0][0],finalLineup2[5][0][1],finalLineup2[5][0][2],finalLineup2[4][0][0],finalLineup2[5][0][1],finalLineup2[5][0][2],0))
                     console.log(shiftsLine2)
                     console.log(lineByLine2(1,finalLineup2[5][1][0],finalLineup2[5][1][1],finalLineup2[5][1][2],finalLineup2[4][1][0],finalLineup2[5][1][1],finalLineup2[5][1][2],0))

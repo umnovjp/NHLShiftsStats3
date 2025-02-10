@@ -46,4 +46,4 @@ game 0,1,2 10/20 all empty games 10/21, 10/22 as well it works again 10/24 teste
 
 game 6 12/14 away team has lines changing. but home team has order of lines changing. Game 3 1/25 away team lines change game 8 1/25 both teams changes lines. game 9 1/25 away team changed lines. game 10 1/25 away team changed lines. game 11 1/25 home team no line change but console has message. game 12 1/15 all lines have the same order no new lines. seems that if lines order changes it counts as a new line
 
-game 0 02/02 fails with new function
+lines 411-419 new lines, old lines, then 421-452 for home and away, then 456-459 then function lineNumber 461-466 which i do not use

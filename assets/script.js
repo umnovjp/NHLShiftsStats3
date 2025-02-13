@@ -451,6 +451,15 @@ function getInputValue() {
             }
           }
           for (i=0;i<finalLineup2[5][0].length/3;i++) {console.log(newLines1[i], typeof newLines1[i])}
+
+          linesNewAndOld=[[],[]]; tempArray3=[[],[]];
+          for (h=0;h<2;h++) {for (i=0;i<finalLineup2[h+4][0].length/3;i++) {tempArray3[h].push(finalLineup2[5][h+4][3*i])}}
+          for (h=0;h<2;h++) {
+          for (i=0;i<finalLineup2[h+4][0].length/3;i++) {if (tempArray3.includes(finalLineup2[h+1][2][3*i])) {
+            
+          }
+          }
+          }
             
             // script to be added here to plot only new lines in 3rd to monitor 5 is away team 4 is home team
             for (i=0;i<finalLineup2[5][0].length/3;i++) {for (j=0;j<finalLineup2[5][0].length/3;j++) {if((finalLineup2[5][0][3*i]===finalLineup2[5][0][3*j])&&(finalLineup2[5][0][3*i+1]===finalLineup2[5][0][3*j+1])&&(finalLineup2[5][0][3*i+2]===finalLineup2[5][0][3*j+2])) {}

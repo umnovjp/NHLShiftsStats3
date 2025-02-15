@@ -453,13 +453,23 @@ function getInputValue() {
           for (i=0;i<finalLineup2[5][0].length/3;i++) {console.log(newLines1[i], typeof newLines1[i])}
 
           linesNewAndOld=[[],[]]; tempArray3=[[],[]];
-          for (h=0;h<2;h++) {for (i=0;i<finalLineup2[h+4][0].length/3;i++) {tempArray3[h].push(finalLineup2[5][h+4][3*i])}}
+          for (h=0;h<2;h++) {for (i=0;i<finalLineup2[h+4][0].length/3;i++) {tempArray3[h].push(finalLineup2[h+4][0][3*i])
+          newLine2=new Object();
+          newLine2.lineNumber=i;
+          newLine2.line=[finalLineup2[h+4][0][3*i], finalLineup2[h+4][0][3*i+1], finalLineup2[5][0][3*i+2]]
+          linesNewAndOld[h].push(newLine2)
+          }}
+          
           for (h=0;h<2;h++) {
-          for (i=0;i<finalLineup2[h+4][0].length/3;i++) {if (tempArray3.includes(finalLineup2[h+1][2][3*i])) {
-            
+          for (i=0;i<finalLineup2[h+4][0].length/3;i++) {if (tempArray3[h].includes(finalLineup2[h+4][2][3*i])) { tempIndex56=finalLineup2[h+4][0].indexOf(finalLineup2[h+4][2][3*i]);
+            if ((finalLineup2[h+4][2][3*i+1]===finalLineup2[h+4][0][tempIndex56+1])&&(finalLineup2[h+4][2][3*i+2]===finalLineup2[h+4][0][tempIndex56+2])) 
+            {console.log('old line again', tempIndex56, h);
+            linesNewAndOld[h][tempIndex56/3].position='old'}
+            else {linesNewAndOld[h][tempIndex56/3].position='old'}
           }
           }
-          }
+        }
+        console.log(linesNewAndOld)
             
             // script to be added here to plot only new lines in 3rd to monitor 5 is away team 4 is home team
             for (i=0;i<finalLineup2[5][0].length/3;i++) {for (j=0;j<finalLineup2[5][0].length/3;j++) {if((finalLineup2[5][0][3*i]===finalLineup2[5][0][3*j])&&(finalLineup2[5][0][3*i+1]===finalLineup2[5][0][3*j+1])&&(finalLineup2[5][0][3*i+2]===finalLineup2[5][0][3*j+2])) {}

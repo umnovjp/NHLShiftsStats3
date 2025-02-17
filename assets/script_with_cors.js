@@ -40,9 +40,11 @@ function getInputValue() {
                 return response.json();
               })
               .then(function (data_standings) { console.log(data_standings.standings);
-                for (i = 0; i < data_standings.standings.length; i++) { if (data_standings.standings[i].teamAbbrev.default === data.awayTeam.abbrev) {
+                for (i = 0; i < data_standings.standings.length; i++) {
+                  if (data_standings.standings[i].teamAbbrev.default === data.awayTeam.abbrev) {
                     standingsArray.push(data_standings.standings[i].wins, data_standings.standings[i].losses, data_standings.standings[i].otLosses)
-                    console.log(i, data.awayTeam.abbrev, data_standings.standings[i].wins, data_standings.standings[i].losses, data_standings.standings[i].otLosses)}
+                    console.log(i, data.awayTeam.abbrev, data_standings.standings[i].wins, data_standings.standings[i].losses, data_standings.standings[i].otLosses)
+                  }
                   else if (data_standings.standings[i].teamAbbrev.default === data.homeTeam.abbrev) {
                     standingsArray.push(data.homeTeam.abbrev, data_standings.standings[i].wins, data_standings.standings[i].losses, data_standings.standings[i].otLosses)
                     console.log(i, data.homeTeam.abbrev, data_standings.standings[i].wins, data_standings.standings[i].losses, data_standings.standings[i].otLosses)
@@ -457,7 +459,6 @@ function getInputValue() {
           newLine2.line=[finalLineup2[h+4][0][3*i], finalLineup2[h+4][0][3*i+1], finalLineup2[5][0][3*i+2]]
           linesNewAndOld[h].push(newLine2)
           }}
-          console.log(linesNewAndOld, tempArray3)
           
           for (h=0;h<2;h++) {
           for (i=0;i<finalLineup2[h+4][0].length/3;i++) {if (tempArray3[h].includes(finalLineup2[h+4][2][3*i])) { 
@@ -467,13 +468,15 @@ function getInputValue() {
             linesNewAndOld[h][tempIndex56/3].position='old'}
             else {newLine2=new Object();
               // newLine2.lineNumber=i;
-              newLine2.line=[finalLineup2[h+4][2][tempIndex56], finalLineup2[h+4][2][tempIndex56+1], finalLineup2[5][2][tempIndex56+2]];
+              newLine2.line=[finalLineup2[h+4][0][3*i], finalLineup2[h+4][2][3*i+1], finalLineup2[5][2][3*i+2]];
               newLine2.position='new';
               linesNewAndOld[h].push(newLine2)
-              linesNewAndOld[h][tempIndex56/3].position='updated'
+              linesNewAndOld[h][tempIndex56].position='updated'
             }
-          }}}
-        console.log(linesNewAndOld);
+          }
+          }
+        }
+        console.log(linesNewAndOld)
             
             // script to be added here to plot only new lines in 3rd to monitor 5 is away team 4 is home team
             for (i=0;i<finalLineup2[5][0].length/3;i++) {for (j=0;j<finalLineup2[5][0].length/3;j++) {if((finalLineup2[5][0][3*i]===finalLineup2[5][0][3*j])&&(finalLineup2[5][0][3*i+1]===finalLineup2[5][0][3*j+1])&&(finalLineup2[5][0][3*i+2]===finalLineup2[5][0][3*j+2])) {}

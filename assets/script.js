@@ -460,19 +460,36 @@ function getInputValue() {
           console.log(linesNewAndOld, tempArray3)
           
           for (h=0;h<2;h++) {
-          for (i=0;i<finalLineup2[h+4][0].length/3;i++) {if (tempArray3[h].includes(finalLineup2[h+4][2][3*i])) { 
+          for (i=0;i<finalLineup2[h+4][0].length/3;i++) {if (tempArray3[h].includes(finalLineup2[h+4][2][3*i])) {
             tempIndex56=finalLineup2[h+4][0].indexOf(finalLineup2[h+4][2][3*i]);
             if ((finalLineup2[h+4][2][3*i+1]===finalLineup2[h+4][0][tempIndex56+1])&&(finalLineup2[h+4][2][3*i+2]===finalLineup2[h+4][0][tempIndex56+2])) 
             {console.log('old line again', tempIndex56, h);
             linesNewAndOld[h][tempIndex56/3].position='old'}
-            else {newLine2=new Object();
-              // newLine2.lineNumber=i;
-              newLine2.line=[finalLineup2[h+4][2][tempIndex56], finalLineup2[h+4][2][tempIndex56+1], finalLineup2[5][2][tempIndex56+2]];
+            else { console.log('tempIndex56', tempIndex56, finalLineup2[h+4][2][3*i])
+              newLine2=new Object();
+              newLine2.line=[finalLineup2[h+4][2][3*i], finalLineup2[h+4][2][3*i+1], finalLineup2[h+4][2][3*i+2]];
               newLine2.position='new';
               linesNewAndOld[h].push(newLine2)
               linesNewAndOld[h][tempIndex56/3].position='updated'
             }
-          }}}
+          }
+        else if (!tempArray3[h].includes(finalLineup2[h+4][2][3*i])) 
+        {console.log('to update', finalLineup2[h+4][2][3*i])
+        newLine2=new Object();
+        // newLine2.lineNumber=i;
+        newLine2.line=[finalLineup2[h+4][2][3*i], finalLineup2[h+4][2][3*i+1], finalLineup2[h+4][2][3*i+2]];
+        newLine2.position='new';
+        linesNewAndOld[h].push(newLine2)
+        linesNewAndOld[h][tempIndex56/3].position='updated'
+        for (j=0;j<finalLineup2[h+4][0].length;j++) {
+          tempIndex57=finalLineup2[h+4][0].indexOf(finalLineup2[h+4][2][3*i])
+          tempIndex58=Math.floor(tempIndex57/3);
+          console.log(tempIndex57, tempIndex58);
+          linesNewAndOld[h][tempIndex58].position='updated'
+          
+        }
+      }
+        }}
         console.log(linesNewAndOld);
             
             // script to be added here to plot only new lines in 3rd to monitor 5 is away team 4 is home team

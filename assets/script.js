@@ -2,14 +2,12 @@ var scheduleContent = document.getElementById('schedule'); var gameId; var input
 // lines below will allow user to select date then to select game on that date
 function getInputValue() {
   var inputVal = document.getElementById('datepicker').value; var date = inputVal.split('/');
-  var formatted = date[2]+'-'+date[0]+'-'+date[1]; console.log(inputVal, formatted)
+  var formatted = date[2]+'-'+date[0]+'-'+date[1]; // console.log(inputVal, formatted)
   var requestURL = 'https://cors-anywhere.herokuapp.com/https://api-web.nhle.com/v1/schedule/' + formatted;
   fetch(requestURL, {"method": "GET", "headers": {}
   })
-    .then(function (response) {return response.json();
-    })
+    .then(function (response) {return response.json()})
     .then(function (data) {console.log('I am in schedule then');
-      console.log(data.gameWeek[0]);
       var numberOfGames = data.gameWeek[0].games.length; scheduleContent.textContent = '';
       for (var i = 0; i < numberOfGames; i++) {
         var gameName = document.createElement('button');
@@ -18,27 +16,21 @@ function getInputValue() {
         document.getElementById('schedule').appendChild(gameName); gameName.addEventListener('click', displayGameData);
       }
 
-      function displayGameData(event) {
-        idx = event.currentTarget; idxString = event.currentTarget.textContent;
-        idxArray = idxString.split(':'); idxNumber = idxArray[0].split(' ');
-        gameNumber = idxNumber[1];
+      function displayGameData(event) {idx = event.currentTarget; idxString = event.currentTarget.textContent;
+        idxArray = idxString.split(':'); idxNumber = idxArray[0].split(' '); gameNumber = idxNumber[1];
         const gameId = data.gameWeek[0].games[gameNumber].id; console.log(gameId);
         var requestURL = 'https://cors-anywhere.herokuapp.com/https://api-web.nhle.com/v1/gamecenter/' + gameId + '/boxscore';
         fetch(requestURL, {
           "method": "GET", "headers": {}
         })
-          .then(function (response) {
-            return response.json();
-          })
+          .then(function (response) { return response.json() })
           .then(function (data) {const gameInfo = document.createElement('section'); gameInfo.setAttribute('id', 'gameInfo');
             document.getElementById('schedule').appendChild(gameInfo);
             var standingsURL = 'https://cors-anywhere.herokuapp.com/https://api-web.nhle.com/v1/standings/' + formatted;
             fetch(standingsURL, {
               "method": "GET", "headers": {}
             })
-              .then(function (response) {
-                return response.json();
-              })
+              .then(function (response) { return response.json() })
               .then(function (data_standings) { console.log(data_standings.standings);
                 for (i = 0; i < data_standings.standings.length; i++) { if (data_standings.standings[i].teamAbbrev.default === data.awayTeam.abbrev) {
                     standingsArray.push(data_standings.standings[i].wins, data_standings.standings[i].losses, data_standings.standings[i].otLosses)
@@ -366,7 +358,7 @@ function getInputValue() {
       else if (finalLineup2[h+4][i].length===0) {  tempIndex9=i; tempIndex10=h;
      tempIndex=Math.max(...linesArray[3*h+i]); tempIndex2=linesArray[3*h+i].indexOf(tempIndex)
       console.log('Zero lines', 'team', h, 'period', i, linesArray[3*h+i], 'tempIndex ', tempIndex, 'tempIndex2 ', tempIndex2)
-    tempArray4=[]; // tempIndex5=i; tempIndex6=h;
+    tempArray4=[];
       console.log(linesArray7[h][i]);
       for (j=0;j<linesArray7[h][i].length/5;j++)
               {tempArray4.push(linesArray7[h][i][5*j])}
@@ -378,8 +370,7 @@ function getInputValue() {
         for (j=3*h;j<3*h+3;j++) {for (k=0;k<linesArray[j].length/5;k++) {
           if((finalLineup2[h+4][i].includes(linesArray[j][5*k+2]))||(finalLineup2[h+4][i].includes(linesArray[j][5*k+3]))||(finalLineup2[h+4][i].includes(linesArray[j][5*k+4]))) {}
           else {linesArray8.push(linesArray[j][5*k], linesArray[j][5*k+1], linesArray[j][5*k+2], linesArray[j][5*k+3], linesArray[j][5*k+4])}
-        }
-      }
+        }}
       const start = i*linesArray8.length/3; const end = (i+1)*linesArray8.length/3;
       tempIndex = Math.max(...linesArray8.slice(start,end)); tempIndex2 =linesArray8.indexOf(Math.max(...linesArray8.slice(start,end)));
       console.log(linesArray8, 'tempIndex', tempIndex, 'tempIndex2', tempIndex2, 'i', i, 'h', h);
@@ -392,7 +383,7 @@ function getInputValue() {
     } // end if length === 0
       else {console.log('case to be added it is not 0 or 1 or 2 or 3 or 4 lines', 'h', h, 'i', i)}
       }} // i, h loops end finalLineup2      
-      // console.log(typeof linesArray9);
+      
       if (typeof linesArray9 != 'undefined') {
       tempIndex7 = Math.max(...linesArray9); tempIndex8 =linesArray9.indexOf(Math.max(...linesArray9));
       console.log('linesArray9', linesArray9, 'tempIndex7', tempIndex7, 'tempIndex8', tempIndex8, 'i', tempIndex9, 'h', tempIndex10);
@@ -414,7 +405,7 @@ function getInputValue() {
           else {newLines[h-4].push(finalLineup2[h][2][3*k], finalLineup2[h][2][3*k+1], finalLineup2[h][2][3*k+2])}
         }}}
     }}
-      console.log(oldLines, newLines)
+      console.log(oldLines, newLines);
             
             tempArray3=[]; // home
             for (i=0;i<finalLineup2[4][0].length/3;i++) {tempArray3.push(finalLineup2[4][0][3*i])}
@@ -485,8 +476,7 @@ function getInputValue() {
           tempIndex57=finalLineup2[h+4][0].indexOf(finalLineup2[h+4][2][3*i])
           tempIndex58=Math.floor(tempIndex57/3);
           console.log(tempIndex57, tempIndex58);
-          linesNewAndOld[h][tempIndex58].position='updated'
-          
+          linesNewAndOld[h][tempIndex58].position='updated'          
         }
       }
         }}

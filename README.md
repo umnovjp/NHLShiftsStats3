@@ -46,4 +46,4 @@ game 6 12/14 away team has lines changing. but home team has order of lines chan
 
 lines 411-419 new lines, old lines, then 421-452 for home and away, that includes 431-452 away adding to the screen. then 456-459 then function lineNumber 461-466 which i do not use
 
-game stars sharks 02/08 away team 2 lines change.
+game stars sharks 02/08 away team 2 lines change. game 5 02/25 away team chnged all 4 lines. 

@@ -65,7 +65,7 @@ function getInputValue() {
                 var obj = data.playerByGameStats.awayTeam.goalies; var keys = Object.keys(obj);
                 for (i = 0; i < keys.length; i++) {var val = obj[keys[i]]; awayG.push(val.playerId, val.sweaterNumber, val.name.default); playerIdArray.push(val.playerId, [[], [], []]);
                   keyId = val.playerId; playerIdeObject[keyId] = []}
-                console.log(homeF, homeD, homeG, awayF, awayD, awayG, playerIdArray)
+                // console.log(homeF, homeD, homeG, awayF, awayD, awayG, playerIdArray)
 
                 var shiftsURL = 'https://cors-anywhere.herokuapp.com/https://api.nhle.com/stats/rest/en/shiftcharts?cayenneExp=gameId=' + gameId;
                 fetch(shiftsURL, { "method": "GET", "headers": {} })
@@ -551,10 +551,7 @@ function getInputValue() {
                     shiftsLine1[13][1].push(lineVsLineTime, lineVsLineShifts)
                     } // end n loop
                     return shiftsLine1[13]} // end function lineByLine1
-                    console.log(lineByLine1(1,0,0,0))
-                    console.log(lineByLine1(1,0,0,1))
-                    console.log(lineByLine1(1,0,0,2))
-
+              
                     // h is team, i is period number qrs are players on h team tuv are players on 1-h team
                     // shiftsLine2 structure: [0...2] F pair q,r, [3...5] F line q,r,s played together time for home team over 3 periods, [6...8] F pair t,u, [9...11] F line t,u,v away team played together away team
                     // [12] shifts by period line q,r,s played against line t,u,v, [13] total time and number of shifts
@@ -615,14 +612,10 @@ function getInputValue() {
                     } // end n loop
                     return shiftsLine2[13]} // end function lineByLine2
 
-                    console.log(finalLineup2[5][0][0],finalLineup2[5][0][1],finalLineup2[5][0][2], fArray[0])
+                    // console.log(finalLineup2[5][0][0],finalLineup2[5][0][1],finalLineup2[5][0][2], fArray[0])
                     console.log(lineByLine2(finalLineup2[4][0][0],finalLineup2[4][0][1],finalLineup2[4][0][2],finalLineup2[5][0][0],finalLineup2[5][0][1],finalLineup2[5][0][2]))
                     console.log(shiftsLine2)
-                    // console.log(lineByLine2(finalLineup2[4][1][0],finalLineup2[4][1][1],finalLineup2[4][1][2],finalLineup2[5][1][0],finalLineup2[5][1][1],finalLineup2[5][1][2]))
-                    // console.log(shiftsLine2)
-                    // console.log(lineByLine2(finalLineup2[4][2][0],finalLineup2[4][2][1],finalLineup2[4][2][2],finalLineup2[5][2][0],finalLineup2[5][2][1],finalLineup2[5][2][2]))
-                    // console.log(shiftsLine2)
-
+         
                     lineByLine001.innerHTML='\\ '+'Away Team ->' +'<br>'+ 'Home Team'+'<br>'+'    |'
                     lineByLine041.innerHTML=awayF[1+3*finalLineup2[5][0][0]]+' '+awayF[2+3*finalLineup2[5][0][0]]+'<br>'+awayF[1+3*finalLineup2[5][0][1]]+' '+awayF[2+3*finalLineup2[5][0][1]]+'<br>'+awayF[1+3*finalLineup2[5][0][2]]+' '+awayF[2+3*finalLineup2[5][0][2]];
                     lineByLine051.innerHTML=awayF[1+3*finalLineup2[5][0][3]]+' '+awayF[2+3*finalLineup2[5][0][3]]+'<br>'+awayF[1+3*finalLineup2[5][0][4]]+' '+awayF[2+3*finalLineup2[5][0][4]]+'<br>'+awayF[1+3*finalLineup2[5][0][5]]+' '+awayF[2+3*finalLineup2[5][0][5]];

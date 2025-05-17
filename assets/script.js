@@ -2,7 +2,7 @@ var scheduleContent = document.getElementById('schedule'); var gameId; var input
 // lines below will allow user to select date then to select game on that date
 function getInputValue() {
   var inputVal = document.getElementById('datepicker').value; var date = inputVal.split('/');
-  var formatted = date[2]+'-'+date[0]+'-'+date[1]; // console.log(inputVal, formatted)
+  var formatted = date[2]+'-'+date[0]+'-'+date[1]; 
   var requestURL = 'https://cors-anywhere.herokuapp.com/https://api-web.nhle.com/v1/schedule/' + formatted;
   fetch(requestURL, {"method": "GET", "headers": {}
   })
@@ -466,18 +466,19 @@ function getInputValue() {
           }
         else if (!tempArray3[h].includes(finalLineup2[h+4][2][3*i])) 
         {console.log('to update', finalLineup2[h+4][2][3*i])
-        newLine2=new Object();
-        // newLine2.lineNumber=i;
-        newLine2.line=[finalLineup2[h+4][2][3*i], finalLineup2[h+4][2][3*i+1], finalLineup2[h+4][2][3*i+2]];
-        newLine2.position='new';
-        linesNewAndOld[h].push(newLine2)
-        linesNewAndOld[h][tempIndex56/3].position='updated'
-        for (j=0;j<finalLineup2[h+4][0].length;j++) {
-          tempIndex57=finalLineup2[h+4][0].indexOf(finalLineup2[h+4][2][3*i])
-          tempIndex58=Math.floor(tempIndex57/3);
-          console.log(tempIndex57, tempIndex58);
-          linesNewAndOld[h][tempIndex58].position='updated'          
-        }
+        // temporary deleted lines from next to 481
+        //   newLine2=new Object();
+        // // newLine2.lineNumber=i;
+        // newLine2.line=[finalLineup2[h+4][2][3*i], finalLineup2[h+4][2][3*i+1], finalLineup2[h+4][2][3*i+2]];
+        // newLine2.position='new';
+        // linesNewAndOld[h].push(newLine2)
+        // linesNewAndOld[h][tempIndex56/3].position='updated'
+        // for (j=0;j<finalLineup2[h+4][0].length;j++) {
+        //   tempIndex57=finalLineup2[h+4][0].indexOf(finalLineup2[h+4][2][3*i])
+        //   tempIndex58=Math.floor(tempIndex57/3);
+        //   console.log(tempIndex57, tempIndex58);
+        //   linesNewAndOld[h][tempIndex58].position='updated'          
+        // }
       }
         }}
         console.log(linesNewAndOld);

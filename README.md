@@ -46,4 +46,6 @@ game 6 12/14 away team has lines changing. but home team has order of lines chan
 
 lines 411-419 new lines, old lines, then 421-452 for home and away, that includes 431-452 away adding to the screen. then 456-459 then function lineNumber 461-466 which i do not use. Will use linesNewandOld line 483
 
-game stars sharks 02/08 away team 2 lines change. game 5 02/25, game 0 03/01 away team changed all 4 lines.game 2 03/01, game 3 03/01 3 lines change. game 1 03/01 11F. game 3 03/01 time in top and bottom table is different. 
+game stars sharks 02/08 away team 2 lines change. game 5 02/25, game 0 03/01 away team changed all 4 lines.game 2 03/01, game 3 03/01 3 lines change. game 1 03/01 11F. game 3 03/01 time in top and bottom table is different.
+
+Plan to start new code. Beginning is the same. Need to offer date selection then set of games. Do not really need standings for now. Major changes start line 46 which declares multiple arrays: homeF, awayF, homeD, awayD, homeG, awayG. Instead I will create one object with 6 different keys. Each will be array, with first last name id number. Then I will need to start new function to analyze lines and pairs. I will reuse code from previous repo. 

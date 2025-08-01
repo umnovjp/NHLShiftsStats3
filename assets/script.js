@@ -192,7 +192,7 @@ function getInputValue() {
                                 shifts = 0; const sum = tempTime2.reduce((partialSum, a) => partialSum + a, 0);
                                 for (o = 0; o < tempTime.length; o++) { if (tempTime[o] >= 10) { shifts = shifts + 1;
                                 tempTime2.push(tempTime[o])}}
-                                linesArray[i + 3 * h].push(sum); linesArray[i + 3 * h].push(shifts, j, k, l); // console.log(i, j, k, tempTime);
+                                linesArray[i + 3 * h].push(sum); linesArray[i + 3 * h].push(shifts, j, k, l); console.log(i, j, k, tempTime);
                               } // end second l loop
                           }} // temp end k, j loops
                         }} // end k, j, i and h loop periods
